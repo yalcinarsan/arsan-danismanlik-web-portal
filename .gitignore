@@ -1,0 +1,13 @@
+# build
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.production
+
+# editor/os
+.DS_Store

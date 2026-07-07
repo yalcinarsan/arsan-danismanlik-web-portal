@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JobCard from '../../components/JobCard.astro';
+import { getCollection } from 'astro:content';
+
+const jobs = (await getCollection('jobs', (e) => e.data.durum === 'acik')).sort(
+  (a, b) => b.data.yayinTarihi.valueOf() - a.data.yayinTarihi.valueOf()
+);
+---
+<BaseLayout title="Kariyer" description="Otomotiv elektrifikasyonunun yaratacağı dinamizm için niş bir İK portalı.">
+  <section class="mx-auto max-w-2xl px-4 py-16">
+    <h1 class="text-3xl font-semibold text-ink mb-8">Neden Bir İK Portalı?</h1>
+
+    <div class="space-y-5 text-lg leading-relaxed text-slate-700 mb-12">
+      <p>
+        İnsan her sektörde en değerli kaynak. Otomotivde bu kaynağın profili son derece net ve köklü: markalar, iş
+        akışları, "doğrular ve yanlışlar", klasik müşteri profili, kârlılık yapısı — hepsi onlarca yıllık bir
+        sistemin içinde kanıksanmış doğrular. Sektörün kimden ne beklediği, kimin "doğru profil" olduğu neredeyse
+        yazılı olmayan bir kural kitabı gibi.
+      </p>
+      <p>
+        Elektrifikasyonla birlikte bu kitabın kendisi değişiyor: ürün değişiyor, müşteri değişiyor, ürünün
+        müşterinin hayatındaki yeri değişiyor, markaların gücü ve pazardaki konumu değişiyor. Otomotiv aynı zamanda
+        sadakati çok yüksek bir sektör — otomotivci genellikle otomotivci kalır, dışarıdan gelen taze işgücü akışı
+        sınırlıdır. Bu da şunu gösteriyor: bu dönüşümü taşıyacak yetkinlikler büyük ölçüde sektörün kendi
+        profesyonellerinden çıkacak — bu büyük değişimi doğru okuyabilenlerden.
+      </p>
+      <p>
+        Bu, iki taraf için de gerçek bir fırsat açıyor: elektrifikasyonu doğru yorumlayabilen sektör profesyonelleri
+        için yeni ve heyecanlı kariyer fırsatları; işverenler için ise zaten kaçınılmaz olan bu dönüşümü, ekibini
+        yeniden yapılandırmak için doğal bir vesileye çevirme fırsatı.
+      </p>
+      <p>
+        Şirketlere elektrifikasyonun gerektirdiği kurumsal dönüşümde danışmanlık verirken, bu dönüşümün bir "insan"
+        boyutu olduğunu her projede yeniden görüyoruz. Bu yüzden otomotive özgü, genel bir iş ilanı sitesine
+        indirgenemeyecek kadar özel bir İK portalını, özellikle bu dönemde değerli buluyoruz.
+      </p>
+    </div>
+
+    <h2 class="text-xl font-semibold text-ink mb-4">Açık Pozisyonlar</h2>
+    {jobs.length === 0 ? (
+      <p class="text-slate-500 border border-dashed border-slate-300 rounded-lg p-6 text-center">
+        Şu anda açık pozisyon bulunmuyor. Yeni ilanlar için bu sayfayı takip edebilirsiniz.
+      </p>
+    ) : (
+      <div class="grid gap-4">
+        {jobs.map((job) => (
+          <JobCard
+            slug={job.slug}
+            title={job.data.title}
+            lokasyon={job.data.lokasyon}
+            calismaSekli={job.data.calismaSekli}
+            ozet={job.data.ozet}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

@@ -1,0 +1,3040 @@
+{
+  "meta": {
+    "fetchedAt": "2026-07-07T16:02:27.247Z",
+    "sourceDoc": "AVjZG3b0ZN",
+    "sourceTable": "grid-gzzs8qreVw",
+    "rowCount": 303
+  },
+  "rows": [
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 46000000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 13000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 8900000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 3600000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 30000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 170000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 14000000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 380
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 590000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 1600000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 11000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2035",
+      "unit": "Adet",
+      "value": 63000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2035",
+      "unit": "Yüzde (%)",
+      "value": 85
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2035",
+      "unit": "Yüzde (%)",
+      "value": 81
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2035",
+      "unit": "Yüzde (%)",
+      "value": 53
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Projection-STEPS",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2035",
+      "unit": "Yüzde (%)",
+      "value": 35
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 190000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 47000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 14000000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 6900
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 7200000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 370000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 12
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 62000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 2900000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 760
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 1400000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 180000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2025",
+      "unit": "Adet",
+      "value": 23000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2025",
+      "unit": "Yüzde (%)",
+      "value": 28
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2025",
+      "unit": "Yüzde (%)",
+      "value": 10
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2025",
+      "unit": "Yüzde (%)",
+      "value": 22
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2025",
+      "unit": "Yüzde (%)",
+      "value": 25
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2025",
+      "unit": "Yüzde (%)",
+      "value": 4
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2020",
+      "unit": "Yüzde (%)",
+      "value": 10
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 76
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 400
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 890
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 890
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 1100
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 2600
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 7600
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 35000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 59000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 630000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 750000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 980000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 2000000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2019",
+      "unit": "Yüzde (%)",
+      "value": 0.084
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2019",
+      "unit": "Yüzde (%)",
+      "value": 0.34
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2019",
+      "unit": "Yüzde (%)",
+      "value": 1.3
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2019",
+      "unit": "Yüzde (%)",
+      "value": 2.7
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2019",
+      "unit": "Yüzde (%)",
+      "value": 3.4
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 15
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 94
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 230
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 260
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 280
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 600
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 7500
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 27000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 35000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 210000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 360000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 580000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2019",
+      "unit": "Adet",
+      "value": 1500000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2018",
+      "unit": "Yüzde (%)",
+      "value": 0.045
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2018",
+      "unit": "Yüzde (%)",
+      "value": 0.29
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2018",
+      "unit": "Yüzde (%)",
+      "value": 1.1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2018",
+      "unit": "Yüzde (%)",
+      "value": 2.3
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2018",
+      "unit": "Yüzde (%)",
+      "value": 2.4
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 45
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 94
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 96
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 190
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 190
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 190
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 280
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 4500
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 23000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 28000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 190000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 200000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 650000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2018",
+      "unit": "Adet",
+      "value": 1400000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2017",
+      "unit": "Yüzde (%)",
+      "value": 0.015
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2017",
+      "unit": "Yüzde (%)",
+      "value": 0.72
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2017",
+      "unit": "Yüzde (%)",
+      "value": 0.2
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2017",
+      "unit": "Yüzde (%)",
+      "value": 1.4
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2017",
+      "unit": "Yüzde (%)",
+      "value": 1.8
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 26
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 26
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 34
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 77
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 120
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 140
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 330
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 3500
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 15000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 20000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 140000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 180000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 440000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2017",
+      "unit": "Adet",
+      "value": 760000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2016",
+      "unit": "Yüzde (%)",
+      "value": 0.017
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2016",
+      "unit": "Yüzde (%)",
+      "value": 0.16
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2016",
+      "unit": "Yüzde (%)",
+      "value": 0.6
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2016",
+      "unit": "Yüzde (%)",
+      "value": 0.95
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2016",
+      "unit": "Yüzde (%)",
+      "value": 1.4
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 44
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 83
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 99
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 99
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 160
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 170
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 230
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 2400
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 12000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 15000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 93000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 140000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 310000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2016",
+      "unit": "Adet",
+      "value": 470000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2015",
+      "unit": "Yüzde (%)",
+      "value": 0.03
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2015",
+      "unit": "Yüzde (%)",
+      "value": 0.16
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2015",
+      "unit": "Yüzde (%)",
+      "value": 0.5
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2015",
+      "unit": "Yüzde (%)",
+      "value": 0.68
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2015",
+      "unit": "Yüzde (%)",
+      "value": 1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 53
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 110
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 120
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 140
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 200
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 200
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 720
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 780
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 9600
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 13000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 73000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 89000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 190000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2015",
+      "unit": "Adet",
+      "value": 330000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2014",
+      "unit": "Yüzde (%)",
+      "value": 0.012
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2014",
+      "unit": "Yüzde (%)",
+      "value": 0.13
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2014",
+      "unit": "Yüzde (%)",
+      "value": 0.44
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2014",
+      "unit": "Yüzde (%)",
+      "value": 0.47
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2014",
+      "unit": "Yüzde (%)",
+      "value": 0.68
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 4
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 6
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 20
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 22
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 27
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 46
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 85
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 89
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 8300
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 11000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 34000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 62000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 130000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2014",
+      "unit": "Adet",
+      "value": 200000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2013",
+      "unit": "Yüzde (%)",
+      "value": 0.00015
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2013",
+      "unit": "Yüzde (%)",
+      "value": 0.14
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2013",
+      "unit": "Yüzde (%)",
+      "value": 0.29
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2013",
+      "unit": "Yüzde (%)",
+      "value": 0.43
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2013",
+      "unit": "Yüzde (%)",
+      "value": 0.45
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 1
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 5
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 5
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 19
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 23
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 50
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 7400
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 11000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 26000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 33000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 91000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2013",
+      "unit": "Adet",
+      "value": 110000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2012",
+      "unit": "Yüzde (%)",
+      "value": 0.016
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2012",
+      "unit": "Yüzde (%)",
+      "value": 0.13
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2012",
+      "unit": "Yüzde (%)",
+      "value": 0.17
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2012",
+      "unit": "Yüzde (%)",
+      "value": 0.2
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2012",
+      "unit": "Yüzde (%)",
+      "value": 0.41
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 11
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 11
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 92
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 6900
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 9200
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 11000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 19000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 59000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2012",
+      "unit": "Adet",
+      "value": 60000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2011",
+      "unit": "Yüzde (%)",
+      "value": 0.039
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2011",
+      "unit": "Yüzde (%)",
+      "value": 0.072
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2011",
+      "unit": "Yüzde (%)",
+      "value": 0.074
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2011",
+      "unit": "Yüzde (%)",
+      "value": 0.1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2011",
+      "unit": "Adet",
+      "value": 410
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2011",
+      "unit": "Adet",
+      "value": 2000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2011",
+      "unit": "Adet",
+      "value": 3200
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2011",
+      "unit": "Adet",
+      "value": 9000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2011",
+      "unit": "Adet",
+      "value": 11000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2011",
+      "unit": "Adet",
+      "value": 40000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2010",
+      "unit": "Yüzde (%)",
+      "value": 0.012
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2010",
+      "unit": "Yüzde (%)",
+      "value": 0.012
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2010",
+      "unit": "Yüzde (%)",
+      "value": 0.014
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2010",
+      "unit": "Yüzde (%)",
+      "value": 0.057
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 2
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 2
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 11
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 13
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 110
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 450
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 1000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 1100
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 1700
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2010",
+      "unit": "Adet",
+      "value": 7000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 9200
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2020",
+      "unit": "Yüzde (%)",
+      "value": 0.21
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 27
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 16000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2020",
+      "unit": "Yüzde (%)",
+      "value": 0.7
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 2000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 7300000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 110
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2022",
+      "unit": "Yüzde (%)",
+      "value": 1.3
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 920
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2023",
+      "unit": "Yüzde (%)",
+      "value": 7.2
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2021",
+      "unit": "Yüzde (%)",
+      "value": 0.63
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2021",
+      "unit": "Yüzde (%)",
+      "value": 1.2
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 130000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 540
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 2200000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 15000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 3
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 830
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 260000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 2400
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2020",
+      "unit": "Yüzde (%)",
+      "value": 2
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 86000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 180000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 9900
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2020",
+      "unit": "Yüzde (%)",
+      "value": 4.4
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 270
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 1300
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2023",
+      "unit": "Yüzde (%)",
+      "value": 18
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2024",
+      "unit": "Yüzde (%)",
+      "value": 0.2
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 1200000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2022",
+      "unit": "Yüzde (%)",
+      "value": 2.1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 1000000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2024",
+      "unit": "Yüzde (%)",
+      "value": 5.3
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 6500000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 460
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2020",
+      "unit": "Adet",
+      "value": 9
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 2500
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2023",
+      "unit": "Yüzde (%)",
+      "value": 22
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 18000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 1100
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 1900000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 57000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 920
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2021",
+      "unit": "Yüzde (%)",
+      "value": 2.8
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2024",
+      "unit": "Yüzde (%)",
+      "value": 3
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 95000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 11000000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 3300
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 1000000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 4700000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 8800
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 110000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 1100000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 2200000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 64
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2022",
+      "unit": "Yüzde (%)",
+      "value": 5.1
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 3000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2021",
+      "unit": "Adet",
+      "value": 3500
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2021",
+      "unit": "Yüzde (%)",
+      "value": 9.3
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2023",
+      "unit": "Yüzde (%)",
+      "value": 0.1
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 1600000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2021",
+      "unit": "Yüzde (%)",
+      "value": 17
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 110000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 7000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 2900000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2022",
+      "unit": "Yüzde (%)",
+      "value": 15
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "FCEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 2600
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2022",
+      "unit": "Adet",
+      "value": 8300
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 9000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2024",
+      "unit": "Yüzde (%)",
+      "value": 11
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 4200000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2022",
+      "unit": "Yüzde (%)",
+      "value": 21
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 240
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 9500000
+    },
+    {
+      "region": "Turkiye",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "BEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 65000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2023",
+      "unit": "Yüzde (%)",
+      "value": 2.7
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2023",
+      "unit": "Adet",
+      "value": 870
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "BEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 280000
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "FCEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 5300
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "EV",
+      "year": "2023",
+      "unit": "Yüzde (%)",
+      "value": 6.3
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2024",
+      "unit": "Yüzde (%)",
+      "value": 21
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Otomobil",
+      "powertrain": "PHEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 990000
+    },
+    {
+      "region": "Europe",
+      "gercekTahmin": "Historical",
+      "metrik": "Satış",
+      "aracTuru": "Hafif Ticari",
+      "powertrain": "PHEV",
+      "year": "2024",
+      "unit": "Adet",
+      "value": 5800
+    },
+    {
+      "region": "World",
+      "gercekTahmin": "Historical",
+      "metrik": "Pazar Payı",
+      "aracTuru": "Otomobil",
+      "powertrain": "EV",
+      "year": "2024",
+      "unit": "Yüzde (%)",
+      "value": 21
+    }
+  ]
+}

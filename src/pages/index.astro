@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pillars = [
+  {
+    href: '/hizmetlerimiz',
+    title: 'Hizmetlerimiz',
+    text: 'Elektrifikasyon çalıştayından uzun soluklu dönüşüm danışmanlığına, kurumunuzun ihtiyacına göre şekillenen üç hizmet.',
+  },
+  {
+    href: '/makaleler',
+    title: 'Makaleler',
+    text: 'Otomotiv elektrifikasyonu ve finansal analiz üzerine iki yazı dizisi — sektörün içinden, veriye dayalı yorumlar.',
+  },
+  {
+    href: '/ev-verileri',
+    title: 'EV Verileri',
+    text: 'IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü.',
+  },
+];
+---
+<BaseLayout title="Ana Sayfa" description="Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.">
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-12">
+    <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-8">Elektrifikasyonun Gerektirdiği Değişim</h1>
+    <div class="space-y-5 text-lg leading-relaxed text-slate-700">
+      <p>
+        Otomotiv sektörü, yüz yılı aşkın tarihinin en büyük yapısal dönüşümünün tam ortasında. Bu sadece bir motor
+        teknolojisi değişikliği değil: üretici-distribütör-bayi-müşteri zincirinin onlarca yıldır hiç kırılmadan gelen
+        kuralları ve sektöre hakim markaların hemen hiç değişmeyen pozisyonları, elektrifikasyonla birlikte yeniden
+        yazılıyor.
+      </p>
+      <p>
+        Bunun sizin için asıl anlamı şu: sıfırdan elektrikli araç için kurulmuş olan yeni markalar, yüz yıllık üretim
+        altyapısını dönüştürmek zorunda olan yerleşik oyunculara karşı yapısal bir maliyet ve hız avantajına sahip. Bu
+        avantajı dengelemenin yolu daha çok ya da daha hızlı çalışmaktan değil, organizasyonunuzu bu yeni oyunun
+        kurallarına göre yeniden kurgulamaktan geçiyor — süreçlerde, tedarik zincirinde, yetkinliklerde ve kurumsal
+        kültürde.
+      </p>
+      <p>
+        Biz bu dönüşümü, sektörün içinden 30 yılı aşkın deneyimle sizlerle birlikte yönetiyoruz. İster bu dönüşümle
+        hayatımıza giren markaları temsil etmek üzere yepyeni bir kurum olarak otomotiv pazarında yer arıyor olun,
+        ister eski altyapı ve insan kaynağınızı yeniden yapılandırıyor olun, ihtiyacınız olan dönüşüm fikirlerinizi
+        beraber şekillendirmek için buradayız.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16 grid gap-6 sm:grid-cols-3">
+    {pillars.map((p) => (
+      <a href={p.href} class="block border border-slate-200 rounded-lg p-6 hover:border-accent transition-colors">
+        <h2 class="text-lg font-semibold text-ink mb-2">{p.title}</h2>
+        <p class="text-sm text-slate-600">{p.text}</p>
+      </a>
+    ))}
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-20 text-center">
+    <p class="text-slate-600 mb-4">Otomotiv elektrifikasyonunun yaratacağı dinamizm için ekip mi kuruyorsunuz?</p>
+    <a href="/kariyer" class="inline-block bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-blue-800 transition-colors">
+      Kariyer sayfamıza göz atın
+    </a>
+  </section>
+</BaseLayout>

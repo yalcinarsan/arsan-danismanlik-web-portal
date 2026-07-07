@@ -1,0 +1,32 @@
+{
+  "name": "arsandanismanlik-web",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fetch:ev-data": "node scripts/fetch-coda-ev-data.mjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.0",
+    "plotly.js-basic-dist-min": "^2.35.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-plotly.js": "^2.6.0",
+    "tailwindcss": "^3.4.13"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-plotly.js": "^2.6.4",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.9.3"
+  }
+}

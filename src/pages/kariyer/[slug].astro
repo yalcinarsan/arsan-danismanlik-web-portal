@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const jobs = await getCollection('jobs');
+  return jobs.map((job) => ({
+    params: { slug: job.slug },
+    props: { job },
+  }));
+}
+
+const { job } = Astro.props;
+const { Content } = await job.render();
+const tarihStr = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(job.data.yayinTarihi);
+---
+<BaseLayout title={job.data.title} description={job.data.ozet}>
+  <article class="mx-auto max-w-2xl px-4 py-16">
+    <h1 class="text-3xl font-semibold text-ink mb-2">{job.data.title}</h1>
+    <p class="text-slate-500 mb-8">{job.data.lokasyon} · Yayın tarihi: {tarihStr}</p>
+    <div class="prose prose-slate max-w-none mb-10">
+      <Content />
+    </div>
+    <a
+      href={job.data.basvuruFormUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-blue-800 transition-colors"
+    >
+      Başvuru Formu
+    </a>
+  </article>
+</BaseLayout>

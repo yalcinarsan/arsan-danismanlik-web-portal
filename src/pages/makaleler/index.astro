@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = (await getCollection('articles', (e) => e.data.durum === 'yayında')).sort(
+  (a, b) => a.data.seriNo - b.data.seriNo
+);
+
+const seriler = [
+  { key: 'otomotivde-elektrifikasyon', label: 'Otomotivde Elektrifikasyon' },
+  { key: 'beyond-the-balance-sheet', label: 'Beyond the Balance Sheet' },
+];
+---
+<BaseLayout title="Makaleler" description="Otomotiv elektrifikasyonu ve finansal analiz üzerine yazı dizileri.">
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <h1 class="text-3xl font-semibold text-ink mb-8">Makaleler</h1>
+
+    {allArticles.length === 0 && (
+      <p class="text-slate-500">Henüz yayınlanmış makale yok.</p>
+    )}
+
+    {seriler.map((seri) => {
+      const items = allArticles.filter((a) => a.data.seri === seri.key);
+      if (items.length === 0) return null;
+      return (
+        <div class="mb-12">
+          <h2 class="text-lg font-semibold text-ink mb-4">{seri.label}</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            {items.map((a) => (
+              <ArticleCard
+                slug={a.slug}
+                title={a.data.title}
+                ozet={a.data.ozet}
+                seriBaslik={a.data.seriBaslik}
+                seriNo={a.data.seriNo}
+                tarih={a.data.tarih}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </section>
+</BaseLayout>
