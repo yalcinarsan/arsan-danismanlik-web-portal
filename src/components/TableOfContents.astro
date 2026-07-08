@@ -10,10 +10,10 @@ interface Props {
 }
 
 const { headings } = Astro.props;
-const items = headings.filter((h) => h.depth === 2);
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
 ---
 {items.length > 2 && (
-  <nav aria-label="İçindekiler" class="hidden lg:block sticky top-20 self-start w-56 shrink-0 text-sm">
+  <nav aria-label="İçindekiler" class="hidden lg:block sticky top-20 self-start w-64 shrink-0 text-sm max-h-[calc(100vh-6rem)] overflow-y-auto">
     <p class="font-medium text-ink mb-3">Bu sayfada</p>
     <ul class="space-y-2 border-l border-slate-200">
       {items.map((h) => (
@@ -22,7 +22,9 @@ const items = headings.filter((h) => h.depth === 2);
             href={`#${h.slug}`}
             data-toc-link
             data-target={h.slug}
-            class="toc-link block pl-3 -ml-px border-l-2 border-transparent text-slate-500 hover:text-accent transition-colors"
+            class={`toc-link block -ml-px border-l-2 border-transparent text-slate-500 hover:text-accent transition-colors ${
+              h.depth === 3 ? 'pl-6 text-[13px]' : 'pl-3 font-medium text-ink/80'
+            }`}
           >
             {h.text}
           </a>
