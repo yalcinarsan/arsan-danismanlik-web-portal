@@ -1,11 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const kimizNeYapariz = [
+  {
+    title: 'Biz kimiz?',
+    text: 'Otomotiv ve ilişkili sektörler için kurumsal ya da bireysel anlamda gelişim, değişim, stratejik planlama, sorun çözme ve büyüme amaçlı danışmanlık hizmeti sunarız.',
+  },
+  {
+    title: 'Ne Yaparız?',
+    text: 'Karmaşık görünen sorunlara basit ama etkili çözümler üretir, beraber çalıştığımız birey ve kurumlar için "nasıl yapalım?" sorusunu yanıtlarız. Başta elektrifikasyon olmak üzere otomotiv sektörünün her dalında çözüm, yöntem ve yaklaşımlar üretiyoruz.',
+  },
+  {
+    title: 'Nasıl Yaparız?',
+    text: 'Bilgi ve teknolojiye yatırım yapar, sektörümüze dair sorunları çözmenin yollarını ararız. Otomotive dair önemli yenilikleri izler, yorumlar ve raporlarız.',
+  },
+];
+
 const pillars = [
   {
     href: '/hizmetlerimiz',
     title: 'Hizmetlerimiz',
-    text: 'Elektrifikasyon çalıştayından uzun soluklu dönüşüm danışmanlığına, kurumunuzun ihtiyacına göre şekillenen üç hizmet.',
+    text: 'Elektrifikasyon çalıştayından vizyon & misyon yaratma seanslarına, kurumunuzun ihtiyacına göre şekillenen dört hizmet.',
   },
   {
     href: '/makaleler',
@@ -20,32 +35,21 @@ const pillars = [
 ];
 ---
 <BaseLayout title="Ana Sayfa" description="Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.">
-  <section class="mx-auto max-w-3xl px-4 pt-16 pb-12">
-    <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-8">Elektrifikasyonun Gerektirdiği Değişim</h1>
-    <div class="space-y-5 text-lg leading-relaxed text-slate-700">
-      <p>
-        Otomotiv sektörü, yüz yılı aşkın tarihinin en büyük yapısal dönüşümünün tam ortasında. Bu sadece bir motor
-        teknolojisi değişikliği değil: üretici-distribütör-bayi-müşteri zincirinin onlarca yıldır hiç kırılmadan gelen
-        kuralları ve sektöre hakim markaların hemen hiç değişmeyen pozisyonları, elektrifikasyonla birlikte yeniden
-        yazılıyor.
-      </p>
-      <p>
-        Bunun sizin için asıl anlamı şu: sıfırdan elektrikli araç için kurulmuş olan yeni markalar, yüz yıllık üretim
-        altyapısını dönüştürmek zorunda olan yerleşik oyunculara karşı yapısal bir maliyet ve hız avantajına sahip. Bu
-        avantajı dengelemenin yolu daha çok ya da daha hızlı çalışmaktan değil, organizasyonunuzu bu yeni oyunun
-        kurallarına göre yeniden kurgulamaktan geçiyor — süreçlerde, tedarik zincirinde, yetkinliklerde ve kurumsal
-        kültürde.
-      </p>
-      <p>
-        Biz bu dönüşümü, sektörün içinden 30 yılı aşkın deneyimle sizlerle birlikte yönetiyoruz. İster bu dönüşümle
-        hayatımıza giren markaları temsil etmek üzere yepyeni bir kurum olarak otomotiv pazarında yer arıyor olun,
-        ister eski altyapı ve insan kaynağınızı yeniden yapılandırıyor olun, ihtiyacınız olan dönüşüm fikirlerinizi
-        beraber şekillendirmek için buradayız.
-      </p>
-    </div>
+  <section class="mx-auto max-w-5xl px-4 pt-16 pb-4">
+    <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-2">Arsan Danışmanlık</h1>
+    <p class="text-lg text-slate-500 mb-12">Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı</p>
   </section>
 
-  <section class="mx-auto max-w-5xl px-4 pb-16 grid gap-6 sm:grid-cols-3">
+  <section class="mx-auto max-w-5xl px-4 pb-16 grid gap-8 sm:grid-cols-3">
+    {kimizNeYapariz.map((k) => (
+      <div>
+        <h2 class="text-lg font-semibold text-ink mb-2">{k.title}</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">{k.text}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16 grid gap-6 sm:grid-cols-3 border-t border-slate-200 pt-16">
     {pillars.map((p) => (
       <a href={p.href} class="block border border-slate-200 rounded-lg p-6 hover:border-accent transition-colors">
         <h2 class="text-lg font-semibold text-ink mb-2">{p.title}</h2>
