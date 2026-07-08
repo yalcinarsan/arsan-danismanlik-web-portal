@@ -1,6 +1,13 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { getCollection } from 'astro:content';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
 
 interface Props {
   title: string;
@@ -10,9 +17,10 @@ interface Props {
   seriNo: number;
   seriBaslik?: string;
   url?: string;
+  headings?: Heading[];
 }
 
-const { title, ozet, tarih, seri, seriNo, seriBaslik, url } = Astro.props;
+const { title, ozet, tarih, seri, seriNo, seriBaslik, url, headings = [] } = Astro.props;
 
 const seriEtiketleri: Record<string, string> = {
   'otomotivde-elektrifikasyon': 'Otomotivde Elektrifikasyon',
@@ -31,22 +39,25 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
 ---
 <BaseLayout title={title} description={ozet}>
   {url && <link rel="canonical" href={url} slot="head" />}
-  <article class="mx-auto max-w-2xl px-4 py-12">
-    <p class="text-sm text-accent font-medium mb-2">
-      {seriEtiketleri[seri] ?? seri} · {seriBaslik ?? `Bölüm ${seriNo}`}
-    </p>
-    <h1 class="text-3xl font-semibold text-ink mb-2">{title}</h1>
-    <p class="text-sm text-slate-500 mb-10">{tarihStr}</p>
-    <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-accent">
-      <slot />
-    </div>
-    <nav class="mt-16 pt-8 border-t border-slate-200 flex justify-between text-sm gap-4">
-      {prev ? (
-        <a href={`/makaleler/${prev.slug}`} class="text-accent hover:underline">← {prev.data.seriBaslik ?? prev.data.title}</a>
-      ) : <span />}
-      {next ? (
-        <a href={`/makaleler/${next.slug}`} class="text-accent hover:underline">{next.data.seriBaslik ?? next.data.title} →</a>
-      ) : <span />}
-    </nav>
-  </article>
+  <div class="mx-auto max-w-4xl px-4 py-12 flex gap-12 justify-center">
+    <article class="max-w-2xl min-w-0 flex-1">
+      <p class="text-sm text-accent font-medium mb-2">
+        {seriEtiketleri[seri] ?? seri} · {seriBaslik ?? `Bölüm ${seriNo}`}
+      </p>
+      <h1 class="text-3xl font-semibold text-ink mb-2">{title}</h1>
+      <p class="text-sm text-slate-500 mb-10">{tarihStr}</p>
+      <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-accent">
+        <slot />
+      </div>
+      <nav class="mt-16 pt-8 border-t border-slate-200 flex justify-between text-sm gap-4">
+        {prev ? (
+          <a href={`/makaleler/${prev.slug}`} class="text-accent hover:underline">← {prev.data.seriBaslik ?? prev.data.title}</a>
+        ) : <span />}
+        {next ? (
+          <a href={`/makaleler/${next.slug}`} class="text-accent hover:underline">{next.data.seriBaslik ?? next.data.title} →</a>
+        ) : <span />}
+      </nav>
+    </article>
+    <TableOfContents headings={headings} />
+  </div>
 </BaseLayout>
