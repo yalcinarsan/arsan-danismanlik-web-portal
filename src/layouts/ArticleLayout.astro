@@ -46,7 +46,7 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
       </p>
       <h1 class="text-3xl font-semibold text-ink mb-2">{title}</h1>
       <p class="text-sm text-slate-500 mb-10">{tarihStr}</p>
-      <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-accent">
+      <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent">
         <slot />
       </div>
       <nav class="mt-16 pt-8 border-t border-slate-200 flex justify-between text-sm gap-4">
