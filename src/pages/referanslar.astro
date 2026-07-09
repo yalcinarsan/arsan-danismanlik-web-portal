@@ -1,15 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const referanslar = [
+  'Agco',
+  'Anadolu Motor',
+  'Atlas Copco',
+  'Audi Türkiye',
+  'Borusan Oto',
+  'Borusan Otomotiv',
+  'Castrol',
+  'Çullas A.Ş.',
+  'Doğan Trend Otomotiv Grubu',
+  'Doğuş Otomotiv',
+  'E-Garaj',
+  'Enerjisa',
+  'Ford Otosan',
+  'Husqvarna',
+  'JLR (Jaguar Land Rover) grubu',
+  'Kubota',
+  'Mahindra (Hindistan)',
+  'OSD (Otomotiv Sanayii Derneği)',
+  'OSS (Otomotiv Satış Sonrası Derneği)',
+  'Otokoç',
+  'Pluginn',
+  'Same Deutz Fahr',
+  'Skoda Avrupa',
+  'Stellantis Türkiye',
+  'Taysad (Taşıt Araçları Yan Sanayi Derneği)',
+  'TÜAD (Türkiye Araştırmacılar Derneği)',
+  'Volvo Türkiye',
+];
 ---
-<BaseLayout title="Referanslar" description="Arsan Danışmanlık'ın çalışma ortaklıkları ve referansları.">
-  <section class="mx-auto max-w-2xl px-4 py-16">
-    <h1 class="text-3xl font-semibold text-ink mb-8">Referanslarımız</h1>
-    <p class="text-lg leading-relaxed text-slate-700 mb-4">
-      Uluslararası projelerde Almanya merkezli Emobility Experts ile iş birliği yapıyor, bu yolla yurt dışı
-      perspektifini projelerimizin bir parçası olarak kullanıyoruz.
+<BaseLayout title="Referanslar" description="Bugüne kadar ortak çalışma yaptığımız marka ve kurumlar.">
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-semibold text-ink mb-2">Referanslarımız</h1>
+    <p class="text-lg text-slate-500 mb-10">
+      Bugüne kadar ortak çalışma yaptığımız marka ve kurumlar (alfabetik sıra ile).
     </p>
-    <p class="text-slate-500 border border-dashed border-slate-300 rounded-lg p-6 text-center mt-8">
-      Müşteri referanslarımız yakında burada.
+
+    <ul class="grid gap-x-6 gap-y-3 sm:grid-cols-2 border-t border-slate-200 pt-8">
+      {referanslar.map((ad) => (
+        <li class="text-slate-700 border-b border-slate-100 pb-2">{ad}</li>
+      ))}
+    </ul>
+
+    <p class="text-slate-600 mt-10 text-sm">
+      Ayrıca uluslararası projelerde Almanya merkezli Emobility Experts ile iş birliği yapıyoruz.
     </p>
   </section>
 </BaseLayout>

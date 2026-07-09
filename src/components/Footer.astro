@@ -2,8 +2,29 @@
 const year = new Date().getFullYear();
 ---
 <footer class="border-t border-slate-200 mt-16">
-  <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-slate-500 flex flex-col sm:flex-row sm:justify-between gap-2">
-    <p>© {year} Arsan Danışmanlık Tic. Ltd. Şti.</p>
-    <p>Fatih Sultan Mehmet Mah, Buyaka İş Kule 3, 34771 Ümraniye/İstanbul</p>
+  <div class="mx-auto max-w-5xl px-4 py-10 text-sm text-slate-500 space-y-6">
+    <div class="flex flex-col sm:flex-row sm:justify-between gap-4">
+      <div>
+        <p class="font-medium text-ink">Arsan Danışmanlık Tic. Ltd. Şti.</p>
+        <p>Fatih Sultan Mehmet Mah, Buyaka İş Kule 3, 34771 Ümraniye/İstanbul</p>
+      </div>
+      <div class="sm:text-right">
+        <p><a href="tel:+905336806710" class="hover:text-accent">+90 533 680 6710</a></p>
+        <p>
+          <a href="mailto:yalcinarsan@arsandanismanlik.com.tr" class="hover:text-accent">
+            yalcinarsan@arsandanismanlik.com.tr
+          </a>
+        </p>
+      </div>
+    </div>
+    <p class="text-xs text-slate-400 border-t border-slate-100 pt-6 leading-relaxed">
+      © {year} Arsan Danışmanlık Tic. Ltd. Şti. 2009 yılında
+      <a href="https://x.com/yalcinarsan" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+        Yalçın Arsan
+      </a>
+      tarafından kurulmuş, otomotiv sektörüne özel bir danışmanlık şirketidir. Bu sitede yer alan yorum, bilgi ve
+      içeriğin her hakkı saklıdır; <strong class="font-medium">kaynak belirtilerek alıntı yapılabilir</strong>, onay
+      alınmadan herhangi bir bağlamda kullanılamaz.
+    </p>
   </div>
 </footer>
