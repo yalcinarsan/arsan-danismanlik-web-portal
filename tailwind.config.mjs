@@ -11,7 +11,10 @@ export default {
         paper: '#faf7f2',
         sand: '#f1e9dd',
         'warm-border': '#e7ddcf',
-        'warm-muted': '#8a7f70',
+        'warm-700': '#4a4238',
+        'warm-600': '#5f5648',
+        'warm-500': '#857a69',
+        'warm-400': '#a89d8b',
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],

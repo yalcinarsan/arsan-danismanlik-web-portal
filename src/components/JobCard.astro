@@ -16,8 +16,8 @@ const calismaSekliEtiketleri: Record<string, string> = {
 ---
 <a href={`/kariyer/${slug}`} class="block border border-warm-border rounded-lg p-5 hover:border-accent transition-colors">
   <h3 class="text-lg font-semibold text-ink mb-1">{title}</h3>
-  <p class="text-sm text-slate-500 mb-2">
+  <p class="text-sm text-warm-500 mb-2">
     {lokasyon}{calismaSekli && ` · ${calismaSekliEtiketleri[calismaSekli] ?? calismaSekli}`}
   </p>
-  {ozet && <p class="text-sm text-slate-600">{ozet}</p>}
+  {ozet && <p class="text-sm text-warm-600">{ozet}</p>}
 </a>

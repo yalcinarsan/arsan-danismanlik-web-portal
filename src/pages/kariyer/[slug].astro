@@ -17,8 +17,8 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(
 <BaseLayout title={job.data.title} description={job.data.ozet}>
   <article class="mx-auto max-w-2xl px-4 py-16">
     <h1 class="text-3xl font-semibold text-ink mb-2">{job.data.title}</h1>
-    <p class="text-slate-500 mb-8">{job.data.lokasyon} · Yayın tarihi: {tarihStr}</p>
-    <div class="prose prose-slate max-w-none mb-10">
+    <p class="text-warm-500 mb-8">{job.data.lokasyon} · Yayın tarihi: {tarihStr}</p>
+    <div class="prose prose-stone max-w-none mb-10">
       <Content />
     </div>
     <a

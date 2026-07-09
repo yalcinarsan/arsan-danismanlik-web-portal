@@ -22,7 +22,7 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
             href={`#${h.slug}`}
             data-toc-link
             data-target={h.slug}
-            class={`toc-link block -ml-px border-l-2 border-transparent text-slate-500 hover:text-accent transition-colors ${
+            class={`toc-link block -ml-px border-l-2 border-transparent text-warm-500 hover:text-accent transition-colors ${
               h.depth === 3 ? 'pl-6 text-[13px]' : 'pl-3 font-medium text-ink/80'
             }`}
           >
@@ -47,7 +47,7 @@ const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
         link.classList.toggle('text-accent', active);
         link.classList.toggle('border-accent', active);
         link.classList.toggle('font-medium', active);
-        link.classList.toggle('text-slate-500', !active);
+        link.classList.toggle('text-warm-500', !active);
       });
     };
 

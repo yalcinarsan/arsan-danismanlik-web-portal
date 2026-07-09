@@ -9,22 +9,22 @@ const fetchedAt = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format
 <BaseLayout title="EV Verileri" description="IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü.">
   <section class="mx-auto max-w-3xl px-4 py-16">
     <h1 class="text-3xl font-semibold text-ink mb-4">Elektrikli Araç (EA) Verileri</h1>
-    <p class="text-slate-600 mb-2">
+    <p class="text-warm-600 mb-2">
       Kaynak: IEA (International Energy Agency) — Hafif araç pazarı (Otomobil + Hafif Ticari).
     </p>
-    <p class="text-sm text-slate-400 mb-12">Son güncelleme: {fetchedAt}</p>
+    <p class="text-sm text-warm-400 mb-12">Son güncelleme: {fetchedAt}</p>
 
     <div class="space-y-16">
       <div>
         <EvChart client:only="react" config={worldSalesConfig} />
-        <p class="text-sm text-slate-600 mt-3">
+        <p class="text-sm text-warm-600 mt-3">
           Dünya genelinde elektrikli araç satışları, güç aktarım tipine (BEV/PHEV/FCEV) göre kırılımıyla.
         </p>
       </div>
 
       <div>
         <EvChart client:only="react" config={marketShareConfig} />
-        <p class="text-sm text-slate-600 mt-3">
+        <p class="text-sm text-warm-600 mt-3">
           Toplam hafif araç satışları içinde elektrikli araçların (BEV+PHEV+FCEV) payı — dünya, Avrupa ve Türkiye
           karşılaştırmalı.
         </p>
@@ -32,7 +32,7 @@ const fetchedAt = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format
 
       <div>
         <EvChart client:only="react" config={projection2035Config} />
-        <p class="text-sm text-slate-600 mt-3">
+        <p class="text-sm text-warm-600 mt-3">
           IEA'nın en muhafazakâr senaryosu olan Stated Policies Scenario (STEPS) varsayımına göre, 2035 yılında
           dünya genelinde beklenen satış dağılımı. Türkiye için resmi bir IEA projeksiyonu bulunmuyor.
         </p>

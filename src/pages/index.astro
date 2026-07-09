@@ -37,14 +37,14 @@ const pillars = [
 <BaseLayout title="Ana Sayfa" description="Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.">
   <section class="mx-auto max-w-5xl px-4 pt-16 pb-4">
     <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-2">Arsan Danışmanlık</h1>
-    <p class="text-lg text-slate-500 mb-12">Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı</p>
+    <p class="text-lg text-warm-500 mb-12">Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı</p>
   </section>
 
   <section class="mx-auto max-w-5xl px-4 pb-16 grid gap-8 sm:grid-cols-3">
     {kimizNeYapariz.map((k) => (
       <div>
         <h2 class="text-lg font-semibold text-ink mb-2">{k.title}</h2>
-        <p class="text-sm text-slate-600 leading-relaxed">{k.text}</p>
+        <p class="text-sm text-warm-600 leading-relaxed">{k.text}</p>
       </div>
     ))}
   </section>
@@ -53,13 +53,13 @@ const pillars = [
     {pillars.map((p) => (
       <a href={p.href} class="block border border-warm-border rounded-lg p-6 hover:border-accent transition-colors">
         <h2 class="text-lg font-semibold text-ink mb-2">{p.title}</h2>
-        <p class="text-sm text-slate-600">{p.text}</p>
+        <p class="text-sm text-warm-600">{p.text}</p>
       </a>
     ))}
   </section>
 
   <section class="mx-auto max-w-3xl px-4 pb-20 text-center">
-    <p class="text-slate-600 mb-4">Otomotiv elektrifikasyonunun yaratacağı dinamizm için ekip mi kuruyorsunuz?</p>
+    <p class="text-warm-600 mb-4">Otomotiv elektrifikasyonunun yaratacağı dinamizm için ekip mi kuruyorsunuz?</p>
     <a href="/kariyer" class="inline-block bg-accent text-white px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90 transition-colors">
       Kariyer sayfamıza göz atın
     </a>
