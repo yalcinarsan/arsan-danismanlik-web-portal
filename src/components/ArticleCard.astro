@@ -10,7 +10,7 @@ interface Props {
 const { slug, title, ozet, seriBaslik, seriNo, tarih } = Astro.props;
 const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'long' }).format(tarih);
 ---
-<a href={`/makaleler/${slug}`} class="block border border-slate-200 rounded-lg p-5 hover:border-accent transition-colors">
+<a href={`/makaleler/${slug}`} class="block border border-warm-border rounded-lg p-5 hover:border-accent transition-colors">
   <p class="text-xs text-accent font-medium mb-1">{seriBaslik ?? `Bölüm ${seriNo}`}</p>
   <h3 class="text-lg font-semibold text-ink mb-1">{title}</h3>
   {ozet && <p class="text-sm text-slate-600 mb-2 line-clamp-3">{ozet}</p>}

@@ -6,11 +6,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#1f2933',
-        accent: '#1e40af',
+        ink: '#2c2620',
+        accent: '#b5623c',
+        paper: '#faf7f2',
+        sand: '#f1e9dd',
+        'warm-border': '#e7ddcf',
+        'warm-muted': '#8a7f70',
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },
     },
   },

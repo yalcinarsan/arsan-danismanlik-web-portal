@@ -49,7 +49,7 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
       <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent">
         <slot />
       </div>
-      <nav class="mt-16 pt-8 border-t border-slate-200 flex justify-between text-sm gap-4">
+      <nav class="mt-16 pt-8 border-t border-warm-border flex justify-between text-sm gap-4">
         {prev ? (
           <a href={`/makaleler/${prev.slug}`} class="text-accent hover:underline">← {prev.data.seriBaslik ?? prev.data.title}</a>
         ) : <span />}
