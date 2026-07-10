@@ -24,7 +24,7 @@ const { title, ozet, tarih, seri, seriNo, seriBaslik, url, headings = [] } = Ast
 
 const seriEtiketleri: Record<string, string> = {
   'otomotivde-elektrifikasyon': 'Otomotivde Elektrifikasyon',
-  'beyond-the-balance-sheet': 'Beyond the Balance Sheet',
+  'beyond-the-balance-sheet': 'Bilançonun Ötesinde: Bir Şirketi Anlamak',
 };
 
 const seriMakaleleri = (await getCollection('articles'))
@@ -46,7 +46,7 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
       </p>
       <h1 class="text-3xl font-semibold text-ink mb-2">{title}</h1>
       <p class="text-sm text-warm-500 mb-10">{tarihStr}</p>
-      <div class="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent">
+      <div class="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent prose-figcaption:text-center prose-figcaption:text-warm-500">
         <slot />
       </div>
       <nav class="mt-16 pt-8 border-t border-warm-border flex justify-between text-sm gap-4">
