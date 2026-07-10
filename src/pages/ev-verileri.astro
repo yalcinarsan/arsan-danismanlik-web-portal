@@ -1,42 +1,97 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EvChart from '../components/charts/EvChart.tsx';
-import { worldSalesConfig, marketShareConfig, projection2035Config } from '../components/charts/chartConfigs';
+import {
+  worldPowertrainConfig,
+  regionSalesConfig,
+  regionShareConfig,
+  turkiyeConfig,
+} from '../components/charts/chartConfigs';
 import evData from '../data/ev-data.json';
 
-const fetchedAt = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(evData.meta.fetchedAt));
+const { meta } = evData;
+const fetchedAt = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(meta.fetchedAt));
+
+const charts = [
+  {
+    config: worldPowertrainConfig,
+    note:
+      'Otomobil ve hafif ticari araç toplamı. BEV tam elektrikli, PHEV şarj edilebilir hibrit, FCEV yakıt hücreli araçları ifade eder. ' +
+      'FCEV hacimleri diğer ikisinin yanında ihmal edilebilir düzeyde kaldığı için grafikte neredeyse yatay görünür.',
+  },
+  {
+    config: regionSalesConfig,
+    note:
+      'Otomobil ve hafif ticari araç toplamı. Türkiye bu grafikte yer almıyor: ölçek farkı (dünya milyonlarla, Türkiye on binlerle ölçülüyor) ' +
+      'çizgiyi okunamaz hale getiriyor ve IEA Türkiye için projeksiyon yayınlamıyor. Türkiye aşağıdaki kendi grafiğinde.',
+  },
+  {
+    config: regionShareConfig,
+    note:
+      'Yalnızca otomobil. IEA toplam pazar büyüklüğünü (paydayı) yayınlamadığı için otomobil ve hafif ticari araç payları toplanamaz. ' +
+      'Türkiye çizgisi 2025’te biter — IEA Türkiye için projeksiyon yayınlamıyor.',
+  },
+  {
+    config: turkiyeConfig,
+    note:
+      'Yalnızca otomobil, yalnızca gerçekleşen veri. Sol eksen adet, sağ eksen pazar payı. Araç parkı, yollardaki toplam elektrikli otomobil sayısıdır; ' +
+      'yıllık satıştan farklı olarak birikimlidir.',
+  },
+];
 ---
-<BaseLayout title="EV Verileri" description="IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü.">
-  <section class="mx-auto max-w-3xl px-4 py-16">
-    <h1 class="text-3xl font-semibold text-ink mb-4">Elektrikli Araç (EA) Verileri</h1>
-    <p class="text-warm-600 mb-2">
-      Kaynak: IEA (International Energy Agency) — Hafif araç pazarı (Otomobil + Hafif Ticari).
+<BaseLayout
+  title="EV Verileri"
+  description="IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü."
+>
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-8">
+    <h1 class="text-3xl font-semibold text-ink mb-4">Elektrikli Araç Verileri</h1>
+    <p class="text-warm-600 leading-relaxed mb-4">
+      Dünya, Avrupa ve Türkiye elektrikli araç pazarının IEA verisine dayanan görünümü. Grafikler etkileşimlidir —
+      üzerine gelerek yıl bazında değerleri okuyabilirsiniz.
     </p>
-    <p class="text-sm text-warm-400 mb-12">Son güncelleme: {fetchedAt}</p>
-
-    <div class="space-y-16">
-      <div>
-        <EvChart client:only="react" config={worldSalesConfig} />
-        <p class="text-sm text-warm-600 mt-3">
-          Dünya genelinde elektrikli araç satışları, güç aktarım tipine (BEV/PHEV/FCEV) göre kırılımıyla.
-        </p>
-      </div>
-
-      <div>
-        <EvChart client:only="react" config={marketShareConfig} />
-        <p class="text-sm text-warm-600 mt-3">
-          Toplam hafif araç satışları içinde elektrikli araçların (BEV+PHEV+FCEV) payı — dünya, Avrupa ve Türkiye
-          karşılaştırmalı.
-        </p>
-      </div>
-
-      <div>
-        <EvChart client:only="react" config={projection2035Config} />
-        <p class="text-sm text-warm-600 mt-3">
-          IEA'nın en muhafazakâr senaryosu olan Stated Policies Scenario (STEPS) varsayımına göre, 2035 yılında
-          dünya genelinde beklenen satış dağılımı. Türkiye için resmi bir IEA projeksiyonu bulunmuyor.
-        </p>
-      </div>
-    </div>
+    <p class="text-sm text-warm-500">Veri çekilme tarihi: {fetchedAt}</p>
   </section>
+
+  <div class="bg-sand">
+    <section class="mx-auto max-w-3xl px-4 py-8">
+      <h2 class="text-base font-semibold text-ink mb-2">Kesikli çizgiler ne anlama geliyor?</h2>
+      <p class="text-sm text-warm-600 leading-relaxed">
+        IEA, 2025 sonrası için ara yıl yayınlamıyor; yalnızca <strong>2035</strong> yılına ait tek bir projeksiyon
+        değeri veriyor. Grafiklerdeki kesikli çizgi, 2025’teki gerçekleşen değeri bu 2035 değerine bağlayan bir
+        <em>bağlantı çizgisidir</em> — IEA’nın modellediği bir yörünge değil, iki yayımlanmış nokta arasındaki doğrudur.
+        Projeksiyonlar IEA’nın <strong>STEPS</strong> (Stated Policies Scenario) senaryosuna aittir: yürürlükteki ve
+        açıklanmış politikaları esas alan, ne iyimser ne kötümser orta yollu bir çerçeve.
+      </p>
+    </section>
+  </div>
+
+  <section class="mx-auto max-w-3xl px-4 py-16 space-y-20">
+    {charts.map(({ config, note }) => (
+      <figure class="m-0">
+        <h2 class="text-lg font-semibold text-ink mb-4">{config.title}</h2>
+        <EvChart client:only="react" config={config} />
+        <figcaption class="text-sm text-warm-500 leading-relaxed mt-4">{note}</figcaption>
+      </figure>
+    ))}
+  </section>
+
+  <div class="bg-sand">
+    <section class="mx-auto max-w-3xl px-4 py-12">
+      <h2 class="text-base font-semibold text-ink mb-3">Kaynak ve lisans</h2>
+      <p class="text-sm text-warm-600 leading-relaxed mb-3">
+        {meta.source} —
+        <a href={meta.sourceUrl} class="text-accent hover:underline" rel="noopener" target="_blank">
+          Global EV Data Explorer
+        </a>. Lisans:
+        <a href={meta.licenceUrl} class="text-accent hover:underline" rel="license noopener" target="_blank">
+          {meta.licence}
+        </a>. Veri, {meta.modifiedBy} tarafından bu grafikler için seçilmiş ve işlenmiştir.
+      </p>
+      <p class="text-sm text-warm-600 leading-relaxed mb-3">{meta.excluded}</p>
+      <p class="text-sm text-warm-500 leading-relaxed">
+        Tam veri setine, burada gösterilmeyen bölge ve metriklere IEA’nın kendi aracından ulaşabilirsiniz. Bu sayfa
+        özet bir görünüm sunar; kaynağın yerini almayı amaçlamaz.
+      </p>
+    </section>
+  </div>
 </BaseLayout>

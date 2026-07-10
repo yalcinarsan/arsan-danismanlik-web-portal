@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fetch:ev-data": "node scripts/fetch-coda-ev-data.mjs"
+    "fetch:ev-data": "node scripts/fetch-iea-ev-data.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",

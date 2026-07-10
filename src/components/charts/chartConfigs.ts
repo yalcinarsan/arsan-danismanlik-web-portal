@@ -1,36 +1,72 @@
 import type { ChartConfig } from './evDataTransforms';
 
-export const worldSalesConfig: ChartConfig = {
-  kind: 'world-sales-stacked-area',
-  title: 'Dünya Toplam Elektrikli Araç Satışı (Adet)',
+// Warm palette, aligned with the "Sıcak kağıt" theme.
+const CLAY = '#b5623c';
+const SLATE = '#4a6670';
+const OLIVE = '#7a8b5a';
+const INK = '#2c2620';
+const STONE = '#857a69';
+
+const LIGHT_DUTY = ['Cars', 'Vans'];
+
+/** 1 — Dünya, güç aktarma organına göre satış. Otomobil + hafif ticari toplamı. */
+export const worldPowertrainConfig: ChartConfig = {
+  kind: 'powertrain-sales',
+  title: 'Dünya elektrikli araç satışları — güç aktarma tipine göre',
   yAxisTitle: 'Adet',
   series: [
-    { region: 'World', metrik: 'Satış', gercekTahmin: 'Historical', powertrain: 'BEV', label: 'BEV', color: '#1e40af' },
-    { region: 'World', metrik: 'Satış', gercekTahmin: 'Historical', powertrain: 'PHEV', label: 'PHEV', color: '#d97706' },
-    { region: 'World', metrik: 'Satış', gercekTahmin: 'Historical', powertrain: 'FCEV', label: 'FCEV', color: '#059669' },
+    { region: 'World', parameter: 'EV sales', powertrain: 'BEV', modes: LIGHT_DUTY, label: 'BEV (tam elektrikli)', color: CLAY },
+    { region: 'World', parameter: 'EV sales', powertrain: 'PHEV', modes: LIGHT_DUTY, label: 'PHEV (şarjlı hibrit)', color: SLATE },
+    { region: 'World', parameter: 'EV sales', powertrain: 'FCEV', modes: LIGHT_DUTY, label: 'FCEV (yakıt hücreli)', color: OLIVE },
   ],
 };
 
-export const marketShareConfig: ChartConfig = {
-  kind: 'market-share-lines',
-  title: 'Elektrikli Araç Pazar Payı — Dünya, Avrupa, Türkiye (%)',
-  yAxisTitle: 'Pazar Payı',
-  series: [
-    { region: 'World', metrik: 'Pazar Payı', powertrain: 'EV', label: 'Dünya', color: '#333333' },
-    { region: 'Europe', metrik: 'Pazar Payı', powertrain: 'EV', label: 'Avrupa', color: '#1e40af' },
-    { region: 'Turkiye', metrik: 'Pazar Payı', powertrain: 'EV', label: 'Türkiye', color: '#dc2626' },
-  ],
-};
-
-export const projection2035Config: ChartConfig = {
-  kind: 'projection-2035-bar',
-  title: 'Dünya EV Satış Projeksiyonu — 2035 (STEPS Senaryosu)',
+/** 2 — Adet olarak Dünya ve Avrupa. Türkiye ölçek farkı ve projeksiyon yokluğu nedeniyle 4. grafikte. */
+export const regionSalesConfig: ChartConfig = {
+  kind: 'region-sales',
+  title: 'Elektrikli araç satışları — Dünya ve Avrupa',
   yAxisTitle: 'Adet',
   series: [
-    { region: 'World', metrik: 'Satış', gercekTahmin: 'Projection-STEPS', powertrain: 'BEV', label: 'BEV', color: '#1e40af' },
-    { region: 'World', metrik: 'Satış', gercekTahmin: 'Projection-STEPS', powertrain: 'PHEV', label: 'PHEV', color: '#d97706' },
-    { region: 'World', metrik: 'Satış', gercekTahmin: 'Projection-STEPS', powertrain: 'FCEV', label: 'FCEV', color: '#059669' },
+    { region: 'World', parameter: 'EV sales', powertrain: 'EV', modes: LIGHT_DUTY, label: 'Dünya', color: INK },
+    { region: 'Europe', parameter: 'EV sales', powertrain: 'EV', modes: LIGHT_DUTY, label: 'Avrupa', color: SLATE },
   ],
 };
 
-export const evChartConfigs = [worldSalesConfig, marketShareConfig, projection2035Config];
+/**
+ * 3 — Pazar payı. Yalnızca otomobil: IEA paydayı (toplam pazar) yayınlamadığı için
+ * otomobil ve hafif ticari payları toplanamaz; toplanırsa yanlış olur.
+ */
+export const regionShareConfig: ChartConfig = {
+  kind: 'region-share',
+  title: 'Elektrikli araç pazar payı — Dünya, Avrupa, Türkiye',
+  yAxisTitle: 'Yeni otomobil satışları içindeki pay',
+  percent: true,
+  series: [
+    { region: 'World', parameter: 'EV sales share', powertrain: 'EV', modes: ['Cars'], label: 'Dünya', color: INK },
+    { region: 'Europe', parameter: 'EV sales share', powertrain: 'EV', modes: ['Cars'], label: 'Avrupa', color: SLATE },
+    { region: 'Turkiye', parameter: 'EV sales share', powertrain: 'EV', modes: ['Cars'], label: 'Türkiye', color: CLAY },
+  ],
+};
+
+/** 4 — Türkiye derinleşmesi: satış, araç parkı (sol eksen) ve pazar payı (sağ eksen). */
+export const turkiyeConfig: ChartConfig = {
+  kind: 'turkiye-detail',
+  title: 'Türkiye — elektrikli otomobil satışı, araç parkı ve pazar payı',
+  yAxisTitle: 'Adet',
+  y2AxisTitle: 'Pazar payı',
+  series: [
+    { region: 'Turkiye', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Yıllık satış (adet)', color: CLAY },
+    { region: 'Turkiye', parameter: 'EV stock', powertrain: 'EV', modes: ['Cars'], label: 'Araç parkı (adet)', color: STONE },
+    {
+      region: 'Turkiye',
+      parameter: 'EV sales share',
+      powertrain: 'EV',
+      modes: ['Cars'],
+      label: 'Pazar payı (%)',
+      color: SLATE,
+      onRightAxis: true,
+    },
+  ],
+};
+
+export const evChartConfigs = [worldPowertrainConfig, regionSalesConfig, regionShareConfig, turkiyeConfig];
