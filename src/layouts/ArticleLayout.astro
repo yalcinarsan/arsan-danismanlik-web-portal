@@ -49,14 +49,31 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
       <div class="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent prose-figcaption:text-center prose-figcaption:text-warm-500">
         <slot />
       </div>
-      <nav class="mt-16 pt-8 border-t border-warm-border flex justify-between text-sm gap-4">
-        {prev ? (
-          <a href={`/makaleler/${prev.slug}`} class="text-accent hover:underline">← {prev.data.seriBaslik ?? prev.data.title}</a>
-        ) : <span />}
-        {next ? (
-          <a href={`/makaleler/${next.slug}`} class="text-accent hover:underline">{next.data.seriBaslik ?? next.data.title} →</a>
-        ) : <span />}
-      </nav>
+      <footer class="mt-16 pt-8 border-t border-warm-border">
+        <h2 class="text-xs font-semibold uppercase tracking-wide text-warm-500 mb-4">Serinin diğer yazıları</h2>
+        <ol class="space-y-2 mb-8">
+          {seriMakaleleri.map((a) => (
+            a.data.seriNo === seriNo ? (
+              <li class="text-sm text-ink font-medium">
+                {a.data.seriNo}. {a.data.title}
+                <span class="text-warm-400 font-normal"> — şu an buradasınız</span>
+              </li>
+            ) : (
+              <li class="text-sm">
+                <a href={`/makaleler/${a.slug}`} class="text-accent hover:underline">{a.data.seriNo}. {a.data.title}</a>
+              </li>
+            )
+          ))}
+        </ol>
+        <nav class="flex justify-between text-sm gap-4">
+          {prev ? (
+            <a href={`/makaleler/${prev.slug}`} class="text-accent hover:underline">← {prev.data.seriBaslik ?? prev.data.title}</a>
+          ) : <span />}
+          {next ? (
+            <a href={`/makaleler/${next.slug}`} class="text-accent hover:underline">{next.data.seriBaslik ?? next.data.title} →</a>
+          ) : <span />}
+        </nav>
+      </footer>
     </article>
     <TableOfContents headings={headings} />
   </div>

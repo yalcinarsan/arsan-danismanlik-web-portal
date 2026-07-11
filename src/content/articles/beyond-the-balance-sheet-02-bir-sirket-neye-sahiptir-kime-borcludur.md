@@ -2,6 +2,7 @@
 title: "Bir Şirket Neye Sahiptir, Kime Borçludur?"
 tarih: 2026-04-05
 kaynak: "X — @yalcinarsan"
+url: "https://x.com/yalcinarsan/status/2040692644876075248"
 dil: tr
 kategori: sirket-analizi
 seri: beyond-the-balance-sheet
