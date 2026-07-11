@@ -18,7 +18,7 @@ Bu makalede "bundan sonra ne olacak" sorusuna odaklanıyorum.
 
 Önemli bir uyarıyla başlayayım: Bu makalede öne sürdüklerim kişisel tahminlerim; yani hiçbiri kesinlik iddiası taşımıyor. Yazdıklarım otomotiv sektörünün farklı yönetim kademelerinde Türkiye ve dünyada çalışmış, 2017'den bu yana da elektrifikasyon konusunda derin olarak odaklanmış, bu konuda hemen her marka ile bir şekilde teşviki mesaisi olmuş ama hiç bir markayla organik bağı olmayan birinin görüşleri.
 
-Bana göre özellikle sektör uzmanlarının en çok gözden kaçırdığı ama en belirleyici dinamikle başlayalım: Müşteri.
+Bana göre özellikle sektör uzmanlarının en çok gözden kaçırdığı ama en belirleyici dinamikle başlayalım: **Müşteri.**
 
 ## Müşteri: EA (Elektrikli Araç) Geçişinin Asimetrisi
 
@@ -30,15 +30,15 @@ Bu argümanların çoğunun sansasyon değeri yüksek ama gerçeklikle bağı za
 
 **Asla Geri Dönmeyen Azınlık: Elektrikli araç kullanıcısı:** İşte hikayenin diğer ve asıl belirleyici olacak yüzü. Elektrikli araç kullanmaya başlayanların ezici çoğunluğu, bir daha içten yanmalı motora dönmek istemiyor.
 
-Bu bir izlenim değil, veri. GEVA'nın (Global EV Drivers Alliance) 2024 yılında 18 ülkede 23,000'den fazla EA kullanıcısıyla yaptığı kapsamlı ankette, katılımcıların %92'si bir sonraki araçlarının da sıfır emisyonlu olacağını söylüyor. İçten yanmalı motora geri dönmeyi düşünen sadece %1. Fully Charged'ın benzer bir anketinde bu oran %94'e, JD Power'ın 2026 ABD çalışmasında %96'ya çıkıyor.
+Bu bir izlenim değil, veri. GEVA'nın (Global EV Drivers Alliance) 2024 yılında 18 ülkede 23,000'den fazla EA kullanıcısıyla yaptığı kapsamlı ankette, katılımcıların **%92'si** bir sonraki araçlarının da sıfır emisyonlu olacağını söylüyor. İçten yanmalı motora **geri dönmeyi düşünen sadece %1**. Fully Charged'ın benzer bir anketinde bu oran **%94'e**, JD Power'ın 2026 ABD çalışmasında **%96'ya** çıkıyor.
 
-Bir veri daha var ki çok çarpıcı: McKinsey'in 2024 ortasında yaptığı ankette ABD'deki EA sahiplerinin %46'sı ICE'a dönmek istediğini söylüyordu. 2025'te aynı McKinsey araştırmasında bu oran %9'a düştü; sadece bir yılda dramatik bir kırılma. Bunun arkasında şarj altyapısının iyileşmesi, model çeşitliliğinin artması ve sahip olma deneyiminin yavaş yavaş akıllarda oturması var. Yani müşteri gerçekten hızlı öğreniyor.
+Bir veri daha var ki çok çarpıcı: McKinsey'in 2024 ortasında yaptığı ankette ABD'deki EA sahiplerinin %46'sı ICE'a dönmek istediğini söylüyordu. 2025'te aynı McKinsey araştırmasında bu oran **%9'a** düştü; sadece bir yılda dramatik bir kırılma. Bunun arkasında şarj altyapısının iyileşmesi, model çeşitliliğinin artması ve **sahip olma deneyiminin** yavaş yavaş akıllarda oturması var. Yani müşteri gerçekten hızlı öğreniyor.
 
 Fully Charged anketinden bir detay daha: EA'ya geçenlerin %59'u, bunu yaparken daha önce sadık oldukları markadan vazgeçmiş. Bu, EA dönüşümünün sadece bir motor değişikliği olmadığını gösteriyor — aynı zamanda bir marka sadakati kırılması. Ve bu kırılma geleneksel markalar için kritik bir uyarı.
 
 ## S-Eğrisi: EA Büyümesinin Matematiği
 
-Bu asimetri — "deneyen dönmüyor, denemeyen tereddüt ediyor" — klasik bir teknoloji benimseme dinamiğine işaret ediyor: S-eğrisi.
+Bu asimetri — "deneyen dönmüyor, denemeyen tereddüt ediyor" — klasik bir teknoloji benimseme dinamiğine işaret ediyor: **S-eğrisi**.
 
 S-eğrisi kavramının mantığı basit: Yeni bir teknoloji başlangıçta yavaş yayılır (erken benimseyenler), sonra kritik bir eşik aşıldığında benimseme hızla dikleşir (çoğunluk), ardından doygunluğa yaklaştıkça yavaşlar.
 
@@ -61,11 +61,11 @@ Avrupa ise S-eğrisinin başlangıç evresinde: %22'den %58'e çıkması, AB'nin
 
 EA'ya geçişi engelleyen en büyük algı problemi menzil kaygısı. "Yolda kalırsam ne yaparım?" sorusu, henüz elektrikli araç kullanmamış olanların aklında. (İlginçtir, kullananlarda bu kaygı hemen yok oluyor.)
 
-Gerçek durum biraz farklı: IEA 2025 raporuna göre orta sınıf EA'larda ortalama menzil 380 km'ye ulaştı — ve bu rakam her yıl artıyor. Günlük kullanımda ortalama bir sürücü 40–60 km yapıyor. Yani mevcut menzil, çoğu kullanıcının haftalık ihtiyacını tek şarjla karşılıyor.
+Gerçek durum biraz farklı: IEA 2025 raporuna göre orta sınıf EA'larda **ortalama menzil 380 km'ye ulaştı** — ve bu rakam her yıl artıyor. Günlük kullanımda ortalama bir sürücü 40–60 km yapıyor. Yani mevcut menzil, çoğu kullanıcının haftalık ihtiyacını tek şarjla karşılıyor.
 
 Hızlı şarj altyapısı ise hızla genişliyor. 2024'te dünya genelinde 5.4 milyon kamusal şarj noktası mevcuttu; IEA'nın STEPS senaryosuna göre 2030'da bu rakam 17 milyona çıkacak. Özellikle 150 kW üzeri ultra-hızlı şarj noktaları Avrupa'da 2024'te %50 büyüdü. Batarya teknolojisindeki ilerlemeler de yakında benzin doldurmak kadar hızlı şarj süreleri vaat ediyor.
 
-Yaşadıklarımdan çıkarımım: Müşteri çok hızlı öğreniyor ve kolaylıkla adapte oluyor. "1000 km menzil ne zaman gelir" beklentisi zamanla yerini gerçekçi kullanım şartlarının anlaşılması evresine bırakacak. 350–400 km menzil, ev şarjı ve giderek yaygınlaşan hızlı şarj ağıyla birleştiğinde, çoğu kullanıcı için fazlasıyla yeterli. Ve bu farkındalık yayıldıkça geçiş de hızlanacak.
+Yaşadıklarımdan çıkarımım: **Müşteri çok hızlı öğreniyor ve kolaylıkla adapte oluyor.** "1000 km menzil ne zaman gelir" beklentisi zamanla yerini gerçekçi kullanım şartlarının anlaşılması evresine bırakacak. 350–400 km menzil, ev şarjı ve giderek yaygınlaşan hızlı şarj ağıyla birleştiğinde, çoğu kullanıcı için fazlasıyla yeterli. Ve bu farkındalık yayıldıkça geçiş de hızlanacak.
 
 Bir dengeleyici not: EA'nın "daha ucuza sahip olma" argümanı petrol fiyatlarına duyarlı. IEA'nın 2025 raporu yazıldığında petrol varil başına $60 civarındaydı ve ucuz benzinin EA'nın maliyet avantajını daraltabileceği uyarısı yapılıyordu. Ama dünya hızlı değişiyor: Şubat 2026 sonunda başlayan İran çatışması bu denklemi tamamen altüst etti. Hürmüz Boğazı'nın fiilen kapanmasıyla global petrol arzının %20'si kesintiye uğradı, petrol fiyatları $70'lerden $100'ün üzerine fırladı, ABD'de benzin fiyatları haftalarca içinde %16 arttı. Çatışmanın seyrine bağlı olarak $150/varil senaryosu bile masada.
 
@@ -91,11 +91,11 @@ Birincisi, tedarik zinciri maliyetleri. ABD her yıl Çin'den $15–20 milyar de
 
 İkincisi, tarifeler karşılıklı tırmanınca herkes kaybediyor. Çin, karşı hamle olarak nadir toprak ihracatına kontroller koydu. Dünyadaki nadir toprak üretiminin %90'ı Çin'de — bu, sadece EA'ları değil, tüm ileri teknoloji üretimini etkileyen bir kaldıraç.
 
-AB tarafında da çarpıcı bir bulgu var: CEPR'nin (Centre for Economic Policy Research) analizi, AB'nin Çin'e uyguladığı tarifelerin Çin EA fiyatlarını artırmadığını gösteriyor. Yani Çinli üreticiler tarifeyi absorbe etti — pazar payını korumak ve Avrupa'da marka bilinirliği inşa etmek için kârdan fedakârlık ettiler. Bu, BYD ve diğer Çinli markaların ne kadar uzun vadeli düşündüğünü, muhtemelen devletin de desteğini arkalarına alarak maliyet yapısı boyutunu ne kadar iyi kullandıklarını gösteriyor.
+AB tarafında da çarpıcı bir bulgu var: CEPR'nin (Centre for Economic Policy Research) analizi, **AB'nin Çin'e uyguladığı tarifelerin Çin EA fiyatlarını artırmadığını gösteriyor. Yani Çinli üreticiler tarifeyi absorbe etti** — pazar payını korumak ve Avrupa'da marka bilinirliği inşa etmek için kârdan fedakârlık ettiler. Bu, BYD ve diğer Çinli markaların ne kadar uzun vadeli düşündüğünü, muhtemelen devletin de desteğini arkalarına alarak maliyet yapısı boyutunu ne kadar iyi kullandıklarını gösteriyor.
 
-**Tarifelerin Kazananı ve Kaybedeni:** Kısa vadede tarifeler geleneksel üreticilere nefes aldırıyor. Ford, GM, Stellantis gibi markalar Çin rekabetinden korunmuş bir pazarda EA geçişini kendi tercih ettikleri hızda yapabiliyor.
+**Tarifelerin Kazananı ve Kaybedeni:** Kısa vadede tarifeler geleneksel üreticilere nefes aldırıyor. Ford, GM, Stellantis gibi markalar Çin rekabetinden korunmuş bir pazarda EA geçişini kendi **tercih ettikleri hızda** yapabiliyor.
 
-Kaybedenler: Tüketici ve geçiş hızı. Tarifeler EA'ları daha pahalı yapıyor, bu da benimsemeyi yavaşlatıyor. Ve — belki en önemlisi — tarife duvarının arkasında rahatça oturan üreticilerin bazıları, rekabet baskısı olmadan yapısal dönüşüm motivasyonunu kaybediyor. Nafile bir bekleyişin kısa vadeli cazibesi ağır basıyor.
+Kaybedenler: Tüketici ve geçiş hızı. Tarifeler EA'ları daha pahalı yapıyor, bu da benimsemeyi yavaşlatıyor. Ve — belki en önemlisi — **tarife duvarının arkasında rahatça oturan üreticilerin bazıları, rekabet baskısı olmadan yapısal dönüşüm motivasyonunu kaybediyor. Nafile bir bekleyişin kısa vadeli cazibesi ağır basıyor.**
 
 Tarihin bu konuda bize öğrettiği ders: Korumacılık zaman kazandırır ama rekabet gücü yaratmaz. 1970–80'lerde Japonlar, 2000'lerde Koreliler aynı duvarlarla karşılaştı — ve ikisi de aştı.
 
@@ -111,7 +111,7 @@ Kanada'nın 2025'te Çin EA tarifesini %6.1'e düşürmesi, ABD'nin 'kuşatması
 
 **Batılı Markaların Karşı Stratejileri:** Batılı üreticiler bu tehdide üç farklı stratejiyle yanıt veriyor — ve ilginç şekilde bazıları aynı anda üçünü de deniyor. Birincisi, tarife duvarını koruma ve uzatma lobiciliği. İkincisi, Çin teknolojisini ortaklıkla edinme: Stellantis Leapmotor'da %20 hisse aldı ve İspanya'da Leapmotor modellerini üretiyor. Renault, Geely ile Kore ve Brezilya'da ortaklık kurdu. VW, Rivian ile yazılım ortaklığı yaptı. Ford, Geely ile görüşmelerde. Üçüncüsü, iç gelişimi hızlandırma — ama mevcut hızlarıyla Çinlileri yakalamaları zor.
 
-Şunu tespit edelim: Tarifeler zaman kazandırır — belki 3–5 yıl. Ama yapısal maliyet ve hız avantajını ortadan kaldırmaz. Çinli markalar yerel üretimle batı pazarlarına yerleşecek. Soru "gelecekler mi" değil, "ne kadar çabuk?" ve "hangi segmentlerde?"
+Şunu tespit edelim: Tarifeler zaman kazandırır — belki 3–5 yıl. **Ama yapısal maliyet ve hız avantajını ortadan kaldırmaz.** Çinli markalar yerel üretimle batı pazarlarına yerleşecek. Soru "gelecekler mi" değil, "ne kadar çabuk?" ve "hangi segmentlerde?"
 
 **Ama Çin'in Kendi İç Dinamikleri de Sorunsuz Değil:** Bu noktada dengeleyici bir perspektif şart. Çinli üreticileri "durdurulamaz güç" olarak görmek eksik bir okuma olur.
 
@@ -135,7 +135,7 @@ Diğer taraftan bana göre 'Hibrid araç', otomotiv tarihinin en büyük mühend
 
 Çünkü EA'yı iyi bir markayla deneyimleyen müşterinin tercihi çok net. %92–96 oranında geri dönmüyor. Bu tercih giderek artan bir hızla yayılıyor.
 
-Sektör emektarları olarak şunu anlamak zorundayız: Sektörümüzü marka yöneticileri değil müşteri tercihi şekillendirecek.
+Sektör emektarları olarak şunu anlamak zorundayız: **Sektörümüzü marka yöneticileri değil müşteri tercihi şekillendirecek.**
 
 ### Hangi Markalar Zorlanacak?
 
@@ -167,7 +167,7 @@ Bu argüman kısmen doğru.
 
 Seviye 2–3 sürücü destek sistemleri (şerit takip, adaptif hız sabitleme) zaten tedarikçiler üzerinden yaygınlaşıyor. Mobileye, Bosch, Continental bu katmanda güçlü çözümler sunuyor. Geleneksel markalar bu seviyede rekabetçi kalabilir.
 
-Ama Seviye 4–5 — yani tam otonom sürüş — burası bambaşka bir oyun. Burada kritik olan yazılım algoritması değil, veri döngüsü. Tesla'nın avantajı milyonlarca araçtan akan gerçek zamanlı sürüş verisi — ve bu veri her kilometre ile büyüyor, yazılım her iterasyonla iyileşiyor. Waymo (Google) farklı bir yaklaşımla, robotaxi modeli üzerinden benzer bir veri avantajı kuruyor. Çinli oyuncular — Baidu, Huawei, XPeng — kendi pazarlarında hızla ilerliyorlar.
+Ama Seviye 4–5 — yani tam otonom sürüş — burası bambaşka bir oyun. **Burada kritik olan yazılım algoritması değil, veri döngüsü.** Tesla'nın avantajı milyonlarca araçtan akan gerçek zamanlı sürüş verisi — ve bu veri her kilometre ile büyüyor, yazılım her iterasyonla iyileşiyor. Waymo (Google) farklı bir yaklaşımla, robotaxi modeli üzerinden benzer bir veri avantajı kuruyor. Çinli oyuncular — Baidu, Huawei, XPeng — kendi pazarlarında hızla ilerliyorlar.
 
 Bu veri avantajını bir tedarikçiden "satın almak" teorik olarak mümkün. Google Maps'in navigasyonu demokratikleştirmesi gibi, otonom sürüş de bir hizmet olarak sunulabilir. Ama otonom sürüş, navigasyondan çok daha entegre bir sistem gerektiriyor — aracın donanımı, sensörleri, yazılımı ve veri döngüsü çok sıkı bağlı olmalı.
 
@@ -189,7 +189,7 @@ Bayilerse perakendeci. Daha küçük, daha çevik ve — en önemlisi — müşt
 
 Bir bayi rahatlıkla temsil ettiği markayı değiştirebilir ya da yeni markalarla anlaşabilir. Opel bayisi Kia bayisi olabilir, Mercedes bayisi BYD distribütörü olabilir. Bu esneklik marka düzeyinde mümkün değil.
 
-Varolan araç parkı bayiler için önemli bir güvence. EA'ya geçiş hızlansa bile yoldaki içten yanmalı araçlar onlarca yıl boyunca servis ihtiyacı duyacak. Servis, bakım, yedek parça — bu gelir kanalları bayilerin ekonomik sürekliliğini sağlayacak. Satış sonrasında varolan ekonomik düzenin daha uzun yıllar süreceğini kolaylıkla varsayabiliriz: Hatta içten yanmalılar daha da eskiyeceği için bakım ihtiyacı artacaktır bile: Özellikle 2016 ve sonrası üretilen (Euro 6 emisyona göre tasarlanamış) dizel araçlar 100bin km'yi geçtiklerinde büyük ve pahalı bakımlara ihtiyaç duyacaklar. Bu araçların hepsi bir anda ortadan kaybolmayacağına göre satış sonrasında panik yapacak hiç bir şey yok aslında.
+**Varolan araç parkı bayiler için önemli bir güvence.** EA'ya geçiş hızlansa bile yoldaki içten yanmalı araçlar onlarca yıl boyunca servis ihtiyacı duyacak. Servis, bakım, yedek parça — bu gelir kanalları bayilerin ekonomik sürekliliğini sağlayacak. Satış sonrasında varolan ekonomik düzenin daha uzun yıllar süreceğini kolaylıkla varsayabiliriz: Hatta içten yanmalılar daha da eskiyeceği için bakım ihtiyacı artacaktır bile: Özellikle 2016 ve sonrası üretilen (Euro 6 emisyona göre tasarlanamış) dizel araçlar 100bin km'yi geçtiklerinde büyük ve pahalı bakımlara ihtiyaç duyacaklar. Bu araçların hepsi bir anda ortadan kaybolmayacağına göre satış sonrasında panik yapacak hiç bir şey yok aslında.
 
 **Ama Dönüşüm de Gerekecek:** EA'da yağ, filtre, kayış vs değişimi yok, fren aşınması minimal, bakım ihtiyacı dramatik şekilde düşük. Bu, bayilerin en önemli gelir kalemlerinden birini aşındıracak. Yeni yetkinlikler gerekecek: batarya servisi, yazılım güncellemeleri, şarj çözümleri. Ve Tesla'nın doğrudan satış modelinin baskısı her pazarda hissedilecek.
 

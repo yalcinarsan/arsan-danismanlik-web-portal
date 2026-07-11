@@ -12,15 +12,15 @@ durum: yayında
 ozet: "Otomotiv Sektörünün Yerel Aktörleri — marka, distribütör ve bayi arasında yeni denge arayışı. Yerel strateji ihtiyacı, bayinin çeviklik avantajı, acente modeli ve hiyerarşiden ortaklığa geçiş."
 ---
 
-Otomotivde elektrifikasyon akımının getirdiği dönüşümü incelemeye devam: İlk iki yazıda otomotiv sektörünün yaşadığı dönüşümü iki perspektiften inceledik. Önce "otomotiv sektöründe ne oluyor?" sorusunu hem sektörel hem de finansal analiz ile yanıtladık: Tesla'nın alışılmadık (dalgalı kâr / yüksek nakit) performansını, geleneksel otomotiv markalarının neden elektrikli otomobilden para kazanmakta zorlandıklarını, BYD özelinde detaylı incelediğimiz Çin kökenli markaların ne anlamda yükseldiğini, Tesla ve Çin'lilerde gördüğümüz dikey entegrasyonun yarattığı yapısal avantajı, son olarak da pazarlama maliyetlerinin görünmeyen ağırlığını irdeledik.
+Otomotivde elektrifikasyon akımının getirdiği dönüşümü incelemeye devam: İlk iki yazıda otomotiv sektörünün yaşadığı dönüşümü iki perspektiften inceledik. Önce "otomotiv sektöründe ne oluyor?" sorusunu hem sektörel hem de finansal analiz ile yanıtladık: Tesla'nın alışılmadık (dalgalı kâr / yüksek nakit) performansını, geleneksel otomotiv markalarının neden elektrikli otomobilden para kazanmakta zorlandıklarını, BYD özelinde detaylı incelediğimiz Çin kökenli markaların ne anlamda yükseldiğini, Tesla ve Çin'lilerde gördüğümüz **dikey entegrasyonun** yarattığı yapısal avantajı, son olarak da pazarlama maliyetlerinin görünmeyen ağırlığını irdeledik.
 
 İkinci makalede "şimdi ne olacak?" sorusuna odaklandık: Tipik EA (elektrikli araç) müşterisinin kararlılığını, EA müşterisi olmayan kesimin tereddütlerini, Çin markalarının durdurulamaz büyümesini, elektrikli araca geçişte gördüğümüz S-eğrisinin matematiğini ve geleneksel markaların muhtemel geleceğini tartıştık.
 
-Bu yazıda daha somut bir soruya geçiyoruz: Bu analizler ışığında kim ne yapmalı? Daha doğrusu, ne yapılabilir?
+Bu yazıda daha somut bir soruya geçiyoruz: **Bu analizler ışığında kim ne yapmalı? Daha doğrusu, ne yapılabilir?**
 
-İkinci yazıda en keskin tespitlerden biri şuydu: "(Tesla ve Çin markaları hariç) hiçbir sektör paydaşının bir elektrifikasyon stratejisi yok." Bu paydaşlar — yani ana markalar, distribütörler, bayiler, otomotiv yan sanayisinin bir kısmı — büyük ölçüde "sorunları çıktıkça çözeriz, gerekmedikçe değişmeyiz" modunda. Strateji değil, bir refleks odaklı yaklaşım hakim: Büyük oyuncular defansif bir tavırla, varolan yapılarının büyüklüğü ve yaygınlığını kullanarak Tesla ve Çin'lilere karşı mücadele veriyorlar.
+İkinci yazıda en keskin tespitlerden biri şuydu: "**(Tesla ve Çin markaları hariç) hiçbir sektör paydaşının bir elektrifikasyon stratejisi yok.**" Bu paydaşlar — yani ana markalar, distribütörler, bayiler, otomotiv yan sanayisinin bir kısmı — büyük ölçüde "sorunları çıktıkça çözeriz, gerekmedikçe değişmeyiz" modunda. Strateji değil, bir refleks odaklı yaklaşım hakim: Büyük oyuncular defansif bir tavırla, varolan yapılarının büyüklüğü ve yaygınlığını kullanarak Tesla ve Çin'lilere karşı mücadele veriyorlar.
 
-Bu yazıya bir önemli nüansla başlamak istiyorum: Elektrifikasyon son derece doğal bir geçiş. Ve aslında sektörün hiç bir paydaşı için (gerçekçi hazırlık yapılması halinde) büyük risk oluşturacak bir değişim değil.
+Bu yazıya bir önemli nüansla başlamak istiyorum: **Elektrifikasyon son derece doğal bir geçiş. Ve aslında sektörün hiç bir paydaşı için (gerçekçi hazırlık yapılması halinde) büyük risk oluşturacak bir değişim değil.**
 
 Şöyle ki: Bir sektörü 100 yılı aşkın süre sırtında taşıyan bir araç mimarisinden, daha verimli, daha uzun ömürlü ve ekonomik bir başkasına geçiyoruz. Bu geçiş kademeli olacak: İçten yanmalı motorlu araçların oluşmuş dev araç parkı (aktif kullanılan yüz milyonlarca araç) bir gecede trafikten çekilmeyecek. Otomobil servisleri uzunca bir süre daha dolu kapasite ile çalışacaklar. Kullanıcıların bir kısmı, bir süre daha içten yanmalı otomobil almaya devam edecek. İyi yönetilen yapılar (eskisi kadar olmasa da) hâlâ makul ölçüde kârlı olmaya devam edecek. En önemlisi bu dönüşüm için en az 10 yıllık bir pencereye sahip olacağız.
 
@@ -34,7 +34,7 @@ Bir not: Bu yazı serideki önceki yazılarda olduğu gibi kişisel gözlem ve d
 
 Distribütör — veya diğer adıyla ana marka yönetimi — global bir markanın yerel yüzüdür. Ürünü tasarlar, üretir ve global stratejiyi belirleyip dağıtır; distribütör bunları yerel pazara uygular ve ürünü müşteriyle buluşturur.
 
-Bu model onlarca yıldır gayet iyi çalıştı. Ama elektrikli araç geçişi, bu ilişkideki yapısal bir çatlağı gün yüzüne çıkardı: Değişimin ölçeği elektrifikasyon kadar radikal olunca, işler karışıyor. Ürünün sadece teknolojisi değil kullanımı, sahip olma deneyimi ve müşterinin hayatındaki yer değişiyor. Büyük oyuncularının değişime gönülsüz ve dolayısıyla da hazırlıksız olmaları, yerel pazarlarda sorunları büyütüyor. Dev üretim ve dağıtım sistemlerini işler halde tutmak büyük bir iş; bunu tutarlı ve kararlı bir strateji olmadan yapmak zorunda kalma ise çok zor. Markaların önemli bir kısmı yapısal, kimi vakalarda varoluşsal sorunlarla mücadele ediyor. Bu durum yerel pazarlara ciddi bir gerilim olarak yansıyor.
+Bu model onlarca yıldır gayet iyi çalıştı. Ama elektrikli araç geçişi, bu ilişkideki yapısal bir çatlağı gün yüzüne çıkardı: **Değişimin ölçeği elektrifikasyon kadar radikal olunca, işler karışıyor. Ürünün sadece teknolojisi değil kullanımı, sahip olma deneyimi ve müşterinin hayatındaki yer değişiyor. Büyük oyuncularının değişime gönülsüz ve dolayısıyla da hazırlıksız olmaları, yerel pazarlarda sorunları büyütüyor.** Dev üretim ve dağıtım sistemlerini işler halde tutmak büyük bir iş; bunu tutarlı ve kararlı bir strateji olmadan yapmak zorunda kalma ise çok zor. Markaların önemli bir kısmı yapısal, kimi vakalarda varoluşsal sorunlarla mücadele ediyor. Bu durum yerel pazarlara ciddi bir gerilim olarak yansıyor.
 
 ### Global vs. Yerel Gerilimi
 
@@ -46,7 +46,7 @@ Giriş segmentinde — 2 milyon TL altında — fiyat açısından geleneksel ma
 
 Ama burada bir segment yanılsaması gizli: bu araçların hepsi B-segmenti — küçük hatchback'ler. Ve büyük markalar için sorun tam burada başlıyor: Bu segmentin müşterisi tipik bir EA müşterisi değil; yani çoğunlukla elektrikli otomobili bilerek tercih eden kesim değil, daha çok makul fiyatlı mobilite arayışında olan rasyonel tüketici. Bu tüketici için otomobil, ağırlıklı olarak bir taşıt aracı.
 
-Orta segmente doğru (2-3 milyon TL aralığına) çıktığınızda tablo kökten değişiyor. Müşterinin önündeki seçenekler çok geniş: aynı fiyat bandında ya bir Opel Mokka-e (B-hatchback, 2.1M), bir Peugeot e-2008 (B-SUV, 2.2M), bir Renault Megane E-Tech (C-hatchback, 2.39M) veya bir Kia EV3 (B-SUV, 2.4M) alabilir — ya da bir Tesla Model Y (C-SUV, 2.35M). Yani geleneksel markalar aynı paraya bir alt segment araç sunarken, Tesla bir üst segment araç sunuyor — üstelik Autopilot dahil, Supercharger ağıyla, OTA (internet üzerinden) güncellemelerle. Elektrikli aracın asıl katma değerinin yaşandığı yer burası: bağlantılı, ısı pompalı mimarisi sayesinde menzili mevsimlere göre çok değişmeyen, internet bağlantılı yazılım deneyiminin fark yarattığı, iyi donanımlı araçlar. Bu segmentte geleneksel markaların Tesla'nın fiyat/değer denklemiyle baş etmesi çok zor.
+Orta segmente doğru (2-3 milyon TL aralığına) çıktığınızda tablo kökten değişiyor. Müşterinin önündeki seçenekler çok geniş: aynı fiyat bandında ya bir Opel Mokka-e (B-hatchback, 2.1M), bir Peugeot e-2008 (B-SUV, 2.2M), bir Renault Megane E-Tech (C-hatchback, 2.39M) veya bir Kia EV3 (B-SUV, 2.4M) alabilir — ya da bir Tesla Model Y (C-SUV, 2.35M). Yani geleneksel markalar aynı paraya bir alt segment araç sunarken, Tesla bir üst segment araç sunuyor — üstelik Autopilot dahil, Supercharger ağıyla, OTA (internet üzerinden) güncellemelerle. **Elektrikli aracın asıl katma değerinin yaşandığı yer burası: bağlantılı, ısı pompalı mimarisi sayesinde menzili mevsimlere göre çok değişmeyen, internet bağlantılı yazılım deneyiminin fark yarattığı, iyi donanımlı araçlar.** Bu segmentte geleneksel markaların Tesla'nın fiyat/değer denklemiyle baş etmesi çok zor.
 
 Nitelikli Çinli markalar (örn BYD) ve kısmen Hyundai-Kia bu aralıkta bir miktar rekabet edebiliyor — ama ortanın da biraz üzerine çıkıldığında fiyat rekabet gücüyle tanınan Hyundai bile Tesla Model Y baz modelden daha pahalı kalıyor. Daha da üst segment çift motorlu (4x4) 500 HP üzeri modellerde makas daha açılıyor; güçlü ve donanımlı araç segmentlerinde Tesla fiyatları enteresan biçimde uygun.
 
@@ -62,7 +62,7 @@ Bu segment, yani orta fiyatlı araçlar grubu, EA geçişinin hızlanmasıyla bi
 
 ### "Dönüşüyormuş Gibi Yapma" Stratejisi
 
-Bu gerilimin altında derin bir sorun yatıyor. Sektörde bir sessiz konsensüs var: Herkes dönüşümü kabul etmiş gibi görünüyor ama kimse gerçekten dönüşmüyor.
+Bu gerilimin altında derin bir sorun yatıyor. Sektörde bir sessiz konsensüs var: **Herkes dönüşümü kabul etmiş gibi görünüyor ama kimse gerçekten dönüşmüyor.**
 
 Bu tutum markadan distribütöre, oradan da bayiye sirayet ediyor. Hibrit portföyü genişletiliyor — gerçek olmayan "bakın, biz de yeşiliz" mesajı ısrarla verilmeye devam ediyor. EV hedefleri açıklanıyor ama sonra sessizce erteleniyor. Showroom'a bir-iki EV konuyor ama satış ekibinin eğitimi, motivasyonu, prim yapısı hâlâ adet odaklı; yani satış ekibinin EA satmak için uğraş vermesi kendi açısından anlamlı değil.
 
@@ -136,13 +136,13 @@ Dışarıdan bakıldığında "EV bakım maliyeti yarı, bayiler batacak" gibi b
 
 Ama burada zamanlama gerçeğini gözden kaçırmamak lazım:
 
-EV'ler henüz çok yeni. Türkiye'de EV payı %18'e yaklaşıyor ama toplam trafiğin ezici çoğunluğu (%95 ve üzerin oranı) hâlâ içten yanmalı. Servise gelen araçların neredeyse tamamı ICE — EA'ların SSH talebi henüz anlamlı bir hacme ulaşmadı.
+**EV'ler henüz çok yeni.** Türkiye'de EV payı %18'e yaklaşıyor ama toplam trafiğin ezici çoğunluğu (%95 ve üzerin oranı) hâlâ içten yanmalı. Servise gelen araçların neredeyse tamamı ICE — EA'ların SSH talebi henüz anlamlı bir hacme ulaşmadı.
 
-ICE araç parkı devasa. 100 yılı aşkın bir geçmişle birikmiş milyonlarca araç trafikte. Bu araçların ortalama ömrü 15-20 yıl. Trafikten çekilmeleri daha on yıllar sürecek. Daha da önemlisi araçlar yaşlandıkça servis ihtiyacı da artıyor.
+**ICE araç parkı devasa.** 100 yılı aşkın bir geçmişle birikmiş milyonlarca araç trafikte. Bu araçların ortalama ömrü 15-20 yıl. Trafikten çekilmeleri daha on yıllar sürecek. Daha da önemlisi araçlar yaşlandıkça servis ihtiyacı da artıyor.
 
-Mevcut servisler dolu. Çoğu yetkili serviste zaten kapasite darlığı var — kapasite fazla değil. Burada ekonomik açıdan iyi yönetilebilecek bir durum var.
+**Mevcut servisler dolu.** Çoğu yetkili serviste zaten kapasite darlığı var — kapasite fazla değil. Burada ekonomik açıdan iyi yönetilebilecek bir durum var.
 
-Dolayısıyla SSH gelir düşüşü sadece uzun vadede gerçekçi bir kaygı; acil bir kriz değil. Satış sonrasında ancak 2035 ve sonrasında hissetmeye başlayacağımız, kademeli bir düşüş olacak. Bu da bayinin dönüşmek için ortalama 10-15 yıllık bir zamanı olduğu anlamına geliyor. Bu sürede yeni gelir kalemleri geliştirmek mümkün: Batarya servisi, onarımı, revizyonu, yazılım ve bağlantı hizmetleri, şarj çözümleri, EA'ya özel lastikler, aksesuarlar. İlginç bir detay: EV'ler anlık torku ve %15-20 daha ağır yapıları nedeniyle lastikleri önemli ölçüde daha hızlı aşındırıyor — bazı araştırmalar %20'ye varan aşınma artışı raporluyor. Bu, servislerin gelecekte daha sık lastik değişimi yapacağı anlamına geliyor.
+Dolayısıyla SSH gelir düşüşü sadece uzun vadede gerçekçi bir kaygı; **acil bir kriz değil**. Satış sonrasında ancak 2035 ve sonrasında hissetmeye başlayacağımız, kademeli bir düşüş olacak. Bu da bayinin dönüşmek için ortalama 10-15 yıllık bir zamanı olduğu anlamına geliyor. Bu sürede yeni gelir kalemleri geliştirmek mümkün: Batarya servisi, onarımı, revizyonu, yazılım ve bağlantı hizmetleri, şarj çözümleri, EA'ya özel lastikler, aksesuarlar. İlginç bir detay: EV'ler anlık torku ve %15-20 daha ağır yapıları nedeniyle lastikleri önemli ölçüde daha hızlı aşındırıyor — bazı araştırmalar %20'ye varan aşınma artışı raporluyor. Bu, servislerin gelecekte daha sık lastik değişimi yapacağı anlamına geliyor.
 
 ## 3. Direkt Satış ve Acente Modeli: Ne Tesla, Ne Statüko
 
@@ -152,7 +152,7 @@ Bu konu sektörün en çok tartışılan gündem maddelerinden biri. Tesla'nın 
 
 Tesla'nın doğrudan satış modelinin avantajlarını ilk yazıda detaylıca işlemiştim: marka mesajının tam kontrolü, bayi kâr marjının üreticide kalması, müşteriyle direkt ilişki, pazarlama maliyetinde dev bir tasarruf. Bunlar gerçek ve ölçülebilir avantajlar.
 
-Ama Tesla bu modeli sıfırdan kurdu. Mevcut bir bayi ağı yoktu, tasfiye edilecek ilişkiler yoktu, dönüştürülecek süreçler yoktu. Halihazırda 50-200 bayisi olan bir markanın aynı yolu izlemesi — hukuki, operasyonel ve kültürel açıdan — bambaşka bir mesele.
+Ama Tesla bu modeli **sıfırdan** kurdu. Mevcut bir bayi ağı yoktu, tasfiye edilecek ilişkiler yoktu, dönüştürülecek süreçler yoktu. Halihazırda 50-200 bayisi olan bir markanın aynı yolu izlemesi — hukuki, operasyonel ve kültürel açıdan — bambaşka bir mesele.
 
 Üstelik direkt satıştan geri dönüş sinyalleri bile var. NIO — Çin'in premium EV markası — Avrupa'da başlangıçta kendi showroom'larıyla doğrudan satış yapmayı denedi. 2025-2026'da ise farklı bir model deniyor: Yerel bayilerle ortaklık kurmaya gayret ediyor. Benzer şekilde, dünyanın en büyük EV üreticisi BYD, Avrupa'da kendi mağaza açmak yerine yerleşik yerel bayi gruplarıyla ortaklık kuruyor. İngiltere'de bayi sayısını bir yılda 67'den 125'e çıkardı — tamamen yerel ortaklıklar yoluyla. Türkiye'de de Toyota'yı temsil eden ALJ grubuyla çalışıyor.
 
@@ -170,7 +170,7 @@ Direkt satışın diğer ucunda, geleneksel markaların bir süredir dillendirdi
 
 Bu tablo ilk bakışta "acente modeli başarısız" izlenimi veriyor. Ama bence her şey göründüğü gibi değil.
 
-Bu markaların başarısız olmasının nedeni modelin kendisi değil, uygulamanın aceleciliğiydi. IT altyapısı hazır değildi. Bayilerle müzakere yerine dayatma yapıldı. Geçiş süreci iyi yönetilmedi, muğlak ve istismara açık çok konu başlığı kaldı — eski sistemle yeni sistem arasında boşluk oluştu.
+**Bu markaların başarısız olmasının nedeni modelin kendisi değil, uygulamanın aceleciliğiydi.** IT altyapısı hazır değildi. Bayilerle müzakere yerine dayatma yapıldı. Geçiş süreci iyi yönetilmedi, muğlak ve istismara açık çok konu başlığı kaldı — eski sistemle yeni sistem arasında boşluk oluştu.
 
 Oysa acente modelinin mantığı güçlü:
 
@@ -181,7 +181,7 @@ Oysa acente modelinin mantığı güçlü:
 
 ### Gerçekçi Orta Yol: Online + Acente
 
-Bence gelecek için en anlamlı akış ne Tesla'nın "bayisiz" modelinde ne de statükonun devamında. Online ön satış veya rezervasyon + yetkili acente noktası hem varolan durum hem de elektrifikasyonu getirdiği yeni dinamikler açısından gerçekçi ve sürdürülebilir formül.
+Bence gelecek için en anlamlı akış ne Tesla'nın "bayisiz" modelinde ne de statükonun devamında. **Online ön satış veya rezervasyon + yetkili acente noktası** hem varolan durum hem de elektrifikasyonu getirdiği yeni dinamikler açısından gerçekçi ve sürdürülebilir formül.
 
 Bu modelde:
 
@@ -222,13 +222,13 @@ Bu, distribütör-bayi ilişkisini sıfırdan yeniden tanımlama fırsatı.
 
 ### Yeni Model: Ortaklık
 
-Hiyerarşik modelin yerini bir ortaklık modeli almalı. Bu modelde:
+Hiyerarşik modelin yerini bir **ortaklık modeli** almalı. Bu modelde:
 
 **Distribütör** strateji, veri analizi, eğitim ve altyapı desteği sağlar. Bayiye standart dayatmak yerine, bayinin yerel koşullara uygun çözümler geliştirmesine yardımcı olur.
 
 **Bayi** müşteri deneyimi, yerel adaptasyon ve — önemlisi — çok markalı esneklik sağlar. Bayi temsil ettiği markalarla olan ilişkisini bozmadan, verimlilik artışı adımlarını yapısal açıdan atabilmeli.
 
-Acente modeli bu ortaklığın doğal aracı olabilir. Stok riski ve fiyatlandırma markaya geçer, bayi operasyonel yükten kurtulur, her iki taraf da kendi gücüne odaklanır.
+**Acente modeli** bu ortaklığın doğal aracı olabilir. Stok riski ve fiyatlandırma markaya geçer, bayi operasyonel yükten kurtulur, her iki taraf da kendi gücüne odaklanır.
 
 Bu bağlamda ana marka yönetimlerinin de eski usullerden vazgeçmeleri ve daha rasyonel davranmaları kendi avantajlarına olur. Bir bayiyi sadece tek markaya tabi tutmaya ya da odaklanmaya zorlamak, onun sürekliliğine darbe vurmak demektir. Buna ısrarla devam edenler, nitelikli bayileri ellerinden kaçırmaya başlayacaklar.
 
@@ -238,7 +238,7 @@ Yaşanmış deneyimlerden yola çıkarak yazıyorum: Perakende, çok hassas yön
 
 Bu yazıda distribütör ve bayi perspektifine odaklandık ama tüm bu dinamiklerin asıl belirleyicisi müşteridir.
 
-İkinci yazıdaki veriyi hatırlayalım: EA kullanan müşterilerin %92-96'sı bir daha içten yanmalıya dönmüyor. Ama bu yola girenler hâlâ azınlık sayılabilecek oranda. Distribütörün ve bayinin müşteriye karşı en büyük görevi, elektrikli aracı gerçek anlamda denettirmek. Kafa karışıklığını gidermek bayinin işi — ama bunun için bayinin önce kendisinin ikna olmuş olması lazım. Bu da eğitim ve deneyim meselesi.
+İkinci yazıdaki veriyi hatırlayalım: EA kullanan müşterilerin %92-96'sı bir daha içten yanmalıya dönmüyor. Ama bu yola girenler hâlâ azınlık sayılabilecek oranda. Distribütörün ve bayinin müşteriye karşı en büyük görevi, elektrikli aracı gerçek anlamda **denettirmek**. Kafa karışıklığını gidermek bayinin işi — ama bunun için bayinin önce kendisinin ikna olmuş olması lazım. Bu da eğitim ve deneyim meselesi.
 
 Bir bayi satış danışmanı, eğer kendisi bir EA kullanmışsa, müşteriye bambaşka bir güvenle konuşur. Kullanmamışsa, global merkez materyallerindeki satış argümanlarını tekrarlar — ve müşteri de bunu hemen hisseder.
 
@@ -248,13 +248,13 @@ Müşterinin EA geçişindeki rolünü — tereddütlerini, karar sürecini, bil
 
 Bu yazıda şunu göstermeye çalıştım: otomotiv sektörünün yerel aktörleri — distribütörler ve bayiler — bu dönüşümü yönetmek için hem yeterli zamana hem de yeterli araçlara sahip.
 
-Zamana sahipler çünkü geçiş kademeli. ICE araç parkı devasa, servisler dolu, mevcut iş modelleri hâlâ kârlı. SSH gelir kaybı önümüzdeki 10-15 yıllık bir süreçte gerçekleşmeyecek.
+**Zamana sahipler** çünkü geçiş kademeli. ICE araç parkı devasa, servisler dolu, mevcut iş modelleri hâlâ kârlı. SSH gelir kaybı önümüzdeki 10-15 yıllık bir süreçte gerçekleşmeyecek.
 
-Araca sahipler çünkü acente modeli, çok markalı yapılar, merkezi altyapı çözümleri ve online-fiziksel hibrit satış modelleri uygulanabilir seçenekler. İlk denemelerdeki pürüzler modelin yanlışlığını değil, uygulamanın erken olduğunu ve deneyselliğinin getirdiği pratik hataların işareti.
+**Araca sahipler** çünkü acente modeli, çok markalı yapılar, merkezi altyapı çözümleri ve online-fiziksel hibrit satış modelleri uygulanabilir seçenekler. İlk denemelerdeki pürüzler modelin yanlışlığını değil, uygulamanın erken olduğunu ve deneyselliğinin getirdiği pratik hataların işareti.
 
 Ama bu fırsat penceresi sonsuza kadar açık kalmayacak. S-eğrisinin matematiği net: kritik eşik aşıldığında geçiş hızlanır ve hazırlıksız yakalananlar için manevra alanı daralır. İkinci yazıdaki IEA verilerini hatırlayalım: Çin'de EV payı 2020'de %5.7'den 2024'te %48'e çıktı — dört yılda neredeyse on kat. Avrupa'da 2030'a kadar %58 bekleniyor. Türkiye, EV adaptasyonunda Avrupa'da dördüncü sırada ve bu hız artıyor.
 
-Yapılması gereken şey basit ama kolay değil: Statükoyu koruma refleksinden vazgeçmek. "Dönüşüyormuş gibi yapma" stratejisinin sonu geldi. Distribütörler ana markalarının yönlendirmesine ters düşmeden kendi yerel stratejilerini oluşturmalı, bayilerle hiyerarşik değil ortaklık ilişkisi kurmalı. Bayiler çok markalı yapılarla risklerini dağıtmalı, merkezi ekipler, sistemler ve altyapıyla verimliliklerini artırmalı. Ve her iki taraf birlikte, müşterinin EV geçişini kolaylaştıran bir ekosistem inşa etmeli.
+**Yapılması gereken şey basit ama kolay değil:** Statükoyu koruma refleksinden vazgeçmek. "Dönüşüyormuş gibi yapma" stratejisinin sonu geldi. Distribütörler ana markalarının yönlendirmesine ters düşmeden kendi yerel stratejilerini oluşturmalı, bayilerle hiyerarşik değil ortaklık ilişkisi kurmalı. Bayiler çok markalı yapılarla risklerini dağıtmalı, merkezi ekipler, sistemler ve altyapıyla verimliliklerini artırmalı. Ve her iki taraf birlikte, müşterinin EV geçişini kolaylaştıran bir ekosistem inşa etmeli.
 
 Türkiye bu dönüşümü başarıyla yönetmek için tüm bileşenlere sahip: Büyük pazar, güçlü üretim altyapısı, deneyimli bayi ağı, yeniliğe açık tüketici. Eksik olan tek şey kararlı bir geçiş iradesi. Ve irade, farkındalıkla başlar.
 
