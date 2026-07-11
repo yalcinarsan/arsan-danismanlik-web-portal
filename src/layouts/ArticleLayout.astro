@@ -36,9 +36,32 @@ const prev = currentIndex > 0 ? seriMakaleleri[currentIndex - 1] : null;
 const next = currentIndex >= 0 && currentIndex < seriMakaleleri.length - 1 ? seriMakaleleri[currentIndex + 1] : null;
 
 const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'long' }).format(tarih);
+
+const site = Astro.site ?? new URL('https://arsandanismanlik.com.tr');
+const pageUrl = new URL(Astro.url.pathname, site).href;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: ozet,
+  inLanguage: 'tr',
+  datePublished: tarih.toISOString(),
+  dateModified: tarih.toISOString(),
+  author: { '@type': 'Person', '@id': `${site.origin}/#person`, name: 'Yalçın Arsan' },
+  publisher: { '@id': `${site.origin}/#organization` },
+  mainEntityOfPage: pageUrl,
+  articleSection: seriEtiketleri[seri] ?? seri,
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  isAccessibleForFree: true,
+};
 ---
-<BaseLayout title={title} description={ozet}>
-  {url && <link rel="canonical" href={url} slot="head" />}
+<BaseLayout title={title} description={ozet} ogType="article">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleLd)} />
+  <meta property="article:published_time" content={tarih.toISOString()} slot="head" />
+  <meta property="article:author" content="Yalçın Arsan" slot="head" />
+  {url && <meta property="article:opensource_url" content={url} slot="head" />}
+
   <div class="mx-auto max-w-4xl px-4 py-12 flex gap-12 justify-center">
     <article class="max-w-2xl min-w-0 flex-1">
       <p class="text-sm text-accent font-medium mb-2">
@@ -46,7 +69,7 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
       </p>
       <h1 class="text-3xl font-semibold text-ink mb-2">{title}</h1>
       <p class="text-sm text-warm-500 mb-10">{tarihStr}</p>
-      <div class="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent prose-figcaption:text-center prose-figcaption:text-warm-500">
+      <div class="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent prose-figcaption:text-center prose-figcaption:text-warm-500 prose-img:cursor-zoom-in">
         <slot />
       </div>
       <footer class="mt-16 pt-8 border-t border-warm-border">
@@ -73,8 +96,62 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
             <a href={`/makaleler/${next.slug}`} class="text-accent hover:underline">{next.data.seriBaslik ?? next.data.title} →</a>
           ) : <span />}
         </nav>
+        <p class="mt-8 text-xs leading-relaxed text-warm-400">
+          Bu yazı Yalçın Arsan tarafından yazılmıştır. Kaynak göstererek —
+          <span class="text-warm-500">Yalçın Arsan · Arsan Danışmanlık</span>, bu sayfaya bağlantı —
+          özgürce alıntılayabilir, paylaşabilir ve üzerine kurabilirsiniz.
+          <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" class="underline hover:text-accent">CC BY 4.0</a>
+        </p>
       </footer>
     </article>
     <TableOfContents headings={headings} />
   </div>
+
+  <div id="lightbox" aria-hidden="true">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <style>
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(20, 16, 12, 0.9);
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 95vw;
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <script>
+    const box = document.getElementById('lightbox');
+    const boxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    if (box && boxImg) {
+      document.querySelectorAll<HTMLImageElement>('.prose img').forEach((img) => {
+        img.addEventListener('click', () => {
+          boxImg.src = img.currentSrc || img.src;
+          boxImg.alt = img.alt;
+          box.classList.add('open');
+          box.setAttribute('aria-hidden', 'false');
+        });
+      });
+      const close = () => {
+        box.classList.remove('open');
+        box.setAttribute('aria-hidden', 'true');
+      };
+      box.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    }
+  </script>
 </BaseLayout>

@@ -5,17 +5,76 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogType?: string;
+  image?: string;
 }
 
-const { title, description = 'Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.' } = Astro.props;
+const {
+  title,
+  description = 'Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.',
+  ogType = 'website',
+  image = '/images/logo-wordmark.png',
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://arsandanismanlik.com.tr');
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImage = new URL(image, site).href;
+const fullTitle = `${title} · Arsan Danışmanlık`;
+
+const orgGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${site.origin}/#organization`,
+      name: 'Arsan Danışmanlık',
+      url: site.origin,
+      logo: `${site.origin}/images/logo-wordmark.png`,
+      founder: { '@id': `${site.origin}/#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${site.origin}/#person`,
+      name: 'Yalçın Arsan',
+      jobTitle: 'Yönetim Danışmanı',
+      worksFor: { '@id': `${site.origin}/#organization` },
+      url: site.origin,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.origin}/#website`,
+      url: site.origin,
+      name: 'Arsan Danışmanlık',
+      inLanguage: 'tr',
+      publisher: { '@id': `${site.origin}/#organization` },
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} · Arsan Danışmanlık</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Yalçın Arsan" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Arsan Danışmanlık" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@yalcinarsan" />
+
     <link rel="icon" type="image/png" href="/images/logo-mark.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +85,7 @@ const { title, description = 'Otomotiv ve elektrifikasyon odaklı yönetim danı
     <style is:global>
       h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.01em; }
     </style>
+    <script type="application/ld+json" set:html={JSON.stringify(orgGraph)} />
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased">
