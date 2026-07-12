@@ -38,8 +38,6 @@ Konuya bir otomotivci olarak bu sektörün içinden bakıyorum: Pazarlama, satı
 
 Bu konuda (şimdilik) evet iki yazıdan oluşan bir dizi planladım: Bu ilk yazıda ne olduğu hakkındaki yorumumu, bir sonraki makalede ise yakın vadede ne tür gelişmeler olacağı hakkındaki tahminlerimi paylaşacağım.
 
-![2024 metriklerine göre Tesla, BYD, Ford, Toyota ve VW Grup karşılaştırması](/images/articles/otomotivde-neler-oluyor/01-intro-overview.png)
-
 ## 1. Tesla: Ölçek Ekonomisi Çelişkisi
 
 Tesla'yı analiz etmek, otomotiv sektörüne alışkın bir gözle bakıldığında kafa karıştırıcı bir deneyim. Bir yanda üretim rekorları ve devasa gelir büyümesi, öte yanda dramatik şekilde eriyen marjlar. Bir yanda $44 milyar nakit pozisyonu, öte yanda net kârda %70'lik düşüş. Bu paradoksu anlamak, EV geçişinin tüm sektör için ne anlama geldiğini anlamakla eşdeğer.
