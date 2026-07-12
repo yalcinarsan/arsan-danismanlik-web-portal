@@ -30,9 +30,19 @@ Aynı mantık maliyetler için de geçerlidir. Kasım'da 5 milyon TL'lik malzeme
 
 Sonuç olarak şunu yaşarız: Bir şirket güçlü kâr açıklarken nakit pozisyonu kötüleşebilir — veya tam tersi de olabilir. Bunu anlamak, kâr ile nakit arasındaki ilişkiyi doğru anlamayı gerektirir.
 
+<figure>
+<img src="/images/articles/nakit-cok-sey-anlatir/01-kar-nakit-ucurumu.jpg" alt="Beş yıl boyunca raporlanan kâr yüksek kalırken işletme nakit akışı düşer; ikisi arasında giderek açılan bir 'uçurum' oluşur" />
+<figcaption>Kâr bir muhasebe ölçüsü — nakit ise fiziksel bir gerçek.</figcaption>
+</figure>
+
 ## Nakit Akış Tablosunun Üç Bölümü
 
 Nakit akış tablosu, raporlanan kâr ile fiili nakit hareketini birbirine bağlar. Bunu tüm nakit akışlarını üç bölüm halinde organize ederek yapar — her biri nakdin nereden geldiği ve nereye gittiği hakkında şirkete dair farklı bir hikayeyi ifade eder.
+
+<figure>
+<img src="/images/articles/nakit-cok-sey-anlatir/02-uc-bolum.jpg" alt="Nakit akış tablosunun üç bölümü: İşletme (motor — kâr + amortisman, çalışma sermayesi değişimleri; pozitif olmalı), Yatırım (geleceği kurmak — Capex, satın almalar, varlık satışları), Finansman (toplama ve iade — borç, hisse, temettü)" />
+<figcaption>Serbest nakit akışı = İşletme − Yatırım — gerçekten önemli olan rakam.</figcaption>
+</figure>
 
 ### İşletme Sermayesi Olarak Nakit Akışı: Şirketin Motoru
 
@@ -133,6 +143,11 @@ Aynı soru dönüşüm döneminde yoğun yatırım yapan herhangi bir geleneksel
 Bu nedenle otomotiv sektöründe "elektrikli araçlardan para kazanılmıyor!" haykırışlarına aldanmayın. Durumu şirket bazında inceleyin: Bu stratejik yatırım mı — Carillion örüntüsü mü, Tesla örüntüsü mü?
 
 Nakit akış tablosu tek başına bu yanıtı vermez. Sadece ne kadar nakit tüketildiğini söyleyebilir. O tüketimin değer yaratıp yaratmadığı sorusu, rakamların tek başına anlatmadığı bir stratejik değerlendirmedir.
+
+<figure>
+<img src="/images/articles/nakit-cok-sey-anlatir/03-tesla-carillion.jpg" alt="Aynı sinyal, farklı gerçeklik: Tesla 2015-2020 negatif serbest nakit akışıyla gigafabrika ve EV kapasitesi kurar (işletme nakit akışı iyileşiyor); Carillion 2014-2017 negatif serbest nakit akışını ödeyemediği temettülere harcar (işletme nakit akışı düşüyor)" />
+<figcaption>Nakit akış tablosu ne kadar tüketildiğini söyler — değer yaratıp yaratmadığını değil.</figcaption>
+</figure>
 
 İşte dönüşüm perspektifinin klasik analize en ciddi katma değeri olan yer burası: Olgunlaşmış bir işletmedeki finansal stresi doğru biçimde tanıyan araçlar, daha iyi bir gelecek inşa etmek için rasyonel olarak nakit tüketen bir işletmeyi yanlış değerlendirebilir.
 
