@@ -23,9 +23,12 @@ const seriler = [
     {seriler.map((seri) => {
       const items = allArticles.filter((a) => a.data.seri === seri.key);
       if (items.length === 0) return null;
+      const [seriAna, seriAlt] = seri.label.split(/:\s(.+)/);
       return (
         <div class="mb-12">
-          <h2 class="text-lg font-semibold text-ink mb-4">{seri.label}</h2>
+          <h2 class="text-lg font-semibold text-ink mb-4">
+            {seriAna}{seriAlt && <>: <span class="text-accent">{seriAlt}</span></>}
+          </h2>
           <div class="grid gap-4 sm:grid-cols-2">
             {items.map((a) => (
               <ArticleCard
