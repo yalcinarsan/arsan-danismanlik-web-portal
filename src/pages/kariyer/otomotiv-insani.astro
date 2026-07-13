@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Content, frontmatter } from '../../icerik/otomotiv-insani.md';
+
+const { etiket, baslik, slogan, cta_aday, cta_kurum, kurum_eposta, imza } = frontmatter;
+const mailto = `mailto:${kurum_eposta}?subject=${encodeURIComponent('Otomotiv İnsanı — Kurumsal')}`;
+---
+<BaseLayout title="Otomotiv İnsanı" description={slogan} ogType="website">
+  <div class="w-full bg-[#453629] text-[#ddd0ba]">
+    <div class="mx-auto max-w-2xl px-4 py-20 sm:py-24">
+
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-accent mb-5">{etiket}</p>
+      <h1 class="font-serif text-4xl sm:text-5xl leading-[1.1] text-paper mb-6">{baslik}</h1>
+      <p class="text-lg leading-relaxed text-[#cdbfa7] mb-4">{slogan}</p>
+
+      <div class="prose prose-invert max-w-none mt-12
+        prose-headings:font-serif prose-headings:text-paper prose-headings:font-medium
+        prose-h2:text-2xl prose-h2:mt-16 prose-h2:mb-5
+        prose-p:text-[17px] prose-p:leading-[1.75] prose-p:text-[#ddd0ba]
+        prose-strong:text-paper prose-strong:font-medium
+        prose-a:text-accent
+        prose-li:text-[17px] prose-li:leading-[1.7] prose-li:text-[#ddd0ba]
+        marker:text-accent">
+        <Content />
+      </div>
+
+      <div class="mt-16 pt-10 border-t border-[#6a5540]">
+        <div class="flex flex-wrap gap-4">
+          <span class="inline-flex items-center rounded-md bg-accent px-6 py-3 text-paper font-medium">
+            {cta_aday}
+          </span>
+          <a href={mailto}
+             class="inline-flex items-center rounded-md border border-[#7c6448] px-6 py-3 text-paper font-medium hover:border-accent transition-colors">
+            {cta_kurum}
+          </a>
+        </div>
+        <p class="mt-10 text-sm text-[#a89d8b]">{imza}</p>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

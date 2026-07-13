@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import KayitFormu from '../../components/KayitFormu.tsx';
+---
+<BaseLayout
+  title="Otomotiv İnsanı — Kayıt"
+  description="Otomotive özgü yetenek havuzuna katıl."
+>
+  <section class="mx-auto max-w-2xl px-4 py-16">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Otomotiv İnsanı</p>
+    <h1 class="text-3xl font-semibold text-ink mb-3">Havuza katıl</h1>
+    <p class="text-warm-600 mb-10">
+      Profilin, otomotivin kendi eksenleriyle tanımlanır ve yalnızca senin belirlediğin görünürlük
+      seviyesinde paylaşılır. Kaydolmak birkaç dakika sürer.
+    </p>
+    <KayitFormu client:load />
+  </section>
+</BaseLayout>

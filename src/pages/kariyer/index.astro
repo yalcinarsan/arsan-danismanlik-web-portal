@@ -3,15 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout
   title="Kariyer"
-  description="Otomotiv İnsanı — otomotive özgü, yakında hayata geçen İK projemiz."
+  description="Otomotiv İnsanı — otomotive özgü İK projemiz."
 >
   <section class="mx-auto max-w-2xl px-4 py-16">
     <span class="inline-block text-xs font-semibold tracking-wide uppercase text-accent bg-sand rounded-full px-3 py-1 mb-4">
-      Çok Yakında
+      Otomotiv İnsanı
     </span>
     <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-3">Otomotiv İnsanı</h1>
     <p class="text-lg text-warm-500 mb-12">
-      Uzun zamandır hayalini kurduğumuz, otomotive özgü İK projemiz çok yakında hayata geçiyor.
+      Uzun zamandır hayalini kurduğumuz, otomotive özgü İK projemiz hayata geçiyor.
     </p>
 
     <div class="space-y-5 text-lg leading-relaxed text-warm-700">
@@ -36,11 +36,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </p>
     </div>
 
-    <div class="mt-12 border border-warm-border rounded-lg p-6 bg-sand">
-      <p class="text-ink font-medium mb-1">Otomotiv İnsanı çok yakında burada.</p>
-      <p class="text-sm text-warm-600">
-        Sektörün geleceğini birlikte kuracağımız bu projeyi kaçırmamak için bu sayfayı takipte kalın.
-      </p>
-    </div>
+    <a href="/kariyer/otomotiv-insani" class="mt-12 flex items-center justify-between gap-4 border border-warm-border rounded-lg p-6 bg-sand hover:border-accent transition-colors group">
+      <div>
+        <p class="text-ink font-medium mb-1">Otomotiv İnsanı'nı keşfet</p>
+        <p class="text-sm text-warm-600">
+          Sektörün geleceğini birlikte kuracağımız bu proje hakkında daha fazla bilgi al.
+        </p>
+      </div>
+      <span class="shrink-0 text-accent font-medium group-hover:translate-x-1 transition-transform">→</span>
+    </a>
   </section>
 </BaseLayout>

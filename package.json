@@ -14,6 +14,7 @@
     "@astrojs/react": "^3.6.2",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
+    "@supabase/supabase-js": "^2.110.2",
     "astro": "^4.16.0",
     "plotly.js-basic-dist-min": "^2.35.2",
     "react": "^18.3.1",
