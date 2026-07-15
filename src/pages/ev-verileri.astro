@@ -8,60 +8,29 @@ import {
   turkiyeConfig,
 } from '../components/charts/chartConfigs';
 import evData from '../data/ev-data.json';
+import { frontmatter as t } from '../icerik/ev-verileri.md';
 
 const { meta } = evData;
 const fetchedAt = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(meta.fetchedAt));
 
 const charts = [
-  {
-    config: worldPowertrainConfig,
-    note:
-      'Otomobil ve hafif ticari araç toplamı. BEV tam elektrikli, PHEV şarj edilebilir hibrit, FCEV yakıt hücreli araçları ifade eder. ' +
-      'FCEV hacimleri diğer ikisinin yanında ihmal edilebilir düzeyde kaldığı için grafikte neredeyse yatay görünür.',
-  },
-  {
-    config: regionSalesConfig,
-    note:
-      'Otomobil ve hafif ticari araç toplamı. Türkiye bu grafikte yer almıyor: ölçek farkı (dünya milyonlarla, Türkiye on binlerle ölçülüyor) ' +
-      'çizgiyi okunamaz hale getiriyor ve IEA Türkiye için projeksiyon yayınlamıyor. Türkiye aşağıdaki kendi grafiğinde.',
-  },
-  {
-    config: regionShareConfig,
-    note:
-      'Yalnızca otomobil. IEA toplam pazar büyüklüğünü (paydayı) yayınlamadığı için otomobil ve hafif ticari araç payları toplanamaz. ' +
-      'Türkiye çizgisi 2025’te biter — IEA Türkiye için projeksiyon yayınlamıyor.',
-  },
-  {
-    config: turkiyeConfig,
-    note:
-      'Yalnızca otomobil, yalnızca gerçekleşen veri. Sol eksen adet, sağ eksen pazar payı. Araç parkı, yollardaki toplam elektrikli otomobil sayısıdır; ' +
-      'yıllık satıştan farklı olarak birikimlidir.',
-  },
+  { config: worldPowertrainConfig, note: t.not_1_dunya_guc_aktarma_grafigi },
+  { config: regionSalesConfig, note: t.not_2_dunya_avrupa_satis_grafigi },
+  { config: regionShareConfig, note: t.not_3_pazar_payi_grafigi },
+  { config: turkiyeConfig, note: t.not_4_turkiye_detay_grafigi },
 ];
 ---
-<BaseLayout
-  title="EV Verileri"
-  description="IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü."
->
+<BaseLayout title={t.baslik_tag} description={t.aciklama}>
   <section class="mx-auto max-w-4xl px-4 pt-16 pb-8">
-    <h1 class="text-3xl font-semibold text-ink mb-4">Elektrikli Araç Verileri</h1>
-    <p class="text-warm-600 leading-relaxed mb-4">
-      Dünya, Avrupa ve Türkiye elektrikli araç pazarının IEA verisine dayanan görünümü. Grafikler etkileşimlidir —
-      üzerine gelerek yıl bazında değerleri okuyabilirsiniz.
-    </p>
+    <h1 class="text-3xl font-semibold text-ink mb-4">{t.h1}</h1>
+    <p class="text-warm-600 leading-relaxed mb-4">{t.giris}</p>
     <p class="text-sm text-warm-500">Veri çekilme tarihi: {fetchedAt}</p>
   </section>
 
   <div class="bg-sand">
     <section class="mx-auto max-w-4xl px-4 py-8">
-      <h2 class="text-base font-semibold text-ink mb-2">Kesikli çizgiler ne anlama geliyor?</h2>
-      <p class="text-sm text-warm-600 leading-relaxed">
-        IEA, 2025 sonrası için ara yıl yayınlamıyor; yalnızca <strong>2035</strong> yılına ait tek bir projeksiyon
-        değeri veriyor. Grafiklerdeki kesikli çizgi, 2025’teki gerçekleşen değeri bu 2035 değerine bağlayan bir
-        <em>bağlantı çizgisidir</em> — IEA’nın modellediği bir yörünge değil, iki yayımlanmış nokta arasındaki doğrudur.
-        Projeksiyonlar IEA’nın <strong>STEPS</strong> (Stated Policies Scenario) senaryosuna aittir: yürürlükteki ve
-        açıklanmış politikaları esas alan, ne iyimser ne kötümser orta yollu bir çerçeve.
-      </p>
+      <h2 class="text-base font-semibold text-ink mb-2">{t.kesikli_baslik}</h2>
+      <p class="text-sm text-warm-600 leading-relaxed">{t.kesikli_metin}</p>
     </section>
   </div>
 
@@ -77,7 +46,7 @@ const charts = [
 
   <div class="bg-sand">
     <section class="mx-auto max-w-4xl px-4 py-12">
-      <h2 class="text-base font-semibold text-ink mb-3">Kaynak ve lisans</h2>
+      <h2 class="text-base font-semibold text-ink mb-3">{t.kaynak_baslik}</h2>
       <p class="text-sm text-warm-600 leading-relaxed mb-3">
         {meta.source} —
         <a href={meta.sourceUrl} class="text-accent hover:underline" rel="noopener" target="_blank">
@@ -88,10 +57,7 @@ const charts = [
         </a>. Veri, {meta.modifiedBy} tarafından bu grafikler için seçilmiş ve işlenmiştir.
       </p>
       <p class="text-sm text-warm-600 leading-relaxed mb-3">{meta.excluded}</p>
-      <p class="text-sm text-warm-500 leading-relaxed">
-        Tam veri setine, burada gösterilmeyen bölge ve metriklere IEA’nın kendi aracından ulaşabilirsiniz. Bu sayfa
-        özet bir görünüm sunar; kaynağın yerini almayı amaçlamaz.
-      </p>
+      <p class="text-sm text-warm-500 leading-relaxed">{t.kaynak_ek_metin}</p>
     </section>
   </div>
 </BaseLayout>

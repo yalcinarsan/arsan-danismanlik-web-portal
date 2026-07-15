@@ -5,8 +5,8 @@ etiket: "Otomotiv İnsanı"
 baslik: "Bu dönüşümü taşıyacak olanlara dair."
 slogan: "Otomotive özgü bir yetenek platformu kuruyoruz — genel iş ilanı sitelerinin diliyle anlatılamayacak bir sektöre, kendi diliyle."
 cta_aday: "Aday havuzu · çok yakında"
-cta_kurum: "Kurumsanız: konuşalım"
-kurum_eposta: "info@arsandanismanlik.com.tr"
+cta_kurum: "Kurumlar için: Bize ulaşın"
+kurum_eposta: "yalcinarsan@arsandanismanlik.com.tr"
 imza: "Yalçın Arsan · Arsan Danışmanlık"
 ---
 
@@ -22,24 +22,24 @@ Bu dönüşümün en az konuşulan boyutu ise insan boyutu. Yeni dönemin gerekt
 
 ## Birey için: kendine yaptığın yatırımın en değerli olduğu dönem
 
-Kariyerini otomotivde kurmuş bir profesyonel için önümüzdeki on yıl, sıradan bir dönem olmayacak. Deneyiminin bir kısmı değer kaybederken, doğru yönde geliştirdiğin her yetkinlik katlanarak değer kazanacak. Bu dönemde biretin kendine yaptığı yatırım — elektrifikasyonu anlamak, yeni müşteriyi tanımak, dönüşüm süreçlerinde rol almak — kariyerinin kalan bölümünün yönünü belirleyecek.
+Kariyerini otomotivde kurmuş bir profesyonel için önümüzdeki on yıl, sıradan bir dönem olmayacak. Deneyiminin bir kısmı değer kaybederken, doğru yönde geliştirdiğin her yetkinlik katlanarak değer kazanacak. Bu dönemde bireyin kendine yaptığı yatırım — elektrifikasyonu anlamak, yeni müşteriyi tanımak, dönüşüm süreçlerinde rol almak — kariyerinin kalan bölümünün yönünü belirleyecek.
 
 Otomotiv İnsanı, bu noktada duruyor. Burası bir iş ilanı platformu değil; **otomotive adanmış bir yetenek platformu.** Burada:
 
-- **Profilin, otomotivin gerçek eksenleriyle tanımlanır:** kanal (OEM / distribütör / bayi / yan sanayi), fonksiyon, kıdem, marka deneyimi — ve en önemlisi, elektrifikasyon ile ilgili pozisyonun. Sekötre özgü olması sayesinde LinkedIn'in göremediği detayları burada görünür kılarsın.
-- **Görünürlüğünü sen kontrol edersin:** İstersen profilin açık olur; istersen kimliğin tamamen gizli kalır, sadece yetkinliklerin konuşur. Mevcut işverenin haberdar olmadan, sana uygun fırsatların seni bulmasına izin verebilirsin. Sadakati yüksek, herkesin birbirini tanıdığı bir sektörde bunun ne anlama geldiğini biliyoruz — bu platformun temel ilkesi bu: Kişisel bilgilerin senindir ve ne kadarının görünmesini istediğine sen karar verirsin.
+- **Profilin, otomotivin gerçek nitelikleriyle tanımlanır:** kanal (OEM / distribütör / bayi / yan sanayi), fonksiyon, kıdem, marka deneyimi — ve en önemlisi, elektrifikasyon ile ilgili pozisyonun. Sektöre özgü olması sayesinde LinkedIn'in göremediği detayları burada görünür kılarsın.
+- **Görünürlüğünü sen kontrol edersin:** İstersen profilin açık olur; istersen kimliğin tamamen gizli kalır ve sadece yetkinliklerin konuşur. Profilini anonim olarak yaratır, uygun fırsatların seni bulmasına izin verirsin. Hemen herkesin birbirini tanıdığı bir sektörde bunun ne anlama geldiğini biliyoruz — bu platformun temel ilkesi bu: Kişisel bilgilerin senindir ve ne kadarının görünmesini istediğine sen karar verirsin.
 - **Gelişimine yatırım yaparsın:** Otomotiv İnsanı zaman içinde yalnızca buluşturan değil, geliştiren bir platform olacak — elektrifikasyon ve dönüşüm odaklı eğitimler, atölyeler ve sektöre özgü içeriklerle. Kendine yatırım yapmak isteyen otomotivciye, bunun sektörel adresini sunmayı hedefliyoruz.
 
 ## Kurum için: değişimi doğru okuyan insanı bulmak
 
 Madalyonun diğer yüzünde kurumlar var. Elektrifikasyon dönüşümünde danışmanlık verdiğimiz her projede aynı gerçeği görüyoruz: strateji yazılır, süreç tasarlanır — ama dönüşümü taşıyacak insan yoksa işlevler doğru yürümez. Ve bu insanı bulmak sanıldığından zordur; çünkü aranan şey bir unvan değil bir **bakış açısıdır:** değişimi tehdit olarak değil, doğru okunması gereken bir gerçeklik olarak gören profesyoneller.
 
-Otomotiv İnsanı, kurumlara işte bu havuzu sunma amacıyla yapılanıyor: otomotivin kendine özgü dinamikleriyle sınıflanmış, elektrifikasyon hazırlığı görünür kılınmış, nitelikli bir profesyonel havuzu. Üstelik kurum tarafı için de gizlilik esas: aramalarımız sessiz ama kararlı şşekilde yürür. Eşleştirme bir algoritmaya bırakılmaz; sektörü ve her iki tarafı da tanıyan bir aracı tarafından, kişisel boyutta ve özenle yapılır.
+Otomotiv İnsanı, kurumlara işte bu havuzu sunma amacıyla yapılanıyor: otomotivin kendine özgü dinamikleriyle sınıflanmış, elektrifikasyon hazırlığı görünür kılınmış, nitelikli bir profesyonel havuzu. Üstelik kurum tarafı için de gizlilik esas: aramalarımız sessiz ama kararlı şekilde yürür. Eşleştirme bir algoritmaya bırakılmaz; sektörü ve her iki tarafı da tanıyan bir insan tarafından, kişisel boyutta ve özenle yapılır.
 
 ## Nasıl ilerleyecek?
 
-Otomotiv İnsanı'nı kademeli kuruyoruz. İlk adım, sektörün profesyonellerini bir araya getirmek, yani aday havuzunu oluşturmak. Sektörün bu fikre ne kadar ihtiyaç duyduğunu birlikte görmek. Bireysel olarak kayıt olmak sadece birkaç dakika sürüyor; eposta ile kayıt olup hesabını doğruluyorsun, verilerin KVKK çerçevesinde, açık rızanla ve **senin belirlediğin görünürlük seviyesinde** saklanıyor.
+Otomotiv İnsanı'nı kademeli kuruyoruz; İlk aday havuzunu bu yaz açıyoruz. İlk adım, sektörün profesyonellerini bir araya getirmek, yani aday havuzunu oluşturmak. Sektörün bu fikre ne kadar ihtiyaç duyduğunu birlikte görmek. Bireysel olarak kayıt olmak sadece birkaç dakika sürüyor; eposta ile kayıt olup hesabını doğruluyorsun, verilerin KVKK çerçevesinde, açık rızanla ve **senin belirlediğin görünürlük seviyesinde** saklanıyor.
 
 Devamında işveren tarafı (kurumsal kayıt), eğitim işlevleri ve iki tarafı buluşturan platform geliyor — ama sırayla. Önce insan; çünkü bu işin adı da, özü de o: **Otomotiv İnsanı.**
 
-Eğer bu sektörün insanıysan — değişimi merak ediyorsan, kendine yatırım yapmak istiyorsan, ya da sadece "beni doğru anlayan bir yerde profilim dursun" diyorsan — seni aramızda görmek istiyoruz. Ya da ekibini geleceğe hazırlayan bir kurumsal yapıysan: arayın, konuşalım.
+Eğer bu sektörün insanıysan — değişimi merak ediyorsan, kendine yatırım yapmak istiyorsan, ya da sadece "beni doğru anlayan bir yerde profilim dursun" diyorsan — seni aramızda görmek istiyoruz. Ya da ekibini geleceğe hazırlayan bir kurumsal yapıysanız: arayın, ihtiyacınızı konuşalım.

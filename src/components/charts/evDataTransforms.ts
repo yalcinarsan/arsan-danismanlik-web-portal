@@ -79,7 +79,13 @@ function baseLayout(config: ChartConfig): any {
     legend: { orientation: 'h', y: -0.2, x: 0 },
     margin: { t: 12, r: 16, l: 68, b: 60 },
     autosize: true,
-    xaxis: { title: { text: 'Yıl' }, gridcolor: GRID, zeroline: false },
+    xaxis: {
+      title: { text: 'Yıl' },
+      gridcolor: GRID,
+      zeroline: false,
+      type: 'category',
+      categoryorder: 'category ascending',
+    },
     yaxis: {
       title: { text: config.yAxisTitle },
       gridcolor: GRID,
@@ -124,7 +130,7 @@ function tracesWithProjection(rows: EvRow[], s: SeriesDef): any[] {
       line: { color: s.color, width: 2, dash: 'dot' },
       marker: { color: s.color, size: 6 },
       showlegend: false,
-      hovertemplate: `%{y}<extra>${s.label} — STEPS 2035</extra>`,
+      hovertemplate: `%{y}<extra>${s.label} — 2035</extra>`,
     });
   }
 
@@ -142,7 +148,9 @@ function buildProjectionLines(rows: EvRow[], config: ChartConfig) {
 function buildTurkiyeDetail(rows: EvRow[], config: ChartConfig) {
   const data: any[] = config.series.map((s) => {
     const { years, values } = sortedPoints(sumByYear(rows, s, 'Historical'));
-    const suffix = s.onRightAxis ? '%' : ' adet';
+    // onRightAxis (pazar payı) serisinde suffix eklemiyoruz — yaxis2.ticksuffix zaten '%' basıyor,
+    // ikisi birleşince "45%%" gibi çift işaret oluşuyordu.
+    const suffix = s.onRightAxis ? '' : ' adet';
     return {
       x: years,
       y: values,

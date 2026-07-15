@@ -9,10 +9,10 @@ const STONE = '#857a69';
 
 const LIGHT_DUTY = ['Cars', 'Vans'];
 
-/** 1 — Dünya, güç aktarma organına göre satış. Otomobil + hafif ticari toplamı. */
+/** 1 — Dünya, güç ünitesine göre satış. Otomobil + hafif ticari toplamı. */
 export const worldPowertrainConfig: ChartConfig = {
   kind: 'powertrain-sales',
-  title: 'Dünya elektrikli araç satışları — güç aktarma tipine göre',
+  title: 'Dünya elektrikli araç satışları — güç ünitesine göre',
   yAxisTitle: 'Adet',
   series: [
     { region: 'World', parameter: 'EV sales', powertrain: 'BEV', modes: LIGHT_DUTY, label: 'BEV (tam elektrikli)', color: CLAY },
