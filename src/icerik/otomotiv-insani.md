@@ -10,7 +10,7 @@ kurum_eposta: "yalcinarsan@arsandanismanlik.com.tr"
 imza: "Yalçın Arsan · Arsan Danışmanlık"
 ---
 
-Otomotiv, içindeki insanlara en çok benzeyen sektörlerden biri. Bu sektörde çalışanlar, markaların ve iş yapma biçimlerinin oluşturduğu bir kültürün içinde yetişir: kişilerin rolleri, hangi işin nasıl yapılacağı, o iş için "**doğru profil**"in ne olduğu yazılı olmayan ama hepimizin bildiği bir kural kitabında durur. Bu sektörün belki de en ayırt edici özelliği şudur: **otomotivci, otomotivci kalır.** Sektör sadakati yüksektir; otomotiv insanları marka ve kurumlar arasında dolaşır ama sektörün dışına nadiren çıkar.
+Otomotiv, içindeki insanlara en çok benzeyen sektörlerden biri. Bu sektörde çalışanlar, markaların ve iş yapma biçimlerinin oluşturduğu bir kültürün içinde yetişir: kişilerin rolleri, hangi işin nasıl yapılacağı, o iş için "**doğru profil**"in ne olduğu yazılı olmayan ama hepimizin bildiği bir kural kitabında durur. Bu sektörün belki de en ayırt edici özelliği: **otomotivci, otomotivci kalır.** Sektör sadakati yüksektir; otomotiv insanları marka ve kurumlar arasında dolaşır ama sektörün dışına nadiren çıkar.
 
 Bu iki gerçeği yan yana koyduğumuzda ortaya güçlü bir sonuç çıkar: **otomotivin insan kaynağı, genel İK platformlarının diliyle anlatılamayacak kadar kendine özgüdür.** Bir özgeçmişte "satış yöneticisi" yazar; ama otomotivci bilir ki bir üreticide satış yönetmek, distribütörde satış yönetmek ve bayide satış yönetmek üç ayrı meslektir. Genel platformlar bu ayrımı göremez. Biz görürüz.
 
