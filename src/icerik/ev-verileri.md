@@ -14,8 +14,9 @@
 #
 # Grafik notları (not_1_..., not_2_...) sırayla sayfadaki grafiklerle eşleşir;
 # alan adının içindeki kelimeler o grafiğin konusunu söylüyor (dünya güç aktarma,
-# dünya+avrupa satış, pazar payı, türkiye detay) — bu görüntüleyicide yorum
-# satırları görünmediği için, eşleşme alan adının kendisinden anlaşılsın diye.
+# dünya+avrupa satış, pazar payı, türkiye satış+pazar payı, türkiye araç parkı) —
+# bu görüntüleyicide yorum satırları görünmediği için, eşleşme alan adının
+# kendisinden anlaşılsın diye.
 #
 # Grafiklerin kendisi (renkler, veri, seriler) src/components/charts/chartConfigs.ts
 # dosyasında — bu dosya sadece YAZI içerir, koda hiç dokunmaz.
@@ -33,7 +34,10 @@ kesikli_metin: >-
   IEA, 2025 sonrası için ara yıl yayınlamıyor; yalnızca 2035 yılına ait tek bir
   projeksiyon değeri veriyor. Grafiklerdeki kesikli çizgi, 2025'teki gerçekleşen
   değeri 2035 değerine bağlayan bir bağlantı çizgisi. Projeksiyonlar
-  IEA'nın STEPS (Stated Policies Scenario) senaryosuna aittir: yani yürürlükteki ve açıklanmış politikaları esas alan, ne iyimser ne kötümser orta yollu bir çerçevedir.
+  IEA'nın STEPS (Stated Policies Scenario) senaryosuna aittir: yani yürürlükteki ve
+  açıklanmış politikaları esas alan, ne iyimser ne kötümser orta yollu bir çerçevedir.
+  Tek istisna Türkiye'deki araç parkı çizgisi — IEA Türkiye için projeksiyon
+  yayınlamadığından, bu tek nokta EPDK'nın Orta senaryosundan alınmıştır.
 
 # Aşağıdaki 4 not, grafiklerin ALTINDAKİ açıklama metinleri (figcaption). Her alan
 # adı, hangi grafiğe ait olduğunu kendi başlığından anlaşılır tutuyor:
@@ -51,10 +55,18 @@ not_3_pazar_payi_grafigi: >-
   ticari araç payları toplanamaz. Türkiye çizgisi 2025'te biter — IEA Türkiye
   için projeksiyon yayınlamıyor.
 
-not_4_turkiye_detay_grafigi: >-
-  Sol eksen adet, sağ eksen pazar payı. Araç parkı, yollardaki toplam elektrikli
-  otomobil sayısıdır; yani kümülatif adet gösterir. Pazar payı, BEV, PHEV ve
-  FCEV toplamını kapsar.
+not_4_turkiye_satis_pazar_payi_grafigi: >-
+  Sol eksen adet, sağ eksen pazar payı. Pazar payı, BEV, PHEV ve FCEV
+  toplamını kapsar. Araç parkı verisi (kümülatif stok) çok farklı bir ölçekte
+  olduğu için ayrı bir grafikte, aşağıda.
+
+not_5_turkiye_arac_parki_grafigi: >-
+  Araç parkı, yollardaki toplam elektrikli otomobil sayısıdır; yani kümülatif
+  adet gösterir — yıllık satıştan (üstteki grafik) farklı bir ölçek, bu yüzden
+  ayrı gösteriliyor. 2035 projeksiyonu EPDK'nın Nisan 2026 tarihli Orta
+  senaryosundan alınmıştır (IEA bu veriyi yayınlamıyor). Not: EPDK'nın 2024
+  projeksiyonundaki en yüksek senaryo bile 2025 sonunda gerçekleşen sayıyı
+  yakalayamamıştı; bu yeni tahmin de benzer şekilde muhafazakâr kalabilir.
 
 kaynak_baslik: "Kaynak ve lisans"
 kaynak_ek_metin: >-

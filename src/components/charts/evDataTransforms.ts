@@ -35,6 +35,8 @@ export interface SeriesDef {
   color: string;
   /** turkiye-detail only: plot against the right-hand percentage axis. */
   onRightAxis?: boolean;
+  /** turkiye-detail only: harici (IEA dışı) 2035 projeksiyon değeri, örn. EPDK. */
+  projeksiyon2035?: number;
 }
 
 export interface ChartConfig {
@@ -156,26 +158,61 @@ function buildProjectionLines(rows: EvRow[], config: ChartConfig) {
   };
 }
 
-/** Türkiye: volumes on the left axis, market share on the right. Historical only. */
+/** Türkiye: volumes on the left axis, market share on the right. Tarihsel + (varsa) harici 2035 projeksiyonu. */
 function buildTurkiyeDetail(rows: EvRow[], config: ChartConfig) {
-  const data: any[] = config.series.map((s) => {
+  const data: any[] = config.series.flatMap((s) => {
     const { years, values } = sortedPoints(sumByYear(rows, s, 'Historical'));
     // onRightAxis (pazar payı) serisinde suffix eklemiyoruz — yaxis2.ticksuffix zaten '%' basıyor,
     // ikisi birleşince "45%%" gibi çift işaret oluşuyordu.
     const suffix = s.onRightAxis ? '' : ' adet';
-    return {
-      x: years,
-      y: values,
-      name: s.label,
-      type: 'scatter',
-      mode: 'lines+markers',
-      line: { color: s.color, width: 2 },
-      marker: { color: s.color, size: 5 },
-      yaxis: s.onRightAxis ? 'y2' : 'y',
-      hovertemplate: `%{y}${suffix}<extra>${s.label}</extra>`,
-    };
+    const traces: any[] = [
+      {
+        x: years,
+        y: values,
+        name: s.label,
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: s.color, width: 2 },
+        marker: { color: s.color, size: 5 },
+        yaxis: s.onRightAxis ? 'y2' : 'y',
+        hovertemplate: `%{y}${suffix}<extra>${s.label}</extra>`,
+      },
+    ];
+
+    if (s.projeksiyon2035 != null && years.length) {
+      const lastYear = years[years.length - 1];
+      const lastValue = values[values.length - 1];
+      // Bağlantı çizgisi: görsel amaçlı, hover kapalı (2025 noktasında tarihsel
+      // değerle çakışıp ikinci bir "değer" görünmesin diye — bkz. IEA projeksiyon deseni).
+      traces.push({
+        x: [lastYear, 2035],
+        y: [lastValue, s.projeksiyon2035],
+        type: 'scatter',
+        mode: 'lines',
+        line: { color: s.color, width: 2, dash: 'dot' },
+        yaxis: s.onRightAxis ? 'y2' : 'y',
+        showlegend: false,
+        hoverinfo: 'skip',
+      });
+      traces.push({
+        x: [2035],
+        y: [s.projeksiyon2035],
+        name: `${s.label} (EPDK 2035 projeksiyonu)`,
+        type: 'scatter',
+        mode: 'markers',
+        marker: { color: s.color, size: 6 },
+        yaxis: s.onRightAxis ? 'y2' : 'y',
+        showlegend: false,
+        hovertemplate: `%{y}${suffix}<extra>${s.label} — 2035 (EPDK)</extra>`,
+      });
+    }
+
+    return traces;
   });
 
+  // y2 sadece sağ eksen kullanan bir seri varsa eklenir — yoksa Plotly boş, kullanılmayan
+  // bir eksen çizgisini sağda göstermeye devam ediyor.
+  const hasRightAxis = config.series.some((s) => s.onRightAxis);
   const layout: any = {
     ...baseLayout(config),
     yaxis: {
@@ -184,16 +221,18 @@ function buildTurkiyeDetail(rows: EvRow[], config: ChartConfig) {
       zeroline: false,
       rangemode: 'tozero',
     },
-    yaxis2: {
+    margin: hasRightAxis ? { t: 12, r: 68, l: 68, b: 60 } : { t: 12, r: 16, l: 68, b: 60 },
+  };
+  if (hasRightAxis) {
+    layout.yaxis2 = {
       title: { text: config.y2AxisTitle ?? '' },
       overlaying: 'y',
       side: 'right',
       rangemode: 'tozero',
       ticksuffix: '%',
       showgrid: false,
-    },
-    margin: { t: 12, r: 68, l: 68, b: 60 },
-  };
+    };
+  }
 
   return { data, layout };
 }

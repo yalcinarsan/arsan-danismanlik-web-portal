@@ -48,15 +48,14 @@ export const regionShareConfig: ChartConfig = {
   ],
 };
 
-/** 4 — Türkiye derinleşmesi: satış, araç parkı (sol eksen) ve pazar payı (sağ eksen). */
-export const turkiyeConfig: ChartConfig = {
+/** 4 — Türkiye satış + pazar payı: satış (sol eksen) ve pazar payı (sağ eksen). */
+export const turkiyeSatisConfig: ChartConfig = {
   kind: 'turkiye-detail',
-  title: 'Türkiye — elektrikli otomobil satışı, araç parkı ve pazar payı',
+  title: 'Türkiye — elektrikli otomobil satışı ve pazar payı',
   yAxisTitle: 'Adet',
   y2AxisTitle: 'Pazar payı',
   series: [
     { region: 'Turkiye', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Yıllık satış (adet)', color: CLAY },
-    { region: 'Turkiye', parameter: 'EV stock', powertrain: 'EV', modes: ['Cars'], label: 'Araç parkı (adet)', color: STONE },
     {
       region: 'Turkiye',
       parameter: 'EV sales share',
@@ -69,4 +68,24 @@ export const turkiyeConfig: ChartConfig = {
   ],
 };
 
-export const evChartConfigs = [worldPowertrainConfig, regionSalesConfig, regionShareConfig, turkiyeConfig];
+/** 5 — Türkiye araç parkı (kümülatif stok), tek başına — satış/pazar payından çok farklı ölçekte. */
+export const turkiyeStokConfig: ChartConfig = {
+  kind: 'turkiye-detail',
+  title: 'Türkiye — elektrikli otomobil araç parkı',
+  yAxisTitle: 'Adet',
+  series: [
+    {
+      region: 'Turkiye',
+      parameter: 'EV stock',
+      powertrain: 'EV',
+      modes: ['Cars'],
+      label: 'Araç parkı (adet)',
+      color: STONE,
+      // IEA Türkiye için projeksiyon yayınlamıyor; EPDK'nın 22/4/2026 tarihli, Orta
+      // senaryo araç parkı (otomobil) projeksiyonu kullanıldı.
+      projeksiyon2035: 5629051,
+    },
+  ],
+};
+
+export const evChartConfigs = [worldPowertrainConfig, regionSalesConfig, regionShareConfig, turkiyeSatisConfig, turkiyeStokConfig];

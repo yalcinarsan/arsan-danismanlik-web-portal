@@ -5,7 +5,8 @@ import {
   worldPowertrainConfig,
   regionSalesConfig,
   regionShareConfig,
-  turkiyeConfig,
+  turkiyeSatisConfig,
+  turkiyeStokConfig,
 } from '../components/charts/chartConfigs';
 import evData from '../data/ev-data.json';
 import { frontmatter as t } from '../icerik/ev-verileri.md';
@@ -17,7 +18,8 @@ const charts = [
   { config: worldPowertrainConfig, note: t.not_1_dunya_guc_aktarma_grafigi },
   { config: regionSalesConfig, note: t.not_2_dunya_avrupa_satis_grafigi },
   { config: regionShareConfig, note: t.not_3_pazar_payi_grafigi },
-  { config: turkiyeConfig, note: t.not_4_turkiye_detay_grafigi },
+  { config: turkiyeSatisConfig, note: t.not_4_turkiye_satis_pazar_payi_grafigi },
+  { config: turkiyeStokConfig, note: t.not_5_turkiye_arac_parki_grafigi },
 ];
 ---
 <BaseLayout title={t.baslik_tag} description={t.aciklama}>
