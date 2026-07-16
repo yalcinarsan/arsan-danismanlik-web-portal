@@ -1,27 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-
-// ---- Taksonomi seçenekleri (değer = veritabanı enum, etiket = görünen) ----
-const DENEYIM = [['0-3', '0-3 yıl'], ['4-7', '4-7 yıl'], ['8-15', '8-15 yıl'], ['15+', '15+ yıl']];
-const KANAL = [['oem', 'OEM / Ana marka'], ['distributor', 'Distribütör'], ['bayi', 'Bayi'], ['yan_sanayi', 'Yan sanayi'], ['diger', 'Diğer']];
-const FONKSIYON = [
-  ['satis', 'Satış'], ['satis_sonrasi', 'Satış sonrası'], ['pazarlama_iletisim', 'Pazarlama & iletişim'],
-  ['urun_planlama', 'Ürün & planlama'], ['finans', 'Finans'], ['ik', 'İK'],
-  ['dijital_yazilim', 'Dijital & yazılım'], ['genel_yonetim', 'Genel yönetim'],
-];
-const KIDEM = [['uzman', 'Uzman'], ['orta_kademe', 'Orta kademe'], ['ust_duzey', 'Üst düzey'], ['direktor_plus', 'Direktör ve üzeri']];
-const ELEKTRIFIKASYON = [
-  ['ev_deneyimim_var', 'Elektrifikasyon deneyimim var'],
-  ['gecmek_istiyorum', 'Bu alana geçmek istiyorum'],
-  ['degerlendiriyorum', 'Değerlendiriyorum'],
-];
-const CALISMA = [['ofis', 'Ofis'], ['hibrit', 'Hibrit'], ['uzaktan', 'Uzaktan'], ['farketmez', 'Farketmez']];
-const ACIKLIK = [['aktif_ariyorum', 'Aktif arıyorum'], ['acigim', 'Açığım'], ['sadece_ozel_firsat', 'Sadece özel fırsat']];
-const GORUNURLUK: [string, string, string][] = [
-  ['acik', 'Açık', 'Adın ve iletişimin işverene görünür.'],
-  ['tek_kor', 'Tek-kör', 'Sen anonimsin; işveren seni yetkinliklerinle görür, kimliğin gizli.'],
-  ['cift_kor', 'Çift-kör', 'Hem sen hem işveren anonim; kimlikler ancak iki taraf da isteyince açılır.'],
-];
+import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK } from '../lib/adayTaksonomi';
 
 const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
