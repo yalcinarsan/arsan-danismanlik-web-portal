@@ -14,7 +14,7 @@ type Aday = {
   kanal: string[]; fonksiyon: string[]; kidem: string; elektrifikasyon: string;
   markalar: string[]; diller: { dil: string }[];
   sehir: string | null; calisma_tercihi: string | null; aciklik: string | null;
-  serbest_metin: string | null; gorunurluk: string; cv_path: string | null;
+  sertifikalar: string | null; serbest_metin: string | null; gorunurluk: string; cv_path: string | null;
   created_at: string;
 };
 
@@ -137,6 +137,7 @@ export default function ProfilimGorunumu() {
         <Satir etiket="Şehir" deger={aday.sehir} />
         <Satir etiket="Çalışma tercihi" deger={calismaEtiket(aday.calisma_tercihi)} />
         <Satir etiket="Fırsatlara açıklık" deger={aciklikEtiket(aday.aciklik)} />
+        <Satir etiket="Eğitim ve sertifikalar" deger={aday.sertifikalar} />
         <Satir etiket="Seni en iyi anlatan" deger={aday.serbest_metin} />
         <Satir etiket="Görünürlük" deger={gorunurlukEtiket(aday.gorunurluk)} />
         {cvUrl && (

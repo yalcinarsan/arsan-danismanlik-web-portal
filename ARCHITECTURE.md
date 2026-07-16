@@ -50,6 +50,7 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 - İçerik yayınlama tek başına (bensiz) yapılamıyor — git+markdown akışı gerekiyor.
 - Otomotiv İnsanı "Aday havuzu" kayıt CTA'sı bilinçli olarak **pasif** ("çok yakında") — KVKK metni onaylanmadan herkese açık duyurulmayacak.
 - Kurum (işveren) tarafı, eğitim işlevleri, tam pazar yeri — yön belirlendi (bkz. Karar Günlüğü 2026-07-16), şema henüz uygulanmadı (Faz 2-3).
+- **Sertifikasyon alanı v1'de serbest metin** olarak canlı forma eklendi (`adaylar.sertifikalar`). İleride değerlendirilecek: (a) sık sertifikaları yapılandırılmış/seçilebilir formata terfi, (b) fiziksel sertifikanın taranmış PDF / görsel yüklemesi istenip istenmeyeceği. İş listesinde bekliyor.
 
 ---
 
@@ -103,3 +104,6 @@ IEA Türkiye için satış/pazar payı projeksiyonu yayınlamıyor — Türkiye 
 
 **2026-07-16 — İçerik arşivleme akışı: Tana (taslak) → Obsidian (temiz arşiv)**
 Makaleler artık X'te yayınlanıp oradan geri çekilmek yerine, kaynağında (kullanıcının Tana workspace'i, bitince Claude Obsidian "Yazma Projeleri" vault'una taşıyor) tutulacak — X sadece dağıtım kanalı olacak. Gerekçe: X'ten metin+görsel geri çekmek (DOM inceleme, bold yeniden inşası, görsel indirme) pahalı ve token-yoğun bir işti (bkz. "Otomotivde Yeni Ekonomi" migrasyonu). Detay: kullanıcının kişisel hafıza sisteminde (`feedback_tana_obsidian_content_pipeline`).
+
+**2026-07-16 — Mavi yaka taksonomisi 4. eksen: sertifikasyon (beyana dayalı serbest metin, v1)**
+Mavi yaka (teknisyen/servis) taksonomisine sertifikasyon dördüncü eksen olarak eklendi. Gerekçe: mavi yakada — özellikle yetkili servisten gelenlerde — yetkinliği somutlaştıran çok sayıda resmi belge var (marka/OEM sertifikaları, MYK belgeleri) ve platformun "elektrifikasyona hazır insan" vaadi için **yüksek voltaj (HV) / EA eğitimi** kritik bir filtre. **v1 yaklaşımı:** yapılandırılmış enum değil, **beyana dayalı serbest metin** — aday sahip olduğu eğitim/sertifikaları kendi ifadesiyle isim isim girer (HV eğitimi dahil). İleride veri biriktikçe sık tekrar edenler sabit/seçilebilir değişkenlere terfi ettirilecek (pozisyon/kurum'daki "büyüyen sözlük" deseniyle aynı). Uygulama, mavi yaka/kurumlar batch'iyle birlikte yapılacak (henüz şema yok) — "önce anlaş, sonra tek seferde kodla" ilkesi gereği tek başına canlı forma eklenmiyor.

@@ -6,7 +6,7 @@ const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
   kanal: [] as string[], fonksiyon: [] as string[], kidem: '', elektrifikasyon: '',
   markalar: '', diller: '', sehir: '', calisma_tercihi: '', aciklik: '',
-  serbest_metin: '', gorunurluk: 'tek_kor', kvkk: false,
+  sertifikalar: '', serbest_metin: '', gorunurluk: 'tek_kor', kvkk: false,
 };
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
@@ -68,6 +68,7 @@ export default function KayitFormu() {
       markalar: f.markalar ? f.markalar.split(',').map((x) => x.trim()).filter(Boolean) : [],
       diller: f.diller ? f.diller.split(',').map((x) => ({ dil: x.trim() })).filter((x) => x.dil) : [],
       sehir: f.sehir || null, calisma_tercihi: f.calisma_tercihi || null, aciklik: f.aciklik || null,
+      sertifikalar: f.sertifikalar || null,
       serbest_metin: f.serbest_metin || null,
       gorunurluk: f.gorunurluk,
       kvkk_riza: true, kvkk_riza_tarihi: new Date().toISOString(),
@@ -219,6 +220,12 @@ export default function KayitFormu() {
             {ACIKLIK.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
           </select>
         </div>
+      </div>
+
+      <div>
+        <label className={labelCls}>Eğitim ve sertifikalar <span className="font-normal text-warm-500">(varsa)</span></label>
+        <textarea rows={3} value={f.sertifikalar} onChange={(e) => setF({ ...f, sertifikalar: e.target.value })} className={inputCls}
+          placeholder="Aldığınız eğitimleri ve sahip olduğunuz sertifikaları yazabilirsiniz — marka/OEM eğitimleri, MYK belgeleri, yüksek voltaj (HV) / elektrikli araç eğitimi vb." />
       </div>
 
       <div>

@@ -63,6 +63,7 @@ create table public.adaylar (
   aciklik           aciklik,
 
   -- Serbest metin & CV
+  sertifikalar      text,                                     -- beyana dayalı eğitim/sertifika listesi (HV/EA dahil). v1 serbest metin.
   serbest_metin     text,                                     -- "Sizi en iyi ne anlatır?"
   cv_path           text,                                     -- private storage yolu (ops.)
 
