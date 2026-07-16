@@ -49,7 +49,7 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 
 - İçerik yayınlama tek başına (bensiz) yapılamıyor — git+markdown akışı gerekiyor.
 - Otomotiv İnsanı "Aday havuzu" kayıt CTA'sı bilinçli olarak **pasif** ("çok yakında") — KVKK metni onaylanmadan herkese açık duyurulmayacak.
-- Kurum (işveren) tarafı, eğitim işlevleri, tam pazar yeri — henüz tasarlanmadı (Faz 2-3).
+- Kurum (işveren) tarafı, eğitim işlevleri, tam pazar yeri — yön belirlendi (bkz. Karar Günlüğü 2026-07-16), şema henüz uygulanmadı (Faz 2-3).
 
 ---
 
@@ -85,3 +85,21 @@ Supabase istemci kütüphanesi build sırasında (statik ön-render aşamasında
 
 **2026-07-13 — Otomotiv İnsanı sayfa yapısı: teaser + ayrı manifesto sayfası**
 `/kariyer` sayfası orijinal açık-temalı "çok yakında" tanıtımı olarak kaldı; tam manifesto (koyu kil-kahve temalı) ayrı bir alt sayfaya (`/kariyer/otomotiv-insani`) taşındı, teaser'daki kutu ona bağlanan bir buton oldu. Gerekçe: iki farklı okuyucu niyeti (hızlı göz atma vs. derinlemesine okuma) ayrı sayfalarda daha iyi hizmet buluyor.
+
+**2026-07-16 — Otomotiv İnsanı gelir modeli**
+Bireysel üyelik **uzun vadede ücretsiz** kalacak; kurumsal tarafta havuza erişim **kurumsal üyelik** gerektirecek. Model: **hibrit** — sabit abonelik + opsiyonel yerleştirme komisyonu (klasik executive-search komisyon-only modelinden farklı). Faz 1 için görünürlük/eşleştirme **manuel** kalıyor (otomatik değil) — bilinçli tercih: Faz 1'in amacı zaten talep testi, otomasyon yatırımı bu aşamada gereksiz karmaşıklık. Hedef tarihler: **Faz 1 (aday havuzu açılışı) — 1 Ağustos 2026**; **Faz 2 (kurumsal taraf) — 1 Ekim 2026, ilgi düzeyi doğrularsa.**
+
+**2026-07-16 — Kurum/kurumsal_uye ayrımı ve mavi yaka taksonomisi (tasarım, şema henüz yok)**
+`kurum` ⊃ `kurumsal_uye` ayrımı kararlaştırıldı: her tüzel kişilik (şubeler dahil) ayrı bir `kurum` kaydı, tek bir `kurum_tipi` alanı taşıyor (örn. "Otokoç Ataşehir" ve "Otokoç Genel Merkez" iki ayrı kayıt). Mavi yaka (teknisyen/servis) tarafı için üç eksen netleşti: teknik uzmanlık kategorileri (ilk taslak onaylandı), kıdem merdiveni — kurumsal/yetkili-bayi dili seçildi: **Teknisyen → Kıdemli Teknisyen → Şef Teknisyen → Servis Müdürü** — ve kanal listesine **bağımsız servis** eklendi (mevcut "diğer" yanına). Sertifikasyon ekseni (4. olası eksen) henüz ele alınmadı.
+
+**2026-07-16 — Kurum/pozisyon mimarisi: hafif versiyon şimdi, ağır versiyon havuz büyüyünce**
+`kurumlar` ve `pozisyonlar` enum değil **ayrı tablo** olacak (kendi nitelikleri — genel müdür adı, hiyerarşi — olduğu için). Hiyerarşi (kurum ⊃ şube, pozisyon ⊃ raporlama hattı) standart **kendine referans veren üst-kolon** deseniyle modellenecek (`ust_kurum_id`, `ust_pozisyon_id`), gerekirse Postgres `WITH RECURSIVE` ile okunacak. Pozisyon/kurum adı girişi **typeahead + yeni ekle** deseniyle büyüyecek (kullanıcı yazdıkça sözlük genişler, admin müdahalesi gerekmez) — enum'un aksine. **Şimdilik kapsam:** adayın kendi profilinde tek seviyelik "kime raporluyorsun" gibi hafif bir alan yeterli. **Ağır versiyon** (kurumun tam org şeması, isim isim) aday havuzu OEM/distribütör/bayi tarafında **yüzlerce** kayda ulaşınca değerlendirilecek — o zamana kadar bilinçli olarak ertelendi.
+
+**2026-07-16 — EA Verileri: EPDK verisi ile Türkiye uzun vadeli tahmin eksikliğini hafifletme planı**
+IEA Türkiye için satış/pazar payı projeksiyonu yayınlamıyor — Türkiye grafiğinde (`turkiyeConfig`) bu yüzden 2035 tahmini yok. Plan: **EPDK'nın araç parkı (stok) tahminlerini** ek seri olarak eklemek (satış adedi değil, ama yerelde IEA'dan sonra en güvenilir ikinci kaynak). Henüz uygulanmadı — veri kaynağı + `evDataTransforms.ts`/`chartConfigs.ts` değişikliği gerekecek.
+
+**2026-07-16 — Otomotiv İnsanı: adayın kendi profilini görüntüleme sayfası**
+`/kariyer/profilim` eklendi — aday aynı magic-link akışıyla giriş yapıp `adaylar` tablosundaki kendi satırını (mevcut "aday kendi kaydini gorur" RLS politikasıyla) görüntüleyebiliyor. Şimdilik salt-okunur (düzenleme/silme arayüzü yok, RLS bunu destekliyor ama sayfa henüz yazılmadı). Enum→etiket eşlemeleri `KayitFormu.tsx` ile paylaşılan `src/lib/adayTaksonomi.ts`'e çıkarıldı.
+
+**2026-07-16 — İçerik arşivleme akışı: Tana (taslak) → Obsidian (temiz arşiv)**
+Makaleler artık X'te yayınlanıp oradan geri çekilmek yerine, kaynağında (kullanıcının Tana workspace'i, bitince Claude Obsidian "Yazma Projeleri" vault'una taşıyor) tutulacak — X sadece dağıtım kanalı olacak. Gerekçe: X'ten metin+görsel geri çekmek (DOM inceleme, bold yeniden inşası, görsel indirme) pahalı ve token-yoğun bir işti (bkz. "Otomotivde Yeni Ekonomi" migrasyonu). Detay: kullanıcının kişisel hafıza sisteminde (`feedback_tana_obsidian_content_pipeline`).
