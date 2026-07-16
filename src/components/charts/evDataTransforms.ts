@@ -121,13 +121,25 @@ function tracesWithProjection(rows: EvRow[], s: SeriesDef): any[] {
   if (hist.years.length && proj.years.length) {
     const lastYear = hist.years[hist.years.length - 1];
     const lastValue = hist.values[hist.values.length - 1];
+    // Bağlantı çizgisi son tarihsel noktayı tekrar kullanır (görsel süreklilik
+    // için); hover'ı kapalı tutuyoruz, yoksa o yılda tarihsel değerle birlikte
+    // ikinci (ve yanıltıcı) bir "değer" daha görünür.
     traces.push({
       x: [lastYear, ...proj.years],
       y: [lastValue, ...proj.values],
+      type: 'scatter',
+      mode: 'lines',
+      line: { color: s.color, width: 2, dash: 'dot' },
+      showlegend: false,
+      hoverinfo: 'skip',
+    });
+    // 2035 projeksiyon noktasının kendi hover'ı, ayrı (yalnızca işaretçi) bir trace.
+    traces.push({
+      x: proj.years,
+      y: proj.values,
       name: `${s.label} (2035 projeksiyonu)`,
       type: 'scatter',
-      mode: 'lines+markers',
-      line: { color: s.color, width: 2, dash: 'dot' },
+      mode: 'markers',
       marker: { color: s.color, size: 6 },
       showlegend: false,
       hovertemplate: `%{y}<extra>${s.label} — 2035</extra>`,
