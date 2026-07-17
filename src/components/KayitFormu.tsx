@@ -18,18 +18,46 @@ export default function KayitFormu() {
   const [hata, setHata] = useState('');
   const [gonderiliyor, setGonderiliyor] = useState(false);
   const [f, setF] = useState(bos);
+  // Bu kullanıcının zaten bir kaydı var mı? Varsa form "güncelleme" moduna geçer.
+  const [mevcutKayit, setMevcutKayit] = useState(false);
 
   // Oturum kontrolü (magic-link'ten dönünce oturum oluşur)
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) { setEposta(data.session.user.email ?? ''); setDurum('form'); }
+      if (data.session) oturumHazir(data.session);
       else setDurum('eposta');
     });
     const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) { setEposta(session.user.email ?? ''); setDurum('form'); }
+      if (session) oturumHazir(session);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
+
+  /**
+   * Oturum açılınca kullanıcının mevcut kaydını arar. Varsa formu onunla doldurup
+   * güncelleme moduna geçer — aksi halde ikinci bir INSERT `user_id` unique kısıtını
+   * ihlal edip kullanıcıya anlamsız bir veritabanı hatası döndürüyordu.
+   */
+  async function oturumHazir(session: { user: { id: string; email?: string } }) {
+    setEposta(session.user.email ?? '');
+    const { data } = await supabase.from('adaylar').select('*').eq('user_id', session.user.id).maybeSingle();
+    if (data) {
+      setMevcutKayit(true);
+      setF({
+        ad: data.ad ?? '', telefon: data.telefon ?? '',
+        deneyim_yili: data.deneyim_yili ?? '', son_pozisyon: data.son_pozisyon ?? '', son_kurum: data.son_kurum ?? '',
+        kanal: data.kanal ?? [], fonksiyon: data.fonksiyon ?? [],
+        kidem: data.kidem ?? '', elektrifikasyon: data.elektrifikasyon ?? '',
+        markalar: (data.markalar ?? []).join(', '),
+        diller: (data.diller ?? []).map((d: { dil: string }) => d.dil).filter(Boolean).join(', '),
+        sehir: data.sehir ?? '', calisma_tercihi: data.calisma_tercihi ?? '', aciklik: data.aciklik ?? '',
+        sertifikalar: data.sertifikalar ?? '', serbest_metin: data.serbest_metin ?? '',
+        gorunurluk: data.gorunurluk ?? 'tek_kor',
+        kvkk: data.kvkk_riza ?? false,
+      });
+    }
+    setDurum('form');
+  }
 
   async function magicLinkGonder(e: React.FormEvent) {
     e.preventDefault();
@@ -60,9 +88,8 @@ export default function KayitFormu() {
     setGonderiliyor(true);
     const { data: sess } = await supabase.auth.getSession();
     const uid = sess.session?.user.id;
-    const { error } = await supabase.from('adaylar').insert({
-      user_id: uid,
-      ad: f.ad, eposta, telefon: f.telefon || null,
+    const alanlar = {
+      ad: f.ad, telefon: f.telefon || null,
       deneyim_yili: f.deneyim_yili, son_pozisyon: f.son_pozisyon || null, son_kurum: f.son_kurum || null,
       kanal: f.kanal, fonksiyon: f.fonksiyon, kidem: f.kidem, elektrifikasyon: f.elektrifikasyon,
       markalar: f.markalar ? f.markalar.split(',').map((x) => x.trim()).filter(Boolean) : [],
@@ -71,8 +98,18 @@ export default function KayitFormu() {
       sertifikalar: f.sertifikalar || null,
       serbest_metin: f.serbest_metin || null,
       gorunurluk: f.gorunurluk,
-      kvkk_riza: true, kvkk_riza_tarihi: new Date().toISOString(),
-    });
+    };
+    // Güncellemede eposta ve kvkk_riza_tarihi'ne DOKUNMUYORUZ: ilki auth kimliğine bağlı,
+    // ikincisi ilk açık rızanın hukuki kaydı — her düzenlemede ezilmemeli.
+    const { error } = mevcutKayit
+      ? await supabase.from('adaylar').update(alanlar).eq('user_id', uid)
+      : await supabase.from('adaylar').insert({
+          ...alanlar,
+          user_id: uid,
+          eposta,
+          kvkk_riza: true,
+          kvkk_riza_tarihi: new Date().toISOString(),
+        });
     setGonderiliyor(false);
     if (error) setHata(error.message);
     else setDurum('basarili');
@@ -83,8 +120,15 @@ export default function KayitFormu() {
   if (durum === 'basarili')
     return (
       <div className="rounded-lg border border-warm-border bg-sand p-8 text-center">
-        <h2 className="text-2xl font-semibold text-ink mb-2">Teşekkürler, kaydın alındı.</h2>
-        <p className="text-warm-600">Havuza katıldın. Sana uygun bir fırsat olduğunda, belirlediğin görünürlük seviyesinde ulaşacağız.</p>
+        <h2 className="text-2xl font-semibold text-ink mb-2">
+          {mevcutKayit ? 'Profilin güncellendi.' : 'Teşekkürler, kaydın alındı.'}
+        </h2>
+        <p className="text-warm-600 mb-4">
+          {mevcutKayit
+            ? 'Değişikliklerin kaydedildi.'
+            : 'Havuza katıldın. Sana uygun bir fırsat olduğunda, belirlediğin görünürlük seviyesinde ulaşacağız.'}
+        </p>
+        <a href="/kariyer/profilim" className="text-accent hover:underline">Profilini görüntüle</a>
       </div>
     );
 
@@ -118,10 +162,17 @@ export default function KayitFormu() {
       </div>
     );
 
-  // ---- Adım 2: profil formu ----
+  // ---- Adım 2: profil formu (yeni kayıt veya mevcut kaydın güncellenmesi) ----
   return (
     <form onSubmit={kaydet} className="space-y-8">
       <p className="text-sm text-warm-500">Giriş: {eposta}</p>
+
+      {mevcutKayit && (
+        <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
+          Bu e-posta ile zaten bir kaydın var — aşağıda mevcut bilgilerin duruyor.
+          İstediğin zaman düzenleyip kaydedebilirsin.
+        </div>
+      )}
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
@@ -255,7 +306,7 @@ export default function KayitFormu() {
 
       <button type="submit" disabled={gonderiliyor}
         className="rounded-md bg-accent px-8 py-3 text-white font-medium disabled:opacity-60">
-        {gonderiliyor ? 'Kaydediliyor…' : 'Havuza katıl'}
+        {gonderiliyor ? 'Kaydediliyor…' : mevcutKayit ? 'Profilimi güncelle' : 'Havuza katıl'}
       </button>
     </form>
   );

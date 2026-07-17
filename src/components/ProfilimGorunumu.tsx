@@ -119,9 +119,12 @@ export default function ProfilimGorunumu() {
 
   return (
     <div>
-      <p className="text-sm text-warm-500 mb-6">
-        Giriş: {aday.eposta} · Kayıt tarihi: {new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(aday.created_at))}
-      </p>
+      <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+        <p className="text-sm text-warm-500">
+          Giriş: {aday.eposta} · Kayıt tarihi: {new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(aday.created_at))}
+        </p>
+        <a href="/kariyer/kayit" className="text-sm text-accent hover:underline">Profilimi düzenle</a>
+      </div>
       <dl>
         <Satir etiket="Ad Soyad" deger={aday.ad} />
         <Satir etiket="Telefon" deger={aday.telefon} />
