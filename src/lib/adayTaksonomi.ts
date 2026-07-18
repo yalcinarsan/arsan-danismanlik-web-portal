@@ -18,8 +18,8 @@ export const CALISMA = [['ofis', 'Ofis'], ['hibrit', 'Hibrit'], ['uzaktan', 'Uza
 export const ACIKLIK = [['aktif_ariyorum', 'Aktif arıyorum'], ['acigim', 'Açığım'], ['sadece_ozel_firsat', 'Sadece özel fırsat']];
 export const GORUNURLUK: [string, string, string][] = [
   ['acik', 'Açık', 'Adın ve iletişimin işverene görünür.'],
-  ['tek_kor', 'Tek-kör', 'Sen anonimsin; işveren seni yetkinliklerinle görür, kimliğin gizli.'],
-  ['cift_kor', 'Çift-kör', 'Hem sen hem işveren anonim; kimlikler ancak iki taraf da isteyince açılır.'],
+  ['tek_kor', 'Tek Taraf Kör', 'Sen anonimsin; işveren seni yetkinliklerinle görür, kimliğin gizli.'],
+  ['cift_kor', 'Çift Taraf Kör', 'Hem sen hem işveren anonim; kimlikler ancak iki taraf da isteyince açılır.'],
 ];
 
 function etiketle(liste: (readonly string[])[], deger: string | null | undefined): string {

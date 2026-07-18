@@ -39,7 +39,7 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 - **Veritabanı: Supabase** (Frankfurt/EU bölgesi — KVKK gerekçesiyle bilinçli seçildi), proje ref `wwpkgwndgephkuwpnjov`.
 - **Faz 1 (şu an):** yalnızca **aday (birey) tarafı** var — kürate aday havuzu. Kurum/işveren tarafı henüz yok (Faz 2).
 - **Giriş modeli:** şifresiz e-posta (magic-link). Aday kendi kaydını görür/düzenler/siler (RLS ile korunan); public site sadece anonim toplam istatistik görebilir (`public_stats()`), tek tek kayıt hiçbir yerden okunamaz.
-- **Ayırt edici özellik — kademeli görünürlük:** aday kaydını Açık / Tek-kör / Çift-kör olarak işaretleyebiliyor; çift-körde kimlikler ancak karşılıklı rızayla açılıyor (gizli executive search'ün ürünleşmiş hali).
+- **Ayırt edici özellik — kademeli görünürlük:** aday kaydını Açık / Tek Taraf Kör / Çift Taraf Kör olarak işaretleyebiliyor; çift taraf körde kimlikler ancak karşılıklı rızayla açılıyor (gizli executive search'ün ürünleşmiş hali). *(Veritabanı değerleri `acik` / `tek_kor` / `cift_kor` olarak kaldı; 2026-07-18'de yalnızca görünen etiketler değişti.)*
 - Sayfalar: `/kariyer` (herkese açık "çok yakında" tanıtım) → `/kariyer/otomotiv-insani` (koyu temalı manifesto sayfası, metni `src/icerik/otomotiv-insani.md`'den geliyor, koddan ayrı düzenlenebilir) → `/kariyer/kayit` (kayıt formu).
 - **Canlıya alınmadan önce şart:** KVKK aydınlatma metni + açık rıza — taslağı yazıldı, hukukçu onayı bekliyor.
 
