@@ -20,6 +20,10 @@ export default function KayitFormu() {
   const [f, setF] = useState(bos);
   // Bu kullanıcının zaten bir kaydı var mı? Varsa form "güncelleme" moduna geçer.
   const [mevcutKayit, setMevcutKayit] = useState(false);
+  // CV: seçilen yeni dosya, kayıtlı dosyanın yolu, ve "kaldır" işareti.
+  const [cvDosya, setCvDosya] = useState<File | null>(null);
+  const [cvMevcutYol, setCvMevcutYol] = useState<string | null>(null);
+  const [cvKaldirilsin, setCvKaldirilsin] = useState(false);
 
   // Oturum kontrolü (magic-link'ten dönünce oturum oluşur)
   useEffect(() => {
@@ -55,6 +59,7 @@ export default function KayitFormu() {
         gorunurluk: data.gorunurluk ?? 'tek_kor',
         kvkk: data.kvkk_riza ?? false,
       });
+      setCvMevcutYol(data.cv_path ?? null);
     }
     setDurum('form');
   }
@@ -69,6 +74,24 @@ export default function KayitFormu() {
     setGonderiliyor(false);
     if (error) setHata(error.message);
     else setDurum('gonderildi');
+  }
+
+  /** CV dosyası seçimi — boyut ve tür kontrolü burada, yükleme kaydetme anında. */
+  function dosyaSecildi(dosya: File | null) {
+    setHata('');
+    if (!dosya) { setCvDosya(null); return; }
+    const izinliUzantilar = ['pdf', 'doc', 'docx'];
+    const uzanti = (dosya.name.split('.').pop() ?? '').toLowerCase();
+    if (!izinliUzantilar.includes(uzanti)) {
+      setHata('CV yalnızca PDF veya Word (.doc/.docx) olabilir.');
+      return;
+    }
+    if (dosya.size > 5 * 1024 * 1024) {
+      setHata('CV dosyası 5 MB\'ı aşamaz.');
+      return;
+    }
+    setCvDosya(dosya);
+    setCvKaldirilsin(false);
   }
 
   function coklu(alan: 'kanal' | 'fonksiyon', deger: string) {
@@ -88,6 +111,28 @@ export default function KayitFormu() {
     setGonderiliyor(true);
     const { data: sess } = await supabase.auth.getSession();
     const uid = sess.session?.user.id;
+
+    // CV yükleme/kaldırma — satırı kaydetmeden ÖNCE yapılır ki dosya işlemi
+    // başarısız olursa veritabanında yanlış bir yol kalmasın.
+    let cvYol = cvMevcutYol;
+    if (cvKaldirilsin && cvMevcutYol) {
+      const { error: silHata } = await supabase.storage.from('cv').remove([cvMevcutYol]);
+      if (silHata) { setHata('CV kaldırılamadı: ' + silHata.message); setGonderiliyor(false); return; }
+      cvYol = null;
+    } else if (cvDosya) {
+      const uzanti = (cvDosya.name.split('.').pop() ?? 'pdf').toLowerCase();
+      const yeniYol = `${uid}/cv.${uzanti}`;
+      // Uzantı değiştiyse eski dosya farklı adla kalırdı — önce onu temizle.
+      if (cvMevcutYol && cvMevcutYol !== yeniYol) {
+        await supabase.storage.from('cv').remove([cvMevcutYol]);
+      }
+      const { error: yukleHata } = await supabase.storage
+        .from('cv')
+        .upload(yeniYol, cvDosya, { upsert: true, contentType: cvDosya.type || undefined });
+      if (yukleHata) { setHata('CV yüklenemedi: ' + yukleHata.message); setGonderiliyor(false); return; }
+      cvYol = yeniYol;
+    }
+
     const alanlar = {
       ad: f.ad, telefon: f.telefon || null,
       deneyim_yili: f.deneyim_yili, son_pozisyon: f.son_pozisyon || null, son_kurum: f.son_kurum || null,
@@ -98,6 +143,7 @@ export default function KayitFormu() {
       sertifikalar: f.sertifikalar || null,
       serbest_metin: f.serbest_metin || null,
       gorunurluk: f.gorunurluk,
+      cv_path: cvYol,
     };
     // Güncellemede eposta ve kvkk_riza_tarihi'ne DOKUNMUYORUZ: ilki auth kimliğine bağlı,
     // ikincisi ilk açık rızanın hukuki kaydı — her düzenlemede ezilmemeli.
@@ -277,6 +323,44 @@ export default function KayitFormu() {
         <label className={labelCls}>Eğitim ve sertifikalar <span className="font-normal text-warm-500">(varsa)</span></label>
         <textarea rows={3} value={f.sertifikalar} onChange={(e) => setF({ ...f, sertifikalar: e.target.value })} className={inputCls}
           placeholder="Aldığınız eğitimleri ve sahip olduğunuz sertifikaları yazabilirsiniz — marka/OEM eğitimleri, MYK belgeleri, yüksek voltaj (HV) / elektrikli araç eğitimi vb." />
+      </div>
+
+      <div>
+        <label className={labelCls}>Özgeçmiş (CV) <span className="font-normal text-warm-500">(isteğe bağlı)</span></label>
+
+        {cvMevcutYol && !cvDosya && !cvKaldirilsin ? (
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <span className="text-ink">Yüklü: {cvMevcutYol.split('/').pop()}</span>
+            <label className="text-accent hover:underline cursor-pointer">
+              Değiştir
+              <input type="file" accept=".pdf,.doc,.docx" className="hidden"
+                onChange={(e) => dosyaSecildi(e.target.files?.[0] ?? null)} />
+            </label>
+            <button type="button" onClick={() => setCvKaldirilsin(true)} className="text-warm-500 hover:text-ink">
+              Kaldır
+            </button>
+          </div>
+        ) : cvKaldirilsin ? (
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <span className="text-warm-600">CV kaydedince kaldırılacak.</span>
+            <button type="button" onClick={() => setCvKaldirilsin(false)} className="text-accent hover:underline">
+              Vazgeç
+            </button>
+          </div>
+        ) : (
+          <div>
+            <input type="file" accept=".pdf,.doc,.docx"
+              onChange={(e) => dosyaSecildi(e.target.files?.[0] ?? null)}
+              className="block w-full text-sm text-warm-600 file:mr-3 file:rounded-md file:border-0 file:bg-sand file:px-4 file:py-2 file:text-sm file:font-medium file:text-ink hover:file:bg-warm-border/50" />
+            {cvDosya && (
+              <p className="mt-2 text-sm text-warm-600">
+                Seçilen: {cvDosya.name}{' '}
+                <button type="button" onClick={() => setCvDosya(null)} className="text-accent hover:underline">kaldır</button>
+              </p>
+            )}
+            <p className="mt-2 text-xs text-warm-500">PDF veya Word · en fazla 5 MB. CV'ni yalnızca sen ve biz görürüz.</p>
+          </div>
+        )}
       </div>
 
       <div>

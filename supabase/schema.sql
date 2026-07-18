@@ -160,3 +160,17 @@ create policy "cv kendi dosyasini gorur"
   on storage.objects for select
   to authenticated
   using (bucket_id = 'cv' and (storage.foldername(name))[1] = auth.uid()::text);
+
+-- Değiştirme (upsert ile CV'nin üzerine yazma) ve silme (CV'yi kaldırma veya
+-- kaydı tümden silme) için de izin gerekiyor — aksi halde bu işlemler sessizce
+-- başarısız oluyor.
+create policy "cv kendi dosyasini gunceller"
+  on storage.objects for update
+  to authenticated
+  using (bucket_id = 'cv' and (storage.foldername(name))[1] = auth.uid()::text)
+  with check (bucket_id = 'cv' and (storage.foldername(name))[1] = auth.uid()::text);
+
+create policy "cv kendi dosyasini siler"
+  on storage.objects for delete
+  to authenticated
+  using (bucket_id = 'cv' and (storage.foldername(name))[1] = auth.uid()::text);
