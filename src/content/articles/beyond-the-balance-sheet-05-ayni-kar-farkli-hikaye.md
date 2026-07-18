@@ -183,3 +183,5 @@ Klasik finansal analiz — marjlar, ROTA, ROE, DuPont — vazgeçilmez kalmaya d
 *Bir sonraki bölümde verimlilik ve likidite oranlarına geçiyoruz: bir şirket çalışma sermayesini ne kadar iyi yönetiyor, kısa vadeli yükümlülüklerini ödeyebilecek mi — ve aynı oranların farklı sektörlerde neden tamamen farklı anlamlara geldiği.*
 
 Yalçın Arsan — Mayıs 2026
+
+Bu seri, klasik finansal analiz çerçevelerini temel alarak, gerçek dünya örnekleri ve sektör deneyimiyle zenginleştirilmiştir.
