@@ -1,7 +1,8 @@
 # Dosya Rehberi — ne nerede?
 
-Bu dosyayı **kenar panelinde açık tut**; düzenlemek istediğin her şeye buradan
-tek tıkla ulaşırsın. Yukarı kaydırıp eski mesajlarda link aramana gerek kalmaz.
+**Bu bir referans, erişim kısayolu değil.** "Hangi dosya neyi kontrol ediyor?"
+sorusunun cevabı burada. Bir dosyayı açman gerektiğinde linki Claude sana o anki
+mesajın içinde verir — bu dosyayı bulmak için yukarı kaydırman gerekmez.
 
 ---
 
