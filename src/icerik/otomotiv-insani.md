@@ -28,7 +28,7 @@ Otomotiv İnsanı, bu noktada duruyor. Burası bir iş ilanı platformu değil; 
 
 - **Profilin, otomotivin gerçek nitelikleriyle tanımlanır:** kanal (OEM / distribütör / bayi / yan sanayi), fonksiyon, kıdem, marka deneyimi — ve en önemlisi, elektrifikasyon ile ilgili pozisyonun. Sektöre özgü olması sayesinde LinkedIn'in göremediği detayları burada görünür kılarsın.
 - **Görünürlüğünü sen kontrol edersin:** İstersen profilin açık olur; istersen kimliğin tamamen gizli kalır ve sadece yetkinliklerin konuşur. Profilini anonim olarak yaratır, uygun fırsatların seni bulmasına izin verirsin. Hemen herkesin birbirini tanıdığı bir sektörde bunun ne anlama geldiğini biliyoruz — bu platformun temel ilkesi bu: Kişisel bilgilerin senindir ve ne kadarının görünmesini istediğine sen karar verirsin.
-- **Gelişimine yatırım yaparsın:** Otomotiv İnsanı zaman içinde yalnızca buluşturan değil, geliştiren bir platform olacak — elektrifikasyon ve dönüşüm odaklı eğitimler, atölyeler ve sektöre özgü içeriklerle. Kendine yatırım yapmak isteyen otomotivciye, bunun sektörel adresini sunmayı hedefliyoruz.
+- **Gelişimine yatırım yaparsın:** Otomotiv İnsanı zaman içinde yalnızca buluşturan değil, geliştiren bir platform olacak — elektrifikasyon ve dönüşüm odaklı eğitimler, atölyeler ve sektöre özgü içerikleri burada bir araya getireceğiz. Kendine yatırım yapmak isteyen otomotivciye, bunun sektörel adresini sunmayı hedefliyoruz.
 
 ## Kurum için: değişimi doğru okuyan insanı bulmak
 
