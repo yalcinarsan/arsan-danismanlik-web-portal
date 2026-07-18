@@ -28,13 +28,32 @@ function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
   );
 }
 
+/** Silme onayı için kullanıcının yazması gereken ifade. */
+const SILME_ONAY_IFADESI = 'KAYDIMI SİL';
+
+/**
+ * Onay karşılaştırması. Büyük/küçük harf ve noktalı/noktasız İ-I farkını tolere eder:
+ * "SIL" ile "SİL" arasındaki fark klavye/alışkanlık kaynaklıdır, niyet eksikliği değil —
+ * kişi yine de tüm ifadeyi yazmak zorunda.
+ */
+function onayEslesti(girilen: string) {
+  const sadelestir = (s: string) => s.trim().toLocaleUpperCase('tr').replace(/İ/g, 'I');
+  return sadelestir(girilen) === sadelestir(SILME_ONAY_IFADESI);
+}
+
 export default function ProfilimGorunumu() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'aranıyor' | 'bulunamadi' | 'gorunum'>('yukleniyor');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'aranıyor' | 'bulunamadi' | 'gorunum' | 'silindi'>('yukleniyor');
   const [eposta, setEposta] = useState('');
   const [hata, setHata] = useState('');
   const [gonderiliyor, setGonderiliyor] = useState(false);
   const [aday, setAday] = useState<Aday | null>(null);
   const [cvUrl, setCvUrl] = useState<string | null>(null);
+  // Silme akışı: tehlikeli kontrol varsayılan olarak GİZLİ; açıldıktan sonra da
+  // onay ifadesi birebir yazılmadan silme düğmesi etkinleşmiyor. Amaç, "okumadan
+  // onayla" refleksini kırmak.
+  const [silmeAcik, setSilmeAcik] = useState(false);
+  const [silmeOnayi, setSilmeOnayi] = useState('');
+  const [siliniyor, setSiliniyor] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -74,7 +93,37 @@ export default function ProfilimGorunumu() {
     else setDurum('gonderildi');
   }
 
+  /**
+   * KVKK silme hakkı. Önce (varsa) CV dosyası, sonra profil satırı silinir; ardından
+   * oturum kapatılır. Not: giriş hesabının kendisi (yalnızca e-posta adresini tutan
+   * auth kaydı) tarayıcıdan silinemiyor — yönetici yetkisi gerekiyor.
+   */
+  async function kaydiSil() {
+    if (!onayEslesti(silmeOnayi)) return;
+    setHata(''); setSiliniyor(true);
+    const { data: sess } = await supabase.auth.getSession();
+    const uid = sess.session?.user.id;
+    if (aday?.cv_path) await supabase.storage.from('cv').remove([aday.cv_path]);
+    const { error } = await supabase.from('adaylar').delete().eq('user_id', uid);
+    if (error) { setHata(error.message); setSiliniyor(false); return; }
+    await supabase.auth.signOut();
+    setSiliniyor(false);
+    setDurum('silindi');
+  }
+
   if (durum === 'yukleniyor' || durum === 'aranıyor') return <p className="text-warm-500">Yükleniyor…</p>;
+
+  if (durum === 'silindi')
+    return (
+      <div className="rounded-lg border border-warm-border bg-sand p-8">
+        <h2 className="text-xl font-semibold text-ink mb-2">Kaydın silindi.</h2>
+        <p className="text-warm-600 mb-4">
+          Profil bilgilerin havuzdan kaldırıldı ve oturumun kapatıldı. Dilediğin zaman
+          yeniden kaydolabilirsin.
+        </p>
+        <a href="/kariyer/kayit" className="text-accent hover:underline">Yeniden kaydol</a>
+      </div>
+    );
 
   if (durum === 'eposta' || durum === 'gonderildi')
     return (
@@ -152,6 +201,65 @@ export default function ProfilimGorunumu() {
           </div>
         )}
       </dl>
+
+      {/* KVKK silme hakkı. Bilinçli olarak sayfanın en altında, sessiz ve iki aşamalı:
+          önce gizli, sonra yazarak onay. */}
+      <div className="mt-16 pt-8 border-t border-warm-border">
+        {!silmeAcik ? (
+          <button
+            type="button"
+            onClick={() => setSilmeAcik(true)}
+            className="text-sm text-warm-400 hover:text-warm-600 underline underline-offset-4"
+          >
+            Kaydımı silmek istiyorum
+          </button>
+        ) : (
+          <div className="rounded-md border border-warm-border bg-sand p-5">
+            <h2 className="text-base font-semibold text-ink mb-2">Kaydını silmek üzeresin</h2>
+            <p className="text-sm text-warm-600 leading-relaxed mb-2">
+              Profil bilgilerin ve (varsa) yüklediğin CV havuzdan kalıcı olarak silinir.
+              <strong className="font-medium text-ink"> Bu işlem geri alınamaz.</strong> Dilediğin
+              zaman yeniden kaydolabilirsin, ama bilgilerin sıfırdan girilir.
+            </p>
+            <p className="text-sm text-warm-600 leading-relaxed mb-4">
+              Sadece bir süre görünmek istemiyorsan, silmek yerine{' '}
+              <a href="/kariyer/kayit" className="text-accent hover:underline">görünürlük seviyeni</a>{' '}
+              değiştirmeyi de düşünebilirsin.
+            </p>
+
+            <label className={labelCls}>
+              Onaylamak için aşağıya <span className="font-semibold text-ink">{SILME_ONAY_IFADESI}</span> yaz
+            </label>
+            <input
+              value={silmeOnayi}
+              onChange={(e) => setSilmeOnayi(e.target.value)}
+              className={`${inputCls} max-w-xs`}
+              placeholder={SILME_ONAY_IFADESI}
+              autoComplete="off"
+            />
+
+            {hata && <p className="mt-3 text-sm text-accent">{hata}</p>}
+
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={kaydiSil}
+                disabled={siliniyor || !onayEslesti(silmeOnayi)}
+                className="rounded-md bg-red-700 px-5 py-2.5 text-white text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {siliniyor ? 'Siliniyor…' : 'Kaydımı kalıcı olarak sil'}
+              </button>
+              <button
+                type="button"
+                onClick={() => { setSilmeAcik(false); setSilmeOnayi(''); setHata(''); }}
+                className="text-sm text-warm-500 hover:text-ink"
+              >
+                Vazgeç
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
