@@ -190,3 +190,5 @@ Klasik bilanço analizi, geleceğin geçmişe kabaca benzeyeceğini varsayar. Ba
 Bir sonraki bölümde gelir tablosunun içine giriyoruz: paranın bir yıl boyunca nasıl aktığı — ve en üstteki ciro rakamının neden hiçbir zaman göründüğü gibi olmadığını göreceğiz.
 
 Yalçın Arsan — Nisan 2026
+
+Bu seri, klasik finansal analiz çerçevelerini temel alarak, gerçek dünya örnekleri ve sektör deneyimiyle zenginleştirilmiştir.

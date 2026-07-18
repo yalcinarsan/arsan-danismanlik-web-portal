@@ -144,6 +144,6 @@ Klasik gelir tablosu analizi — marjları emsal şirketlerle karşılaştırmak
 
 Bir sonraki bölümde nakit akış tablosuna geçiyoruz: kârlı şirketler neden iflas eder — ve muhasebe kârı ile gerçek nakit arasındaki uçurum neden herhangi bir faaliyet raporundaki en önemli ve en çok göz ardı edilen olgulardan biridir.
 
-Bu seri, klasik finansal analiz çerçevelerini temel alarak, gerçek dünya örnekleri ve kişisel deneyimle zenginleştirilmiştir.
-
 Yalçın Arsan — Nisan 2026
+
+Bu seri, klasik finansal analiz çerçevelerini temel alarak, gerçek dünya örnekleri ve sektör deneyimiyle zenginleştirilmiştir.

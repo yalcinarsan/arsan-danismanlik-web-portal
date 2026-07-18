@@ -225,3 +225,5 @@ Bu soruyu serinin her bölümünde, farklı bir açıdan yeniden soracağız.
 Selam ve sevgilerimle,
 
 Yalçın Arsan — Mart 2026
+
+Bu seri, klasik finansal analiz çerçevelerini temel alarak, gerçek dünya örnekleri ve sektör deneyimiyle zenginleştirilmiştir.
