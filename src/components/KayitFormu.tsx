@@ -299,7 +299,10 @@ export default function KayitFormu() {
 
       <label className="flex items-start gap-2 text-sm text-warm-700">
         <input type="checkbox" checked={f.kvkk} onChange={(e) => setF({ ...f, kvkk: e.target.checked })} className="mt-1 accent-accent" />
-        <span>KVKK aydınlatma metnini okudum; kişisel verilerimin bu kapsamda işlenmesine açık rıza veriyorum. *</span>
+        <span>
+          <a href="/kvkk" target="_blank" rel="noopener" className="text-accent hover:underline">KVKK aydınlatma metnini</a>
+          {' '}okudum; kişisel verilerimin bu kapsamda işlenmesine açık rıza veriyorum. *
+        </span>
       </label>
 
       {hata && <p className="text-sm text-accent">{hata}</p>}
