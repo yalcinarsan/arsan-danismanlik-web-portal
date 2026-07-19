@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK } from '../lib/adayTaksonomi';
+import { anlasilirHata } from '../lib/hataMesaji';
 
 const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
@@ -72,7 +73,7 @@ export default function KayitFormu() {
       options: { emailRedirectTo: window.location.href },
     });
     setGonderiliyor(false);
-    if (error) setHata(error.message);
+    if (error) setHata(anlasilirHata(error, 'giris'));
     else setDurum('gonderildi');
   }
 
@@ -117,7 +118,7 @@ export default function KayitFormu() {
     let cvYol = cvMevcutYol;
     if (cvKaldirilsin && cvMevcutYol) {
       const { error: silHata } = await supabase.storage.from('cv').remove([cvMevcutYol]);
-      if (silHata) { setHata('CV kaldırılamadı: ' + silHata.message); setGonderiliyor(false); return; }
+      if (silHata) { setHata(anlasilirHata(silHata)); setGonderiliyor(false); return; }
       cvYol = null;
     } else if (cvDosya) {
       const uzanti = (cvDosya.name.split('.').pop() ?? 'pdf').toLowerCase();
@@ -129,7 +130,7 @@ export default function KayitFormu() {
       const { error: yukleHata } = await supabase.storage
         .from('cv')
         .upload(yeniYol, cvDosya, { upsert: true, contentType: cvDosya.type || undefined });
-      if (yukleHata) { setHata('CV yüklenemedi: ' + yukleHata.message); setGonderiliyor(false); return; }
+      if (yukleHata) { setHata(anlasilirHata(yukleHata)); setGonderiliyor(false); return; }
       cvYol = yeniYol;
     }
 
@@ -157,7 +158,7 @@ export default function KayitFormu() {
           kvkk_riza_tarihi: new Date().toISOString(),
         });
     setGonderiliyor(false);
-    if (error) setHata(error.message);
+    if (error) setHata(anlasilirHata(error, 'kayit'));
     else setDurum('basarili');
   }
 

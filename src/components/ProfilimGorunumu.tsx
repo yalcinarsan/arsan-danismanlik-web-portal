@@ -4,6 +4,7 @@ import {
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
   elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket,
 } from '../lib/adayTaksonomi';
+import { anlasilirHata } from '../lib/hataMesaji';
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';
@@ -89,7 +90,7 @@ export default function ProfilimGorunumu() {
       options: { emailRedirectTo: window.location.href },
     });
     setGonderiliyor(false);
-    if (error) setHata(error.message);
+    if (error) setHata(anlasilirHata(error, 'giris'));
     else setDurum('gonderildi');
   }
 
@@ -105,7 +106,7 @@ export default function ProfilimGorunumu() {
     const uid = sess.session?.user.id;
     if (aday?.cv_path) await supabase.storage.from('cv').remove([aday.cv_path]);
     const { error } = await supabase.from('adaylar').delete().eq('user_id', uid);
-    if (error) { setHata(error.message); setSiliniyor(false); return; }
+    if (error) { setHata(anlasilirHata(error, 'silme')); setSiliniyor(false); return; }
     await supabase.auth.signOut();
     setSiliniyor(false);
     setDurum('silindi');
