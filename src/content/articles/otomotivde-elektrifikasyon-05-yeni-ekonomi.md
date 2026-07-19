@@ -9,7 +9,7 @@ seri: otomotivde-elektrifikasyon
 seriNo: 5
 seriBaslik: "Otomotivde Yeni Ekonomi"
 durum: yayında
-ozet: "Elektrifikasyonun çevresinde şekillenen yeni ekonomiye bakış: yan sanayinin dönüşümü, Türkiye'nin şarj ekonomisi, şarj cihazı üretimi, otomotiv markaları ile petrol şirketlerinin farklı çeviklikleri, BYD'nin Türkiye kararı ve Türkiye'nin ihraç edilebilir yeni ekonomideki fırsat penceresi."
+ozet: "Elektrifikasyonun çevresinde şekillenen yeni ekonomiye bakış: yan sanayinin dönüşümü, Türkiye'nin şarj ekonomisi, şarj cihazı üretimi, otomotiv markaları ile petrol şirketlerinin farklı çeviklikleri, BYD'nin Türkiye kararı — ve Türkiye'nin en belirgin boşluğu: son üç yılda üç kez iptal edilen yatırımların ardından hâlâ aktif bir yerli batarya hücre üretimi projesi yok."
 ---
 
 'Otomotivde Elektrifikasyon' yazı dizimizin beşincisindeyiz. İlk dört yazıda sırasıyla "[ne oluyor?](/makaleler/otomotivde-elektrifikasyon-01-neler-oluyor)", "[ne olacak?](/makaleler/otomotivde-elektrifikasyon-02-bundan-sonra-ne-olacak)", "[sektörün yerel aktörleri ne yapmalı?](/makaleler/otomotivde-elektrifikasyon-03-kim-ne-yapmali)" ve "[müşteri ne diyor?](/makaleler/otomotivde-elektrifikasyon-04-musteri-ne-diyor)" sorularına yanıt aradık. Şimdi bu büyük resme bir adım geriden bakıyor, müşteri çevresinde şekillenen yeni ekonomiye & bu bunu oluşturan altyapıya bakıyoruz.
@@ -39,15 +39,19 @@ Türkiye yan sanayisi onlarca yıldır otomotiv sektörünün "**görünmeyen om
 
 EA geçişinde bu konumun avantajı aynen sürüyor — yeter ki şirket, ürünü dönüştürebilsin. Avrupa'nın EA tedarik ihtiyacı 2025-2030 arasında hızla büyüyecek; Türkiye coğrafi olarak hem Avrupa'ya, hem de Orta Doğu/Kuzey Afrika büyüme pazarlarına yakın. Çin tedarikine karşı güvenli, yakın, nitelikli alternatif konumu Türkiye'nin önündeki stratejik fırsat. Ama bu fırsat kendiliğinden oluşmuyor. Yatırım ve pozisyon alma gerektiriyor.
 
-**Şu an için somut yatırımlarımız var: Ford Otosan + SK On Ankara Batarya Fabrikası**
+**Boşluk: Türkiye'de Yerli Batarya Hücre Üretimi Hâlâ Yok**
 
-Türkiye'de elektrikli araç batarya üretimi için bugüne kadar açıklanan en büyük yatırım, Ford Otosan'ın Güney Koreli SK On ve Koç Holding ile kurduğu ortak girişim. Ankara'da kurulan tesis, 32 milyar TL yatırımla, yıllık 30-45 GWh batarya hücre üretim kapasitesine sahip olacak. Yaklaşık 4.000 kişi istihdam etmesi planlanıyor. Üretim 2025-2026 dönüm noktasında başlıyor. Üretilecek bataryalar yüksek nikel NCM (nikel, kobalt, manganez) kimyasıyla yapılandırılmış; hedef pazar sadece Ford ürünleri değil, tüm elektrikli otomobil üreticileri.
+Türkiye'de EA batarya hücresi üretimi konusunda aktif hiçbir yatırım yok — ve bu, yazının en dürüst tespit etmemiz gereken noktalarından biri.
 
-Bu yatırım Türkiye için anlamlı çünkü:
+Son üç yılda üç ayrı deneme oldu, hepsi iptal edildi:
 
-- **Bir,** Türkiye'de **lokal batarya hücre üretimi** mümkün hale geliyor. Şimdiye kadar batarya paketleri Türkiye'de monte edilse bile hücreler ithal ediliyordu. Hücre üretimi yerelleşince Türkiye'nin EA üretim zincirinde gerçek bir derinleşme oluyor.
-- **İki,** Ankara konumu özellikle önemli — Türkiye'nin diğer büyük EA üretim merkezi olan Gemlik'e (Togg) ve Kocaeli/Bursa'daki yan sanayi konsantrasyonuna makul mesafede. Bu fabrika, Türkiye'deki tüm EA üreticilerinin tedarik kaynağı haline gelebilir.
-- **Üç,** 30-45 GWh kapasite önemli bir hacim. Karşılaştırma için: Togg'un mevcut yıllık satışı (~30.000 araç, ortalama 75 kWh batarya) yaklaşık 2,3 GWh batarya ihtiyacına denk geliyor. Yani fabrika, sadece Togg'u değil, Türkiye'de üretilen tüm EA modellerini ve hatta ihracat pazarlarını besleyebilecek ölçekte.
+- **Mart 2022:** Ford + SK On + Koç Holding'in Ankara batarya fabrikası niyet mektubu → Ocak 2023'te iptal
+- **Şubat 2023:** Ford + LG Energy Solution + Koç ile yeniden imzalandı (SK On yerine LG) → Kasım 2023'te Koç Holding niyet mektubunu geri çekti, proje bitti. Koç'un açıklaması: "mevcut elektrikli araç pazarının yeterli büyüme göstermemesi"
+- **Ekim 2024:** Ford ile LGES arasında farklı bir anlaşma — Türkiye'de fabrika değil, LG'nin Polonya tesisinden E-Transit ve Ford Otosan modelleri için batarya tedarik anlaşması → Aralık 2025'te bu da iptal edildi, Ford'un strateji değişikliği sonrası
+
+Bu üç iptalin ortak sebebi: küresel EA pazarındaki büyüme yavaşlaması ve batarya yatırım geri dönüş matematiğinin sarsılması. Yani sorun Türkiye-özgü değil, küresel bir yatırım-iştahı sorunu. Aynı dönemde Almanya'da, İtalya'da, İspanya'da da benzer batarya yatırım iptalleri yaşandı.
+
+Sonuç: Türkiye'de EA batarya üretim zincirinin en kritik kademesi olan hücre üretimi hâlâ boşluk. Ne Ford Otosan-Koç ekseninde ne başka büyük bir yerli girişimde aktif bir hücre fabrikası projesi mevcut. Türkiye üretiminde hâlâ tüm hücreler ithal.
 
 ### SiRo / Farasis: Yerli Hücre Hikayesinin Zor Yılı
 
@@ -57,7 +61,9 @@ SiRo, Mart 2023'ten bu yana 70.000'i aşkın batarya paketi üretti — bu önem
 
 Özetle: Togg-Farasis ortaklığı devam ediyor ama yerli hücre üretimi hedefine henüz ulaşılamadı, üstelik Çinli ortağın geleceğine göre bu durum her an değişebilir; ben son atılan LFP batarya pakedi adımını olumlu bir gelişme olarak görüyorum.
 
-Bu noktada doğal bir soru var: Farasis toparlanamazsa Togg'un alternatif tedarik kaynakları neler olabilir? CATL, LG Energy Solution, Samsung SDI gibi büyük Asyalı oyuncuların hepsi mümkün. Ama bence en akla yatkın yerli alternatif Ford Otosan + SK On fabrikası: aynı ülkede, makul mesafede, hedef pazarı zaten "Türkiye'deki tüm EA üreticileri" olarak tanımlanmış ve açık kapasitesi var. İki büyük Türk otomotiv aktörünün (Togg ve Koç-Ford) bir batarya tedarik ekseni etrafında buluşması — eğer gerçekleşirse — Türkiye'nin yeni elektrifikasyon ekonomisi konumlanmasında dönüm noktası olur. Şu an için bu sadece bir senaryo. Resmi bir açıklama yok. Ama o gün geldiğinde Togg için masada anlamlı bir seçenek olabileceğini düşünüyorum. Mantık güçlü, koşullar olgunlaşıyor.
+Bu noktada sektörü yakından takip edenlerin sormaya başladığı doğal bir soru var: Togg'un alternatif tedarik kaynakları neler? Otomotiv analistleri CATL, LG Energy Solution, Samsung SDI gibi büyük Asyalı oyuncuları işaret ediyor. Yerli bir alternatif için ise Türkiye şu an "boş sahne"de — Ford Otosan-Koç ekseni denedi ve son üç yılda üç ayrı yatırım/tedarik anlaşması iptal etti; başka büyük bir aktif proje yok.
+
+Bu boşluğun kritik olması bir tesadüf değil: yerli batarya hücre üretimi, Türkiye'nin yeni ekonomi konumlanmasının en zayıf halkası. Bu halka doldurulmadan Togg, Ford Otosan, gelecekteki EA üreticileri ve ihracat pazarları hep dış tedarike bağımlı kalır. Kimin bu boşluğu ne zaman ve hangi ortaklıkla dolduracağı Türkiye'nin önümüzdeki beş yıllık en önemli sanayi politikası sorularından biri.
 
 ### Türkiye Yan Sanayisi İçin Soru
 
@@ -285,7 +291,7 @@ BYD vakasını izole bir olay olarak değil, daha geniş bir tabloda okumak gere
 
 Bu durum "Çin'le çalışmayalım" anlamına gelmez. Çinli oyuncular yeni ekonominin en büyük ve en yetkin paydaşlarından — onlarsız bir EA üretim ekosistemi kurmak mümkün değil. Anlamlı olan, **paralel olarak yerli ve Batılı alternatiflerin de kuruluyor olması anlamlı olur.** Tek bir tedarik kaynağına, tek bir teknoloji ortağına, tek bir yatırım taahhüdüne bağlı olmamak.
 
-İşte tam burada Bölüm 1'de konuştuğumuz **Ford Otosan + SK On Ankara batarya fabrikası** stratejik önem kazanıyor. Türkiye'nin EA üretim zincirinde Çin'e alternatif (ya da en azından paralel) bir tedarik kaynağı oluşması, ülke ölçeğinde risk yönetimi anlamına geliyor. Aynı mantık şarj cihazı (Vestel), kurulum hizmetleri, yan sanayi parçaları için de geçerli — yerli ve çeşitlendirilmiş tedarik ağı, küresel oyuncuların çevikliğinden kaynaklı risklere karşı doğal bir tampon.
+İşte tam burada Bölüm 1'de konuştuğumuz **yerli batarya hücre üretimi boşluğu** kritik önem kazanıyor. Türkiye'nin EA üretim zincirinde Çin'e (veya herhangi bir tekil dış kaynağa) alternatif bir tedarik yapısı oluşmadıkça, ülke ölçeğinde risk yönetimi eksik kalır. Bu boşluğun kapatılması — hangi ortakla, hangi teknolojiyle, hangi finansmanla olursa olsun — Türkiye'nin yeni ekonomi konumunda belirleyici olacak. Aynı çeşitlendirme mantığı şarj cihazı (Vestel'in konumu doğru örnek), kurulum hizmetleri, yan sanayi parçaları için de geçerli — yerli ve çeşitlendirilmiş tedarik ağı, küresel oyuncuların çevikliğinden kaynaklı risklere karşı doğal bir tampon.
 
 ### Sonuç: Çevik Olduğu Kadar Esnek de Olmak
 
@@ -303,12 +309,12 @@ Türkiye'nin bu yeni ekonomide hangi alanlarda nerede olduğuna bakarak başlaya
 
 - **Şarj cihazı üretimi.** Vestel'in Manisa fabrikası Türkiye'yi Avrupa'nın önemli bir şarj cihazı tedarikçisi haline getirdi. 30 ülkeye ihracat, 1 MW segmenti dahil. Çin alternatifi olarak "yakın, güvenli, nitelikli" konumu Avrupa'nın stratejik öncelikleriyle örtüşüyor. Bu alanda Türkiye birinci ligde.
 - **Şarj operatörlüğü ve stratejisi.** Togg-Trugo zinciri enerji satışında %21.8 pazar payı ile yerli olarak Tesla benzeri bir ekosistem mantığı kurabilen tek Türk oyuncu konumunda. Şarj operatörü pazarının (ZES, Eşarj, Wat, Voltrun) büyük holding kontrolünde olması olgun bir yapı kurulduğunu gösteriyor. Borusan EnBW gibi yükselen oyuncular sektörü daha da büyütüyor. Bu alanda Türkiye sadece kendi pazarını değil, model olarak başka pazarlara da örnek olabilecek konumda.
-- **Batarya üretimi (kısmen).** Ford Otosan + SK On Ankara fabrikası Türkiye'de yerli hücre üretiminin başlamasını sağlayacak. 30-45 GWh kapasite hem iç pazara hem ihracata yetecek hacim. Bu yatırım — Yan sanayinin batarya, güç elektroniği, soğutma gibi büyüyen segmentlerine açılmasıyla birlikte — Türkiye'yi Avrupa'nın yakın batarya tedarik üslerinden biri haline getirebilir.
+- **Batarya modül-paket üretimi (sınırlı).** SiRo'nun Gemlik tesisi Togg için modül ve paket üretimini sürdürüyor, LFP geçişi bu tesiste yapıldı. Yan sanayinin batarya, güç elektroniği, soğutma gibi büyüyen segmentlerine açılması da geçerli avantaj. Ama hücre üretimi hâlâ boşluk ve bu boşluk kapatılmadıkça Türkiye'nin batarya konusundaki konumu ithalata bağımlı kalıyor.
 - **Akaryakıt şirketlerinin şarj açılımı.** Opet, Petrol Ofisi, Türkiye'deki TotalEnergies ve Shell yapıları — hepsi yerli ya da uluslararası şarj operatörü ortaklarıyla pozisyon almış durumda. Bu, Türkiye'nin enroute şarj segmentinde altyapı yatırımının hızlandığını gösteriyor.
 
 ### Geride veya Risk Altında Olanlar
 
-- **Yerli batarya hücre üretimi.** SiRo'nun Çinli ortak Farasis'in finansal sıkıntısı, GM ayrılığı ve hücre üretim takviminin 2026'ya ertelenmesi yerli batarya hikayesinin önümüzdeki dönemde sıkıntılı geçeceğini gösteriyor. Burada Türkiye için en muhtemel çözüm yolu: Ford Otosan-SK On fabrikasının açık kapasitesinden tedarik almak, ya da CATL/LG Energy Solution/Samsung SDI gibi büyük Asyalı oyuncularla yeni bir ortaklık kurmak. Mevcut planın tek başına yetmediği açık.
+- **Yerli batarya hücre üretimi.** Bu, Türkiye'nin yeni ekonomideki en belirgin boşluğu. SiRo'nun Çinli ortağı Farasis'in finansal sıkıntısı, GM ayrılığı ve hücre üretim takviminin 2026'ya ertelenmesi yerli batarya hikayesinin sıkıntılı geçeceğini gösteriyor. Üstüne Ford Otosan-Koç ekseninin son üç yılda üç ayrı batarya yatırım/tedarik anlaşmasını iptal etmesi — sonuncusu Aralık 2025'te — yerli hücre üretimi konusunda başka aktif bir büyük yatırım da olmadığını gösteriyor. Türkiye için muhtemel yollar: CATL, LG Energy Solution, Samsung SDI gibi büyük Asyalı oyunculardan biriyle yeni bir üretim ortaklığı, ya da SiRo yapısının Çinli ortak değişikliği ile yeniden konfigüre edilmesi. Ama hangisi olursa olsun, bu boşluk yakın gelecekte kapanmadan Türkiye'nin batarya konumu tedarikçi değil ithalatçı olarak kalacak.
 - **Geleneksel otomotiv markalarının stratejisi.** Bölüm 4'te gördüğümüz üzere, geleneksel markalar — hem küresel hem Türkiye'de — yeni ekonomide pozisyon almakta yavaş kalıyor. Bayi/servis ağlarını dönüştürememek, hibrit söylemine sıkı sarılmak, EA arzını kısıtlı tutmak — bunlar geleneksel markaların yeni ekonomi payını azaltan tercihler. Türkiye'de bu durumun en somut sonucu: pazarın hızla büyüyen kısmı Tesla, Togg, BYD gibi EA odaklı oyuncular ile bağımsız şarj operatörleri tarafından paylaşılıyor; geleneksel markaların payı görece eriyor.
 - **Destination charging** segmenti. Türkiye'de AVM, market zinciri, otel grupları gibi perakende sahipleri yeni ekonomide doğal bir rol oynayabilecek konumda. Ama bu segment henüz olgunlaşma sürecinde — bireysel girişimler var, sistemli bir gelişim yok. Hem perakende sahiplerinin hem de destination charging odaklı bağımsız operatörlerin önünde geniş bir pazar boşluğu var.
 
@@ -319,7 +325,7 @@ Türkiye'nin önündeki gerçek stratejik fırsat sadece yerli pazar büyümesi 
 Bu kavramı somutlaştırırsak:
 
 - **Şarj cihazı:** Vestel zaten 30 ülkeye ihraç ediyor. Bu hacim katlanarak artabilir.
-- **Batarya:** Ford Otosan-SK On fabrikasının 30-45 GWh kapasitesi sadece iç pazara değil, Avrupa OEM'lerine de hizmet edebilir.
+- **Batarya modül-paket:** SiRo Gemlik'teki üretimi iç pazara hizmet ediyor; hücre üretim boşluğu doldurulduğu takdirde (yeni bir ortaklıkla) Türkiye Avrupa OEM'lerinin yakın tedarik üslerinden biri olma potansiyeline sahip — ama şu an bu potansiyel.
 - **Yan sanayi bileşenleri:** Türkiye yan sanayisinin Avrupa OEM'lerine onlarca yıldır yaptığı tedarik, EA bileşenlerinde de devam edebilir — yeter ki şirketler portföy dönüşümünü zamanında yapsın.
 - **Kurulum, bakım, yazılım hizmetleri:** Türkiye'nin mühendis kapasitesi bu hizmetleri ihraç edilebilir kılıyor — özellikle yakın coğrafya pazarlarına (Orta Doğu, Kuzey Afrika, Balkanlar).
 - **Şarj operatörlüğü modeli:** Togg-Trugo gibi başarılı yerel model uluslararası alana taşınabilir; benzer kıvrılma noktasındaki başka ülke pazarlarına lisanslanabilir.
@@ -338,11 +344,11 @@ Bu konu stratejik irade meselesi. Her büyük değişim döneminde olduğu gibi.
 
 Bu yazıyı "yeni ekonomi" kavramı etrafında kurdum. Pek görünür olmayan ama belirleyici olacak bir gerçeği işaret etmek için: EA geçişi sadece bir ürün değişikliği değil, bir ekonomi değişikliği. Yan sanayisinden şarj ekonomisine, cihaz üretiminden bakım-yedek parça pazarına, eski paydaşların yeni rollerine kadar uzanan bir dönüşüm.
 
-Bu yeni ekonomide kazananlar belirsiz değil — verilere bakarak görebiliyoruz: Varoluşsal baskı altındaki paydaşlar (petrol şirketleri) çevik davranıyor, pozisyon alıyor. Pazarın stratejik liderleri (Tesla, Çinli markalar, bazı yerli oyuncular gibi Togg) ekosistem mantığıyla genişliyor. Doğru yatırımı yapanlar (Vestel cihaz tarafında, Ford Otosan-SK On batarya tarafında) ihracat şampiyonu olabilecek konumda
+Bu yeni ekonomide kazananlar belirsiz değil — verilere bakarak görebiliyoruz: Varoluşsal baskı altındaki paydaşlar (petrol şirketleri) çevik davranıyor, pozisyon alıyor. Pazarın stratejik liderleri (Tesla, Çinli markalar, bazı yerli oyuncular gibi Togg) ekosistem mantığıyla genişliyor. Doğru yatırımı yapanlar (Vestel cihaz tarafında, SiRo modül-paket tarafında sınırlı da olsa) ihracat şampiyonu olabilecek konumda; batarya hücre tarafında Türkiye'nin hâlâ büyük bir boşluğu var
 
 Kaybedenler de belirsiz değil: Geleneksel markalar izleyici konumda. Yeni rol almak yerine eski rolünü sürdürmeye çalışan paydaşlar pazardan pay alamıyor. Tek bir tedarik kaynağına (özellikle Çinli oyunculara) bağımlı stratejiler ise yapısal risk taşıyor.
 
-Türkiye için bu denklemde iyi bir konum var. Yan sanayi gücü, yerli üretim altyapısı, akaryakıt ağının dönüşüm hızı, Vestel ve Togg-Trugo gibi başarı hikayeleri, Ford Otosan-SK On gibi büyük yeni yatırımlar — hepsi birlikte Türkiye'yi yeni ekonominin bölgesel merkezlerinden biri haline getirebilir.
+Türkiye için bu denklemde iyi bir konum var. Yan sanayi gücü, yerli üretim altyapısı, akaryakıt ağının dönüşüm hızı, Vestel ve Togg-Trugo gibi başarı hikayeleri, SiRo'nun modül-paket üretimi — hepsi birlikte Türkiye'yi yeni ekonominin bölgesel merkezlerinden biri haline getirebilir. Ama bir belirgin boşluk var: yerli batarya hücre üretimi. Son üç yılda üç ayrı yatırım denemesi iptal edildi (Ford-SK On, Ford-LG, sonra Ford-LGES tedarik anlaşması) ve şu an aktif bir yerli hücre projesi yok. Bu boşluk doldurulmadan Türkiye'nin batarya konumu ithalatçı olarak kalacak. Eksik olan diğer şey ise — bu yazının önceki dört yazıdaki aynı sonuca yine vardığını söylemem gerekiyor — stratejik vizyon ve irade.
 
 Bu konuda Şubat ayından bu yana yazıyorum ve sona yaklaştık. Temmuz'da yayınlayacağım son yazıda denklemin son ama belki de en zorlu boyutuna bakacağız: politika ve uluslararası dinamikler. ABD'nin tarife savaşları, AB'nin CO2 madate'leri (kısıtları), Çin'in devlet desteklerinin küresel yansımaları, Türkiye'nin ÖTV politikasının stratejik bir araç olarak nasıl konumlandırılabileceği, Togg'un ulusal stratejik boyutu, ve serinin altı yazısının topluca ne söylediği. Yeni ekonomi şekillenirken, devletin rolü bu ekonominin kimin lehine, kimin aleyhine işleyeceğini belirleyen anahtar faktör.
 
@@ -370,7 +376,7 @@ Yalçın Arsan — Haziran 2026
 
 **Batarya Yatırımları (Türkiye)**
 
-- Ford Otosan + SK On + Koç Holding Ankara batarya fabrikası açıklamaları
+- Ford Otosan-SK On-Koç ve Ford Otosan-LGES-Koç ortak girişim iptalleri (Kasım 2023) ile Ford-LGES tedarik anlaşması iptali (Aralık 2025)
 - Togg-Farasis-SiRo ortaklığı, KAP açıklamaları
 - Hürriyet, AA, BloombergHT, Karar, Donanım Haber: Sektörel haberler
 
