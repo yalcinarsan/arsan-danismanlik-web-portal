@@ -43,7 +43,7 @@ function onayEslesti(girilen: string) {
 }
 
 export default function ProfilimGorunumu() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'aranıyor' | 'bulunamadi' | 'gorunum' | 'silindi'>('yukleniyor');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'aranıyor' | 'bulunamadi' | 'gorunum' | 'silindi' | 'cikildi'>('yukleniyor');
   const [eposta, setEposta] = useState('');
   const [hata, setHata] = useState('');
   const [gonderiliyor, setGonderiliyor] = useState(false);
@@ -95,6 +95,18 @@ export default function ProfilimGorunumu() {
   }
 
   /**
+   * Yalnızca tarayıcı oturumunu kapatır — hesap ve veriler durur (silme DEĞİL).
+   * Ortak/paylaşımlı cihazlarda profilin bir sonraki kişiye açık kalmaması için.
+   */
+  async function cikisYap() {
+    await supabase.auth.signOut();
+    setAday(null);
+    setCvUrl(null);
+    setEposta('');
+    setDurum('cikildi');
+  }
+
+  /**
    * KVKK silme hakkı. Önce (varsa) CV dosyası, sonra profil satırı silinir; ardından
    * oturum kapatılır. Not: giriş hesabının kendisi (yalnızca e-posta adresini tutan
    * auth kaydı) tarayıcıdan silinemiyor — yönetici yetkisi gerekiyor.
@@ -113,6 +125,18 @@ export default function ProfilimGorunumu() {
   }
 
   if (durum === 'yukleniyor' || durum === 'aranıyor') return <p className="text-warm-500">Yükleniyor…</p>;
+
+  if (durum === 'cikildi')
+    return (
+      <div className="rounded-lg border border-warm-border bg-sand p-8">
+        <h2 className="text-xl font-semibold text-ink mb-2">Çıkış yaptın.</h2>
+        <p className="text-warm-600 mb-4">
+          Oturumun bu tarayıcıda kapatıldı. Profilin ve bilgilerin duruyor — dilediğin
+          zaman e-postanla yeniden giriş yapabilirsin.
+        </p>
+        <a href="/kariyer/profilim" className="text-accent hover:underline">Yeniden giriş yap</a>
+      </div>
+    );
 
   if (durum === 'silindi')
     return (
@@ -173,7 +197,10 @@ export default function ProfilimGorunumu() {
         <p className="text-sm text-warm-500">
           Giriş: {aday.eposta} · Kayıt tarihi: {new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(aday.created_at))}
         </p>
-        <a href="/kariyer/kayit" className="text-sm text-accent hover:underline">Profilimi düzenle</a>
+        <div className="flex items-baseline gap-4">
+          <a href="/kariyer/kayit" className="text-sm text-accent hover:underline">Profilimi düzenle</a>
+          <button type="button" onClick={cikisYap} className="text-sm text-warm-500 hover:text-ink">Çıkış yap</button>
+        </div>
       </div>
       <dl>
         <Satir etiket="Ad Soyad" deger={aday.ad} />
