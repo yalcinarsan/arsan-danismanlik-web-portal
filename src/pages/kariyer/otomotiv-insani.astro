@@ -26,9 +26,10 @@ const mailto = `mailto:${kurum_eposta}?subject=${encodeURIComponent('Otomotiv İ
 
       <div class="mt-16 pt-10 border-t border-[#6a5540]">
         <div class="flex flex-wrap gap-4">
-          <span class="inline-flex items-center rounded-md bg-accent px-6 py-3 text-paper font-medium">
+          <a href="/kariyer/kayit"
+             class="inline-flex items-center rounded-md bg-accent px-6 py-3 text-paper font-medium hover:opacity-90 transition-opacity">
             {cta_aday}
-          </span>
+          </a>
           <a href={mailto}
              class="inline-flex items-center rounded-md border border-[#7c6448] px-6 py-3 text-paper font-medium hover:border-accent transition-colors">
             {cta_kurum}

@@ -4,7 +4,7 @@
 etiket: "Otomotiv İnsanı"
 baslik: "Bu dönüşümü taşıyacak olanlara dair."
 slogan: "Otomotive özgü bir yetenek platformu kuruyoruz — genel iş ilanı sitelerinin diliyle anlatılamayacak bir sektöre, kendi diliyle."
-cta_aday: "Aday havuzu · çok yakında"
+cta_aday: "Aday havuzuna katıl"
 cta_kurum: "Kurumlar için: Bize ulaşın"
 kurum_eposta: "yalcinarsan@arsandanismanlik.com.tr"
 imza: "Yalçın Arsan · Arsan Danışmanlık"
