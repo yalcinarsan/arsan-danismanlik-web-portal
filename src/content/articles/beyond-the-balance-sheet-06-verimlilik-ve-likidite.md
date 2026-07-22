@@ -160,7 +160,7 @@ Tesla, sektöre başka bir mantık taşıdı. Doğrudan satış modeli — bayi 
 
 Ama işin ilginç yanı şurada: **avantaj kalıcı olmadı.** 2022'de Tesla'nın CCC'si −2 güne düştü, 2023'te +9, 2024'te +15, 2025'te +13 güne yerleşti.
 
-Neden? Birkaç faktör bir arada: Model 3 ve Model Y beklenti listeleri kısaldı (yani depozito ile teslimat arasındaki süre daraldı), rekabet arttığı için hızlı teslimat baskısı doğdu, ve Çinli EV üreticileri (BYD, NIO) dahil bazı pazarlarda tüketicinin bekleme sabrını sıfıra indirdi. Tesla hâlâ Toyota veya VW'den çok daha iyi ama sekiz yıllık kıyaslamada bir zamanki devasa üstünlüğü azaldı.
+Neden? Birkaç faktör bir arada: Model 3 ve Model Y beklenti listeleri kısaldı (yani depozito ile teslimat arasındaki süre daraldı), rekabet arttığı için hızlı teslimat baskısı doğdu, ve Çinli EV üreticileri (BYD, NIO) dahil bazı pazarlarda tüketicinin bekleme sabrını sıfıra indirdi. Tesla hâlâ Toyota veya VW'den çok daha iyi ama beş yıllık kıyaslamada bir zamanki devasa üstünlüğü azaldı.
 
 <figure>
 <img src="/images/articles/verimlilik-ve-likidite/04-tesla-ccc-erozyon.png" alt="Yeni model avantajı da erozyona uğrar: Tesla'nın nakit dönüşüm döngüsü 2021'den 2025'e. 2021'de −26 gün, 2022'de −2 gün, 2023'te +9 gün, 2024'te +15 gün, 2025'te +13 gün. Bir zamanki devrimci negatif döngü birkaç yıl içinde pozitif tarafa geçerek normalleşti." />
