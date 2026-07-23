@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK } from '../lib/adayTaksonomi';
+import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK, MARKALAR, SEHIRLER } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 
 const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
   kanal: [] as string[], fonksiyon: [] as string[], kidem: '', elektrifikasyon: '',
-  markalar: '', diller: '', sehir: '', calisma_tercihi: '', aciklik: '',
+  markalar: [] as string[], markalarDiger: '', diller: '', sehir: '', calisma_tercihi: '', aciklik: '',
   sertifikalar: '', serbest_metin: '', gorunurluk: 'tek_kor', kvkk: false,
 };
 
@@ -48,14 +48,22 @@ export default function KayitFormu() {
     const { data } = await supabase.from('adaylar').select('*').eq('user_id', session.user.id).maybeSingle();
     if (data) {
       setMevcutKayit(true);
+      // Eskiden serbest metindi: listede birebir (büyük/küçük harf gözetmeksizin) eşleşenler
+      // toggle listesine, geri kalanı "diğer" serbest metnine düşer.
+      const kayitliMarkalar: string[] = data.markalar ?? [];
+      const eslesenMarkalar = MARKALAR.filter((m) =>
+        kayitliMarkalar.some((k) => k.toLocaleUpperCase('tr') === m.toLocaleUpperCase('tr')));
+      const eslesmeyenMarkalar = kayitliMarkalar.filter((k) =>
+        !MARKALAR.some((m) => m.toLocaleUpperCase('tr') === k.toLocaleUpperCase('tr')));
       setF({
         ad: data.ad ?? '', telefon: data.telefon ?? '',
         deneyim_yili: data.deneyim_yili ?? '', son_pozisyon: data.son_pozisyon ?? '', son_kurum: data.son_kurum ?? '',
         kanal: data.kanal ?? [], fonksiyon: data.fonksiyon ?? [],
         kidem: data.kidem ?? '', elektrifikasyon: data.elektrifikasyon ?? '',
-        markalar: (data.markalar ?? []).join(', '),
+        markalar: eslesenMarkalar, markalarDiger: eslesmeyenMarkalar.join(', '),
         diller: (data.diller ?? []).map((d: { dil: string }) => d.dil).filter(Boolean).join(', '),
-        sehir: data.sehir ?? '', calisma_tercihi: data.calisma_tercihi ?? '', aciklik: data.aciklik ?? '',
+        sehir: SEHIRLER.find((s) => s.toLocaleUpperCase('tr') === (data.sehir ?? '').toLocaleUpperCase('tr')) ?? data.sehir ?? '',
+        calisma_tercihi: data.calisma_tercihi ?? '', aciklik: data.aciklik ?? '',
         sertifikalar: data.sertifikalar ?? '', serbest_metin: data.serbest_metin ?? '',
         gorunurluk: data.gorunurluk ?? 'tek_kor',
         kvkk: data.kvkk_riza ?? false,
@@ -95,7 +103,7 @@ export default function KayitFormu() {
     setCvKaldirilsin(false);
   }
 
-  function coklu(alan: 'kanal' | 'fonksiyon', deger: string) {
+  function coklu(alan: 'kanal' | 'fonksiyon' | 'markalar', deger: string) {
     setF((s) => {
       const dizi = s[alan];
       return { ...s, [alan]: dizi.includes(deger) ? dizi.filter((x) => x !== deger) : [...dizi, deger] };
@@ -138,7 +146,10 @@ export default function KayitFormu() {
       ad: f.ad, telefon: f.telefon || null,
       deneyim_yili: f.deneyim_yili, son_pozisyon: f.son_pozisyon || null, son_kurum: f.son_kurum || null,
       kanal: f.kanal, fonksiyon: f.fonksiyon, kidem: f.kidem, elektrifikasyon: f.elektrifikasyon,
-      markalar: f.markalar ? f.markalar.split(',').map((x) => x.trim()).filter(Boolean) : [],
+      markalar: [...new Set([
+        ...f.markalar,
+        ...(f.markalarDiger ? f.markalarDiger.split(',').map((x) => x.trim()).filter(Boolean) : []),
+      ])],
       diller: f.diller ? f.diller.split(',').map((x) => ({ dil: x.trim() })).filter((x) => x.dil) : [],
       sehir: f.sehir || null, calisma_tercihi: f.calisma_tercihi || null, aciklik: f.aciklik || null,
       sertifikalar: f.sertifikalar || null,
@@ -291,18 +302,31 @@ export default function KayitFormu() {
         </div>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label className={labelCls}>Deneyimli olduğun markalar</label>
-          <input value={f.markalar} onChange={(e) => setF({ ...f, markalar: e.target.value })} className={inputCls} placeholder="virgülle ayır" />
+      <div>
+        <label className={labelCls}>Deneyimli olduğun markalar <span className="font-normal text-warm-500">(birden çok seçebilirsin)</span></label>
+        <div className="flex flex-wrap gap-2">
+          {MARKALAR.map((m) => (
+            <button type="button" key={m} onClick={() => coklu('markalar', m)}
+              className={`rounded-full border px-3 py-1.5 text-sm ${f.markalar.includes(m) ? 'border-accent bg-accent text-white' : 'border-warm-border text-warm-600'}`}>
+              {m}
+            </button>
+          ))}
         </div>
+        <input value={f.markalarDiger} onChange={(e) => setF({ ...f, markalarDiger: e.target.value })}
+          className={`${inputCls} mt-2`} placeholder="Listede yoksa buraya yaz (virgülle ayır)" />
+      </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelCls}>Yabancı diller</label>
           <input value={f.diller} onChange={(e) => setF({ ...f, diller: e.target.value })} className={inputCls} placeholder="virgülle ayır" />
         </div>
         <div>
           <label className={labelCls}>Şehir</label>
-          <input value={f.sehir} onChange={(e) => setF({ ...f, sehir: e.target.value })} className={inputCls} />
+          <select value={f.sehir} onChange={(e) => setF({ ...f, sehir: e.target.value })} className={inputCls}>
+            <option value="">Seç…</option>
+            {SEHIRLER.map((s) => <option key={s} value={s}>{s}</option>)}
+          </select>
         </div>
         <div>
           <label className={labelCls}>Çalışma tercihi</label>

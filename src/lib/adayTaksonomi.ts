@@ -16,6 +16,29 @@ export const ELEKTRIFIKASYON = [
 ];
 export const CALISMA = [['ofis', 'Ofis'], ['hibrit', 'Hibrit'], ['uzaktan', 'Uzaktan'], ['farketmez', 'Farketmez']];
 export const ACIKLIK = [['aktif_ariyorum', 'Aktif arıyorum'], ['acigim', 'Açığım'], ['sadece_ozel_firsat', 'Sadece özel fırsat']];
+// Serbest metin yerine seçilebilir liste — yazım farklarının ("izmir" / "İzmir")
+// aynı değeri farklı kayıtlara bölmesini önlemek için. Listede olmayanlar "Diğer" alanına yazılır.
+export const MARKALAR = [
+  'Alfa Romeo', 'Audi', 'BMW', 'BYD', 'Chery', 'Citroën', 'Cupra', 'Dacia', 'DS', 'Fiat',
+  'Ford', 'Honda', 'Hyundai', 'Isuzu', 'Iveco', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'MAN',
+  'Mercedes-Benz', 'MG', 'MINI', 'Mitsubishi', 'Nissan', 'Opel', 'Peugeot', 'Porsche', 'Renault',
+  'Scania', 'SEAT', 'Škoda', 'Suzuki', 'Tofaş', 'TOGG', 'Toyota', 'Volkswagen', 'Volvo',
+];
+
+export const SEHIRLER = [
+  'Adana', 'Adıyaman', 'Afyonkarahisar', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
+  'Aydın', 'Balıkesir', 'Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale',
+  'Çankırı', 'Çorum', 'Denizli', 'Diyarbakır', 'Edirne', 'Elazığ', 'Erzincan', 'Erzurum',
+  'Eskişehir', 'Gaziantep', 'Giresun', 'Gümüşhane', 'Hakkari', 'Hatay', 'Isparta', 'Mersin',
+  'İstanbul', 'İzmir', 'Kars', 'Kastamonu', 'Kayseri', 'Kırklareli', 'Kırşehir', 'Kocaeli',
+  'Konya', 'Kütahya', 'Malatya', 'Manisa', 'Kahramanmaraş', 'Mardin', 'Muğla', 'Muş',
+  'Nevşehir', 'Niğde', 'Ordu', 'Rize', 'Sakarya', 'Samsun', 'Siirt', 'Sinop', 'Sivas',
+  'Tekirdağ', 'Tokat', 'Trabzon', 'Tunceli', 'Şanlıurfa', 'Uşak', 'Van', 'Yozgat', 'Zonguldak',
+  'Aksaray', 'Bayburt', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak', 'Bartın', 'Ardahan',
+  'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce',
+].sort((a, b) => a.localeCompare(b, 'tr'));
+SEHIRLER.push('Yurt dışı');
+
 export const GORUNURLUK: [string, string, string][] = [
   ['acik', 'Açık', 'Adın ve iletişimin işverene görünür.'],
   ['tek_kor', 'Tek Taraf Kör', 'Sen anonimsin; işveren seni yetkinliklerinle görür, kimliğin gizli.'],
