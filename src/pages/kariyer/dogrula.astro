@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Giriş doğrulanıyor" description="Giriş bağlantın doğrulanıyor.">
+  <section class="mx-auto max-w-md px-4 py-24 text-center">
+    <p id="durum" class="text-warm-600">Giriş bağlantın doğrulanıyor…</p>
+  </section>
+</BaseLayout>
+
+<script>
+  import { supabase } from '../../lib/supabase';
+
+  const params = new URLSearchParams(window.location.search);
+  const tokenHash = params.get('token_hash');
+  const type = params.get('type');
+  const redirectTo = params.get('redirect_to') || '/kariyer/profilim';
+  const durum = document.getElementById('durum');
+
+  if (!tokenHash || !type) {
+    if (durum) durum.textContent = 'Bağlantı eksik veya geçersiz. Lütfen tekrar giriş bağlantısı iste.';
+  } else {
+    supabase.auth.verifyOtp({ token_hash: tokenHash, type }).then(({ error }) => {
+      if (error) {
+        if (durum) durum.textContent = 'Bağlantının süresi dolmuş olabilir. Lütfen tekrar giriş bağlantısı iste.';
+      } else {
+        window.location.href = redirectTo;
+      }
+    });
+  }
+</script>
