@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bolumler = [
+  { href: '/', label: 'Ana sayfa' },
+  { href: '/hizmetlerimiz', label: 'Hizmetlerimiz' },
+  { href: '/makaleler', label: 'Makaleler' },
+  { href: '/ev-verileri', label: 'EA Verileri' },
+  { href: '/kariyer', label: 'Kariyer' },
+];
+---
+<BaseLayout title="Sayfa bulunamadı" description="Aradığınız sayfa bulunamadı.">
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="mx-auto max-w-2xl px-4 py-24 text-center">
+    <p class="text-sm font-medium text-accent mb-3">404</p>
+    <h1 class="text-3xl font-semibold text-ink mb-4">Sayfa bulunamadı</h1>
+    <p class="text-warm-600 mb-10">
+      Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.
+      Aşağıdaki bölümlerden devam edebilirsiniz.
+    </p>
+    <nav class="flex flex-wrap justify-center gap-3">
+      {bolumler.map((b) => (
+        <a href={b.href} class="rounded-md border border-warm-border px-4 py-2 text-sm text-warm-600 hover:border-accent hover:text-accent transition-colors">
+          {b.label}
+        </a>
+      ))}
+    </nav>
+  </section>
+</BaseLayout>
