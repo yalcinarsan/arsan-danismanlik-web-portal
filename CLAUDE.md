@@ -55,3 +55,56 @@ Kod/içerik değişikliğinden sonra "bitti" demeden önce:
 
 - **Güzel Hosting e-posta hesabı** (Ekonomi-2, yenileme 18.10.2026) — iptal etme, mevcut kurumsal mail (MX/SPF/DKIM) buna bağlı. Resend sadece auth/kayıt e-postaları için, Güzel'in yerini almadı.
 - **`send.arsandanismanlik.com.tr` altındaki SPF/MX kayıtları** Resend'e ait — kök domainin SPF/MX'iyle karışmasın diye bilinçli olarak alt domainde tutuluyor, kök domaine taşıma.
+
+## Alt-ajanlar (2026-07-24 kuruldu)
+
+Deniz'in hazırladığı 8 uzman alt-ajan `.claude/agents/`'da (proje kökünün bir üstünde, `arsan danışmanlık web portalı/.claude/agents/` — Claude Code'un asıl çalışma dizini orası). Tasarım/SEO takımı: **EGE** (tasarımcı-üretici), **MELİS** (grafiker), **ARDA** (tasarım/erişilebilirlik denetçisi, bloke edebilir), **KEREM** (SEO/AEO/GEO denetçisi). İçerik takımı: **HALUK** (gazeteci, dışarıdan bakış), **MURAT** (sektör içinden mühendis-yönetici), **EDA** (gündem/trend takipçisi) — üçü de yalnızca öneri/sparring yapar, yazmaz; **SELİN** (Türkçe dil denetçisi, birebir çeviri/kalque avcısı, bloke edebilir). Detaylı rol tarifi ve önerilen akışlar için Deniz'in `BENIOKU.md`'sine bak (bu repoda değil, ayrı tutuluyor).
+
+<!-- ARSAN-ILKELERI:START -->
+## Arsan Danışmanlık — İçerik ve Tasarım İlkeleri (ortak referans)
+
+Bu bölüm tüm ajanların ortak referansıdır (EGE, MELİS, ARDA, KEREM, SELİN, HALUK, MURAT, EDA) ve her ajanın "özel ayarlar" kısmını besler. Ajanlar burada yazanı esas alır.
+
+### Kurum kimliği
+- **Kurum:** Arsan Danışmanlık — otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.
+- **Kurucu:** Yalçın Arsan, Yönetim Danışmanı. İsim aynen yazılır; unvan çevrilebilir, isim çevrilmez.
+- **Site:** arsandanismanlik.com.tr — Astro (statik), Türkçe.
+
+### Hedef okur
+- Otomotiv sektörü karar vericileri, yöneticiler; B2B. Otomotiv İnsanı tarafında ayrıca sektör profesyonelleri (aday havuzu) — Türkiye öncelikli.
+
+### Marka sesi ve ton
+- Otoriter ama okunur, veri-temelli, güven veren, abartısız.
+- Profesyonel ama soğuk/bürokratik değil.
+- **Sentence case başlık/buton metinleri** ("Kaydını tamamla", "Kaydını Tamamla" değil).
+- Marka imzası formatı: "Otomotiv İnsanı · Arsan Danışmanlık" (alt marka · ana kurum). "no-reply" tarzı soğuk gönderen adı kullanılmaz.
+
+### İçerik ilkeleri
+- **Kanıt önce:** her ciddi iddianın arkasında sayı, kaynak, tarih; veriyi yorumdan ayır.
+- **Hook önce:** ilk cümlede yakala; okur-önce yaz.
+- **Dürüstlük:** hype üretme, uydurma, tek kaynağa güvenme; emin değilsen "doğrulanmalı" de.
+- **Yalçın yazar/sahiptir:** ajanlar önerir ve taslak verir; son söz onun. (Taslak yazma akışı: Tana → Obsidian arşiv, bkz. kullanıcının kişisel hafıza sistemi — ajanlar bu akışı değiştirmez, besler.)
+- **Makale fidelity:** kaynağından taşınan metin birebir tam metin, özet/parafraz yok (yukarıdaki "İçerik ve metin kuralları" ile aynı).
+
+### Yazım / yasak laf listesi (doğal, insan gibi Türkçe)
+- Yapay zekâ/çeviri kokan kalıp yok; aşırı em dash (—/–) yok.
+- Şablon geçiş yok: "Günümüzde...", "Sonuç olarak...", "Unutmayın ki...", "Bilindiği üzere...", "Şunu belirtmek gerekir ki...".
+- Boş klişe yok: "sektör lideri", "yenilikçi çözümler", "oyunu değiştiren", "müşteri odaklı yaklaşım", "katma değer" (somutla).
+- Şişme/bürokratik yok: "gerçekleştirmek" → yap; "...sahiptir" → var; "adreslemek" → ele almak; "-e yönelik olarak", "...ile ilgili olarak".
+- Gereksiz İngilizce: Türkçesi varken kullanma (meeting → toplantı, deadline → son tarih); sektör standardı terim korunur.
+- Kuruma özel yasak kelime/rakip adı listesi: **belirlenmedi** — Yalçın'a sorulmadı, gerekirse ekleyecek.
+
+### Tasarım kuralları
+- **TREN TASARIM YASAK:** tekrarlayan bölümler alt alta tam genişlik değil; her zaman yan yana **kart grid**, dengeli satır (8 öğe = 4+4). (Site zaten bu deseni kullanıyor: `pillars`/`kimizNeYapariz` grid'leri, referanslar listesi.)
+- **MOBİL AYRI TASARLANIR:** masaüstü tasarımını mobile dayatma; mobil hız, okunabilirlik ve parmak erişimi için gerekince farklı bir desene geç (nav'daki hamburger menü geçişi bu ilkenin uygulanmış hâli, bkz. ARCHITECTURE.md).
+- **Erişilebilirlik:** WCAG 2.2 AA (kontrast 4.5:1, dokunma hedefi 44px, görünür focus, semantik HTML).
+- **Görsel:** profesyonel çizgi + etkili; AI-slop ve klişe stok yok; WebP/AVIF, mobil için gerekirse ayrı kırpma.
+- **Palet/tipografi (`tailwind.config.mjs` → `theme.extend`):** zemin `#faf7f2` (paper), metin `#2c2620` (ink), vurgu `#b5623c` (accent), ikincil zemin `#f1e9dd` (sand), kenarlık `#e7ddcf` (warm-border), nötr ton skalası `warm-700..400`. Başlık **Fraunces**, gövde **Inter**.
+
+### Arama görünürlüğü (SEO/AEO/GEO)
+- **Hedef sorgular:** "otomotiv elektrifikasyon danışmanlığı", "EV pazarı Türkiye", "otomotiv yönetim danışmanlığı" — kesinleşmiş resmi bir liste değil, KEREM ilk denetiminde mevcut sayfa içeriğinden (hizmetlerimiz, makaleler, ev-verileri) daha kesin bir küme çıkarabilir.
+- Her sayfa: özgün title + meta description; tek H1 + soru-biçimli H2; FAQ; uygun schema (Organization, Person, Service, Article, FAQPage, Dataset); `llms.txt`.
+- Beyaz şapka; uydurma metrik yok; kaynak ve tarih verilir.
+- Mevcut durum (KEREM'in ilk denetiminde referans alacağı): sitemap + robots.txt + llms.txt + JSON-LD (Organization/Person/WebSite/Article) zaten kurulu, GSC'ye kayıtlı (bkz. ARCHITECTURE.md 2026-07-11/12 kararları) — sıfırdan değil, geliştirme denetimi.
+<!-- ARSAN-ILKELERI:END -->
+
