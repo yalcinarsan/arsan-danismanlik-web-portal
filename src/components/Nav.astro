@@ -34,14 +34,14 @@ const current = Astro.url.pathname;
     <div
       id="nav-links"
       class="hidden md:flex md:static md:flex md:flex-row md:items-center md:gap-x-6 md:border-0 md:bg-transparent md:p-0 md:shadow-none
-        absolute inset-x-0 top-full flex-col gap-y-1 border-b border-warm-border bg-paper px-4 py-3 shadow-sm"
+        absolute inset-x-0 top-full flex-col border-b border-warm-border bg-paper px-4 py-2 shadow-sm"
     >
       {links.slice(1).map((link) => {
         const active = current === link.href || (link.href !== '/' && current.startsWith(link.href));
         return (
           <a
             href={link.href}
-            class={`text-sm transition-colors ${active ? 'text-accent font-medium' : 'text-warm-600 hover:text-accent'}`}
+            class={`block py-3 md:py-0 text-sm transition-colors ${active ? 'text-accent font-medium' : 'text-warm-600 hover:text-accent'}`}
           >
             {link.label}
           </a>
