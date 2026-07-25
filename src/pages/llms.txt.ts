@@ -42,6 +42,54 @@ export const GET: APIRoute = async () => {
   );
   out.push('');
 
+  out.push('## Danışmanlık hizmetleri');
+  out.push('');
+  out.push(
+    'Arsan Danışmanlık, Türkiye merkezli, otomotiv ve ilişkili sektörlere odaklı bir yönetim danışmanlığı şirketidir (kuruluş: 2009). Dört ana hizmet:'
+  );
+  out.push('');
+  out.push(
+    `- [Yönetim Danışmanlığı](${BASE}/hizmetlerimiz/yonetim-danismanligi): Otomotiv ve ilişkili sektörlerde sorun çözme, planlama, değişim ve gelişime yönelik danışmanlık.`
+  );
+  out.push(
+    `- [Elektrifikasyon Dönüşüm Danışmanlığı](${BASE}/hizmetlerimiz/elektrifikasyon-donusum-danismanligi): Elektrifikasyonun kurum için yarattığı risk ve fırsatları ortaya çıkarıp somut bir dönüşüm programına çevirme.`
+  );
+  out.push(
+    `- [Elektrifikasyon Çalıştayı](${BASE}/hizmetlerimiz/elektrifikasyon-calistayi): Elektrikliye geçişi kurumsal ölçekte planlama çözümü — atölye formatında.`
+  );
+  out.push(
+    `- [Vizyon & Misyon Yaratma Seansı](${BASE}/hizmetlerimiz/vizyon-misyon-yaratma-seansi): Temel amaç, temel değerler ve büyük hedef bileşimiyle kurumsal vizyon yaratma çalıştayı.`
+  );
+  out.push('');
+
+  out.push('## Veri: Elektrikli araç pazar görünümü');
+  out.push('');
+  out.push(
+    `- [EA (Elektrikli Araç) Verileri](${BASE}/ev-verileri): IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü. Kaynak: IEA (CC BY 4.0), düzenli güncellenir.`
+  );
+  out.push('');
+
+  out.push('## Referanslar');
+  out.push('');
+  out.push(
+    `- [Referanslarımız](${BASE}/referanslar): Bugüne kadar ortak çalışma yapılan marka ve kurumlar — aralarında Ford Otosan, Doğuş Otomotiv, Stellantis Türkiye, Volvo Türkiye, Audi Türkiye, OSD ve TAYSAD gibi kurumlar var.`
+  );
+  out.push('');
+
+  out.push('## Kariyer: Otomotiv İnsanı');
+  out.push('');
+  out.push(
+    `- [Otomotiv İnsanı](${BASE}/kariyer/otomotiv-insani): Otomotive özgü yetenek platformu — sektör profesyonelleri için kademeli görünürlük (açık / tek taraf kör / çift taraf kör) sunan aday havuzu.`
+  );
+  out.push('');
+
+  out.push('## İletişim');
+  out.push('');
+  out.push('- Kurucu: Yalçın Arsan, Yönetim Danışmanı');
+  out.push('- E-posta: yalcinarsan@arsandanismanlik.com.tr');
+  out.push('- Adres: Fatih Sultan Mehmet Mah, Buyaka İş Kule 3, 34771 Ümraniye / İstanbul');
+  out.push('');
+
   for (const [seri, list] of bySeri) {
     out.push(`## ${seriBaslik[seri] ?? seri}`);
     out.push('');
