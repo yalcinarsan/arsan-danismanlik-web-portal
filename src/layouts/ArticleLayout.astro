@@ -135,6 +135,19 @@ const articleLd = {
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
   </style>
+  <style is:global>
+    .prose a[data-footnote-ref] {
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0 1px;
+    }
+    .prose a[data-footnote-ref]::before {
+      content: '[';
+    }
+    .prose a[data-footnote-ref]::after {
+      content: ']';
+    }
+  </style>
   <script>
     const box = document.getElementById('lightbox');
     const boxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
