@@ -16,6 +16,7 @@ site otomatik olarak yeni metni kullanır.
 | [src/icerik/ev-verileri.md](arsandanismanlik-web/src/icerik/ev-verileri.md) | **EA Verileri** sayfasının tüm metni — başlık, giriş, her grafiğin altındaki not |
 | [src/icerik/otomotiv-insani.md](arsandanismanlik-web/src/icerik/otomotiv-insani.md) | **Otomotiv İnsanı manifestosu** — üstteki alanlar (başlık, slogan, buton yazıları, e-posta) + gövde metni |
 | [src/icerik/kvkk.md](arsandanismanlik-web/src/icerik/kvkk.md) | **KVKK aydınlatma metni**. `taslak: true` olduğu sürece sayfada "hukukçu onayı bekleniyor" uyarısı çıkar ve sayfa arama motorlarına kapalıdır |
+| [src/icerik/kariyer.md](arsandanismanlik-web/src/icerik/kariyer.md) | **Kariyer** sayfası (/kariyer) — etiket, başlık, giriş, keşfet kutusu + gövde metni |
 
 ## 2. Makaleler
 

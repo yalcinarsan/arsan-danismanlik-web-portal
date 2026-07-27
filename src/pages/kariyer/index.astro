@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Content, frontmatter } from '../../icerik/kariyer.md';
+
+const { etiket, baslik, giris, kesfet_baslik, kesfet_metin } = frontmatter;
 ---
 <BaseLayout
   title="Kariyer"
@@ -7,39 +10,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
   <section class="mx-auto max-w-2xl px-4 py-16">
     <span class="inline-block text-xs font-semibold tracking-wide uppercase text-accent bg-sand rounded-full px-3 py-1 mb-4">
-      Otomotiv İnsanı
+      {etiket}
     </span>
-    <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-3">Otomotiv İnsanı</h1>
-    <p class="text-lg text-warm-500 mb-12">
-      Uzun zamandır hayalini kurduğumuz, otomotive özgü İK projemiz hayata geçiyor.
-    </p>
+    <h1 class="text-3xl sm:text-4xl font-semibold text-ink mb-3">{baslik}</h1>
+    <p class="text-lg text-warm-500 mb-12">{giris}</p>
 
-    <div class="space-y-5 text-lg leading-relaxed text-warm-700">
-      <p>
-        İnsan her sektörde en değerli kaynak. Otomotivde bu kaynağın profili köklü bir yapıya dayanıyor: markalar, iş
-        akışları, "doğrular ve yanlışlar", klasik müşteri profili, kârlılık yapısı — hepsi onlarca yıllık bir
-        sistemin içinde kanıksanmış doğrular. Sektörün kimden ne beklediği, kimin "doğru profil" olduğu neredeyse
-        yazılı olmayan bir kural kitabı gibi.
-      </p>
-      <p>
-        Elektrifikasyonla birlikte bu durum değişiyor: ürün, müşteri, ürünün
-        müşteri hayatındaki yeri, markaların gücü ve pazardaki konumları değişiyor. Otomotiv aynı zamanda
-        çalışan sadakati yüksek bir sektör — otomotivci, genellikle otomotivci kalıyor. Bu durum şuna işaret ediyor: bu dönüşümü taşıyacak kişiler, değişimi doğru okuyabilen sektör profesyonelleri arasından çıkacak.
-      </p>
-      <p>
-        Şirketlere elektrifikasyonun gerektirdiği kurumsal dönüşümde danışmanlık verirken, bu dönüşümün bir "insan"
-        boyutu olduğunu her projede yeniden görüyoruz. <strong>Otomotiv İnsanı</strong>, bu insana adanmış bir
-        alan olacak: değişimi doğru okuyan sektör profesyonelleriyle, ekibini geleceğe hazırlayan kurumları
-        buluşturan; genel bir iş ilanı sitesine indirgenemeyecek kadar sektörümüze özgü bir yer.
-      </p>
+    <div class="prose max-w-none
+      prose-p:text-lg prose-p:leading-relaxed prose-p:text-warm-700
+      prose-strong:text-ink prose-strong:font-semibold">
+      <Content />
     </div>
 
     <a href="/kariyer/otomotiv-insani" class="mt-12 flex items-center justify-between gap-4 border border-warm-border rounded-lg p-6 bg-sand hover:border-accent transition-colors group">
       <div>
-        <p class="text-ink font-medium mb-1">Otomotiv İnsanı'nı keşfet</p>
-        <p class="text-sm text-warm-600">
-          Sektörün geleceğini birlikte kuracağımız bu proje hakkında daha fazla bilgi al.
-        </p>
+        <p class="text-ink font-medium mb-1">{kesfet_baslik}</p>
+        <p class="text-sm text-warm-600">{kesfet_metin}</p>
       </div>
       <span class="shrink-0 text-accent font-medium group-hover:translate-x-1 transition-transform">→</span>
     </a>
