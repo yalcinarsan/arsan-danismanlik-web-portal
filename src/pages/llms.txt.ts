@@ -79,7 +79,7 @@ export const GET: APIRoute = async () => {
   out.push('## Kariyer: Otomotiv İnsanı');
   out.push('');
   out.push(
-    `- [Otomotiv İnsanı](${BASE}/kariyer/otomotiv-insani): Otomotive özgü yetenek platformu — sektör profesyonelleri için kademeli görünürlük (açık / tek taraf kör / çift taraf kör) sunan aday havuzu.`
+    `- [Otomotiv İnsanı](${BASE}/kariyer/otomotiv-insani): Otomotive özgü yetenek platformu — sektör profesyonelleri için kademeli görünürlük (açık / tek taraf kapalı / çift taraf kapalı) sunan aday havuzu.`
   );
   out.push('');
 

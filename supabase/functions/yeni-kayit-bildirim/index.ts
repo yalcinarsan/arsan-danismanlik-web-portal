@@ -29,7 +29,7 @@ Deno.serve(async (req) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Otomotiv İnsanı <bildirim@send.arsandanismanlik.com.tr>',
+      from: 'Otomotiv İnsanı <bildirim@arsandanismanlik.com.tr>',
       to: 'yalcinarsan@arsandanismanlik.com.tr',
       subject: `Yeni kayıt: ${ad}`,
       html: satirlar,

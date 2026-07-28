@@ -41,8 +41,8 @@ SEHIRLER.push('Yurt dışı');
 
 export const GORUNURLUK: [string, string, string][] = [
   ['acik', 'Açık', 'Adın ve iletişimin işverene görünür.'],
-  ['tek_kor', 'Tek Taraf Kör', 'Sen anonimsin; işveren seni yetkinliklerinle görür, kimliğin gizli.'],
-  ['cift_kor', 'Çift Taraf Kör', 'Hem sen hem işveren anonim; kimlikler ancak iki taraf da isteyince açılır.'],
+  ['tek_kor', 'Tek Taraf Kapalı', 'Sen anonimsin; işveren seni yetkinliklerinle görür, kimliğin gizli.'],
+  ['cift_kor', 'Çift Taraf Kapalı', 'Hem sen hem işveren anonim; kimlikler ancak iki taraf da isteyince açılır.'],
 ];
 
 function etiketle(liste: (readonly string[])[], deger: string | null | undefined): string {
