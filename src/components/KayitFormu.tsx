@@ -173,7 +173,26 @@ export default function KayitFormu() {
     else setDurum('basarili');
   }
 
-  if (durum === 'yukleniyor') return <p className="text-warm-500">Yükleniyor…</p>;
+  // Sayfa başlığı/girişi — "başarılı" ekranında gereksiz/kafa karıştırıcı olduğu için
+  // Astro'daki statik sayfa metni yerine burada, duruma göre koşullu render ediliyor.
+  const baslikBlok = (
+    <>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Otomotiv İnsanı</p>
+      <h1 className="text-3xl font-semibold text-ink mb-3">Otomotiv Yetenek Havuzu</h1>
+      <p className="text-warm-600 mb-10">
+        Profilin, otomotive özgü niteliklerle tanımlanır ve senin belirlediğin görünürlük
+        seviyesinde paylaşılır. Kaydolmak sadece birkaç dakika.
+      </p>
+    </>
+  );
+
+  if (durum === 'yukleniyor')
+    return (
+      <>
+        {baslikBlok}
+        <p className="text-warm-500">Yükleniyor…</p>
+      </>
+    );
 
   if (durum === 'basarili')
     return (
@@ -193,36 +212,41 @@ export default function KayitFormu() {
   // ---- Adım 1: e-posta ----
   if (durum === 'eposta' || durum === 'gonderildi')
     return (
-      <div className="max-w-md">
-        <p className="text-warm-600 mb-6">
-          Başlamak için e-postanı gir; sana bir giriş bağlantısı yollayacağız (şifre yok). Bağlantıya
-          tıklayınca profilini oluşturursun.
-        </p>
-        {durum === 'gonderildi' ? (
-          <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu (ve spam'i)
-            kontrol et, bağlantıya tıkla — buraya geri dönüp profilini oluşturacaksın.
-          </div>
-        ) : (
-          <form onSubmit={magicLinkGonder} className="space-y-4">
-            <div>
-              <label className={labelCls}>E-posta *</label>
-              <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)}
-                className={inputCls} placeholder="ornek@eposta.com" />
+      <>
+        {baslikBlok}
+        <div className="max-w-md">
+          <p className="text-warm-600 mb-6">
+            Başlamak için e-postanı gir; sana bir giriş bağlantısı yollayacağız (şifre yok). Bağlantıya
+            tıklayınca profilini oluşturursun.
+          </p>
+          {durum === 'gonderildi' ? (
+            <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
+              <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu (ve spam'i)
+              kontrol et, bağlantıya tıkla — buraya geri dönüp profilini oluşturacaksın.
             </div>
-            {hata && <p className="text-sm text-accent">{hata}</p>}
-            <button type="submit" disabled={gonderiliyor}
-              className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
-              {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
-            </button>
-          </form>
-        )}
-      </div>
+          ) : (
+            <form onSubmit={magicLinkGonder} className="space-y-4">
+              <div>
+                <label className={labelCls}>E-posta *</label>
+                <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)}
+                  className={inputCls} placeholder="ornek@eposta.com" />
+              </div>
+              {hata && <p className="text-sm text-accent">{hata}</p>}
+              <button type="submit" disabled={gonderiliyor}
+                className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
+                {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
+              </button>
+            </form>
+          )}
+        </div>
+      </>
     );
 
   // ---- Adım 2: profil formu (yeni kayıt veya mevcut kaydın güncellenmesi) ----
   return (
-    <form onSubmit={kaydet} className="space-y-8">
+    <>
+      {baslikBlok}
+      <form onSubmit={kaydet} className="space-y-8">
       <p className="text-sm text-warm-500">Giriş: {eposta}</p>
 
       {mevcutKayit && (
@@ -421,5 +445,6 @@ export default function KayitFormu() {
         {gonderiliyor ? 'Kaydediliyor…' : mevcutKayit ? 'Profilimi güncelle' : 'Havuza katıl'}
       </button>
     </form>
+    </>
   );
 }
