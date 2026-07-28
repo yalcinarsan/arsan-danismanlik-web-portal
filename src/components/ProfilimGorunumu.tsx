@@ -204,6 +204,7 @@ export default function ProfilimGorunumu() {
       </div>
       <dl>
         <Satir etiket="Ad Soyad" deger={aday.ad} />
+        <Satir etiket="E-posta" deger={aday.eposta} />
         <Satir etiket="Telefon" deger={aday.telefon} />
         <Satir etiket="Toplam deneyim" deger={deneyimEtiket(aday.deneyim_yili)} />
         <Satir etiket="Kıdem" deger={kidemEtiket(aday.kidem)} />

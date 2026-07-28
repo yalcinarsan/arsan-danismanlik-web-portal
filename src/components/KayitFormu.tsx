@@ -278,7 +278,7 @@ export default function KayitFormu() {
       </div>
 
       <div>
-        <label className={labelCls}>Fonksiyon * <span className="font-normal text-warm-500">(birden çok)</span></label>
+        <label className={labelCls}>Fonksiyon * <span className="font-normal text-warm-500">(birden çok seçebilirsin)</span></label>
         <div className="flex flex-wrap gap-2">
           {FONKSIYON.map(([v, l]) => (
             <button type="button" key={v} onClick={() => coklu('fonksiyon', v)}
