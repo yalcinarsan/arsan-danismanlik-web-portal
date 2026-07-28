@@ -1,7 +1,8 @@
 ---
 title: "Türkiye'nin Yolu"
 tarih: 2026-07-27
-kaynak: ""
+kaynak: "X — @yalcinarsan"
+url: "https://x.com/yalcinarsan/status/2081660391302586850"
 dil: tr
 kategori: otomotiv-elektrifikasyon
 seri: otomotivde-elektrifikasyon
