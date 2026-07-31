@@ -35,6 +35,6 @@ Elektrifikasyon alanındaki uluslararası deneyimi arasında **Jaguar Land Rover
 
 - E-posta: [yalcinarsan@arsandanismanlik.com.tr](mailto:yalcinarsan@arsandanismanlik.com.tr)
 - Telefon: +90 533 680 6710
-- CV: [PDF olarak görüntüle / indir](/cv/Yalcin-Arsan-CV.pdf)
+- CV: <a href="/cv/Yalcin-Arsan-CV.pdf" target="_blank" rel="noopener">PDF olarak görüntüle / indir</a>
 - LinkedIn: [linkedin.com/in/yalcinarsan](https://www.linkedin.com/in/yalcinarsan/)
 - X: [x.com/yalcinarsan](https://x.com/yalcinarsan)
