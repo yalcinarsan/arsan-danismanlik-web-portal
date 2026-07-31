@@ -30,6 +30,17 @@ const orgGraph = {
       name: 'Arsan Danışmanlık',
       url: site.origin,
       logo: `${site.origin}/images/logo-wordmark.png`,
+      foundingDate: '2009',
+      email: 'yalcinarsan@arsandanismanlik.com.tr',
+      telephone: '+90 533 680 6710',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Fatih Sultan Mehmet Mah, Buyaka İş Kule 3',
+        postalCode: '34771',
+        addressLocality: 'Ümraniye',
+        addressRegion: 'İstanbul',
+        addressCountry: 'TR',
+      },
       founder: { '@id': `${site.origin}/#person` },
     },
     {
@@ -38,7 +49,19 @@ const orgGraph = {
       name: 'Yalçın Arsan',
       jobTitle: 'Yönetim Danışmanı',
       worksFor: { '@id': `${site.origin}/#organization` },
-      url: site.origin,
+      url: `${site.origin}/hakkimizda`,
+      sameAs: [
+        'https://www.linkedin.com/in/yalcinarsan/',
+        'https://x.com/yalcinarsan',
+      ],
+      knowsAbout: [
+        'otomotiv',
+        'elektrifikasyon',
+        'elektrikli araç pazarı',
+        'yönetim danışmanlığı',
+        'yönetici koçluğu',
+        'finansal analiz',
+      ],
     },
     {
       '@type': 'WebSite',

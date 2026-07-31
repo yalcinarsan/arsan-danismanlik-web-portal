@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Content, frontmatter } from '../icerik/hakkimizda.md';
+
+const { baslik, aciklama } = frontmatter;
+---
+<BaseLayout title={baslik} description={aciklama}>
+  <section class="mx-auto max-w-2xl px-4 py-16">
+    <h1 class="text-3xl font-semibold text-ink mb-10">{baslik}</h1>
+
+    <div class="prose prose-headings:font-serif prose-headings:text-ink prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+      prose-p:text-warm-700 prose-p:leading-relaxed
+      prose-li:text-warm-700
+      prose-strong:text-ink prose-strong:font-medium
+      prose-a:text-accent prose-headings:scroll-mt-20 max-w-none
+      [&_.unvan]:font-sans [&_.unvan]:text-lg [&_.unvan]:font-normal [&_.unvan]:text-warm-500">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
