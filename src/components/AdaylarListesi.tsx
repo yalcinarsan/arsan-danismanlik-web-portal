@@ -31,6 +31,34 @@ function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
   );
 }
 
+/** Tek/çoklu değerli bir alanın dağılımını (etiket → sayı), çoktan aza sıralı çıkarır. */
+function dagilimHesapla(degerler: (string | null | undefined)[], etiketFn?: (v: string) => string): [string, number][] {
+  const sayac = new Map<string, number>();
+  for (const d of degerler) {
+    if (!d) continue;
+    const etiket = etiketFn ? etiketFn(d) : d;
+    sayac.set(etiket, (sayac.get(etiket) ?? 0) + 1);
+  }
+  return [...sayac.entries()].sort((a, b) => b[1] - a[1]);
+}
+
+function OzetKart({ baslik, veri }: { baslik: string; veri: [string, number][] }) {
+  if (veri.length === 0) return null;
+  return (
+    <div className="rounded-lg border border-warm-border p-4">
+      <p className="text-sm font-medium text-ink mb-2">{baslik}</p>
+      <ul className="space-y-1">
+        {veri.map(([etiket, sayi]) => (
+          <li key={etiket} className="flex justify-between gap-3 text-sm text-warm-600">
+            <span>{etiket}</span>
+            <span className="text-warm-400 tabular-nums">{sayi}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function AdaylarListesi() {
   const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [eposta, setEposta] = useState('');
@@ -118,9 +146,30 @@ export default function AdaylarListesi() {
       </div>
     );
 
+  const kanalDagilim = dagilimHesapla(adaylar.flatMap((a) => a.kanal ?? []), kanalEtiket);
+  const fonksiyonDagilim = dagilimHesapla(adaylar.flatMap((a) => a.fonksiyon ?? []), fonksiyonEtiket);
+  const kidemDagilim = dagilimHesapla(adaylar.map((a) => a.kidem), kidemEtiket);
+  const deneyimDagilim = dagilimHesapla(adaylar.map((a) => a.deneyim_yili), deneyimEtiket);
+  const elektrifikasyonDagilim = dagilimHesapla(adaylar.map((a) => a.elektrifikasyon), elektrifikasyonEtiket);
+  const gorunurlukDagilim = dagilimHesapla(adaylar.map((a) => a.gorunurluk), gorunurlukEtiket);
+  const sehirDagilim = dagilimHesapla(adaylar.map((a) => a.sehir));
+  const calismaDagilim = dagilimHesapla(adaylar.map((a) => a.calisma_tercihi), calismaEtiket);
+
   return (
     <div>
-      <p className="text-sm text-warm-500 mb-6">{adaylar.length} kayıt · en yeni önce</p>
+      <p className="text-sm text-warm-500 mb-4">{adaylar.length} kayıt · en yeni önce</p>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+        <OzetKart baslik="Kanal" veri={kanalDagilim} />
+        <OzetKart baslik="Fonksiyon" veri={fonksiyonDagilim} />
+        <OzetKart baslik="Kıdem" veri={kidemDagilim} />
+        <OzetKart baslik="Toplam deneyim" veri={deneyimDagilim} />
+        <OzetKart baslik="Elektrifikasyon" veri={elektrifikasyonDagilim} />
+        <OzetKart baslik="Görünürlük" veri={gorunurlukDagilim} />
+        <OzetKart baslik="Şehir" veri={sehirDagilim} />
+        <OzetKart baslik="Çalışma tercihi" veri={calismaDagilim} />
+      </div>
+
       <div className="space-y-3">
         {adaylar.map((aday) => {
           const acik = acikId === aday.id;
