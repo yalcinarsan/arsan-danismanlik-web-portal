@@ -39,10 +39,12 @@ export const SEHIRLER = [
 ].sort((a, b) => a.localeCompare(b, 'tr'));
 SEHIRLER.push('Yurt dışı');
 
+// Not: Veritabanında `cift_kor` enum değeri hâlâ mevcut (Postgres'te enum değeri
+// silmek riskli). Arayüzde artık sunulmuyor; eski kayıtlar `gorunurlukEtiket` ile
+// yine okunabilsin diye eşleme aşağıda korunuyor.
 export const GORUNURLUK: [string, string, string][] = [
   ['acik', 'Açık', 'Adın ve iletişimin işverene görünür.'],
-  ['tek_kor', 'Tek Taraf Kapalı', 'Kimliğin gizli; işveren seni yetkinliklerinle görür ve sana ulaşırken kim olduğunu açıklar.'],
-  ['cift_kor', 'Çift Taraf Kapalı', 'Kimliğin gizli; ayrıca kimliğini açmayan kurumların gizli aramaları da sana ulaşabilir.'],
+  ['tek_kor', 'Kapalı', 'Kimliğin gizli; işveren seni yetkinliklerinle görür, sana ulaşmak istediğinde talebi biz iletiriz.'],
 ];
 
 function etiketle(liste: (readonly string[])[], deger: string | null | undefined): string {
@@ -57,5 +59,7 @@ export function elektrifikasyonEtiket(v?: string | null) { return etiketle(ELEKT
 export function calismaEtiket(v?: string | null) { return etiketle(CALISMA, v); }
 export function aciklikEtiket(v?: string | null) { return etiketle(ACIKLIK, v); }
 export function gorunurlukEtiket(v?: string | null) {
+  // Artık sunulmayan eski `cift_kor` değeri de "Kapalı" olarak okunur.
+  if (v === 'cift_kor') return 'Kapalı';
   return GORUNURLUK.find(([val]) => val === v)?.[1] ?? v ?? '—';
 }
