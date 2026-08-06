@@ -79,7 +79,9 @@ function baseLayout(config: ChartConfig): any {
     separators: ',.',
     hovermode: 'x unified',
     legend: { orientation: 'h', y: -0.2, x: 0 },
-    margin: { t: 12, r: 16, l: 68, b: 60 },
+    // Sol kenar y-ekseni etiketleri için geniş; görsel dengeleme için sağ da eşitlendi
+    // (yoksa çizim alanı kutunun içinde sola kaymış görünüyor).
+    margin: { t: 12, r: 68, l: 68, b: 60 },
     autosize: true,
     xaxis: {
       title: { text: 'Yıl' },

@@ -35,7 +35,7 @@ Elektrifikasyon sadece otomotivi değil bir çok alanı da kapsıyor aslında: B
 ----------
 
 
-![EA Satışları 2010 - 2024](/sunumlar/ford-otosan-mdd/img-01.png)
+[[CANLI-GRAFIK:dunya-guc-unitesi]]
 
 ![](/sunumlar/ford-otosan-mdd/img-02.png)
 
@@ -47,12 +47,14 @@ Elektrifikasyon sadece otomotivi değil bir çok alanı da kapsıyor aslında: B
 ![](/sunumlar/ford-otosan-mdd/img-05.png)
 
 ## 2024 Türkiye Otomobil pazarı motor tipine göre;
+
 - Benzinli otomobil satışları 588.914 adetle %60,1 pay,
 - Hibrit otomobil satışları 184.177 adetle %18,8 pay,
 - Elektrikli otomobil satışları 105.315 adetle **%10,7** pay ve
 - Dizel otomobil satışları 95.985 adetle %9,8 pay,
 - Otogazlı otomobil satışları 5.950 adetle %0,6 pay aldı.
 ## 2025  Türkiye Otomobil pazarı motor tipine göre;
+
 - Benzinli otomobil satışları 89.676 adetle %48,1 pay
 - Hibrit otomobil satışları 109.398 adetle %27,7 pay,
 - Elektrikli otomobil satışları 59.848 adetle **%15,2 pay**
@@ -63,7 +65,8 @@ Elektrifikasyon sadece otomotivi değil bir çok alanı da kapsıyor aslında: B
 
 # Elektrifikasyon: Neden oluyor? 
 ## İki Önemli Dinamik: Motor türü ve enerjinin depolanması
-1. **Motor Türü**
+### Motor Türü
+
 ![içten yanmalı motor: %25 verim](/sunumlar/ford-otosan-mdd/img-07.gif)
 
 ----------
@@ -78,7 +81,7 @@ Elektrifikasyon sadece otomotivi değil bir çok alanı da kapsıyor aslında: B
 
 ----------
 ## Soru: Madem o kadar harika bir teknolojiydi, neden şimdiye kadar yaygın olarak uygulanamadı? 
-2. **Enerjinin doğası…**
+### Enerjinin doğası…
 ----------
 
 EA Yaygınlaşmasının en büyük Engeli: **Enerji, depolaması çok zor bir varlık.**
@@ -103,6 +106,7 @@ EA Yaygınlaşmasının en büyük Engeli: **Enerji, depolaması çok zor bir va
 
 # Elektrifikasyon: Bizim için anlamı ne?
 ## Tipik EV Kullanıcısı
+
 - Yeniliğe açık
 - Teknoloji konusunda ilerici ve cesur
 - Araştırmacı ve bilgili, bildiklerini anlatmayı seven
@@ -117,6 +121,7 @@ EA Yaygınlaşmasının en büyük Engeli: **Enerji, depolaması çok zor bir va
 ----------
 # Zor Sorular
 ## Kaç km gider?
+
 1. Model / batarya kombinasyonuna göre değişir: Örn Ford Puma (Worldwide Harmonized Light Vehicle Testing Progam) standardında yapılan testlere göre 353 - 494 km arası bir menzile sahiptir.
 2. Pratik anlamda menzili etkileyen birkaç faktör var: 
 	- 1. Kullanım tarzı
@@ -127,7 +132,7 @@ EA Yaygınlaşmasının en büyük Engeli: **Enerji, depolaması çok zor bir va
 - **Rota Planlama kavramı**
     - **Depomuz boşalınca dolduruyoruz**
     - ~~**Şarj azalınca şarj ediyoruz**~~
-****## Ne kadar zamanda şarj olur?
+## Ne kadar zamanda şarj olur?
 - Şarj Hızı Temel Formül: kWh bazında batarya kapasitesi / kW olarak şarj hızı (gücü) 
 - İki farklı şarj senaryomuz var: AC ve DC
 ![Şarj Senaryoları: AC vs DC](/sunumlar/ford-otosan-mdd/img-13.png)
@@ -135,11 +140,11 @@ EA Yaygınlaşmasının en büyük Engeli: **Enerji, depolaması çok zor bir va
 
 
 ----------
-- **AC (alternatif Akım) şarj için şarj hızı üç faktöre bağlı:**
-    - **En zayıf halka prensibi**: Hangisi en küçükse o hızda şarj ederiz
-        - Aracı bağladığınız şebekedeki güç
-        - Şarj cihazının çıkış gücü
-        - Araçtaki yerleşik şarj cihazının kapasitesi
+### AC (alternatif Akım) şarj için şarj hızı üç faktöre bağlı:**
+- **En zayıf halka prensibi**: Hangisi en küçükse o hızda şarj ederiz
+	- Aracı bağladığınız şebekedeki güç
+	- Şarj cihazının çıkış gücü
+	- Araçtaki yerleşik şarj cihazının kapasitesi
 ----------
 * ***Örnek:** Ford Explorer aracımızın batarya kapasitesi 52kWh, yerleşik şarj cihazı kapasitesi 11kW’tır. Bu aracımızı bataryası tamamen boşken 11 kW gücünde bir AC şarj cihazına bağlarsak yaklaşık kaç saatte şarj olur?
 ----------
@@ -173,7 +178,6 @@ EA Yaygınlaşmasının en büyük Engeli: **Enerji, depolaması çok zor bir va
 		- Genel prensip: %80’e kadar kademeli olarak, 80 sonrası çok hızlı yavaşlama
 
  
-
 ## Enerji Geri Kazanımı ne demek?
 - 1. Aracınızı kullanırken ayağınızı gaz pedalında kaldırdığınız her an otomobilinizin bir miktar enerji geri kazanımı yapmasını sağlayan düzenek (rejenerasyon)
 - 2. Bu kazanımın miktarı sürüş koşullarına göre değişir

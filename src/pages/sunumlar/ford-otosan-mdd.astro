@@ -1,6 +1,14 @@
 ---
 import { marked } from 'marked';
 import raw from '../../sunumlar/ford-otosan-mdd.md?raw';
+import EvChart from '../../components/charts/EvChart.tsx';
+import { worldPowertrainConfig } from '../../components/charts/chartConfigs';
+
+// Markdown içinde [[CANLI-GRAFIK:anahtar]] işaretiyle statik görsel yerine
+// ev-verileri sayfamızdaki canlı (Plotly) grafiği gömüyoruz.
+const CANLI_GRAFIKLER: Record<string, typeof worldPowertrainConfig> = {
+  'dunya-guc-unitesi': worldPowertrainConfig,
+};
 
 // Paper markdown'ını slaytlara böler.
 // Kurallar:
@@ -50,7 +58,15 @@ function slaytlaraBol(md: string): string[] {
 }
 
 marked.setOptions({ gfm: true, breaks: false });
-const slaytlar = slaytlaraBol(raw).map((chunk) => marked.parse(chunk) as string);
+const CANLI_DESENI = /^\[\[CANLI-GRAFIK:([\w-]+)\]\]$/;
+const slaytlar = slaytlaraBol(raw).map((chunk) => {
+  const t = chunk.trim();
+  const eslesme = t.match(CANLI_DESENI);
+  if (eslesme && CANLI_GRAFIKLER[eslesme[1]]) {
+    return { tip: 'canli' as const, anahtar: eslesme[1] };
+  }
+  return { tip: 'html' as const, html: marked.parse(chunk) as string };
+});
 const toplam = slaytlar.length;
 
 // Deck başına değiştirilebilir künye (sol alt marka, sağ alt sunum adı + tarih).
@@ -96,6 +112,11 @@ const sunumTarihi = '24 Haziran 2025';
         line-height:1.15; margin:0 0 .5em; color:var(--ink); }
       .slide h3 { font-family:'Fraunces',serif; font-weight:500; font-size:clamp(18px,2.4vw,26px);
         margin:0 0 .4em; color:var(--ink); }
+      /* Kil rengi aksan çizgisi: slaytın başlığının hemen altında, içerik genişliğinde. */
+      .slide-inner > h1:first-child, .slide-inner > h2:first-child { margin-bottom:.6em; }
+      .slide-inner > h1:first-child::after, .slide-inner > h2:first-child::after {
+        content:''; display:block; width:100%; height:3px; margin-top:16px;
+        background:var(--accent); border-radius:2px; }
       .slide p, .slide li { font-size:clamp(15px,1.7vw,21px); line-height:1.55; color:#4a4238; }
       /* Tailwind Preflight global olarak list-style:none uyguluyor; deck'te geri açıyoruz. */
       .slide ul { list-style: disc; margin:.3em 0; padding-left:1.3em; }
@@ -115,6 +136,12 @@ const sunumTarihi = '24 Haziran 2025';
       .slide th, .slide td { border:1px solid var(--border); padding:.4em .7em; text-align:left; }
       .slide th { background:var(--sand); }
 
+      /* Canlı (Plotly) grafik kartı — statik görsel slaytlarıyla aynı görsel ağırlık. */
+      .canli-grafik-kart { background:#fff; border-radius:8px; padding:1.5em 1.5em 0.5em;
+        box-shadow:0 4px 24px rgba(0,0,0,.12); }
+      .canli-grafik-baslik { font-family:'Fraunces',serif; font-weight:500; font-size:15px;
+        color:var(--muted); margin:0 0 .5em; }
+
       /* kapak slaytı biraz daha havalı dursun */
       .slide:first-child h1 { font-size:clamp(32px,6vw,72px); }
 
@@ -125,10 +152,7 @@ const sunumTarihi = '24 Haziran 2025';
       .hud button { all:unset; cursor:pointer; color:var(--paper); opacity:.8; padding:2px 6px; }
       .hud button:hover { opacity:1; }
       .say { font-variant-numeric:tabular-nums; opacity:.9; }
-      /* --- Kurumsal çerçeve öğeleri (tüm slaytlarda sabit, sönük) --- */
-      .aksan { position:fixed; top:5vh; left:50%; transform:translateX(-50%);
-        width:min(84vw,1000px); height:3px; background:var(--accent);
-        border-radius:2px; z-index:4; opacity:.9; }
+      /* --- Kurumsal künye (alt şerit, sönük) --- */
       .marka { position:fixed; left:8vw; bottom:4.5vh; z-index:4;
         font-family:'Fraunces',serif; font-size:15px; color:var(--muted);
         letter-spacing:.005em; opacity:.85; }
@@ -136,19 +160,27 @@ const sunumTarihi = '24 Haziran 2025';
         font-family:'Fraunces',serif; color:var(--muted); line-height:1.3; opacity:.85; }
       .sunum-bilgi .ad { font-size:15px; }
       .sunum-bilgi .tar { font-size:12.5px; opacity:.8; }
-      @media (max-width:640px){ .aksan,.marka,.sunum-bilgi{ display:none; } }
+      @media (max-width:640px){ .marka,.sunum-bilgi{ display:none; } }
     </style>
   </head>
   <body>
     <div class="deck" id="deck">
-      {slaytlar.map((html, i) => (
+      {slaytlar.map((slayt, i) => (
         <section class={`slide${i === 0 ? ' active' : ''}`} data-i={i}>
-          <div class="slide-inner" set:html={html} />
+          {slayt.tip === 'canli' ? (
+            <div class="slide-inner">
+              <div class="canli-grafik-kart">
+                <p class="canli-grafik-baslik">{CANLI_GRAFIKLER[slayt.anahtar].title}</p>
+                <EvChart client:only="react" config={CANLI_GRAFIKLER[slayt.anahtar]} />
+              </div>
+            </div>
+          ) : (
+            <div class="slide-inner" set:html={slayt.html} />
+          )}
         </section>
       ))}
     </div>
 
-    <span class="aksan" aria-hidden="true"></span>
     <span class="marka">{marka}</span>
     <div class="sunum-bilgi"><div class="ad">{sunumAdi}</div><div class="tar">{sunumTarihi}</div></div>
 
