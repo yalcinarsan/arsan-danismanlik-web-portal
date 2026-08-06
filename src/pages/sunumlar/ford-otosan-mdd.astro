@@ -203,6 +203,9 @@ const sunumTarihi = '24 Haziran 2025';
         curEl.textContent = String(i + 1);
         const aktif = slaytlar[i];
         if (aktif) aktif.scrollTop = 0;
+        // Gizliyken (display:none) mount olan Plotly grafikleri genişliği 0 ölçüyor;
+        // slayt görünür olunca "resize" sinyaliyle doğru genişliği yeniden hesaplatıyoruz.
+        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
       }
       function sonraki() { goster(i + 1); }
       function onceki() { goster(i - 1); }
