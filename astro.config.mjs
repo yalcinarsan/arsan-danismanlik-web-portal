@@ -5,7 +5,12 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://arsandanismanlik.com.tr',
-  integrations: [tailwind(), react(), sitemap()],
+  integrations: [
+    tailwind(),
+    react(),
+    // Sunumlar listelenmez (noindex + sitemap dışı).
+    sitemap({ filter: (page) => !page.includes('/sunumlar/') }),
+  ],
   markdown: {
     remarkRehype: {
       footnoteLabel: 'Dipnotlar',
