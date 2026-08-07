@@ -88,4 +88,21 @@ export const turkiyeStokConfig: ChartConfig = {
   ],
 };
 
-export const evChartConfigs = [worldPowertrainConfig, regionSalesConfig, regionShareConfig, turkiyeSatisConfig, turkiyeStokConfig];
+/**
+ * 6 — Dünya toplam araç pazarı (tüm güç üniteleri) + EA payı. IEA toplam pazarı
+ * doğrudan yayınlamadığı için "EV sales" / "EV sales share" oranından türetiliyor
+ * (bkz. evDataTransforms.ts'deki buildWorldTotalMarket notu). series[0] bar
+ * (türetilmiş toplam), series[1] sağ eksende çizgi (EA payı).
+ */
+export const worldTotalMarketConfig: ChartConfig = {
+  kind: 'world-total-market',
+  title: 'Dünya toplam araç pazarı ve elektrikli araç payı',
+  yAxisTitle: 'Adet (toplam pazar, türetilmiş)',
+  y2AxisTitle: 'EA payı',
+  series: [
+    { region: 'World', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Toplam araç pazarı (türetilmiş)', color: STONE },
+    { region: 'World', parameter: 'EV sales share', powertrain: 'EV', modes: ['Cars'], label: 'EA payı', color: CLAY, onRightAxis: true },
+  ],
+};
+
+export const evChartConfigs = [worldPowertrainConfig, regionSalesConfig, regionShareConfig, turkiyeSatisConfig, turkiyeStokConfig, worldTotalMarketConfig];

@@ -23,7 +23,7 @@ export interface EvDataFile {
   rows: EvRow[];
 }
 
-export type ChartKind = 'powertrain-sales' | 'region-sales' | 'region-share' | 'turkiye-detail';
+export type ChartKind = 'powertrain-sales' | 'region-sales' | 'region-share' | 'turkiye-detail' | 'world-total-market';
 
 export interface SeriesDef {
   region: string;
@@ -239,6 +239,73 @@ function buildTurkiyeDetail(rows: EvRow[], config: ChartConfig) {
   return { data, layout };
 }
 
+/**
+ * Dünya toplam araç pazarı (tüm güç üniteleri) — IEA bunu hiçbir ürününde
+ * (API'de ya da rapor metninde) doğrudan yayınlamıyor; kendi "EV sales" (adet)
+ * ve "EV sales share" (%) rakamlarından Toplam = EV satış / (pay/100) olarak
+ * türetiliyor. Tek kaynak (IEA), veri yenilendiğinde otomatik güncellenir; ama
+ * IEA iki rakamı da bağımsız yuvarladığı için yıldan yıla küçük tutarsızlıklar
+ * olabilir — sayfadaki dipnotta bu açıkça belirtiliyor.
+ * config.series[0] = EV sales (türetmenin payı), config.series[1] = EV sales share (%).
+ */
+function buildWorldTotalMarket(rows: EvRow[], config: ChartConfig): any {
+  const [salesSeries, shareSeries] = config.series;
+  const salesPts = sortedPoints(sumByYear(rows, salesSeries, 'Historical'));
+  const sharePts = sortedPoints(sumByYear(rows, shareSeries, 'Historical'));
+  const shareByYear = new Map(sharePts.years.map((y, i) => [y, sharePts.values[i]]));
+
+  const years: number[] = [];
+  const totals: number[] = [];
+  const shares: number[] = [];
+  salesPts.years.forEach((y, i) => {
+    const share = shareByYear.get(y);
+    if (!share) return;
+    years.push(y);
+    totals.push(Math.round(salesPts.values[i] / (share / 100)));
+    shares.push(share);
+  });
+
+  const data: any[] = [
+    {
+      x: years,
+      y: totals,
+      name: salesSeries.label,
+      type: 'bar',
+      marker: { color: salesSeries.color },
+      hovertemplate: '%{y:,} adet<extra>' + salesSeries.label + '</extra>',
+    },
+    {
+      x: years,
+      y: shares,
+      name: shareSeries.label,
+      type: 'scatter',
+      mode: 'lines+markers',
+      line: { color: shareSeries.color, width: 2 },
+      marker: { color: shareSeries.color, size: 6 },
+      yaxis: 'y2',
+      // '%' eklemiyoruz — yaxis2.ticksuffix zaten hover'a da uyguluyor, ikisi
+      // birleşince "15%%" gibi çift işaret oluşuyor (bkz. buildTurkiyeDetail notu).
+      hovertemplate: '%{y}<extra>' + shareSeries.label + '</extra>',
+    },
+  ];
+
+  const layout: any = {
+    ...baseLayout(config),
+    yaxis: { title: { text: config.yAxisTitle }, gridcolor: GRID, zeroline: false, rangemode: 'tozero' },
+    yaxis2: {
+      title: { text: config.y2AxisTitle ?? '' },
+      overlaying: 'y',
+      side: 'right',
+      rangemode: 'tozero',
+      ticksuffix: '%',
+      showgrid: false,
+    },
+    margin: { t: 12, r: 68, l: 68, b: 60 },
+  };
+
+  return { data, layout };
+}
+
 export function buildPlotlyFigure(rows: EvRow[], config: ChartConfig) {
   switch (config.kind) {
     case 'powertrain-sales':
@@ -247,5 +314,7 @@ export function buildPlotlyFigure(rows: EvRow[], config: ChartConfig) {
       return buildProjectionLines(rows, config);
     case 'turkiye-detail':
       return buildTurkiyeDetail(rows, config);
+    case 'world-total-market':
+      return buildWorldTotalMarket(rows, config);
   }
 }
