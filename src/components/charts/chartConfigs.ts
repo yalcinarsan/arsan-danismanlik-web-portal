@@ -100,7 +100,7 @@ export const worldTotalMarketConfig: ChartConfig = {
   yAxisTitle: 'Adet (toplam pazar, türetilmiş)',
   y2AxisTitle: 'EA payı',
   series: [
-    { region: 'World', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Toplam araç pazarı (türetilmiş)', color: STONE },
+    { region: 'World', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Toplam araç pazarı', color: STONE },
     { region: 'World', parameter: 'EV sales share', powertrain: 'EV', modes: ['Cars'], label: 'EA payı', color: CLAY, onRightAxis: true },
   ],
 };

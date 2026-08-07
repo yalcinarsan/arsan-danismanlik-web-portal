@@ -69,13 +69,13 @@ not_5_turkiye_arac_parki_grafigi: >-
   yakalayamamıştı; bu yeni tahmin de benzer şekilde muhafazakâr kalabilir.
 
 not_6_dunya_toplam_pazar_grafigi: >-
-  Yalnızca otomobil. IEA, dünya toplam araç pazarını (tüm güç üniteleri
-  dahil) hiçbir ürününde doğrudan yayınlamıyor; buradaki çubuklar IEA'nın
-  kendi "EV satışı" (adet) ve "EA payı" (%) rakamlarından Toplam = EV satışı
-  / EA payı olarak türetilmiştir. Tek kaynaktan (IEA), veri yenilendiğinde
-  otomatik güncellenir; ancak IEA bu iki rakamı da bağımsız yuvarladığı için
-  yıldan yıla küçük tutarsızlıklar görülebilir — bu nedenle "türetilmiş
-  tahmin" olarak işaretlenmiştir, resmi bir IEA rakamı değildir.
+  Yalnızca otomobil. Grafikteki çubuklar resmi bir IEA rakamı değil,
+  türetilmiş bir tahmindir: IEA, dünya toplam araç pazarını (tüm güç
+  üniteleri dahil) hiçbir ürününde doğrudan yayınlamıyor; buradaki değerler
+  IEA'nın kendi "EV satışı" (adet) ve "EA payı" (%) rakamlarından
+  Toplam = EV satışı / EA payı olarak hesaplanmıştır. Tek kaynaktan (IEA),
+  veri yenilendiğinde otomatik güncellenir; ancak IEA bu iki rakamı da
+  bağımsız yuvarladığı için yıldan yıla küçük tutarsızlıklar görülebilir.
 
 kaynak_baslik: "Kaynak ve lisans"
 kaynak_ek_metin: >-
