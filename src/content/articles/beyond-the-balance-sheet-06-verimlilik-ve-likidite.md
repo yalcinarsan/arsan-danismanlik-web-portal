@@ -156,7 +156,11 @@ Otomotiv sektörü, işletme sermayesinin en ağır olduğu sektörlerden biri o
 <figcaption>Otomotivde işletme sermayesi savaşı (2021): Tesla −26, Toyota +31, Volkswagen +74 gün.</figcaption>
 </figure>
 
+<span id="tesla-depozito-negatif-isletme-sermayesi"></span>
+
 Tesla, sektöre başka bir mantık taşıdı. Doğrudan satış modeli — bayi ağı yok, showroom'da hazır stok yok. Müşteri online sipariş verir, depozito öder (1.000-5.000 dolar aralığında), araç üretilir ve teslim edilir. Yani naktin bir kısmı, üretimden önce, kalanı da teslimattan hemen önce Tesla'ya girer; **ödenmemiş sermaye tedarikçiye gitmeden önce müşteriden alınır**. 2021'de Tesla'nın nakit dönüşüm döngüsü **eksi 26 gün**e kadar düştü — otomotiv sektöründe neredeyse eşi görülmemiş bir rakam. Toyota +31 gün ile çalışırken Tesla −26 günde çalışıyordu. Aradaki 57 günlük fark, milyarlarca dolarlık işletme sermayesi avantajına dönüşüyordu. Tesla'nın büyüme yıllarında ek dış finansmana çok az başvurmasının teknik açıklaması burada saklı — büyümeyi müşterinin parası finanse ediyordu.
+
+<span id="tesla-ccc-normallesme"></span>
 
 Ama işin ilginç yanı şurada: **avantaj kalıcı olmadı.** 2022'de Tesla'nın CCC'si −2 güne düştü, 2023'te +9, 2024'te +15, 2025'te +13 güne yerleşti.
 

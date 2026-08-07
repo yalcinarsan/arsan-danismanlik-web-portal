@@ -106,7 +106,7 @@ Sade ama derin bir denklem. Her parça farklı bir hikayeyi anlatır:
 
 - Birinci parça **— Net kâr marjı.** Şirket sattığı her birim mal veya hizmetten ne kadar kâr çıkarıyor? Bu rakam operasyonel ustalığın ölçüsüdür. Şirketin gündelik akışını ne kadar iyi yönetildiğini gösterir.
 - İkinci parça **— Aktif devir hızı.** Şirket sahip olduğu her bir birim varlıktan ne kadar ciro üretiyor? Operasyonel verimliliğin ölçüsü, yani ne kadar kaynakla ne kadar iş çıkıyor?
-- Üçüncü parça **— Finansal kaldıraç.** Şirket özsermayenin kaç katı varlık kullanıyor? Borçlanma yoluyla büyütülmüş risk: Şirket kullandığı kaynağı ne kadar anlamlı şekilde seçiyor (kredi vs özsermaye tercihi)
+- <span id="dupont-finansal-kaldirac"></span>Üçüncü parça **— Finansal kaldıraç.** Şirket özsermayenin kaç katı varlık kullanıyor? Borçlanma yoluyla büyütülmüş risk: Şirket kullandığı kaynağı ne kadar anlamlı şekilde seçiyor (kredi vs özsermaye tercihi)
 
 DuPont denkleminin güzelliği, analiz edeni, yüksek ROE'nin nereden geldiğini sormaya zorlamasıdır. %25 ROE etkileyici görünür. Ama bu rakam farklı şekillerde elde edilebilir:
 
@@ -128,6 +128,8 @@ Buradaki ders: **bir oran size sadece "ne" olduğunu söyler, "neden"i söylemez
 ROE — özsermaye kârlılığı — hissedar açısından en doğrudan ölçüdür. Şirketin kazandığı her 1 TL net kârın, hissedarın koyduğu her 1 TL'ye düşen kısmını gösterir; ne kadar yatırdım, ne kazandım?
 
 **ROE = Net kâr ÷ Özsermaye**
+
+<span id="roe-kaldirac-sisirme"></span>
 
 %15 ROE, hissedarın koyduğu paranın yıllık %15 getiri ürettiği anlamına gelir. Yüzeyde basit bir ölçü gibi görünür. Ama az önce DuPont parçalamasında gördük: Özsermaye karlılığı finansal kaldıraçla (borçla) da şişirilebilir. Bu nedenle ROE'yi yalnız okumak yanıltıcıdır. Yanına mutlaka iki şey eklenmeli:
 
