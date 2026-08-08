@@ -55,7 +55,7 @@ Bu serinin geri kalanında kâr marjı derken her zaman finansal analiz tanımı
 
 ## Kâr Marjları: Analizin İlk Filtresi
 
-Kâr marjını artık, kârın ciroya oranı olarak ifade ettiğimizi netleştirdikten sonraki aşama: Gelir tablosunun her katmanında ayrı bir kâr marjı hesaplayacağız. Bölüm 3'te [(Para Nereden Geliyor, Nereye Gidiyor?)](/makaleler/beyond-the-balance-sheet-03-para-nereden-geliyor-nereye-gidiyor) gelir tablosunu katman katman okumuştuk. Şimdi bahsettiğimiz her katmanın bir marj rakamı üretebildiğini söyleyip bunu açalım:
+Kâr marjını artık, kârın ciroya oranı olarak ifade ettiğimizi netleştirdikten sonraki aşama: Gelir tablosunun her katmanında ayrı bir kâr marjı hesaplayacağız. Bölüm 3'te <a href="/makaleler/beyond-the-balance-sheet-03-para-nereden-geliyor-nereye-gidiyor#katmanlar-cirodan-net-kâra" target="_blank" rel="noopener">(Para Nereden Geliyor, Nereye Gidiyor?)</a> gelir tablosunu katman katman okumuştuk. Şimdi bahsettiğimiz her katmanın bir marj rakamı üretebildiğini söyleyip bunu açalım:
 
 **Brüt kâr marjı.** *Brüt kâr ÷ Ciro.* Bir şirketin ürettiği ya da aldığı şeyi ne kadar verimle satabildiğini gösterir. Basit bir "ciro - satılan malın maliyeti" hesabı yaparak Brüt kâr bulur, bunu ciroya bölersiniz. Yazılım şirketinin brüt marjı %85, perakendecininki %5 olabilir. İkisi de kendi sektörlerinde sağlıklı görünür — kıyaslama anlamlı olabilmek için aynı sektörde aynı iş modeliyle çalışan şirketler arasında yapılmalıdır.
 
@@ -105,7 +105,7 @@ ROTA bana göre marj rakamından çok daha gerçekçi bir göstergedir. Çünkü
 Sade ama derin bir denklem. Her parça farklı bir hikayeyi anlatır:
 
 - Birinci parça **— Net kâr marjı.** Şirket sattığı her birim mal veya hizmetten ne kadar kâr çıkarıyor? Bu rakam operasyonel ustalığın ölçüsüdür. Şirketin gündelik akışını ne kadar iyi yönetildiğini gösterir.
-- İkinci parça **— Aktif devir hızı.** Şirket sahip olduğu her bir birim varlıktan ne kadar ciro üretiyor? Operasyonel verimliliğin ölçüsü, yani ne kadar kaynakla ne kadar iş çıkıyor?
+- <span id="dupont-aktif-devir-hizi"></span>İkinci parça **— Aktif devir hızı.** Şirket sahip olduğu her bir birim varlıktan ne kadar ciro üretiyor? Operasyonel verimliliğin ölçüsü, yani ne kadar kaynakla ne kadar iş çıkıyor?
 - <span id="dupont-finansal-kaldirac"></span>Üçüncü parça **— Finansal kaldıraç.** Şirket özsermayenin kaç katı varlık kullanıyor? Borçlanma yoluyla büyütülmüş risk: Şirket kullandığı kaynağı ne kadar anlamlı şekilde seçiyor (kredi vs özsermaye tercihi)
 
 DuPont denkleminin güzelliği, analiz edeni, yüksek ROE'nin nereden geldiğini sormaya zorlamasıdır. %25 ROE etkileyici görünür. Ama bu rakam farklı şekillerde elde edilebilir:
@@ -179,6 +179,8 @@ Stratejik negatif marj ile yapısal negatif marj arasındaki fark, rakamların k
 Bu nedenle modern bir yatırımcının kârlılık analizinde sorması gereken iki soru var: **(1) Şirket bugün ne kadar kârlı? (2) Bu kârlılık eğrisinin yönü ne ve nedenleri?**
 
 Birinci soruya gelir tablosu ve oranlar cevap verir. İkinci soruya cevap verebilmek için şirketin stratejisini, sektörün dinamiklerini ve birim ekonomisini anlamak gerekir. İşte burası, klasik analizden modern, dönüşüm-duyarlı analize geçiş noktasıdır.
+
+<span id="bes-kapanis-sav"></span>
 
 Klasik finansal analiz — marjlar, ROTA, ROE, DuPont — vazgeçilmez kalmaya devam ediyor. Şirketin bugünkü gerçeğini anlatıyor. Ama gerçeğin tek başına yetmediği dönemlerden geçiyoruz. Bu rakamların arkasındaki stratejik hikayeyi okumayan bir analiz, yeni dünyada güvenilir bir rehber olamıyor.
 

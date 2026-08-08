@@ -88,7 +88,9 @@ Bir faaliyet raporunu okumadan önce, onun hangi kurallara göre hazırlandığ�
 
 **İhtiyatlılık ilkesi (prudence):** Muhasebecilerin altın kuralı: "Şüpheye düştüğünde, düşük olan değeri al." Kâr veya varlık değerleri asla bilerek abartılmamalıdır. Stoklar, maliyetle piyasa değerinden düşük olanıyla değerlenir. Şüpheli alacaklar, tahsil umudu tamamen bitmeden yazılır. Bu ilke, yatırımcıları korumak için vardır — çünkü bilançodaki varlık değerinin gerçekte daha düşük olduğunu sonradan keşfetmek, daha yüksek olduğunu keşfetmekten çok daha yıkıcıdır.
 
-**Tahakkuk ve eşleştirme ilkesi (accrual and matching):** Gelirler ve giderler, nakit alındığında veya ödendiğinde değil, işlemin gerçekleştiği dönemde kaydedilir. Bu ilke, kârlılığın gerçekçi bir resmini çizmeyi amaçlar — ama aynı zamanda kâr ile nakit arasındaki uçurumun temel nedenidir. Bir şirket kâğıt üzerinde kârlı görünürken kasası boş olabilir. Bu konuyu Bölüm 4'te derinlemesine ele alacağız.
+<span id="tahakkuk-ilkesi"></span>
+
+**Tahakkuk ve eşleştirme ilkesi (accrual and matching):** Gelirler ve giderler, nakit alındığında veya ödendiğinde değil, işlemin gerçekleştiği dönemde kaydedilir. Bu ilke, kârlılığın gerçekçi bir resmini çizmeyi amaçlar — ama aynı zamanda kâr ile nakit arasındaki uçurumun temel nedenidir. Bir şirket kâğıt üzerinde kârlı görünürken kasası boş olabilir. Bu konuyu <a href="/makaleler/beyond-the-balance-sheet-04-nakit-cok-sey-anlatir#kar-nakit-kopuklugu" target="_blank" rel="noopener">Bölüm 4'te</a> derinlemesine ele alacağız.
 
 **Tutarlılık ilkesi (consistency):** Bir şirket, muhasebe politikalarını yıldan yıla aynı tutmalıdır — böylece yıllar arasında karşılaştırma yapılabilir. Politika değişikliği yapıldığında, bunun nedeni ve etkisi dipnotlarda açıklanmalıdır. Muhasebe politikalarını sık sık değiştiren bir şirket, özel dikkat gerektirir. Bir şirket, yaratıcı muhasebe yöntemleriyle tek seferlik yüksek kârlılık üretebilir; asıl beceri bu ilüzyonu sürdürmektir. Ama bu yol, er ya da geç bir ip üzerinde yürümeye dönüşür.
 

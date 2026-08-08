@@ -24,7 +24,7 @@ Gelir tablosu (kâr-zarar hesabı olarak da bilinir), bir şirketin mali yıl bo
 
 Anahtar kelime "kazanılan kâr (ya da edilen zarar)."
 
-Bölüm 1'de ele aldığımız tahakkuk ilkesi gereği (müşteri ödediğinde değil) bir satış gerçekleştiğinde gelir tablosuna yansır. Aralık ayında 10 milyon TL'lik satış yapan ama parayı Şubat'ta tahsil eden bir şirket, Aralık hesaplarında güçlü bir ciro gösterecektir. Paranın gerçekten gelip gelmediğiyse gelir tablosunun değil, nakit akış tablosunun konusudur — bu konuya Bölüm 4'te geçeceğiz.
+Bölüm 1'de ele aldığımız tahakkuk ilkesi gereği (müşteri ödediğinde değil) bir satış gerçekleştiğinde gelir tablosuna yansır. Aralık ayında 10 milyon TL'lik satış yapan ama parayı Şubat'ta tahsil eden bir şirket, Aralık hesaplarında güçlü bir ciro gösterecektir. Paranın gerçekten gelip gelmediğiyse gelir tablosunun değil, nakit akış tablosunun konusudur — bu konuya <a href="/makaleler/beyond-the-balance-sheet-04-nakit-cok-sey-anlatir#nakit-akis-tablosu-tanitim" target="_blank" rel="noopener">Bölüm 4'te</a> geçeceğiz.
 
 ## Katmanlar: Cirodan Net Kâra
 

@@ -18,11 +18,15 @@ Türkiye'de ismini pek tanımadığımız bir şirkete dair bir örnekle başlam
 
 Benzer durumda çok şirket var aslında; kâğıt üzerinde kârlı olan ama pratikte ödeme gücü olmayan şirket yapısı tüm dünyada yaygın bir vaka.
 
+<span id="nakit-akis-tablosu-tanitim"></span>
+
 Ve bu duruma dikkat çekebilen tek bir finansal gösterge var: **Nakit akışı tablosu.** Bilanço ve Gelir Tablosunun ardından incelediğimiz üçüncü araç olan bu basit tablo, şirketlerin düştüğü zorluklardan çok önce kırmızı bayrak sallayan bir gösterge. Önemli olan, onu doğru okuyup okumadığımız.
 
 ## Kâr Neden Nakit Değildir?
 
-Kâr ile nakit arasındaki temel kopukluk, finansal tablolar hakkında anlaşılması gereken en önemli şeylerden biri — ve bu ayrım Bölüm 1'de konuştuğumuz tahakkuk ilkesinden geliyor.
+<span id="kar-nakit-kopuklugu"></span>
+
+Kâr ile nakit arasındaki temel kopukluk, finansal tablolar hakkında anlaşılması gereken en önemli şeylerden biri — ve bu ayrım <a href="/makaleler/beyond-the-balance-sheet-01-bir-sirketi-nasil-okursunuz#tahakkuk-ilkesi" target="_blank" rel="noopener">Bölüm 1'de</a> konuştuğumuz tahakkuk ilkesinden geliyor.
 
 Tahakkuk muhasebesinde gelir, satış yapıldığında tanınır (kaydedilir); nakit olarak alındığında değil. Aralık'ta 10 milyon TL satış yapan bir şirket, bu müşteri Mart'ta ödese bile, Aralık ayında 10 milyon TL gelir kaydeder. Kâr gerçektir ama nakit henüz gelmemiştir.
 
@@ -48,7 +52,9 @@ Nakit akış tablosu, raporlanan kâr ile fiili nakit hareketini birbirine bağl
 
 Nakit akışının işletme sermayesi olarak rolü, raporlanan **faaliyet kârı**yla başlar (Gelir Tablosu bölümümüzde bu konuya değinmiştik). Daha sonra kâr & nakit pozisyon arasındaki ayrışmayı yaratan olan tüm kalemler için bazı düzeltmeler yapılır.
 
-En önemli düzeltme **amortismanı** geri eklemektir. Bölüm 2'de tartıştığımız gibi, amortisman nakit çıkışı gerektirmeyen bir giderdir — gelir tablosunda raporlanan kârı düşürür ama o an için herhangi bir nakit ödemesi içermez. 50 milyon TL faaliyet kârı açıklayan ve 10 milyon TL amortisman ayıran bir şirket, işletme sermayesindeki değişimler öncesinde en az 60 milyon TL operasyonel nakit akışı üretmiş demektir.
+<span id="amortisman-geri-ekleme"></span>
+
+En önemli düzeltme **amortismanı** geri eklemektir. <a href="/makaleler/beyond-the-balance-sheet-02-bir-sirket-neye-sahiptir-kime-borcludur#amortisman-nakit-disi-gider" target="_blank" rel="noopener">Bölüm 2'de</a> tartıştığımız gibi, amortisman nakit çıkışı gerektirmeyen bir giderdir — gelir tablosunda raporlanan kârı düşürür ama o an için herhangi bir nakit ödemesi içermez. 50 milyon TL faaliyet kârı açıklayan ve 10 milyon TL amortisman ayıran bir şirket, işletme sermayesindeki değişimler öncesinde en az 60 milyon TL operasyonel nakit akışı üretmiş demektir.
 
 İkinci düzeltme **işletme sermayesi** hareketleri için yapılır. Müşteriler ödemeyi geciktiriyorsa, ticari alacaklar artar, nakit pozisyonu, kâr rakamının gösterdiğinden düşük olur. Benzer şekilde eğer şirketin stoğu artıyorsa, nakit azalır. Şirket tedarikçi ödeme vadelerini uzatıyorsa, ticari borçları artar ve bu sayede nakit pozisyonu iyileşir. Kimi şirketlerde bu dönemsel hareketler önemli boyutlara ulaşabilir; genellikle nakit darlığı yaşayan şirketlerin ilk stres işaretleri buralarda görünür.
 

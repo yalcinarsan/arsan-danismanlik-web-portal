@@ -21,7 +21,7 @@ Bu bölüm, bu sıkışmayı görmenin araçlarıyla ilgili. Verimlilik ve likid
 
 ## Verimlilik Oranları: Şirket Kaynaklarını Ne Hızda Döndürüyor?
 
-Verimlilik oranları — literatürde "*activity ratios*" olarak geçer — bir şirketin sahip olduğu varlıklarla ne kadar iş çıkardığını ölçer. [Bölüm 5'te](/makaleler/beyond-the-balance-sheet-05-ayni-kar-farkli-hikaye) DuPont analizinde "aktif devir hızı" adını verdiğimiz kavramın arkasında bu oranlar var.
+Verimlilik oranları — literatürde "*activity ratios*" olarak geçer — bir şirketin sahip olduğu varlıklarla ne kadar iş çıkardığını ölçer. <a href="/makaleler/beyond-the-balance-sheet-05-ayni-kar-farkli-hikaye#dupont-aktif-devir-hizi" target="_blank" rel="noopener">Bölüm 5'te</a> DuPont analizinde "aktif devir hızı" adını verdiğimiz kavramın arkasında bu oranlar var.
 
 Üç temel oran özellikle önemli: **stok devir hızı, alacak tahsil süresi ve borç ödeme süresi**. Bu üçünü bir arada okursak **nakit dönüşüm döngüsü**ne ulaşırız — ve bu bir işletmenin nakit sağlığının belki de en iyi göstergesidir.
 
@@ -185,7 +185,7 @@ Bu nedenle modern bir analiz iki katmanlı yapılır:
 1. Şirketin verimlilik ve likidite oranları klasik ölçütlerde nasıl görünüyor?
 2. İş modelinin doğası bu ölçütlerin ne anlama geldiğini değiştiriyor mu?
 
-Birinci soruya bilanço ve gelir tablosu yeter. İkinci soruya cevap vermek için şirketin nasıl para kazandığını, müşteri-tedarikçi ilişkilerinin nasıl kurulduğunu, ödeme ve tahsilat mekaniğini anlamak gerekir. [Bölüm 5'in](/makaleler/beyond-the-balance-sheet-05-ayni-kar-farkli-hikaye) son satırında öne sürdüğüm savı tekrarlayacağım: Sadece sayıların arkasındaki iş modelini okumayan bir finansal analiz, artık yeterli değil.
+Birinci soruya bilanço ve gelir tablosu yeter. İkinci soruya cevap vermek için şirketin nasıl para kazandığını, müşteri-tedarikçi ilişkilerinin nasıl kurulduğunu, ödeme ve tahsilat mekaniğini anlamak gerekir. <a href="/makaleler/beyond-the-balance-sheet-05-ayni-kar-farkli-hikaye#bes-kapanis-sav" target="_blank" rel="noopener">Bölüm 5'in</a> son satırında öne sürdüğüm savı tekrarlayacağım: Sadece sayıların arkasındaki iş modelini okumayan bir finansal analiz, artık yeterli değil.
 
 _Bir sonraki bölümde sermaye yapısı ve değerlemeye geçiyoruz: bir şirketin borç-özsermaye dengesi neyi söyler, aynı iş neden farklı fiyatlanır, ve fiyat/kazanç ve DCF gibi araçlar ne kadar güvenilirdir?_
 

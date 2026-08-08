@@ -72,7 +72,9 @@ Bu akış iki nedenden dolayı önemlidir. Birincisi, seçilen amortisman yönte
 
 Amortisman yöntemini değiştiren bir şirket, aslında "kâr"ın ne anlama geldiğini sessiz sedasız yeniden tanımlıyor olabilir.
 
-İkincisi, amortisman nakit çıkışı gerektirmeyen bir gider olduğundan, işletme nakit akışı hesaplanırken akışa geri eklenir — bu pratiği Bölüm 4'te derinlemesine inceleyeceğiz.
+<span id="amortisman-nakit-disi-gider"></span>
+
+İkincisi, amortisman nakit çıkışı gerektirmeyen bir gider olduğundan, işletme nakit akışı hesaplanırken akışa geri eklenir — bu pratiği <a href="/makaleler/beyond-the-balance-sheet-04-nakit-cok-sey-anlatir#amortisman-geri-ekleme" target="_blank" rel="noopener">Bölüm 4'te</a> derinlemesine inceleyeceğiz.
 
 Dikkat edilmesi gereken bir nokta daha var: uzun süre yeniden değerleme yapılmamış duran varlıklar, bilançodaki varlıkları olduğundan düşük gösterilebilir. 2010'da 2 milyon TL'ye alınan ve bugün amortismanlar düşüldükten sonra 200.000 TL'ye indirgenmiş bir bina, bugünkü piyasa fiyatıyla 15 milyon TL değerinde olabilir. Bu durum, dışarıdan bakan bir analist açısından şirketi cazip bir satın alma fırsatı gibi gösterebilir — ve aynı zamanda amortisman giderinin, varlığı gerçekten değiştirmek için gereken maliyeti yansıtmadığı (yani hatalı bir amortisman yaklaşımı tercih edildiği) anlamına gelebilir.
 
@@ -92,7 +94,7 @@ Dönen varlıklar, on iki ay içinde nakde dönüştürülmesi beklenen varlıkl
 
 Ana bileşenler: nakit ve nakit benzerleri, ticari alacaklar (müşterilerden tahsil edilecek tutarlar), stoklar ve kısa vadeli yatırımlar.
 
-Nakit en anlaşılır olanı ve en önemlisidir. Bir şirket bilançosu sağlıklı görünürken nakitsiz kalabilir. Bölüm 4'te bu senaryo üzerinde duracağız.
+Nakit en anlaşılır olanı ve en önemlisidir. Bir şirket bilançosu sağlıklı görünürken nakitsiz kalabilir. <a href="/makaleler/beyond-the-balance-sheet-04-nakit-cok-sey-anlatir#kar-nakit-kopuklugu" target="_blank" rel="noopener">Bölüm 4'te</a> bu senaryo üzerinde duracağız.
 
 Ticari alacaklar, yapılmış ama henüz tahsil edilmemiş satışları temsil eder. Büyük bir alacak bakiyesi şirketin iyi iş yaptığı anlamına gelebilir — ya da müşterilerin geç ödediği, ya da bazı borçların hiç tahsil edilemeyeceği anlamına da gelebilir. Dipnotlar genellikle alacakların vade analizini içerir ve bu tutarların ne kadar süredir beklemekte olduğunu gösterir.
 
@@ -130,7 +132,7 @@ Dönüştürülebilir borçlar özellikle belirtmeye değer. Dönüştürülebil
 
 Kısa vadeli yükümlülükler, şirketin önümüzdeki on iki ay içinde ödemesi beklenen borçlardır — ticari borçlar, kısa vadeli krediler, vergi borçları ve önerilmiş temettüler vb yükümlülükler.
 
-Ticari borçlar, şirketin tedarikçilerine zaten teslim aldığı mal ve hizmetler karşılığında borçlu olduğu tutarları temsil eder. Bir şirketin tedarikçilerini kaç günde ödediği — borçlu günleri — Bölüm 6'da yakından inceleyeceğimiz bir verimlilik göstergesidir.
+Ticari borçlar, şirketin tedarikçilerine zaten teslim aldığı mal ve hizmetler karşılığında borçlu olduğu tutarları temsil eder. Bir şirketin tedarikçilerini kaç günde ödediği — borçlu günleri — <a href="/makaleler/beyond-the-balance-sheet-06-verimlilik-ve-likidite#borç-ödeme-süresi-dpo---days-payable-outstanding" target="_blank" rel="noopener">Bölüm 6'da</a> yakından inceleyeceğimiz bir verimlilik göstergesidir.
 
 Çok yüksek bir ticari borç bakiyesi ya da işletmenin büyümesinden daha hızlı artan borçlar, şirketin tedarikçi vadelerini agresif biçimde uzattığının işareti olabilir. Bu nakit baskısına işaret edebilir ya da sadece akıllıca çalışma sermayesi yönetiminin sonucu olabilir. Bağlam her zaman önemlidir.
 
@@ -140,9 +142,9 @@ Banka kredileri, teknik olarak talep üzerine geri ödenebilir olduğundan, şir
 
 Beş yapı taşı şirketin durumunu tek başına değil, aralarındaki ilişkiler üzerinden anlatır. Yani rakamların ayrı ayrı değerleri kadar birbirine oranlarına da bakılır.
 
-Cari oran — dönen varlıklar bölü kısa vadeli yükümlülükler — kısa vadeli borç ödeme gücünü temsil eder. 1,0'ın üzerinde bir oran olumludur; şirketin kısa vadeli varlıklarıyla yakın vadeli yükümlülüklerini karşılayabileceğine işaret eder. 1,0'ın altı ise bir uyarıdır. Ama bu oranları yorumlamak geniş bir bağlam gerektirir: 0,7 cari oranla çalışan bir süpermarket gayet sağlıklı olabilir (müşterilerden anında nakit toplama kabiliyeti yüksekse ama tedarikçilerine 30 günde ödeyen bir düzen kurmuşsa). Diğer taraftan 0,7'deki bir üretici firma (tam tersi bir yapıyla çalışıyorsa yani kısa vadeli borçlanıyor ama alacakları uzun vadeliyse) ciddi güçlük içinde olabilir. Likidite oranlarını Bölüm 6'da derinlemesine ele alacağız.
+Cari oran — dönen varlıklar bölü kısa vadeli yükümlülükler — kısa vadeli borç ödeme gücünü temsil eder. 1,0'ın üzerinde bir oran olumludur; şirketin kısa vadeli varlıklarıyla yakın vadeli yükümlülüklerini karşılayabileceğine işaret eder. 1,0'ın altı ise bir uyarıdır. Ama bu oranları yorumlamak geniş bir bağlam gerektirir: 0,7 cari oranla çalışan bir süpermarket gayet sağlıklı olabilir (müşterilerden anında nakit toplama kabiliyeti yüksekse ama tedarikçilerine 30 günde ödeyen bir düzen kurmuşsa). Diğer taraftan 0,7'deki bir üretici firma (tam tersi bir yapıyla çalışıyorsa yani kısa vadeli borçlanıyor ama alacakları uzun vadeliyse) ciddi güçlük içinde olabilir. Likidite oranlarını <a href="/makaleler/beyond-the-balance-sheet-06-verimlilik-ve-likidite#likidite-oranları-şirket-kısa-vadede-borçlarını-ödeyebilir-mi" target="_blank" rel="noopener">Bölüm 6'da</a> derinlemesine ele alacağız.
 
-Sermaye yapısı — özsermaye, uzun vadeli borç ve kısa vadeli yükümlülükler arasındaki denge — yani işin nasıl finanse edildiğini ve yapıda ne kadar risk bulunduğunu gösterir. Bölüm 7 bu konuyu ve finansal kaldıraç kavramını ayrıntılı kapsayacak.
+Sermaye yapısı — özsermaye, uzun vadeli borç ve kısa vadeli yükümlülükler arasındaki denge — yani işin nasıl finanse edildiğini ve yapıda ne kadar risk bulunduğunu gösterir. <a href="/makaleler/beyond-the-balance-sheet-07-sermaye-yapisi-ve-degerleme#sermaye-yapısı-borç-mu-özsermaye-mi" target="_blank" rel="noopener">Bölüm 7</a> bu konuyu ve finansal kaldıraç kavramını ayrıntılı kapsayacak.
 
 Net varlıklar — toplam varlıklar eksi toplam yükümlülükler, yani özsermaye — işin muhasebe değerini verir. Trend, yani gidişat önemlidir: Acaba şirket kârını bünyede tutarken net varlık değeri de paralelinde büyüyor mu? Ya da zararlar geçmiş yıl kârlarını eritirken küçülüyor mu? Bilançoyu birkaç yıl üst üste analiz ederek bu soruları sormak ve yanıtlarını şeffaf olarak dikkate almak önemlidir. Hatta kritiktir!
 
