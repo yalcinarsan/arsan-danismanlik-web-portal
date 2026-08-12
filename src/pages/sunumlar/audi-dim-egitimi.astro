@@ -1,6 +1,6 @@
 ---
 import { marked } from 'marked';
-import raw from '../../sunumlar/audi-dim-egitimi.md?raw';
+import ham from '../../sunumlar/audi-dim-egitimi.md?raw';
 import EvChart from '../../components/charts/EvChart.tsx';
 import {
   worldTotalMarketConfig,
@@ -8,6 +8,12 @@ import {
   regionShareConfig,
   turkiyeSatisConfig,
 } from '../../components/charts/chartConfigs';
+
+// Görsel yolları md dosyasında DOSYA SİSTEMİNE göre yazılıyor
+// (`../../public/sunumlar/...`) ki Obsidian'da açınca görseller render olsun.
+// Siteye basarken bunu web yoluna (`/sunumlar/...`) çeviriyoruz.
+// Eski deck'lerdeki `/sunumlar/...` yazımı da çalışmaya devam ediyor.
+const raw = ham.replace(/\]\((?:\.\.\/)+public\//g, '](/');
 
 // Markdown içinde [[CANLI-GRAFIK:anahtar]] işaretiyle statik görsel yerine
 // ev-verileri sayfamızdaki canlı (Plotly) grafiği gömüyoruz.

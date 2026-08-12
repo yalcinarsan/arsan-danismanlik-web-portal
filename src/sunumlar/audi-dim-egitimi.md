@@ -118,7 +118,7 @@ En bariz neden: Elon Musk adında bir girişimci çıkıp 100 yıldır geçerli 
 
 ----------
 
-![](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-03.jpg)
+![](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-03.jpg)
 
 ----------
 
@@ -128,27 +128,27 @@ En önemli kaynağı sera etkisi yaratan gazların artması. "Heat-trapping" nit
 
 ----------
 
-![CO2 ve diğer sera gazlarının bir kısmı otomotiv ve taşımacılıktan geliyor. Daha büyük oranda sorumlu sektörler: enerji, sanayi, tarım ve hayvancılık.](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-06.png)
+![CO2 ve diğer sera gazlarının bir kısmı otomotiv ve taşımacılıktan geliyor. Daha büyük oranda sorumlu sektörler: enerji, sanayi, tarım ve hayvancılık.](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-06.png)
 
 ----------
 
-![2035'te %100 ZEV satılsa dahi 2050'de otomotiv kaynaklı CO2 emisyonu sıfırlanmıyor; tek yol olan ICE araçların trafikten çekilmesi kısa vadede gerçekçi değil.](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-07.png)
+![2035'te %100 ZEV satılsa dahi 2050'de otomotiv kaynaklı CO2 emisyonu sıfırlanmıyor; tek yol olan ICE araçların trafikten çekilmesi kısa vadede gerçekçi değil.](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-07.png)
 
 ----------
 
 **3. Regülasyon: takvim artık ülke ülke yazılı**
 
-![İçten yanmalı motor yasakları / elektrifikasyon hedefleri ve net-sıfır taahhütleri, ülke bazında takvim](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-31.png)
+![İçten yanmalı motor yasakları / elektrifikasyon hedefleri ve net-sıfır taahhütleri, ülke bazında takvim](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-31.png)
 
 ----------
 
 **4. Üreticiler kararını verdi**
 
-![Üreticilerin elektrifikasyon taahhütleri: yeni model sayıları, elektrikli satış oranı hedefleri](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-34.png)
+![Üreticilerin elektrifikasyon taahhütleri: yeni model sayıları, elektrikli satış oranı hedefleri](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-34.png)
 
 ----------
 
-![Üreticilerin elektrifikasyon yol haritası — Kaynak: IEA / Lucidity Insights](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-33.webp)
+![Üreticilerin elektrifikasyon yol haritası — Kaynak: IEA / Lucidity Insights](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-33.webp)
 
 ----------
 
@@ -168,19 +168,19 @@ Abartmadan, üç maddede bitirin. Uzun savunma, ikna edici olmak yerine şüphe 
 
 **1. Motor türü**
 
-![İçten yanmalı motor: yaklaşık %25 verim](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-08.gif)
+![İçten yanmalı motor: yaklaşık %25 verim](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-08.gif)
 
 ----------
 
-![Elektrik motoru: %100'e yakın verim](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-09.gif)
+![Elektrik motoru: %100'e yakın verim](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-09.gif)
 
 ----------
 
-![İçten yanmalı araçta 100'ün üzerinde hareketli parça, elektrikli araçta 3. Kaynak: UBS Group analizi](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-10.png)
+![İçten yanmalı araçta 100'ün üzerinde hareketli parça, elektrikli araçta 3. Kaynak: UBS Group analizi](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-10.png)
 
 ----------
 
-![Aynı miktar enerjiyle elektrikli otomobil yaklaşık 2,5 kat daha fazla yol gider](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-13.png)
+![Aynı miktar enerjiyle elektrikli otomobil yaklaşık 2,5 kat daha fazla yol gider](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-13.png)
 
 ----------
 
@@ -196,7 +196,7 @@ EA yaygınlaşmasının en büyük engeli: **enerji, depolaması çok zor bir va
 
 ----------
 
-![10 litre benzin, yaklaşık 90 kWh'lik bir bataryanın enerjisini üretebiliyor](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-12.png)
+![10 litre benzin, yaklaşık 90 kWh'lik bir bataryanın enerjisini üretebiliyor](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-12.png)
 
 ----------
 
@@ -218,7 +218,7 @@ Hikâyenin tamamı bu makasın kapanması.
 
 # Kısa tarihçe: yeni bir fikir değil
 
-![1884, bir İngiliz mucidin elektrikli aracı](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-14.jpg)
+![1884, bir İngiliz mucidin elektrikli aracı](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-14.jpg)
 
 - **1832:** Robert Anderson ilk kaba elektrikli aracı geliştiriyor
 - **1900–1912:** ABD'de yollardaki araçların yaklaşık üçte biri elektrikli
@@ -226,14 +226,14 @@ Hikâyenin tamamı bu makasın kapanması.
 
 ----------
 
-![Model T](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-18.jpg)
+![Model T](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-18.jpg)
 
 - **1908–1912:** Seri üretim Model T ve elektrikli marş, benzinli aracı ucuz ve kullanışlı hale getiriyor
 - **1920–1935:** Ucuz Teksas petrolü ve iyileşen yollar; 1935'e gelindiğinde elektrikli araçlar neredeyse yok olmuş
 
 ----------
 
-![1970'lerdeki petrol krizi](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-20.gif)
+![1970'lerdeki petrol krizi](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-20.gif)
 
 - **1968–1973:** Benzin fiyatları fırlıyor, ilgi yeniden canlanıyor
 - **1996:** GM, EV1'i çıkarıyor; küçük ama sadık bir kitle yaratıyor
@@ -241,7 +241,7 @@ Hikâyenin tamamı bu makasın kapanması.
 
 ----------
 
-![Nissan LEAF](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-27.png)
+![Nissan LEAF](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-27.png)
 
 - **2006:** Tesla, 200+ mil menzilli lüks bir elektrikli spor otomobil üreteceğini duyuruyor
 - **2010:** Nissan LEAF ile seri üretim BEV kitleselleşmeye başlıyor
@@ -264,7 +264,7 @@ Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağ�
 
 ----------
 
-![Türkiye elektrikli otomobil pazarı, marka kırılımı: 2022'de 8.210 adet, 2023'te 66.134 adet. Kaynak: TEHAD](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-40.png)
+![Türkiye elektrikli otomobil pazarı, marka kırılımı: 2022'de 8.210 adet, 2023'te 66.134 adet. Kaynak: TEHAD](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-40.png)
 
 ----------
 
@@ -278,7 +278,7 @@ Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağ�
 
 ----------
 
-![ODMD — motor tipine göre otomobil pazarı, 2023 / 2024 karşılaştırması](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-41.png)
+![ODMD — motor tipine göre otomobil pazarı, 2023 / 2024 karşılaştırması](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-41.png)
 
 ----------
 
@@ -354,7 +354,7 @@ Bu iki birimi ayırdığınız an, şarj sorularının tamamı tek bir bölme i�
 
 # Şarj senaryoları
 
-![Şarj senaryoları: AC ve DC](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-36.png)
+![Şarj senaryoları: AC ve DC](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-36.png)
 
 ----------
 
@@ -367,11 +367,11 @@ Müşteri "evime 22 kW'lık cihaz taktırdım ama araç 11 kW çekiyor" dediğin
 
 ----------
 
-![AC şarj seçenekleri — Electric Vehicle Service Equipment (EVSE)](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-37.png)
+![AC şarj seçenekleri — Electric Vehicle Service Equipment (EVSE)](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-37.png)
 
 ----------
 
-![DC şarj protokolleri ve soketleri: Avrupa'da CCS, Asya'da ChaDeMo, Çin'de GB/T](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-38.png)
+![DC şarj protokolleri ve soketleri: Avrupa'da CCS, Asya'da ChaDeMo, Çin'de GB/T](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-38.png)
 
 ----------
 
@@ -664,7 +664,7 @@ Elektrikli araç herkese uygun değil. Uygun olmayan müşteriye satılan araç,
 
 ----------
 
-![Elektrikli araca geçiş stratejisi — üç sorunun karar ağacı (© Yalçın Arsan)](/sunumlar/audi-turkiye-elektrifikasyona-giris/img-39.jpg)
+![Elektrikli araca geçiş stratejisi — üç sorunun karar ağacı (© Yalçın Arsan)](../../public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-39.jpg)
 
 ----------
 
