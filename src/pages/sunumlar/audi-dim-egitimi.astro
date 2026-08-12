@@ -73,10 +73,16 @@ function slaytlaraBol(md: string): string[] {
 }
 
 marked.setOptions({ gfm: true, breaks: false });
+// Canlı grafik slaytı iki biçimde yazılabilir:
+//  1) ![CANLI-GRAFIK:anahtar](.../grafik-onizleme/anahtar.svg) — tercih edilen.
+//     Obsidian'da SVG önizlemesi görünür, sitede canlı Plotly ile değiştirilir.
+//     Önizlemeler `npm run grafik:onizleme` ile yeniden üretilir.
+//  2) [[CANLI-GRAFIK:anahtar]] — eski biçim, Obsidian'da kırık link gibi durur.
 const CANLI_DESENI = /^\[\[CANLI-GRAFIK:([\w-]+)\]\]$/;
+const CANLI_GORSEL_DESENI = /^!\[CANLI-GRAFIK:([\w-]+)\]\([^)]*\)$/;
 const slaytlar = slaytlaraBol(raw).map((chunk) => {
   const t = chunk.trim();
-  const eslesme = t.match(CANLI_DESENI);
+  const eslesme = t.match(CANLI_DESENI) ?? t.match(CANLI_GORSEL_DESENI);
   if (eslesme && CANLI_GRAFIKLER[eslesme[1]]) {
     return { tip: 'canli' as const, anahtar: eslesme[1] };
   }

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Dünya toplam araç pazarı ve elektrikli araç payı">
+<rect width="1000" height="560" fill="#faf7f2"/>
+<text x="88" y="30" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="600" fill="#2c2620">Dünya toplam araç pazarı ve elektrikli araç payı</text>
+<line x1="88" y1="468.0" x2="922" y2="468.0" stroke="#e7ddcf" stroke-width="1"/>
+<text x="78" y="472.0" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">0</text>
+<line x1="88" y1="385.2" x2="922" y2="385.2" stroke="#e7ddcf" stroke-width="1"/>
+<text x="78" y="389.2" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">20M</text>
+<line x1="88" y1="302.4" x2="922" y2="302.4" stroke="#e7ddcf" stroke-width="1"/>
+<text x="78" y="306.4" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">40M</text>
+<line x1="88" y1="219.6" x2="922" y2="219.6" stroke="#e7ddcf" stroke-width="1"/>
+<text x="78" y="223.6" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">60M</text>
+<line x1="88" y1="136.8" x2="922" y2="136.8" stroke="#e7ddcf" stroke-width="1"/>
+<text x="78" y="140.8" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">80M</text>
+<line x1="88" y1="54.0" x2="922" y2="54.0" stroke="#e7ddcf" stroke-width="1"/>
+<text x="78" y="58.0" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">100M</text>
+<text x="932" y="472.0" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">%0</text>
+<text x="932" y="389.2" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">%6</text>
+<text x="932" y="306.4" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">%12</text>
+<text x="932" y="223.6" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">%18</text>
+<text x="932" y="140.8" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">%24</text>
+<text x="932" y="58.0" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">%30</text>
+<text x="114.1" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2010</text>
+<text x="218.3" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2012</text>
+<text x="322.6" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2014</text>
+<text x="426.8" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2016</text>
+<text x="531.1" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2018</text>
+<text x="635.3" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2020</text>
+<text x="739.6" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2022</text>
+<text x="843.8" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2024</text>
+<rect x="97.9" y="212.7" width="32.3" height="255.3" fill="#857a69" opacity="0.85"/>
+<rect x="150.0" y="186.2" width="32.3" height="281.8" fill="#857a69" opacity="0.85"/>
+<rect x="202.2" y="175.8" width="32.3" height="292.2" fill="#857a69" opacity="0.85"/>
+<rect x="254.3" y="168.2" width="32.3" height="299.8" fill="#857a69" opacity="0.85"/>
+<rect x="306.4" y="157.5" width="32.3" height="310.5" fill="#857a69" opacity="0.85"/>
+<rect x="358.5" y="145.3" width="32.3" height="322.7" fill="#857a69" opacity="0.85"/>
+<rect x="410.7" y="128.1" width="32.3" height="339.9" fill="#857a69" opacity="0.85"/>
+<rect x="462.8" y="113.1" width="32.3" height="354.9" fill="#857a69" opacity="0.85"/>
+<rect x="514.9" y="136.8" width="32.3" height="331.2" fill="#857a69" opacity="0.85"/>
+<rect x="567.0" y="146.0" width="32.3" height="322.0" fill="#857a69" opacity="0.85"/>
+<rect x="619.2" y="185.7" width="32.3" height="282.3" fill="#857a69" opacity="0.85"/>
+<rect x="671.3" y="174.2" width="32.3" height="293.8" fill="#857a69" opacity="0.85"/>
+<rect x="723.4" y="192.0" width="32.3" height="276.0" fill="#857a69" opacity="0.85"/>
+<rect x="775.5" y="146.0" width="32.3" height="322.0" fill="#857a69" opacity="0.85"/>
+<rect x="827.7" y="132.9" width="32.3" height="335.1" fill="#857a69" opacity="0.85"/>
+<rect x="879.8" y="120.2" width="32.3" height="347.8" fill="#857a69" opacity="0.85"/>
+<polyline points="114.1,467.8 166.2,467.0 218.3,465.7 270.4,464.0 322.6,461.9 374.7,458.6 426.8,454.9 478.9,448.7 531.1,433.5 583.2,430.7 635.3,407.3 687.4,339.7 739.6,261.0 791.7,219.6 843.8,178.2 895.9,123.0" fill="none" stroke="#b5623c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="114.1" cy="467.8" r="3.5" fill="#b5623c"/>
+<circle cx="166.2" cy="467.0" r="3.5" fill="#b5623c"/>
+<circle cx="218.3" cy="465.7" r="3.5" fill="#b5623c"/>
+<circle cx="270.4" cy="464.0" r="3.5" fill="#b5623c"/>
+<circle cx="322.6" cy="461.9" r="3.5" fill="#b5623c"/>
+<circle cx="374.7" cy="458.6" r="3.5" fill="#b5623c"/>
+<circle cx="426.8" cy="454.9" r="3.5" fill="#b5623c"/>
+<circle cx="478.9" cy="448.7" r="3.5" fill="#b5623c"/>
+<circle cx="531.1" cy="433.5" r="3.5" fill="#b5623c"/>
+<circle cx="583.2" cy="430.7" r="3.5" fill="#b5623c"/>
+<circle cx="635.3" cy="407.3" r="3.5" fill="#b5623c"/>
+<circle cx="687.4" cy="339.7" r="3.5" fill="#b5623c"/>
+<circle cx="739.6" cy="261.0" r="3.5" fill="#b5623c"/>
+<circle cx="791.7" cy="219.6" r="3.5" fill="#b5623c"/>
+<circle cx="843.8" cy="178.2" r="3.5" fill="#b5623c"/>
+<circle cx="895.9" cy="123.0" r="3.5" fill="#b5623c"/>
+<rect x="88" y="521" width="12" height="12" rx="2" fill="#857a69"/>
+<text x="106" y="531" font-family="Inter, sans-serif" font-size="12.5" fill="#4a4238">Toplam araç pazarı</text>
+<rect x="236.8" y="521" width="12" height="12" rx="2" fill="#b5623c"/>
+<text x="254.8" y="531" font-family="Inter, sans-serif" font-size="12.5" fill="#4a4238">EA payı</text>
+</svg>

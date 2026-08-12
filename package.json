@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fetch:ev-data": "node scripts/fetch-iea-ev-data.mjs"
+    "fetch:ev-data": "node scripts/fetch-iea-ev-data.mjs",
+    "grafik:onizleme": "node scripts/build-grafik-onizleme.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",

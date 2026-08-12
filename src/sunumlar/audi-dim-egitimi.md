@@ -80,7 +80,7 @@ Elektrifikasyon bir çok alanı kapsıyor, bir çok cihaz elektrikliye geçiyor:
 
 ----------
 
-[[CANLI-GRAFIK:dunya-toplam-pazar]]
+![CANLI-GRAFIK:dunya-toplam-pazar](public/sunumlar/grafik-onizleme/dunya-toplam-pazar.svg)
 
 ----------
 
@@ -96,7 +96,7 @@ Grafikteki barlar (toplam pazar) neredeyse yatay, kil rengi çizgi (EA payı) di
 
 ----------
 
-[[CANLI-GRAFIK:dunya-guc-unitesi]]
+![CANLI-GRAFIK:dunya-guc-unitesi](public/sunumlar/grafik-onizleme/dunya-guc-unitesi.svg)
 
 ----------
 
@@ -256,11 +256,11 @@ Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağ�
 
 ----------
 
-[[CANLI-GRAFIK:turkiye-satis]]
+![CANLI-GRAFIK:turkiye-satis](public/sunumlar/grafik-onizleme/turkiye-satis.svg)
 
 ----------
 
-[[CANLI-GRAFIK:pazar-payi]]
+![CANLI-GRAFIK:pazar-payi](public/sunumlar/grafik-onizleme/pazar-payi.svg)
 
 ----------
 
