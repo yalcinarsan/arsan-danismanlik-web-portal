@@ -2,13 +2,20 @@
 import { marked } from 'marked';
 import raw from '../../sunumlar/audi-dim-egitimi.md?raw';
 import EvChart from '../../components/charts/EvChart.tsx';
-import { worldTotalMarketConfig, worldPowertrainConfig } from '../../components/charts/chartConfigs';
+import {
+  worldTotalMarketConfig,
+  worldPowertrainConfig,
+  regionShareConfig,
+  turkiyeSatisConfig,
+} from '../../components/charts/chartConfigs';
 
 // Markdown içinde [[CANLI-GRAFIK:anahtar]] işaretiyle statik görsel yerine
 // ev-verileri sayfamızdaki canlı (Plotly) grafiği gömüyoruz.
 const CANLI_GRAFIKLER: Record<string, typeof worldTotalMarketConfig> = {
   'dunya-toplam-pazar': worldTotalMarketConfig,
   'dunya-guc-unitesi': worldPowertrainConfig,
+  'pazar-payi': regionShareConfig,
+  'turkiye-satis': turkiyeSatisConfig,
 };
 
 // Paper markdown'ını slaytlara böler.
