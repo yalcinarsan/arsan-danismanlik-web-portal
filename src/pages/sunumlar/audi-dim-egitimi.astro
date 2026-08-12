@@ -10,10 +10,11 @@ import {
 } from '../../components/charts/chartConfigs';
 
 // Görsel yolları md dosyasında DOSYA SİSTEMİNE göre yazılıyor
-// (`../../public/sunumlar/...`) ki Obsidian'da açınca görseller render olsun.
-// Siteye basarken bunu web yoluna (`/sunumlar/...`) çeviriyoruz.
+// (`public/sunumlar/...`) ki Obsidian'da açınca görseller render olsun;
+// `src/sunumlar/public` bunun için `../../public`e bakan bir symlink.
+// Siteye basarken bu ön eki web yoluna (`/sunumlar/...`) çeviriyoruz.
 // Eski deck'lerdeki `/sunumlar/...` yazımı da çalışmaya devam ediyor.
-const raw = ham.replace(/\]\((?:\.\.\/)+public\//g, '](/');
+const raw = ham.replace(/\]\((?:\.\.\/)*public\//g, '](/');
 
 // Markdown içinde [[CANLI-GRAFIK:anahtar]] işaretiyle statik görsel yerine
 // ev-verileri sayfamızdaki canlı (Plotly) grafiği gömüyoruz.
