@@ -25,51 +25,18 @@ const CANLI_GRAFIKLER: Record<string, typeof worldTotalMarketConfig> = {
   'turkiye-satis': turkiyeSatisConfig,
 };
 
-// Paper markdown'ını slaytlara böler.
-// Kurallar:
-//  - "----------" ayracı VEYA başlık (#, ##) yeni slayt başlatır.
-//  - Her GÖRSEL kendi slaytına gider (Paper'ın otomatik davranışı).
-//    İstisna: araya boş satır koymadan alt alta yazılan görseller aynı slaytta kalır.
+// Markdown'ı slaytlara böler.
+// TEK KURAL: yalnızca "----------" ayracı yeni slayt başlatır.
+// Başlık ve görseller slaytı bölmez; bir slaytta ne olacağına md'yi yazan
+// karar verir. (Diğer iki deck hâlâ Paper'dan gelen eski kuralı kullanıyor:
+// orada başlık ve her görsel kendi slaytını açıyor. Bu deck elle yazıldığı
+// için o davranış istenmiyordu — başlıkla görseli ayırıyordu.)
 function slaytlaraBol(md: string): string[] {
-  const satirlar = md.split('\n');
-  const slaytlar: string[][] = [];
-  let mevcut: string[] = [];
-  let mevcutGorsel = false;   // mevcut slayt bir görsel bloğu mu?
-  let oncekiGorseldi = false; // bir önceki dolu satır görsel miydi? (bitişik gruplama)
-  const flush = () => {
-    if (mevcut.join('\n').trim()) slaytlar.push([...mevcut]);
-    mevcut = [];
-    mevcutGorsel = false;
-  };
-  for (let ham of satirlar) {
-    const satir = ham.replace(/^\*{2,}(?=#)/, ''); // Paper export gürültüsü
-    const t = satir.trim();
-    const ayrac = /^-{3,}$/.test(t);
-    const baslik = /^#{1,2}\s+/.test(t);
-    const gorsel = /^!\[[^\]]*\]\([^)]*\)\s*$/.test(t);
-    const bos = t === '';
-
-    if (ayrac) { flush(); oncekiGorseldi = false; continue; }
-    if (baslik) { flush(); mevcut.push(satir); oncekiGorseldi = false; continue; }
-    if (gorsel) {
-      if (mevcutGorsel && oncekiGorseldi) {
-        mevcut.push(satir);          // bitişik görsel → aynı slayt
-      } else {
-        flush();
-        mevcut.push(satir);
-        mevcutGorsel = true;
-      }
-      oncekiGorseldi = true;
-      continue;
-    }
-    if (bos) { mevcut.push(satir); oncekiGorseldi = false; continue; }
-    // düz metin: bir görsel slaytının ardından geliyorsa yeni slayt aç
-    if (mevcutGorsel) flush();
-    mevcut.push(satir);
-    oncekiGorseldi = false;
-  }
-  flush();
-  return slaytlar.map((s) => s.join('\n'));
+  return md
+    .replace(/^\*{2,}(?=#)/gm, '') // Paper export gürültüsü
+    .split(/^[ \t]*-{3,}[ \t]*$/m)
+    .map((s) => s.trim())
+    .filter(Boolean);
 }
 
 marked.setOptions({ gfm: true, breaks: false });
@@ -153,6 +120,9 @@ const sunumTarihi = '21 Ağustos 2026';
       .slide a { color:var(--accent); }
       .slide img { max-width:100%; max-height:64vh; width:auto; margin:1em auto; display:block;
         border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,.12); }
+      /* Aynı slaytta birden fazla görsel varsa (örn. iki motor karşılaştırması)
+         her biri 64vh isteyip slaytı kaydırılır hale getiriyordu; payı bölüyoruz. */
+      .slide p img:not(:only-of-type) { max-height:34vh; margin:.5em auto; }
       .slide code { background:var(--sand); padding:.1em .35em; border-radius:4px; font-size:.9em; }
       .slide hr { display:none; }
       .slide table { border-collapse:collapse; margin:1em auto; font-size:clamp(13px,1.5vw,18px); }
