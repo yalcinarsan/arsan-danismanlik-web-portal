@@ -136,31 +136,16 @@ En önemli kaynağı sera etkisi yaratan gazların artması. "Heat-trapping" nit
 
 ----------
 
-**3. Regülasyon: takvim artık ülke ülke yazılı**
+**3. Regülasyon: Takvim artık ülke bazlı**
 
 ![İçten yanmalı motor yasakları / elektrifikasyon hedefleri ve net-sıfır taahhütleri, ülke bazında takvim](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-31.png)
 
 ----------
 
-**4. Üreticiler kararını verdi**
+**4. Üreticilerin de takvimi var**
 
 ![Üreticilerin elektrifikasyon taahhütleri: yeni model sayıları, elektrikli satış oranı hedefleri](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-34.png)
 
-----------
-
-![Üreticilerin elektrifikasyon yol haritası — Kaynak: IEA / Lucidity Insights](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-33.webp)
-
-----------
-
-## Bunu müşteriye nasıl anlatırız?
-
-Müşteri sıklıkla "bu bir moda mı, geçer mi?" diye sorar. Üç cümlelik yanıt:
-
-1. Pazar payı 10 yılda %0,4'ten %18'e çıktı; bu bir dalgalanma değil, eğri.
-2. Ülkeler içten yanmalı motor için tarih verdi, üreticiler model planlarını buna göre kilitledi.
-3. Bugün elektrikli almak, kimsenin arkasında kalmayacağı bir tarafta durmak demek.
-
-Abartmadan, üç maddede bitirin. Uzun savunma, ikna edici olmak yerine şüphe uyandırır.
 
 ----------
 
@@ -169,10 +154,8 @@ Abartmadan, üç maddede bitirin. Uzun savunma, ikna edici olmak yerine şüphe 
 **1. Motor türü**
 
 ![İçten yanmalı motor: yaklaşık %25 verim](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-08.gif)
-
-----------
-
 ![Elektrik motoru: %100'e yakın verim](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-09.gif)
+
 
 ----------
 
@@ -262,37 +245,45 @@ Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağ�
 
 ![CANLI-GRAFIK:pazar-payi](public/sunumlar/grafik-onizleme/pazar-payi.svg)
 
-----------
-
-![Türkiye elektrikli otomobil pazarı, marka kırılımı: 2022'de 8.210 adet, 2023'te 66.134 adet. Kaynak: TEHAD](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-40.png)
 
 ----------
 
-## 2024 Türkiye otomobil pazarı, motor tipine göre
-
-- Benzinli: 588.914 adet, **%60,1**
-- Hibrit: 184.177 adet, **%18,8**
-- Elektrikli: 105.315 adet, **%10,7**
-- Dizel: 95.985 adet, **%9,8**
-- Otogazlı: 5.950 adet, **%0,6**
+![ODMD, Ocak-Aralık 2025: motor tipine göre otomobil satışları ve pazar dağılımı](public/sunumlar/audi-dim-egitimi/odmd-2025-motor-tipi.png)
 
 ----------
 
-![ODMD — motor tipine göre otomobil pazarı, 2023 / 2024 karşılaştırması](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-41.png)
+## 2025 Türkiye otomobil pazarı, motor tipine göre
+
+Toplam otomobil pazarı **1.084.496 adet** (ODMD, Ocak-Aralık 2025):
+
+- Benzinli: 509.217 adet, **%47,0**
+- Hibrit: 295.378 adet, **%27,2**
+- Elektrikli: 191.960 adet, **%17,7**
+- Dizel: 80.346 adet, **%7,4**
+- Otogazlı: 7.595 adet, **%0,7**
 
 ----------
 
-## 2025: pay bir yılda ikiye katlandı
+## Bir yılda ne değişti?
 
-Canlı grafiklerden okunan tablo:
+- Elektrikli: 105.315 → **191.960 adet** (yaklaşık **%82 artış**)
+- Hibrit: 181.590 → **295.378 adet** (**+%62,7**)
+- Benzinli: **−%13,9**
+- Dizel: **−%16,3**
 
-- **Türkiye 2024:** yaklaşık 110 bin adet, **%11** pay
-- **Türkiye 2025:** yaklaşık 240 bin adet, **%22** pay
-- Karşılaştırma: dünya **%25**, Avrupa **%28**
+Benzinli ve dizel birlikte pazarın **%54,4'ü**; hibrit ve elektrikli birlikte **%44,9'u**. Yani satılan her iki otomobilden biri artık elektrikli bir güç ünitesi taşıyor.
 
-Türkiye artık dünya ortalamasının çok az gerisinde.
+----------
 
-> **Doldurulacak:** ODMD'nin 2025 tam yıl bülteninden motor tipi kırılımı (benzinli / hibrit / elektrikli / dizel / otogaz adet ve pay).
+## İki farklı rakam duyarsanız şaşırmayın
+
+Az önceki canlı grafik Türkiye için 2025'te yaklaşık **240 bin adet ve %22 pay** gösteriyordu; ODMD ise **191.960 adet ve %17,7** diyor. İkisi de doğru, tanımları farklı:
+
+- **ODMD'nin "Elektrik" kalemi** tam elektrikli (BEV) araçları sayıyor; şarjlı hibritler "Hibrit" içinde.
+- **IEA'nın "EV" tanımı** şarjlı hibritleri (PHEV) de kapsıyor.
+
+Müşteri karşısında hangi rakamı kullanacağınızı bilin: Türkiye pazarını konuşuyorsanız ODMD, dünyayla karşılaştırma yapıyorsanız IEA.
+
 
 ----------
 
