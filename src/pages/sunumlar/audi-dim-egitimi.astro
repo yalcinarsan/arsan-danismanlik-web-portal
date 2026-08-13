@@ -26,17 +26,43 @@ const CANLI_GRAFIKLER: Record<string, typeof worldTotalMarketConfig> = {
 };
 
 // Markdown'ı slaytlara böler.
-// TEK KURAL: yalnızca "----------" ayracı yeni slayt başlatır.
-// Başlık ve görseller slaytı bölmez; bir slaytta ne olacağına md'yi yazan
-// karar verir. (Diğer iki deck hâlâ Paper'dan gelen eski kuralı kullanıyor:
-// orada başlık ve her görsel kendi slaytını açıyor. Bu deck elle yazıldığı
-// için o davranış istenmiyordu — başlıkla görseli ayırıyordu.)
+// TEK KURAL: yalnız başına duran yatay çizgi (standart markdown "---", daha
+// uzunu da olur) yeni slayt başlatır. Başlık ve görseller slaytı bölmez;
+// bir slaytta ne olacağına md'yi yazan karar verir.
+//
+// İki incelik:
+//  - Dosya başındaki YAML frontmatter (Obsidian "properties") ayraç değildir,
+//    atılır. Yoksa özellik eklenen bir notta ilk slayt parçalanır.
+//  - Ayraç sayılmak için öncesinde boş satır aranır. Markdown'da bir metin
+//    satırının hemen altındaki "---" yatay çizgi değil, o metni başlık yapan
+//    setext işaretidir; Obsidian da öyle render eder. Boş satır şartı,
+//    deck'in Obsidian'la aynı şeyi göstermesini sağlıyor.
+//
+// (Diğer iki deck hâlâ Paper'dan gelen eski kuralı kullanıyor: orada başlık
+// ve her görsel kendi slaytını açıyor.)
 function slaytlaraBol(md: string): string[] {
-  return md
-    .replace(/^\*{2,}(?=#)/gm, '') // Paper export gürültüsü
-    .split(/^[ \t]*-{3,}[ \t]*$/m)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  const govde = md
+    .replace(/^---\r?\n[\s\S]*?\r?\n---[ \t]*\r?\n/, '') // frontmatter
+    .replace(/^\*{2,}(?=#)/gm, ''); // Paper export gürültüsü
+
+  const slaytlar: string[][] = [];
+  let mevcut: string[] = [];
+  let oncekiBos = true; // dosya başı da "boş satır" sayılır
+
+  for (const satir of govde.split('\n')) {
+    const t = satir.trim();
+    if (oncekiBos && /^-{3,}$/.test(t)) {
+      slaytlar.push(mevcut);
+      mevcut = [];
+      oncekiBos = true;
+      continue;
+    }
+    mevcut.push(satir);
+    oncekiBos = t === '';
+  }
+  slaytlar.push(mevcut);
+
+  return slaytlar.map((s) => s.join('\n').trim()).filter(Boolean);
 }
 
 marked.setOptions({ gfm: true, breaks: false });

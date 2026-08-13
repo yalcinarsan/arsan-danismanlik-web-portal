@@ -4,7 +4,7 @@ Yalçın Arsan · Arsan Danışmanlık
 
 21 Ağustos 2026
 
-----------
+---
 
 # Günün akışı
 
@@ -19,7 +19,7 @@ Yalçın Arsan · Arsan Danışmanlık
 | 13:30–15:30 | Test sürüşü | Audi ekibi yürütür |
 | 15:30–16:30 | **Modül 3** | Zor sorular, baskı altındaki müşteri, kontrolümüz dışındaki durumlar |
 
-----------
+---
 
 # Günün amacı
 
@@ -30,7 +30,7 @@ Yalçın Arsan · Arsan Danışmanlık
 3. Yanıtı bizde olmayan sorularda ne söyleneceği
     - Kontrolümüzdeki ve kontrolümüz dışındaki durumların ayrımı
 
-----------
+---
 
 ## Neden bu eğitim, neden siz?
 
@@ -40,13 +40,13 @@ Müşterinin markayla ilk teması çoğu zaman bir bayi değil, bir telefon gör
 - Sorular teknik görünür ama yanıtları laboratuvar bilgisi değil: **basit bir aritmetik** ve doğru beklenti yönetimi.
 - Yanlış ya da savsaklanmış bir cevap, süreç başlamadan güveni bitirir. Doğru cevap, aracı hiç görmeden güven kurar.
 
-----------
+---
 
 # Modül 1 — Elektrifikasyona giriş
 
 09:15 – 10:15
 
-----------
+---
 
 ## Elektrifikasyon nedir?
 
@@ -55,7 +55,7 @@ Müşterinin markayla ilk teması çoğu zaman bir bayi değil, bir telefon gör
 
 Bu iki perspektifin farkını anlamak önemli, çünkü birbiriyle etkileşim içindeler: özellikle son 10 yılda global perspektif, sektörel olanı ciddi şekilde etkiliyor.
 
-----------
+---
 
 ## Kapsam: sadece otomotiv değil
 
@@ -67,7 +67,7 @@ Elektrifikasyon bir çok alanı kapsıyor, bir çok cihaz elektrikliye geçiyor:
 - Otomobil, ticari araç, kamyon
 - Gemi, uçak, helikopter
 
-----------
+---
 
 ## Ama tartışma otomobil üzerinden yürüyor
 
@@ -78,11 +78,11 @@ Elektrifikasyon bir çok alanı kapsıyor, bir çok cihaz elektrikliye geçiyor:
 
 **Otomotiv elektrifikasyonunun anlamı, diğer boyutlardan farklı ve daha geniş.**
 
-----------
+---
 
 ![CANLI-GRAFIK:dunya-toplam-pazar](public/sunumlar/grafik-onizleme/dunya-toplam-pazar.svg)
 
-----------
+---
 
 ## Büyümeyen pazarda büyüyen segment
 
@@ -94,11 +94,11 @@ Yani dünyada satılan **her dört yeni otomobilden biri** artık elektrikli.
 
 Grafikteki barlar (toplam pazar) neredeyse yatay, kil rengi çizgi (EA payı) dikleşiyor. Telefondaki müşteri "bu iş tutar mı?" diye sorduğunda dayanacağınız zemin bu.
 
-----------
+---
 
 ![CANLI-GRAFIK:dunya-guc-unitesi](public/sunumlar/grafik-onizleme/dunya-guc-unitesi.svg)
 
-----------
+---
 
 ## Güç ünitesi kırılımı ne söylüyor?
 
@@ -108,7 +108,7 @@ Grafikteki barlar (toplam pazar) neredeyse yatay, kil rengi çizgi (EA payı) di
 
 Müşteri "hidrojen gelecek, elektrikli beklesem mi?" diye sorduğunda tabloyu gösterin: binek otomobilde hidrojen bugün bir alternatif değil.
 
-----------
+---
 
 # Neden şimdi?
 
@@ -116,38 +116,38 @@ Müşteri "hidrojen gelecek, elektrikli beklesem mi?" diye sorduğunda tabloyu g
 
 En bariz neden: Elon Musk adında bir girişimci çıkıp 100 yıldır geçerli bağlam ve kuralların dışına çıkabileceğini iddia etti ve yarattığı "Tesla" markasıyla bunu hayata geçirmeyi başardı.
 
-----------
+---
 
 ![](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-03.jpg)
 
-----------
+---
 
 **2. İklim değişikliği**
 
 En önemli kaynağı sera etkisi yaratan gazların artması. "Heat-trapping" niteliğine sahip bu gazlar, yerküreden uzaya yansımaya çalışan ısıyı atmosfer içinde tutuyor. İklim değişikliğine global ısınma da denmesinin nedeni bu: gazların artması ortalama ısıyı artırıyor.
 
-----------
+---
 
 ![CO2 ve diğer sera gazlarının bir kısmı otomotiv ve taşımacılıktan geliyor. Daha büyük oranda sorumlu sektörler: enerji, sanayi, tarım ve hayvancılık.](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-06.png)
 
-----------
+---
 
 ![2035'te %100 ZEV satılsa dahi 2050'de otomotiv kaynaklı CO2 emisyonu sıfırlanmıyor; tek yol olan ICE araçların trafikten çekilmesi kısa vadede gerçekçi değil.](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-07.png)
 
-----------
+---
 
 **3. Regülasyon: Takvim artık ülke bazlı**
 
 ![İçten yanmalı motor yasakları / elektrifikasyon hedefleri ve net-sıfır taahhütleri, ülke bazında takvim](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-31.png)
 
-----------
+---
 
 **4. Üreticilerin de takvimi var**
 
 ![Üreticilerin elektrifikasyon taahhütleri: yeni model sayıları, elektrikli satış oranı hedefleri](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-34.png)
 
 
-----------
+---
 
 # İki temel dinamik
 
@@ -157,15 +157,15 @@ En önemli kaynağı sera etkisi yaratan gazların artması. "Heat-trapping" nit
 ![Elektrik motoru: %100'e yakın verim](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-09.gif)
 
 
-----------
+---
 
 ![İçten yanmalı araçta 100'ün üzerinde hareketli parça, elektrikli araçta 3. Kaynak: UBS Group analizi](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-10.png)
 
-----------
+---
 
 ![Aynı miktar enerjiyle elektrikli otomobil yaklaşık 2,5 kat daha fazla yol gider](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-13.png)
 
-----------
+---
 
 ## Madem bu kadar verimli, neden şimdiye kadar yaygınlaşmadı?
 
@@ -177,11 +177,11 @@ EA yaygınlaşmasının en büyük engeli: **enerji, depolaması çok zor bir va
     - İnsan örneği: bir hafta aralıksız dinlensek ertesi gün maraton koşabilir miyiz?
 - Depolaması zor olduğu için enerjiyi tüketileceği anda üretmek en kolay çözüm: içten yanmalı motorun ve aktarma organlarının tüm verimsizliğine rağmen **fosil yakıtların enerji yoğunluğu çok yüksek.**
 
-----------
+---
 
 ![10 litre benzin, yaklaşık 90 kWh'lik bir bataryanın enerjisini üretebiliyor](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-12.png)
 
-----------
+---
 
 ## Batarya ağırlığı: 500 km için
 
@@ -197,7 +197,7 @@ EA yaygınlaşmasının en büyük engeli: **enerji, depolaması çok zor bir va
 
 Hikâyenin tamamı bu makasın kapanması.
 
-----------
+---
 
 # Kısa tarihçe: yeni bir fikir değil
 
@@ -207,14 +207,14 @@ Hikâyenin tamamı bu makasın kapanması.
 - **1900–1912:** ABD'de yollardaki araçların yaklaşık üçte biri elektrikli
 - **1901:** Ferdinand Porsche, dünyanın ilk hibrit otomobilini (Lohner-Porsche Mixte) yapıyor
 
-----------
+---
 
 ![Model T](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-18.jpg)
 
 - **1908–1912:** Seri üretim Model T ve elektrikli marş, benzinli aracı ucuz ve kullanışlı hale getiriyor
 - **1920–1935:** Ucuz Teksas petrolü ve iyileşen yollar; 1935'e gelindiğinde elektrikli araçlar neredeyse yok olmuş
 
-----------
+---
 
 ![1970'lerdeki petrol krizi](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-20.gif)
 
@@ -222,7 +222,7 @@ Hikâyenin tamamı bu makasın kapanması.
 - **1996:** GM, EV1'i çıkarıyor; küçük ama sadık bir kitle yaratıyor
 - **1997:** Toyota Prius ile ilk seri üretim hibrit
 
-----------
+---
 
 ![Nissan LEAF](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-27.png)
 
@@ -233,24 +233,24 @@ Hikâyenin tamamı bu makasın kapanması.
 
 Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağırlığı ve maliyeti.
 
-----------
+---
 
 # Türkiye elektrikli araç pazarı
 
-----------
+---
 
 ![CANLI-GRAFIK:turkiye-satis](public/sunumlar/grafik-onizleme/turkiye-satis.svg)
 
-----------
+---
 
 ![CANLI-GRAFIK:pazar-payi](public/sunumlar/grafik-onizleme/pazar-payi.svg)
 
 
-----------
+---
 
 ![ODMD, Ocak-Aralık 2025: motor tipine göre otomobil satışları ve pazar dağılımı](public/sunumlar/audi-dim-egitimi/odmd-2025-motor-tipi.png)
 
-----------
+---
 
 ## 2025 Türkiye otomobil pazarı, motor tipine göre
 
@@ -262,7 +262,7 @@ Toplam otomobil pazarı **1.084.496 adet** (ODMD, Ocak-Aralık 2025):
 - Dizel: 80.346 adet, **%7,4**
 - Otogazlı: 7.595 adet, **%0,7**
 
-----------
+---
 
 ## Bir yılda ne değişti?
 
@@ -273,7 +273,7 @@ Toplam otomobil pazarı **1.084.496 adet** (ODMD, Ocak-Aralık 2025):
 
 Benzinli ve dizel birlikte pazarın **%54,4'ü**; hibrit ve elektrikli birlikte **%44,9'u**. Yani satılan her iki otomobilden biri artık elektrikli bir güç ünitesi taşıyor.
 
-----------
+---
 
 ## İki farklı rakam duyarsanız şaşırmayın
 
@@ -285,7 +285,7 @@ Az önceki canlı grafik Türkiye için 2025'te yaklaşık **240 bin adet ve %22
 Müşteri karşısında hangi rakamı kullanacağınızı bilin: Türkiye pazarını konuşuyorsanız ODMD, dünyayla karşılaştırma yapıyorsanız IEA.
 
 
-----------
+---
 
 ## Türkiye tablosundan çıkan iki not
 
@@ -294,7 +294,7 @@ Müşteri karşısında hangi rakamı kullanacağınızı bilin: Türkiye pazar�
 
 DİM için anlamı: elektrikli araç sorusu istisna değil, gündelik iş.
 
-----------
+---
 
 ## Modül 1 — akılda kalacak beş şey
 
@@ -304,13 +304,13 @@ DİM için anlamı: elektrikli araç sorusu istisna değil, gündelik iş.
 4. Fikir 190 yıllık; değişen şey bataryanın ağırlığı ve maliyeti.
 5. Türkiye'de premium tarafta elektrikli oranı pazar ortalamasının üzerinde.
 
-----------
+---
 
 # Modül 2 — Audi EA grubu ve müşteri SSS
 
 10:30 – 12:15
 
-----------
+---
 
 # Temel terminoloji
 
@@ -330,7 +330,7 @@ DİM için anlamı: elektrikli araç sorusu istisna değil, gündelik iş.
 | **AC** | Alternative Current | Alternatif akım: şebekenin dağıttığı elektrik |
 | **DC** | Direct Current | Direkt akım: bataryanın depolayabildiği akım |
 
-----------
+---
 
 ## Telefonda en çok karıştırılan ikili: kW ve kWh
 
@@ -341,13 +341,13 @@ Müşteri "22 kW bataryam var" derse düzeltmeye kalkmayın, çevirin: "Aracın�
 
 Bu iki birimi ayırdığınız an, şarj sorularının tamamı tek bir bölme işlemine iniyor.
 
-----------
+---
 
 # Şarj senaryoları
 
 ![Şarj senaryoları: AC ve DC](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-36.png)
 
-----------
+---
 
 ## AC ve DC farkı, tek cümlede
 
@@ -356,15 +356,15 @@ Bu iki birimi ayırdığınız an, şarj sorularının tamamı tek bir bölme i�
 
 Müşteri "evime 22 kW'lık cihaz taktırdım ama araç 11 kW çekiyor" dediğinde cevap burada: sınırı koyan, araçtaki yerleşik cihaz.
 
-----------
+---
 
 ![AC şarj seçenekleri — Electric Vehicle Service Equipment (EVSE)](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-37.png)
 
-----------
+---
 
 ![DC şarj protokolleri ve soketleri: Avrupa'da CCS, Asya'da ChaDeMo, Çin'de GB/T](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-38.png)
 
-----------
+---
 
 # Zor soru 1: Kaç saatte şarj olur?
 
@@ -374,7 +374,7 @@ Müşteri "evime 22 kW'lık cihaz taktırdım ama araç 11 kW çekiyor" dediğin
 
 Gerisi, hangi gücün geçerli olduğunu bulmak.
 
-----------
+---
 
 ## AC şarjda güç: en zayıf halka prensibi
 
@@ -386,7 +386,7 @@ Gerisi, hangi gücün geçerli olduğunu bulmak.
 
 Müşteriye sorulacak sıra da budur: nereye takıyorsunuz, cihaz kaç kW, araç kaç kW kabul ediyor.
 
-----------
+---
 
 ## Örnek 1
 
@@ -394,11 +394,11 @@ Audi Q4 e-tron 55 aracımızın net batarya kapasitesi **77 kWh**, yerleşik şa
 
 Bu aracı bataryası tamamen boşken 11 kW gücünde bir AC şarj cihazına bağlarsak yaklaşık kaç saatte şarj olur?
 
-----------
+---
 
 **Yanıt:** 77 kWh ÷ 11 kW = **7 saat**
 
-----------
+---
 
 ## Örnek 2
 
@@ -406,13 +406,13 @@ Audi Q8 e-tron aracımızın net batarya kapasitesi **106 kWh**, yerleşik şarj
 
 Aracı **22 kW'lık** bir AC şarj cihazına bağlarsak kaç saatte şarj olur?
 
-----------
+---
 
 **Yanıt:** 106 kWh ÷ **11 kW** = yaklaşık **10 saat**
 
 22 kW'lık cihaz burada işe yaramıyor: araç 11 kW'tan fazlasını kabul etmiyor. En zayıf halka aracın kendisi.
 
-----------
+---
 
 ## Örnek 3
 
@@ -420,7 +420,7 @@ Audi A6 e-tron aracımızın batarya kapasitesi **95 kWh**, yerleşik şarj ciha
 
 Aracı maksimum 120 kW güç verebilen bir DC şarj cihazına bağlarsak %80 şarja kaç saatte ulaşır?
 
-----------
+---
 
 **Yanıt:**
 
@@ -429,7 +429,7 @@ Aracı maksimum 120 kW güç verebilen bir DC şarj cihazına bağlarsak %80 şa
 
 Not: pratikte sürekli 120 kW alınamayacağı için %80'e varmak **45 dakikanın üzerinde** sürebilir. Müşteriye söylenecek rakam da bu ikincisidir.
 
-----------
+---
 
 ## Soru: Bu örnekte yerleşik şarj cihazının gücü önemli miydi?
 
@@ -437,7 +437,7 @@ Hayır. DC şarjda akım doğrudan bataryaya gittiği için yerleşik (AC) şarj
 
 Bu ayrımı kaçırmak, telefonda en sık yapılan hatalardan biri: AC ve DC hesabı birbirine karıştırılıyor.
 
-----------
+---
 
 ## Evdeki gerçek: aynı araç, dört farklı süre
 
@@ -452,7 +452,7 @@ Audi Q4 e-tron 55 (77 kWh) sıfırdan tam doluya:
 
 Müşteri "çok yavaş şarj oluyor" diye aradığında ilk soru: **neye takıyorsunuz?**
 
-----------
+---
 
 ## DC şarjda hız neye bağlı?
 
@@ -462,7 +462,7 @@ Müşteri "çok yavaş şarj oluyor" diye aradığında ilk soru: **neye takıyo
 
 Kovaya su doldurma örneği: kova boşken hortumu sonuna kadar açarsınız, dolmaya yakın kısarsınız ki taşmasın. Batarya da böyle davranır.
 
-----------
+---
 
 ## %80 kuralını müşteriye nasıl anlatırız?
 
@@ -472,7 +472,7 @@ Doğru cümle: "Uzun yolda %80'den sonrası **zaman kaybı**. Son %20 için harc
 
 Biri korkutur, diğeri kullanım alışkanlığı kazandırır.
 
-----------
+---
 
 ## Şarj hızı: özet
 
@@ -486,11 +486,11 @@ Biri korkutur, diğeri kullanım alışkanlığı kazandırır.
 
 Telefonda verdiğiniz süreye **her zaman pay bırakın.** Eksik söylenmiş bir süre, sonradan şikâyet olarak geri döner.
 
-----------
+---
 
 # Zor soru 2: Tam şarjla kaç km gider?
 
-----------
+---
 
 ## Menzili etkileyen faktörler
 
@@ -502,7 +502,7 @@ WLTP (Worldwide Harmonized Light Vehicle Testing Programme) ile ifade edilen res
 
 Doğru kullanımla, enerji geri kazanımı sayesinde menzili **%15–25** civarında artırmak mümkün. Genel bir prensip olarak yaz aylarında WLTP değerine çok yakın menzil elde edilebileceğini varsayabiliriz.
 
-----------
+---
 
 ## Müşteriye WLTP'yi nasıl anlatırız?
 
@@ -514,7 +514,7 @@ WLTP standartlaştırılmış bir laboratuvar çevrimidir; markaları karşıla�
 
 Bu cümleyi baştan kurmak, üç ay sonra gelecek şikâyet çağrısını engelliyor.
 
-----------
+---
 
 ## Rota planlama: alışkanlığın kendisi değişiyor
 
@@ -523,7 +523,7 @@ Bu cümleyi baştan kurmak, üç ay sonra gelecek şikâyet çağrısını engel
 
 Elektrikli araç kullanıcısı istasyonu tesadüfen bulmaz, rotasına koyar. Bu, kısıt değil farklı bir alışkanlık; ama müşteriye önceden anlatılmazsa kısıt gibi yaşanır.
 
-----------
+---
 
 ## Enerji geri kazanımı (rejenerasyon) ne demek?
 
@@ -532,7 +532,7 @@ Elektrikli araç kullanıcısı istasyonu tesadüfen bulmaz, rotasına koyar. Bu
 
 Şehir içi menzilin şehirlerarasından iyi çıkmasının nedeni budur: sürekli yavaşlama ve durma, elektrikli araçta enerji kazandırır.
 
-----------
+---
 
 ## Kış menzili: en sık gelen şikâyet
 
@@ -544,7 +544,7 @@ Soğukta menzilin düşmesi arıza değil:
 
 Önerilecek tek pratik alışkanlık: **araç prize takılıyken ön ısıtma.** Kabin şebeke elektriğiyle ısınır, yola bataryanın tamamıyla çıkılır.
 
-----------
+---
 
 ## Audi elektrikli araç grubu
 
@@ -554,7 +554,7 @@ Soğukta menzilin düşmesi arıza değil:
 
 Rakamlar Audi Türkiye tarafından teyit edilerek girilecek; deck'e üçüncü el kaynaktan ürün verisi konmayacak.
 
-----------
+---
 
 ## Ne tür bir şarj cihazına ihtiyacım var?
 
@@ -563,7 +563,7 @@ Rakamlar Audi Türkiye tarafından teyit edilerek girilecek; deck'e üçüncü e
 2. **Şehirlerarası seyahatte** mevcut bir operatörü seçebilir (ZES, Eşarj, Trugo vb.)
 3. Ayrıca **mobil şarj cihazları** da satın alınabilir
 
-----------
+---
 
 ## Evimdeki tesisat yeterli olur mu?
 
@@ -573,7 +573,7 @@ Rakamlar Audi Türkiye tarafından teyit edilerek girilecek; deck'e üçüncü e
 
 Bu kettle örneği, telefonda "evimin tesisatı kalkar mı?" endişesini en hızlı yatıştıran anlatım.
 
-----------
+---
 
 ## Elektrikli araç sahibi olmak ekonomik mi?
 
@@ -585,7 +585,7 @@ Bakım ve kullanım maliyetleri açısından muadil içten yanmalı araçlara g�
 
 Hatırlatma: 100'ün üzerinde hareketli parça yerine 3 hareketli parça. Bakım kaleminin azlığı buradan geliyor.
 
-----------
+---
 
 ## Batarya dolum maliyetimi nasıl hesaplayabilirim?
 
@@ -594,7 +594,7 @@ Hatırlatma: 100'ün üzerinde hareketli parça yerine 3 hareketli parça. Bakı
 
 Telefonda tek bir rakam söylemeyin; hesabın nasıl yapıldığını öğretin. Tarifeler değişiyor, yöntem değişmiyor.
 
-----------
+---
 
 ## Elektrikli araçlar gerçekten çevre dostu mu?
 
@@ -604,7 +604,7 @@ Telefonda tek bir rakam söylemeyin; hesabın nasıl yapıldığını öğretin.
 
 Bu soruyu küçümsemeyin. Soran müşteri genellikle iyi niyetli ve konuyu araştırmış oluyor.
 
-----------
+---
 
 ## Sürüş karakteristikleri ne anlamda farklı?
 
@@ -614,7 +614,7 @@ Bu soruyu küçümsemeyin. Soran müşteri genellikle iyi niyetli ve konuyu ara�
 
 Test sürüşünde müşterinin ilk 10 saniyede fark edeceği şey bu üçü. Öğleden sonraki test sürüşü bölümünde bunu izleyin.
 
-----------
+---
 
 ## Şarj ağı haritasına nereden ulaşırım?
 
@@ -626,7 +626,7 @@ Test sürüşünde müşterinin ilk 10 saniyede fark edeceği şey bu üçü. Ö
 
 "Yolda kalır mıyım?" sorusuna en iyi yanıt, ekranda birlikte bakılan bir rota.
 
-----------
+---
 
 ## Daha teknik sorular
 
@@ -641,7 +641,7 @@ Test sürüşünde müşterinin ilk 10 saniyede fark edeceği şey bu üçü. Ö
 1. Aracınız CCS tipi soketle donatılmıştır; bağlamaya çalıştığınız soketin türünü kontrol edelim. (Gerekirse soket fotoğrafı gönderilebilir.)
 2. Araç kilitliyken soketin girmesini ya da çıkmasını engelleyen bir mekanizma devreye girebilir. Merkezi kilidi açıp kapatarak tekrar deneyin.
 
-----------
+---
 
 # Yanlış müşteri, en sakıncalı senaryo
 
@@ -653,11 +653,11 @@ Elektrikli araç herkese uygun değil. Uygun olmayan müşteriye satılan araç,
 2. Eve ya da iş yerinize şarj cihazı kurma imkânınız var mı?
 3. Yılda kaç km yapıyorsunuz?
 
-----------
+---
 
 ![Elektrikli araca geçiş stratejisi — üç sorunun karar ağacı (© Yalçın Arsan)](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-39.jpg)
 
-----------
+---
 
 ## Karar ağacından çıkan pratik kural
 
@@ -668,7 +668,7 @@ Elektrikli araç herkese uygun değil. Uygun olmayan müşteriye satılan araç,
 
 İkinci soruya "hayır" gelen müşteride ısrar etmeyin. Satmamak, yanlış satmaktan iyidir.
 
-----------
+---
 
 ## Tipik elektrikli araç kullanıcısı
 
@@ -680,7 +680,7 @@ Elektrikli araç herkese uygun değil. Uygun olmayan müşteriye satılan araç,
 
 Bunun telefondaki karşılığı şu: **karşınızdaki müşteri konuyu sizden daha derin araştırmış olabilir.** Bilmediğini söylemek, bildiğini sanmaktan her zaman güvenli.
 
-----------
+---
 
 ## Egzersiz: masadaki telefon
 
@@ -693,7 +693,7 @@ Bunun telefondaki karşılığı şu: **karşınızdaki müşteri konuyu sizden 
 
 Her grup 5 dakika hazırlanır, ilk 60 saniyelik konuşmayı canlandırır, sonra birlikte üzerinden geçeriz.
 
-----------
+---
 
 # Geçiş: test sürüşü mantığı
 
@@ -706,13 +706,13 @@ Her grup 5 dakika hazırlanır, ilk 60 saniyelik konuşmayı canlandırır, sonr
 - **Ekranlar:** menzil göstergesi, tüketim ekranı, şarj planlama menüsü. Müşteri size bunları soracak.
 - **Şarj kapağı ve soket:** CCS soketinin nasıl takıldığını kendiniz yapın. Telefonda tarif edeceğiniz şeyi bir kez elinizle yapmış olun.
 
-----------
+---
 
 # Modül 3 — Zor sorular, baskı altındaki müşteri, kontrolümüz dışındaki durumlar
 
 15:30 – 16:30
 
-----------
+---
 
 ## Zor soru neden zor?
 
@@ -725,7 +725,7 @@ Zor sorunun teknik olmasıyla ilgisi yok. Zor, çünkü:
 
 Bu dördü aynı çağrıda birleştiğinde ses yükselir. Yükselen ses size değil, duruma.
 
-----------
+---
 
 ## Üç kutuya ayırın
 
@@ -737,7 +737,7 @@ Bu dördü aynı çağrıda birleştiğinde ses yükselir. Yükselen ses size de
 
 Çağrının ilk 30 saniyesinde soruyu bu üç kutudan birine koymak, konuşmanın geri kalanını belirliyor.
 
-----------
+---
 
 ## Kontrolümüz dışındaki durumlar: dürüst ama çaresiz olmayan dil
 
@@ -747,7 +747,7 @@ Bu dördü aynı çağrıda birleştiğinde ses yükselir. Yükselen ses size de
 
 Fark tek bir yerde: sorumluluğu reddetmek yerine **elimizde kalan hareket alanını göstermek.**
 
-----------
+---
 
 ## Baskı altındaki müşteri: dört adım
 
@@ -758,7 +758,7 @@ Fark tek bir yerde: sorumluluğu reddetmek yerine **elimizde kalan hareket alan�
 
 Sırayı bozmayın. Kabul etmeden çözüme geçmek, müşteriyi baştan anlatmaya zorlar.
 
-----------
+---
 
 ## Asla kurulmayacak cümleler
 
@@ -771,7 +771,7 @@ Sırayı bozmayın. Kabul etmeden çözüme geçmek, müşteriyi baştan anlatma
 
 Sonuncusu en tehlikelisi: yanlış bir rakam, çözülmüş bir çağrıyı üç hafta sonra şikâyete çeviriyor.
 
-----------
+---
 
 ## Bilmediğinizde ne söylenir?
 
@@ -783,7 +783,7 @@ Sonuncusu en tehlikelisi: yanlış bir rakam, çözülmüş bir çağrıyı üç
 
 Bu cümle, doğru rakamı ezberden söylemekten daha güçlü bir güven kurar.
 
-----------
+---
 
 ## Vaka çalışmaları
 
@@ -796,7 +796,7 @@ Sırayla açıp konuşacağız. Her vakada iki soru: **hangi kutuya giriyor**, *
 5. Müşteri, satın aldıktan sonra değişen vergi düzenlemesi yüzünden zarar ettiğini düşünüyor.
 6. Müşteri kışın menzilin düşmesini garanti kapsamında arıza sayıyor, servise gitmeyi reddediyor.
 
-----------
+---
 
 ## Günün özeti
 
@@ -807,7 +807,7 @@ Sırayla açıp konuşacağız. Her vakada iki soru: **hangi kutuya giriyor**, *
 - Zor çağrıyı üç kutuya ayırın; kontrolünüz dışındaysa dürüst olun ama hareket alanı gösterin.
 - Emin olmadığınız rakamı söylemeyin. Teyit edip dönmek, hızlı yanıt vermekten değerli.
 
-----------
+---
 
 # Soru, yorum ve kapanış
 
