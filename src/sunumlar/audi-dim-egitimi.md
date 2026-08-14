@@ -8,16 +8,15 @@ Yalçın Arsan · Arsan Danışmanlık
 
 # Günün akışı
 
-| Saat | Blok | İçerik |
-| --- | --- | --- |
-| 09:00–09:15 | Açılış | Tanışma, günün amacı, akış |
-| 09:15–10:15 | **Modül 1** | Elektrifikasyona giriş |
-| 10:15–10:30 | Ara | |
-| 10:30–12:15 | **Modül 2** | Audi EA grubu ve müşteri SSS derinleşmesi |
-| 12:15–12:30 | Geçiş | Test sürüşü mantığı |
-| 12:30–13:30 | Öğle arası | |
-| 13:30–15:30 | Test sürüşü | Audi ekibi yürütür |
-| 15:30–16:30 | **Modül 3** | Zor sorular, baskı altındaki müşteri, kontrolümüz dışındaki durumlar |
+| Saat          | Blok        | İçerik                                                                                              |
+| ------------- | ----------- | --------------------------------------------------------------------------------------------------- |
+| 10:00 – 10:15 | Açılış      | Tanışma, günün amacı, akış                                                                          |
+| 10:15 – 11:15 | **Modül 1** | Elektrifikasyona giriş                                                                              |
+| 11:15 – 11:30 | Ara         |                                                                                                     |
+| 11:30 – 12:30 | **Modül 2** | Audi EA özelinde müşteri, SSS, Zor sorular: baskı altındaki müşteri, kontrolümüz dışındaki durumlar |
+| 12:30–13:30   | Öğle arası  |                                                                                                     |
+| 13:30–15:30   | Test sürüşü | Şarj Cihazı başında başlıyor, sürüşle devam ediyoruz                                                |
+| 15:30–16:30   | **Modül 3** | Zor sorulara devam, kapanış & geri bildirim.                                                        |
 
 ---
 
@@ -36,15 +35,14 @@ Yalçın Arsan · Arsan Danışmanlık
 
 Müşterinin markayla ilk teması çoğu zaman bir bayi değil, bir telefon görüşmesi.
 
-- Elektrikli araç müşterisi, içten yanmalı araç müşterisinden **daha çok soru sorar**: teknoloji yeni, kendi deneyimi henüz yok.
-- Sorular teknik görünür ama yanıtları laboratuvar bilgisi değil: **basit bir aritmetik** ve doğru beklenti yönetimi.
-- Yanlış ya da savsaklanmış bir cevap, süreç başlamadan güveni bitirir. Doğru cevap, aracı hiç görmeden güven kurar.
+- Elektrikli araç müşterisi, içten yanmalı araç müşterisinden **daha çok soru sorar**: teknoloji yeni, kendi deneyimi henüz yok (ya da var anlatmak istiyor).
+- Sorular teknik görünür ama yanıtlar (aslında) komplike değil: **basit aritmetik** ve doğru beklenti yönetimi.
+- Yanlış ya da geçiştirişmiş bir cevap, süreç başlamadan güven düşürür. Doğru cevap güven kurar.
 
 ---
 
 # Modül 1 — Elektrifikasyona giriş
 
-09:15 – 10:15
 
 ---
 
@@ -106,7 +104,7 @@ Grafikteki barlar (toplam pazar) neredeyse yatay, kil rengi çizgi (EA payı) di
 - **PHEV** (şarjlı hibrit) yerini koruyor: şarj altyapısına henüz güvenmeyen kullanıcı için geçiş ürünü
 - **FCEV** (yakıt hücreli) binek tarafta grafikte görünmeyecek kadar küçük
 
-Müşteri "hidrojen gelecek, elektrikli beklesem mi?" diye sorduğunda tabloyu gösterin: binek otomobilde hidrojen bugün bir alternatif değil.
+"Hidrojen gelecek, beklesem mi?" sorusu anlamlı değil.
 
 ---
 

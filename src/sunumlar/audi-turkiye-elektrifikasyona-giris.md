@@ -23,11 +23,11 @@ Bu iki perspektifin farkını anlamak önemli çünkü bunlar birbirleriyle etki
 
 Elektrifikasyon sadece otomotivi değil bir çok alanı da kapsıyor aslında: Bir çok cihaz elektrikliye geçiyor: 
 
-    - Her tür motor (tarimsal & sulama, testere, çim biçme, marin motorları)
-    - Isınma / soğuma
-    - El aletleri, büyük / küçük motor içeren her ürün
-    - Otomobil, ticari araç (kamyon dahil)
-    - Gemi, uçak, helikopter
+- Her tür motor (tarimsal & sulama, testere, çim biçme, marin motorları)
+- Isınma / soğuma
+- El aletleri, büyük / küçük motor içeren her ürün
+- Otomobil, ticari araç (kamyon dahil)
+- Gemi, uçak, helikopter
 ----------
 
 Ama özellikle son 5 yılda daha çok Otomotiv özelinde konuşulup tartışılan bir konu oldu:
