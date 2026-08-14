@@ -6,6 +6,8 @@ const SLATE = '#4a6670';
 const OLIVE = '#7a8b5a';
 const INK = '#2c2620';
 const STONE = '#857a69';
+// Otomotiv İnsanı manifesto sayfasının arka planıyla aynı koyu kahve (bkz. kariyer/otomotiv-insani.astro).
+const KOYU_KAHVE = '#453629';
 
 const LIGHT_DUTY = ['Cars', 'Vans'];
 
@@ -100,7 +102,7 @@ export const worldTotalMarketConfig: ChartConfig = {
   yAxisTitle: 'Adet (toplam pazar, türetilmiş)',
   y2AxisTitle: 'EA payı',
   series: [
-    { region: 'World', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Toplam araç pazarı', color: STONE },
+    { region: 'World', parameter: 'EV sales', powertrain: 'EV', modes: ['Cars'], label: 'Toplam araç pazarı', color: KOYU_KAHVE },
     { region: 'World', parameter: 'EV sales share', powertrain: 'EV', modes: ['Cars'], label: 'EA payı', color: CLAY, onRightAxis: true },
   ],
 };
