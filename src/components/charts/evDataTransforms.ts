@@ -280,14 +280,46 @@ function buildWorldTotalMarket(rows: EvRow[], config: ChartConfig): any {
       name: shareSeries.label,
       type: 'scatter',
       mode: 'lines+markers',
-      line: { color: shareSeries.color, width: 2 },
-      marker: { color: shareSeries.color, size: 6 },
+      // Çizgi kalınlaştırıldı (2→3) ve son nokta (en güncel yıl) büyütüldü —
+      // erken yıllarda pay sıfıra çok yakın olduğu için çizgi ekseni dibinde
+      // görünmez kalıyordu; bu okunurluğu biraz artırır, asıl çözüm aşağıdaki
+      // sabit etiketler (annotations).
+      line: { color: shareSeries.color, width: 3 },
+      marker: {
+        color: shareSeries.color,
+        size: shares.map((_, i) => (i === shares.length - 1 ? 9 : 5)),
+      },
       yaxis: 'y2',
       // '%' eklemiyoruz — yaxis2.ticksuffix zaten hover'a da uyguluyor, ikisi
       // birleşince "15%%" gibi çift işaret oluşuyor (bkz. buildTurkiyeDetail notu).
       hovertemplate: '%{y}<extra>' + shareSeries.label + '</extra>',
     },
   ];
+
+  // Erken yıllarda pay değeri sıfıra çok yakın (%0.01) olduğu için çizgi eksen
+  // dibinde neredeyse görünmez kalıyor. Log ölçek yerine (daha "doğru" ama genel
+  // okuyucu için daha az sezgisel) doğrusal ölçeği koruyup üç kilit noktayı
+  // (başlangıç, dönüm noktası, son yıl) sabit etiketle işaretliyoruz — hover'a
+  // gerek kalmadan okunabilir.
+  // NOT: layout.annotations DEĞİL, ayrı bir mode:'text' trace kullanıyoruz —
+  // annotation'lar kategori eksenlerinde x değerini kategori INDEKSİ sanıp
+  // aralığı feci şekilde bozuyordu (2010-2025 yerine -119..2085 gibi bir
+  // aralık hesaplayıp tüm grafiği tek bir çizgiye sıkıştırdı). Trace olarak
+  // eklemek, barlar/çizgiyle AYNI kategori-çözümleme mekanizmasını kullanır.
+  const vurguIndeksleri = Array.from(
+    new Set([0, Math.floor((years.length - 1) * 0.65), years.length - 1])
+  );
+  data.push({
+    x: vurguIndeksleri.map((i) => years[i]),
+    y: vurguIndeksleri.map((i) => shares[i]),
+    text: vurguIndeksleri.map((i) => `${shares[i]}%`),
+    mode: 'text',
+    textposition: 'top center',
+    textfont: { color: shareSeries.color, size: 13, family: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' },
+    yaxis: 'y2',
+    showlegend: false,
+    hoverinfo: 'skip',
+  });
 
   const layout: any = {
     ...baseLayout(config),
