@@ -8,15 +8,15 @@ Yalçın Arsan · Arsan Danışmanlık
 
 # Günün akışı
 
-| Saat          | Blok        | İçerik                                                                                              |
-| ------------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| 10:00 – 10:15 | Açılış      | Tanışma, günün amacı, akış                                                                          |
-| 10:15 – 11:15 | **Modül 1** | Elektrifikasyona giriş                                                                              |
-| 11:15 – 11:30 | Ara         |                                                                                                     |
-| 11:30 – 12:30 | **Modül 2** | Audi EA özelinde müşteri, SSS, Zor sorular: baskı altındaki müşteri, kontrolümüz dışındaki durumlar |
-| 12:30–13:30   | Öğle arası  |                                                                                                     |
-| 13:30–15:30   | Test sürüşü | Şarj Cihazı başında başlıyor, sürüşle devam ediyoruz                                                |
-| 15:30–16:30   | **Modül 3** | Zor sorulara devam, kapanış & geri bildirim.                                                        |
+| Saat          | Blok        | İçerik                                                                                                 |
+| ------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| 10:00 – 10:15 | Açılış      | Tanışma, günün amacı, akış                                                                             |
+| 10:15 – 11:15 | **Modül 1** | Elektrifikasyona giriş                                                                                 |
+| 11:15 – 11:30 | Ara         |                                                                                                        |
+| 11:30 – 12:30 | **Modül 2** | Audi özelinde EA müşterisi, SSS - Zor sorular: baskı altında <br>müşteri, kontrolümüz dışında durumlar |
+| 12:30–13:30   | Öğle arası  |                                                                                                        |
+| 13:30–15:30   | Test sürüşü | Şarj Cihazı başında başlıyor, sürüşle devam ediyoruz                                                   |
+| 15:30–16:30   | **Modül 3** | Zor sorulara devam, kapanış & geri bildirim.                                                           |
 
 ---
 
@@ -233,7 +233,7 @@ Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağ�
 
 ---
 
-# Türkiye elektrikli araç pazarı
+# Elektrikli araç pazarı: Türkiye & Dünya
 
 ---
 
@@ -273,7 +273,7 @@ Benzinli ve dizel birlikte pazarın **%54,4'ü**; hibrit ve elektrikli birlikte 
 
 ---
 
-## İki farklı rakam duyarsanız şaşırmayın
+## İki farklı rakam: Şaşırmayın
 
 Az önceki canlı grafik Türkiye için 2025'te yaklaşık **240 bin adet ve %22 pay** gösteriyordu; ODMD ise **191.960 adet ve %17,7** diyor. İkisi de doğru, tanımları farklı:
 
@@ -282,7 +282,6 @@ Az önceki canlı grafik Türkiye için 2025'te yaklaşık **240 bin adet ve %22
 
 Müşteri karşısında hangi rakamı kullanacağınızı bilin: Türkiye pazarını konuşuyorsanız ODMD, dünyayla karşılaştırma yapıyorsanız IEA.
 
-
 ---
 
 ## Türkiye tablosundan çıkan iki not
@@ -290,25 +289,21 @@ Müşteri karşısında hangi rakamı kullanacağınızı bilin: Türkiye pazar�
 - Elektrikli artık niş değil, ana akım bir tercih. Hibritle birlikte bakıldığında pazarın büyük bölümü elektrikli bir güç ünitesi taşıyor.
 - **Premium elektrikli segmenti, premium ICE segmentine oranla daha büyük.** Yani sizin konuştuğunuz müşteri kitlesinde elektrikli oranı, pazar ortalamasının üzerinde.
 
-DİM için anlamı: elektrikli araç sorusu istisna değil, gündelik iş.
+DİM için anlamı: elektrikli araç soruları (artık) istisna değil.
 
 ---
 
 ## Modül 1 — akılda kalacak beş şey
 
 1. Elektrifikasyon otomotivle sınırlı değil ama tartışma otomobil üzerinden yürüyor.
-2. Toplam pazar büyümezken elektrikli segment büyüyor; bu bir eğri, dalgalanma değil.
-3. Elektrik motoru verimli ve basit (3 hareketli parça); asıl sorun **enerjinin depolanması.**
+2. Toplam pazar büyümezken elektrikli segment büyüyor; bu kalıcı bir trend, dalgalanma değil.
+3. Elektrik motoru verimli ve basit; asıl sorun **enerjinin depolanması.**
 4. Fikir 190 yıllık; değişen şey bataryanın ağırlığı ve maliyeti.
 5. Türkiye'de premium tarafta elektrikli oranı pazar ortalamasının üzerinde.
 
 ---
 
 # Modül 2 — Audi EA grubu ve müşteri SSS
-
-10:30 – 12:15
-
----
 
 # Temel terminoloji
 
@@ -330,7 +325,7 @@ DİM için anlamı: elektrikli araç sorusu istisna değil, gündelik iş.
 
 ---
 
-## Telefonda en çok karıştırılan ikili: kW ve kWh
+## En çok karıştırılan ikili: kW ve kWh
 
 - **kWh = deponun hacmi.** "Bu araçta 77 kWh batarya var" = deponun kaç litre olduğu.
 - **kW = akışın hızı.** "11 kW'lık şarj cihazı" = hortumun dakikada ne kadar bastığı.
@@ -342,15 +337,12 @@ Bu iki birimi ayırdığınız an, şarj sorularının tamamı tek bir bölme i�
 ---
 
 # Şarj senaryoları
-
 ![Şarj senaryoları: AC ve DC](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-36.png)
-
----
 
 ## AC ve DC farkı, tek cümlede
 
-- **AC şarjda çevirici araçtadır.** Şebekeden gelen alternatif akımı bataryanın kabul edeceği doğru akıma araçtaki **yerleşik şarj cihazı** (on-board charger) çevirir. Bu cihazın kapasitesi aracın tavanıdır.
-- **DC şarjda çevirici direğin içindedir.** Akım doğrudan bataryaya gider; bu yüzden çok daha hızlıdır.
+- **AC şarjda çevirici araçtadır.** Şebekeden gelen alternatif akımı bataryanın kabul edeceği doğru akıma araçtaki **yerleşik şarj cihazı** (on-board charger) çevirir. Bu cihazın kapasitesi tavan gücü ifade ederr.
+- **DC şarjda çevirici cihazın içindedir.** Akım doğrudan bataryaya gider; bu yüzden çok daha hızlıdır.
 
 Müşteri "evime 22 kW'lık cihaz taktırdım ama araç 11 kW çekiyor" dediğinde cevap burada: sınırı koyan, araçtaki yerleşik cihaz.
 
@@ -382,13 +374,15 @@ Gerisi, hangi gücün geçerli olduğunu bulmak.
 2. Şarj cihazının çıkış gücü
 3. **Araçtaki yerleşik şarj cihazının kapasitesi**
 
-Müşteriye sorulacak sıra da budur: nereye takıyorsunuz, cihaz kaç kW, araç kaç kW kabul ediyor.
+Müşteriye sorulacak sıra: Nereye takıyorsunuz, cihaz kaç kW, araç kaç kW kabul ediyor?
+
+**Genel Formül: Zaman = Kapasite / Güç**
 
 ---
 
 ## Örnek 1
 
-Audi Q4 e-tron 55 aracımızın net batarya kapasitesi **77 kWh**, yerleşik şarj cihazı kapasitesi **11 kW**.
+Audi Q4 e-tron 55 aracımızın net batarya kapasitesi **77 kWh**, yerleşik şarj cihazı kapasitesi **11 kW**
 
 Bu aracı bataryası tamamen boşken 11 kW gücünde bir AC şarj cihazına bağlarsak yaklaşık kaç saatte şarj olur?
 
@@ -408,7 +402,7 @@ Aracı **22 kW'lık** bir AC şarj cihazına bağlarsak kaç saatte şarj olur?
 
 **Yanıt:** 106 kWh ÷ **11 kW** = yaklaşık **10 saat**
 
-22 kW'lık cihaz burada işe yaramıyor: araç 11 kW'tan fazlasını kabul etmiyor. En zayıf halka aracın kendisi.
+22 kW'lık cihaz burada işe yaramıyor: Araç 11 kW'tan fazlasını kabul etmiyor. **En zayıf halka aracın kendisi.**
 
 ---
 
@@ -433,7 +427,7 @@ Not: pratikte sürekli 120 kW alınamayacağı için %80'e varmak **45 dakikanı
 
 Hayır. DC şarjda akım doğrudan bataryaya gittiği için yerleşik (AC) şarj cihazı devrede değil.
 
-Bu ayrımı kaçırmak, telefonda en sık yapılan hatalardan biri: AC ve DC hesabı birbirine karıştırılıyor.
+Bu ayrımı kaçırmak, telefonda en kolay yapılabilecek hatalardan biri: AC ve DC hesabı birbirine karıştırılıyor.
 
 ---
 
@@ -441,12 +435,12 @@ Bu ayrımı kaçırmak, telefonda en sık yapılan hatalardan biri: AC ve DC hes
 
 Audi Q4 e-tron 55 (77 kWh) sıfırdan tam doluya:
 
-| Bağlantı | Güç | Yaklaşık süre |
-| --- | --- | --- |
-| Normal ev prizi (Schuko) | 2,3 kW | 33 saat |
-| Tek fazlı 16A duvar ünitesi | 3,7 kW | 21 saat |
-| Tek fazlı 32A duvar ünitesi | 7,4 kW | 10,5 saat |
-| Üç fazlı duvar ünitesi | 11 kW | 7 saat |
+| Bağlantı                    | Güç    | Yaklaşık süre |
+| --------------------------- | ------ | ------------- |
+| Normal ev prizi (Schuko)    | 2,3 kW | 33 saat       |
+| Tek fazlı 16A duvar ünitesi | 3,7 kW | 21 saat       |
+| Tek fazlı 32A duvar ünitesi | 7,4 kW | 10,5 saat     |
+| Üç fazlı duvar ünitesi      | 11 kW  | 7 saat        |
 
 Müşteri "çok yavaş şarj oluyor" diye aradığında ilk soru: **neye takıyorsunuz?**
 
@@ -466,9 +460,9 @@ Kovaya su doldurma örneği: kova boşken hortumu sonuna kadar açarsınız, dol
 
 Yanlış cümle: "Bataryayı %80'den fazla doldurmayın, zarar görür."
 
-Doğru cümle: "Uzun yolda %80'den sonrası **zaman kaybı**. Son %20 için harcayacağınız sürede, bir sonraki durakta çok daha fazla enerji alırsınız. Evde ise dert değil, gece boyu zaten doluyor."
+Doğru cümle: "(Özellikle) uzun yolda %80'den sonrası **zaman kaybı**. Son %20 için harcayacağınız sürede, bir sonraki durakta çok daha fazla enerji alırsınız. Evde ise dert değil, gece boyu zaten doluyor."
 
-Biri korkutur, diğeri kullanım alışkanlığı kazandırır.
+**İlk söylem korkutur, diğeri kullanım alışkanlığı kazandırır.**
 
 ---
 
@@ -606,11 +600,11 @@ Bu soruyu küçümsemeyin. Soran müşteri genellikle iyi niyetli ve konuyu ara�
 
 ## Sürüş karakteristikleri ne anlamda farklı?
 
-- Aracın en ağır parçası olan batarya alt panelde olduğu için **ağırlık merkezi yere çok yakın.** Bu, çok iyi bir yol tutuş sağlıyor.
-- İçinde sürtünen parça olmayan elektrik motoru ve şanzıman gibi aktarma organlarının bulunmaması sayesinde gücü yola aktarmakta çok başarılı: **hızlanma değerleri yüksek.**
-- Maksimum hız, göreceli olarak düşük olabilir.
+- Aracın en ağır parçası olan batarya alt panelde olduğu için **ağırlık merkezi yere çok yakın.** Bu iyi bir yol tutuş sağlar.
+- İçinde sürtünen parça olmayan elektrik motoru ve şanzıman gibi aktarma organlarının bulunmaması sayesinde gücü yola aktarmakta çok başarılı: **hızlanma değerleri çok iyi.**
+- Maksimum hız, göreceli olarak düşük olabilir (yüksek hızlarda enerji tüketimi artar)
 
-Test sürüşünde müşterinin ilk 10 saniyede fark edeceği şey bu üçü. Öğleden sonraki test sürüşü bölümünde bunu izleyin.
+Test sürüşünde müşterinin ilk 10 saniyede fark edeceği şey bu üçü. Test sürüşü bölümünde buna dikkat!
 
 ---
 
@@ -641,33 +635,6 @@ Test sürüşünde müşterinin ilk 10 saniyede fark edeceği şey bu üçü. Ö
 
 ---
 
-# Yanlış müşteri, en sakıncalı senaryo
-
-Elektrikli araç herkese uygun değil. Uygun olmayan müşteriye satılan araç, üç ay sonra şikâyet olarak geri döner.
-
-**Üç temel soru:**
-
-1. Kaç aracınız var?
-2. Eve ya da iş yerinize şarj cihazı kurma imkânınız var mı?
-3. Yılda kaç km yapıyorsunuz?
-
----
-
-![Elektrikli araca geçiş stratejisi — üç sorunun karar ağacı (© Yalçın Arsan)](public/sunumlar/audi-turkiye-elektrifikasyona-giris/img-39.jpg)
-
----
-
-## Karar ağacından çıkan pratik kural
-
-- **Şarj imkânı var + yılda 20 bin km üzeri:** beklemeye gerek yok, en güçlü aday.
-- **Şarj imkânı var + tek araç + düşük km:** geçiş yapabilir, aceleye gerek yok.
-- **Şarj imkânı yok + tek araç:** en riskli senaryo. Burada elektrikliyi savunmak yerine hibrit seçenekleri konuşmak daha doğru.
-- **İki ve daha fazla araç:** neredeyse her koşulda birini elektrikliye çevirmek mantıklı.
-
-İkinci soruya "hayır" gelen müşteride ısrar etmeyin. Satmamak, yanlış satmaktan iyidir.
-
----
-
 ## Tipik elektrikli araç kullanıcısı
 
 - Yeniliğe açık
@@ -693,14 +660,12 @@ Her grup 5 dakika hazırlanır, ilk 60 saniyelik konuşmayı canlandırır, sonr
 
 ---
 
-# Geçiş: test sürüşü mantığı
-
-12:15 – 12:30
+# Test sürüşü
 
 Öğleden sonraki test sürüşünde dikkat edilecekler:
 
-- **İlk 10 saniye:** kalkıştaki tork ve sessizlik. Müşterinin telefonda anlatamadığınız farkı yaşadığı an burası.
-- **Rejeneratif frenleme:** gazdan ayağı çekince ne oluyor? Kademeleri deneyin.
+- **İlk 10 saniye:** kalkıştaki tork ve sessizlik. Müşterinin telefonda anlatmakta zorlanacağınız farkı yaşadığı an burası.
+- **Rejeneratif frenleme:** gazdan ayağı çekince ne oluyor?
 - **Ekranlar:** menzil göstergesi, tüketim ekranı, şarj planlama menüsü. Müşteri size bunları soracak.
 - **Şarj kapağı ve soket:** CCS soketinin nasıl takıldığını kendiniz yapın. Telefonda tarif edeceğiniz şeyi bir kez elinizle yapmış olun.
 
@@ -708,7 +673,6 @@ Her grup 5 dakika hazırlanır, ilk 60 saniyelik konuşmayı canlandırır, sonr
 
 # Modül 3 — Zor sorular, baskı altındaki müşteri, kontrolümüz dışındaki durumlar
 
-15:30 – 16:30
 
 ---
 
@@ -751,23 +715,22 @@ Fark tek bir yerde: sorumluluğu reddetmek yerine **elimizde kalan hareket alan�
 
 1. **Dinle, kesme.** Müşteri anlatmayı bitirmeden yapılan çözüm önerisi işe yaramaz.
 2. **Kabul et.** "Anlıyorum" değil, somut olanı: "Sabah 7'de yola çıkacakken aracın şarj olmamış olması ciddi bir sorun."
-3. **Netleştir.** Tek bir doğrulama sorusu: "Cihaz açıkken uygulamada bir hata kodu görünüyor mu?"
+3. **Netleştir.** Tek bir doğrulama sorusu: "Cihaz açıkken araç ya da uygulamada bir hata kodu görünüyor mu?"
 4. **Taahhüt et.** Ne yapacağınızı ve **ne zaman** yapacağınızı söyleyin. Tarihsiz söz, sözden sayılmaz.
 
 Sırayı bozmayın. Kabul etmeden çözüme geçmek, müşteriyi baştan anlatmaya zorlar.
 
 ---
 
-## Asla kurulmayacak cümleler
+## Tavsiye etmediğim cümleler
 
-- "Bu normal efendim." — Müşteri için normal değil.
+- "Bu normal efendim." (açıklamasız) — Müşteri için normal olmayabilir.
 - "Herkes böyle kullanıyor."
-- "Aracı almadan önce araştırmanız gerekirdi."
 - "Ben bu konuda bir şey yapamam."
 - "Sistemde öyle görünüyor." (tek başına, açıklamasız)
 - Rakam uydurmak: "kesin şu kadar sürer", "kesin şu kadar gider"
 
-Sonuncusu en tehlikelisi: yanlış bir rakam, çözülmüş bir çağrıyı üç hafta sonra şikâyete çeviriyor.
+Sonuncusu en tehlikelisi: yanlış bir rakam, hızlı çözülmüş bir çağrıyı üç hafta sonra şikâyete çevirebilir.
 
 ---
 
@@ -775,42 +738,34 @@ Sonuncusu en tehlikelisi: yanlış bir rakam, çözülmüş bir çağrıyı üç
 
 "Bilmiyorum" tek başına yeterli değil ama saklamaktan iyidir. Formül:
 
-> **Bilmediğinizi söyleyin + kimin bildiğini söyleyin + ne zaman döneceğinizi söyleyin.**
+> **Bilmediğinizi söylemek + kimin bildiğini söylemek + ne zaman döneceğinizi söylemek normal davranış biçimleri.**
 
-"Bu modeldeki DC şarj gücünün tam rakamını size yanlış söylemek istemem. Teknik ekipten teyit alıp bugün 17:00'den önce sizi arayacağım."
+"Bu modeldeki DC şarj gücünün tam rakamını size yanlış söylemek istemem. Teknik ekipten teyit alıp sizi arayacağım."
 
-Bu cümle, doğru rakamı ezberden söylemekten daha güçlü bir güven kurar.
 
 ---
 
-## Vaka çalışmaları
-
-Sırayla açıp konuşacağız. Her vakada iki soru: **hangi kutuya giriyor**, **ilk cümle ne olacak?**
+## Olası Vakalar
 
 1. Müşteri uzun yolda hızlı şarj istasyonunu arızalı buldu, sinirli şekilde arıyor.
 2. Site yönetimi ortak alana şarj cihazı kurulmasına izin vermiyor.
-3. Aracın teslimatı gecikti, müşteri mevcut aracını çoktan satmış.
-4. Müşteri "arkadaşımın aracı 20 dakikada doluyor, benimki neden dolmuyor" diyor.
-5. Müşteri, satın aldıktan sonra değişen vergi düzenlemesi yüzünden zarar ettiğini düşünüyor.
-6. Müşteri kışın menzilin düşmesini garanti kapsamında arıza sayıyor, servise gitmeyi reddediyor.
+3. Müşteri "arkadaşımın aracı 20 dakikada doluyor, benimki neden dolmuyor" diyor.
+4. Müşteri, satın aldıktan sonra değişen vergi düzenlemesi yüzünden zarar ettiğini düşünüyor.
+5. Müşteri kışın menzilin düşmesini garanti kapsamında arıza sayıyor.
 
 ---
 
 ## Günün özeti
 
-- Şarj sorularının tamamı **kWh ÷ kW** ile başlıyor; gerisi hangi gücün geçerli olduğunu bulmak.
-- **En zayıf halka:** şebeke, cihaz, araç — hangisi küçükse o.
+- Şarj süresi sorularının tamamı için **kWh ÷ kW** ile başlayabilirsiniz.
+- (AC Şarj için) **En zayıf halka:** şebeke, cihaz, araç — hangisi küçükse o.
 - Menzil bir **aralıktır**, tek bir sayı değil. Beklentiyi baştan doğru kurun.
 - Maliyet sorusunda rakam değil **yöntem** verin; tarifeler değişir, yöntem değişmez.
-- Zor çağrıyı üç kutuya ayırın; kontrolünüz dışındaysa dürüst olun ama hareket alanı gösterin.
+- Zor çağrıyı kısımlara ayırabilirsiniz; kontrolünüz dışındaki alanlar için dürüst olun ama hareket alanı göstermekte yarar var.
 - Emin olmadığınız rakamı söylemeyin. Teyit edip dönmek, hızlı yanıt vermekten değerli.
 
 ---
 
 # Soru, yorum ve kapanış
 
-Yalçın Arsan
-
-yalcinarsan@arsandanismanlik.com.tr
-
-Otomotiv İnsanı · Arsan Danışmanlık
+Yalçın Arsan: yalcinarsan@arsandanismanlik.com.tr
