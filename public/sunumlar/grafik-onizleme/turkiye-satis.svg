@@ -26,36 +26,36 @@
 <text x="594.4" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2020</text>
 <text x="713.5" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2022</text>
 <text x="832.6" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2024</text>
-<polyline points="117.8,467.9 177.4,468.0 236.9,467.9 296.5,467.7 356.1,467.8 415.6,467.8 475.2,467.7 534.8,467.6 594.4,466.2 653.9,462.6 713.5,457.5 773.1,374.2 832.6,316.2 892.2,136.8" fill="none" stroke="#b5623c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="117.8" cy="467.9" r="3.5" fill="#b5623c"/>
-<circle cx="177.4" cy="468.0" r="3.5" fill="#b5623c"/>
-<circle cx="236.9" cy="467.9" r="3.5" fill="#b5623c"/>
-<circle cx="296.5" cy="467.7" r="3.5" fill="#b5623c"/>
-<circle cx="356.1" cy="467.8" r="3.5" fill="#b5623c"/>
-<circle cx="415.6" cy="467.8" r="3.5" fill="#b5623c"/>
-<circle cx="475.2" cy="467.7" r="3.5" fill="#b5623c"/>
-<circle cx="534.8" cy="467.6" r="3.5" fill="#b5623c"/>
-<circle cx="594.4" cy="466.2" r="3.5" fill="#b5623c"/>
-<circle cx="653.9" cy="462.6" r="3.5" fill="#b5623c"/>
-<circle cx="713.5" cy="457.5" r="3.5" fill="#b5623c"/>
-<circle cx="773.1" cy="374.2" r="3.5" fill="#b5623c"/>
-<circle cx="832.6" cy="316.2" r="3.5" fill="#b5623c"/>
-<circle cx="892.2" cy="136.8" r="3.5" fill="#b5623c"/>
-<polyline points="117.8,467.7 177.4,468.0 236.9,467.8 296.5,467.5 356.1,467.7 415.6,467.8 475.2,467.3 534.8,466.6 594.4,464.5 653.9,457.6 713.5,446.5 773.1,348.8 832.6,285.8 892.2,103.7" fill="none" stroke="#4a6670" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="117.8" cy="467.7" r="3.5" fill="#4a6670"/>
-<circle cx="177.4" cy="468.0" r="3.5" fill="#4a6670"/>
-<circle cx="236.9" cy="467.8" r="3.5" fill="#4a6670"/>
-<circle cx="296.5" cy="467.5" r="3.5" fill="#4a6670"/>
-<circle cx="356.1" cy="467.7" r="3.5" fill="#4a6670"/>
-<circle cx="415.6" cy="467.8" r="3.5" fill="#4a6670"/>
-<circle cx="475.2" cy="467.3" r="3.5" fill="#4a6670"/>
-<circle cx="534.8" cy="466.6" r="3.5" fill="#4a6670"/>
-<circle cx="594.4" cy="464.5" r="3.5" fill="#4a6670"/>
-<circle cx="653.9" cy="457.6" r="3.5" fill="#4a6670"/>
-<circle cx="713.5" cy="446.5" r="3.5" fill="#4a6670"/>
-<circle cx="773.1" cy="348.8" r="3.5" fill="#4a6670"/>
-<circle cx="832.6" cy="285.8" r="3.5" fill="#4a6670"/>
-<circle cx="892.2" cy="103.7" r="3.5" fill="#4a6670"/>
+<polyline points="117.8,467.9 177.4,468.0 236.9,467.9 296.5,467.7 356.1,467.8 415.6,467.8 475.2,467.7 534.8,467.6 594.4,466.2 653.9,462.6 713.5,457.5 773.1,374.2 832.6,316.2 892.2,136.8" fill="none" stroke="#b5623c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="117.8" cy="467.9" r="2.5" fill="#b5623c"/>
+<circle cx="177.4" cy="468.0" r="2.5" fill="#b5623c"/>
+<circle cx="236.9" cy="467.9" r="2.5" fill="#b5623c"/>
+<circle cx="296.5" cy="467.7" r="2.5" fill="#b5623c"/>
+<circle cx="356.1" cy="467.8" r="2.5" fill="#b5623c"/>
+<circle cx="415.6" cy="467.8" r="2.5" fill="#b5623c"/>
+<circle cx="475.2" cy="467.7" r="2.5" fill="#b5623c"/>
+<circle cx="534.8" cy="467.6" r="2.5" fill="#b5623c"/>
+<circle cx="594.4" cy="466.2" r="2.5" fill="#b5623c"/>
+<circle cx="653.9" cy="462.6" r="2.5" fill="#b5623c"/>
+<circle cx="713.5" cy="457.5" r="2.5" fill="#b5623c"/>
+<circle cx="773.1" cy="374.2" r="2.5" fill="#b5623c"/>
+<circle cx="832.6" cy="316.2" r="2.5" fill="#b5623c"/>
+<circle cx="892.2" cy="136.8" r="2.5" fill="#b5623c"/>
+<polyline points="117.8,467.7 177.4,468.0 236.9,467.8 296.5,467.5 356.1,467.7 415.6,467.8 475.2,467.3 534.8,466.6 594.4,464.5 653.9,457.6 713.5,446.5 773.1,348.8 832.6,285.8 892.2,103.7" fill="none" stroke="#4a6670" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="117.8" cy="467.7" r="2.5" fill="#4a6670"/>
+<circle cx="177.4" cy="468.0" r="2.5" fill="#4a6670"/>
+<circle cx="236.9" cy="467.8" r="2.5" fill="#4a6670"/>
+<circle cx="296.5" cy="467.5" r="2.5" fill="#4a6670"/>
+<circle cx="356.1" cy="467.7" r="2.5" fill="#4a6670"/>
+<circle cx="415.6" cy="467.8" r="2.5" fill="#4a6670"/>
+<circle cx="475.2" cy="467.3" r="2.5" fill="#4a6670"/>
+<circle cx="534.8" cy="466.6" r="2.5" fill="#4a6670"/>
+<circle cx="594.4" cy="464.5" r="2.5" fill="#4a6670"/>
+<circle cx="653.9" cy="457.6" r="2.5" fill="#4a6670"/>
+<circle cx="713.5" cy="446.5" r="2.5" fill="#4a6670"/>
+<circle cx="773.1" cy="348.8" r="2.5" fill="#4a6670"/>
+<circle cx="832.6" cy="285.8" r="2.5" fill="#4a6670"/>
+<circle cx="892.2" cy="103.7" r="2.5" fill="#4a6670"/>
 <rect x="88" y="521" width="12" height="12" rx="2" fill="#b5623c"/>
 <text x="106" y="531" font-family="Inter, sans-serif" font-size="12.5" fill="#4a4238">Yıllık satış (adet)</text>
 <rect x="243.39999999999998" y="521" width="12" height="12" rx="2" fill="#4a6670"/>

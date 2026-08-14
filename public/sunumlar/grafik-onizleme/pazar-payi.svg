@@ -22,13 +22,13 @@
 <text x="701.2" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2022</text>
 <text x="799.4" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2024</text>
 <text x="897.5" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2035</text>
-<polyline points="112.5,468.0 161.6,467.7 210.6,467.3 259.7,466.8 308.8,466.2 357.8,465.2 406.9,464.1 455.9,462.2 505.0,457.6 554.1,456.8 603.1,449.8 652.2,429.5 701.2,405.9 750.3,393.5 799.4,381.1 848.4,364.5" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="848.4,364.5 897.5,248.6" fill="none" stroke="#2c2620" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
-<circle cx="897.5" cy="248.6" r="3.5" fill="#2c2620"/>
-<polyline points="112.5,468.0 161.6,467.7 210.6,467.2 259.7,466.2 308.8,465.2 357.8,463.9 406.9,462.2 455.9,460.5 505.0,458.5 554.1,453.9 603.1,426.6 652.2,397.6 701.2,381.1 750.3,376.9 799.4,381.1 848.4,352.1" fill="none" stroke="#4a6670" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="848.4,352.1 897.5,116.1" fill="none" stroke="#4a6670" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
-<circle cx="897.5" cy="116.1" r="3.5" fill="#4a6670"/>
-<polyline points="210.6,467.9 259.7,468.0 308.8,468.0 357.8,467.9 406.9,467.9 455.9,467.9 505.0,467.8 554.1,467.7 603.1,467.1 652.2,465.4 701.2,462.6 750.3,438.2 799.4,422.5 848.4,376.9" fill="none" stroke="#b5623c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="112.5,468.0 161.6,467.7 210.6,467.3 259.7,466.8 308.8,466.2 357.8,465.2 406.9,464.1 455.9,462.2 505.0,457.6 554.1,456.8 603.1,449.8 652.2,429.5 701.2,405.9 750.3,393.5 799.4,381.1 848.4,364.5" fill="none" stroke="#2c2620" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="848.4,364.5 897.5,248.6" fill="none" stroke="#2c2620" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
+<circle cx="897.5" cy="248.6" r="3" fill="#2c2620"/>
+<polyline points="112.5,468.0 161.6,467.7 210.6,467.2 259.7,466.2 308.8,465.2 357.8,463.9 406.9,462.2 455.9,460.5 505.0,458.5 554.1,453.9 603.1,426.6 652.2,397.6 701.2,381.1 750.3,376.9 799.4,381.1 848.4,352.1" fill="none" stroke="#4a6670" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="848.4,352.1 897.5,116.1" fill="none" stroke="#4a6670" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
+<circle cx="897.5" cy="116.1" r="3" fill="#4a6670"/>
+<polyline points="210.6,467.9 259.7,468.0 308.8,468.0 357.8,467.9 406.9,467.9 455.9,467.9 505.0,467.8 554.1,467.7 603.1,467.1 652.2,465.4 701.2,462.6 750.3,438.2 799.4,422.5 848.4,376.9" fill="none" stroke="#b5623c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="88" y="521" width="12" height="12" rx="2" fill="#2c2620"/>
 <text x="106" y="531" font-family="Inter, sans-serif" font-size="12.5" fill="#4a4238">Dünya</text>
 <rect x="151" y="521" width="12" height="12" rx="2" fill="#4a6670"/>

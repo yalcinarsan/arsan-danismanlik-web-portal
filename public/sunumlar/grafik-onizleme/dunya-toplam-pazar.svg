@@ -43,23 +43,26 @@
 <rect x="775.5" y="146.0" width="32.3" height="322.0" fill="#857a69" opacity="0.85"/>
 <rect x="827.7" y="132.9" width="32.3" height="335.1" fill="#857a69" opacity="0.85"/>
 <rect x="879.8" y="120.2" width="32.3" height="347.8" fill="#857a69" opacity="0.85"/>
-<polyline points="114.1,467.8 166.2,467.0 218.3,465.7 270.4,464.0 322.6,461.9 374.7,458.6 426.8,454.9 478.9,448.7 531.1,433.5 583.2,430.7 635.3,407.3 687.4,339.7 739.6,261.0 791.7,219.6 843.8,178.2 895.9,123.0" fill="none" stroke="#b5623c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="114.1" cy="467.8" r="3.5" fill="#b5623c"/>
-<circle cx="166.2" cy="467.0" r="3.5" fill="#b5623c"/>
-<circle cx="218.3" cy="465.7" r="3.5" fill="#b5623c"/>
-<circle cx="270.4" cy="464.0" r="3.5" fill="#b5623c"/>
-<circle cx="322.6" cy="461.9" r="3.5" fill="#b5623c"/>
-<circle cx="374.7" cy="458.6" r="3.5" fill="#b5623c"/>
-<circle cx="426.8" cy="454.9" r="3.5" fill="#b5623c"/>
-<circle cx="478.9" cy="448.7" r="3.5" fill="#b5623c"/>
-<circle cx="531.1" cy="433.5" r="3.5" fill="#b5623c"/>
-<circle cx="583.2" cy="430.7" r="3.5" fill="#b5623c"/>
-<circle cx="635.3" cy="407.3" r="3.5" fill="#b5623c"/>
-<circle cx="687.4" cy="339.7" r="3.5" fill="#b5623c"/>
-<circle cx="739.6" cy="261.0" r="3.5" fill="#b5623c"/>
-<circle cx="791.7" cy="219.6" r="3.5" fill="#b5623c"/>
-<circle cx="843.8" cy="178.2" r="3.5" fill="#b5623c"/>
-<circle cx="895.9" cy="123.0" r="3.5" fill="#b5623c"/>
+<polyline points="114.1,467.8 166.2,467.0 218.3,465.7 270.4,464.0 322.6,461.9 374.7,458.6 426.8,454.9 478.9,448.7 531.1,433.5 583.2,430.7 635.3,407.3 687.4,339.7 739.6,261.0 791.7,219.6 843.8,178.2 895.9,123.0" fill="none" stroke="#b5623c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="114.1" cy="467.8" r="2.5" fill="#b5623c"/>
+<circle cx="166.2" cy="467.0" r="2.5" fill="#b5623c"/>
+<circle cx="218.3" cy="465.7" r="2.5" fill="#b5623c"/>
+<circle cx="270.4" cy="464.0" r="2.5" fill="#b5623c"/>
+<circle cx="322.6" cy="461.9" r="2.5" fill="#b5623c"/>
+<circle cx="374.7" cy="458.6" r="2.5" fill="#b5623c"/>
+<circle cx="426.8" cy="454.9" r="2.5" fill="#b5623c"/>
+<circle cx="478.9" cy="448.7" r="2.5" fill="#b5623c"/>
+<circle cx="531.1" cy="433.5" r="2.5" fill="#b5623c"/>
+<circle cx="583.2" cy="430.7" r="2.5" fill="#b5623c"/>
+<circle cx="635.3" cy="407.3" r="2.5" fill="#b5623c"/>
+<circle cx="687.4" cy="339.7" r="2.5" fill="#b5623c"/>
+<circle cx="739.6" cy="261.0" r="2.5" fill="#b5623c"/>
+<circle cx="791.7" cy="219.6" r="2.5" fill="#b5623c"/>
+<circle cx="843.8" cy="178.2" r="2.5" fill="#b5623c"/>
+<circle cx="895.9" cy="123.0" r="4.5" fill="#b5623c"/>
+<text x="114.1" y="457.8" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#b5623c">0.012%</text>
+<text x="583.2" y="420.7" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#b5623c">2.7%</text>
+<text x="895.9" y="113.0" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#b5623c">25%</text>
 <rect x="88" y="521" width="12" height="12" rx="2" fill="#857a69"/>
 <text x="106" y="531" font-family="Inter, sans-serif" font-size="12.5" fill="#4a4238">Toplam araç pazarı</text>
 <rect x="236.8" y="521" width="12" height="12" rx="2" fill="#b5623c"/>

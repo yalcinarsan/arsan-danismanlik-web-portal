@@ -22,15 +22,15 @@
 <text x="701.2" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2022</text>
 <text x="799.4" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2024</text>
 <text x="897.5" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#4a4238">2035</text>
-<polyline points="112.5,468.0 161.6,467.8 210.6,467.6 259.7,467.3 308.8,466.8 357.8,466.1 406.9,465.3 455.9,463.7 505.0,460.1 554.1,459.5 603.1,456.6 652.2,441.4 701.2,426.7 750.3,414.1 799.4,405.7 848.4,388.7" fill="none" stroke="#b5623c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="848.4,388.7 897.5,194.2" fill="none" stroke="#b5623c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
-<circle cx="897.5" cy="194.2" r="3.5" fill="#b5623c"/>
-<polyline points="112.5,468.0 161.6,468.0 210.6,467.7 259.7,467.5 308.8,467.3 357.8,466.9 406.9,466.3 455.9,465.6 505.0,464.4 554.1,464.8 603.1,462.6 652.2,457.5 701.2,451.9 750.3,444.8 799.4,432.0 848.4,427.9" fill="none" stroke="#4a6670" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="848.4,427.9 897.5,417.9" fill="none" stroke="#4a6670" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
-<circle cx="897.5" cy="417.9" r="3.5" fill="#4a6670"/>
-<polyline points="112.5,468.0 210.6,468.0 259.7,468.0 308.8,468.0 357.8,468.0 406.9,468.0 455.9,468.0 505.0,468.0 554.1,468.0 603.1,468.0 652.2,467.9 701.2,467.9 750.3,467.9 799.4,468.0 848.4,468.0" fill="none" stroke="#7a8b5a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="848.4,468.0 897.5,467.8" fill="none" stroke="#7a8b5a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
-<circle cx="897.5" cy="467.8" r="3.5" fill="#7a8b5a"/>
+<polyline points="112.5,468.0 161.6,467.8 210.6,467.6 259.7,467.3 308.8,466.8 357.8,466.1 406.9,465.3 455.9,463.7 505.0,460.1 554.1,459.5 603.1,456.6 652.2,441.4 701.2,426.7 750.3,414.1 799.4,405.7 848.4,388.7" fill="none" stroke="#b5623c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="848.4,388.7 897.5,194.2" fill="none" stroke="#b5623c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
+<circle cx="897.5" cy="194.2" r="3" fill="#b5623c"/>
+<polyline points="112.5,468.0 161.6,468.0 210.6,467.7 259.7,467.5 308.8,467.3 357.8,466.9 406.9,466.3 455.9,465.6 505.0,464.4 554.1,464.8 603.1,462.6 652.2,457.5 701.2,451.9 750.3,444.8 799.4,432.0 848.4,427.9" fill="none" stroke="#4a6670" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="848.4,427.9 897.5,417.9" fill="none" stroke="#4a6670" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
+<circle cx="897.5" cy="417.9" r="3" fill="#4a6670"/>
+<polyline points="112.5,468.0 210.6,468.0 259.7,468.0 308.8,468.0 357.8,468.0 406.9,468.0 455.9,468.0 505.0,468.0 554.1,468.0 603.1,468.0 652.2,467.9 701.2,467.9 750.3,467.9 799.4,468.0 848.4,468.0" fill="none" stroke="#7a8b5a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="848.4,468.0 897.5,467.8" fill="none" stroke="#7a8b5a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3,5"/>
+<circle cx="897.5" cy="467.8" r="3" fill="#7a8b5a"/>
 <rect x="88" y="521" width="12" height="12" rx="2" fill="#b5623c"/>
 <text x="106" y="531" font-family="Inter, sans-serif" font-size="12.5" fill="#4a4238">BEV (tam elektrikli)</text>
 <rect x="250" y="521" width="12" height="12" rx="2" fill="#4a6670"/>

@@ -133,13 +133,30 @@ function svgOlustur(fig, baslik) {
 
     if ((t.mode ?? '').includes('lines') && noktalar.length > 1) {
       const kesikli = t.line?.dash ? ' stroke-dasharray="3,5"' : '';
-      parca.push(`<polyline points="${noktalar.join(' ')}" fill="none" stroke="${renk}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"${kesikli}/>`);
+      const kalinlik = t.line?.width ?? 2.5;
+      parca.push(`<polyline points="${noktalar.join(' ')}" fill="none" stroke="${renk}" stroke-width="${kalinlik}" stroke-linejoin="round" stroke-linecap="round"${kesikli}/>`);
     }
     if ((t.mode ?? '').includes('markers')) {
-      for (const n of noktalar) {
+      // marker.size dizi olabilir (noktaya göre farklı boyut, örn. son yıl büyütülmüş).
+      const boyut = t.marker?.size;
+      noktalar.forEach((n, i) => {
         const [x, y] = n.split(',');
-        parca.push(`<circle cx="${x}" cy="${y}" r="3.5" fill="${renk}"/>`);
-      }
+        const s = Array.isArray(boyut) ? boyut[i] : boyut;
+        const r = s ? s / 2 : 3.5;
+        parca.push(`<circle cx="${x}" cy="${y}" r="${r}" fill="${renk}"/>`);
+      });
+    }
+    // mode:'text' — sabit değer etiketleri (ör. okunurluk için eklenen "%25" gibi).
+    if ((t.mode ?? '').includes('text') && t.text) {
+      const renkYazi = t.textfont?.color ?? renk;
+      const boyutYazi = t.textfont?.size ?? 12;
+      noktalar.forEach((n, i) => {
+        const [x, y] = n.split(',');
+        // textposition 'top center' varsayımıyla hafif yukarı kaydırıyoruz.
+        parca.push(
+          `<text x="${x}" y="${(+y - 10).toFixed(1)}" text-anchor="middle" font-family="Inter, sans-serif" font-size="${boyutYazi}" font-weight="600" fill="${esc(renkYazi)}">${esc(t.text[i])}</text>`
+        );
+      });
     }
   }
 
