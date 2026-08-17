@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import KurumDemo from '../../components/KurumDemo.tsx';
+---
+<BaseLayout title="Kurum görünümü — örnek" description="Abone bir kurumun aday havuzunda ne göreceğini gösteren örnek ekran.">
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Otomotiv İnsanı</p>
+    <h1 class="text-3xl font-semibold text-ink mb-3">Kurum görünümü</h1>
+    <p class="text-warm-600 mb-10">
+      Abone bir kurumun aday havuzunda ne göreceğini gösteren örnek ekran.
+    </p>
+    <KurumDemo client:load />
+  </section>
+</BaseLayout>
