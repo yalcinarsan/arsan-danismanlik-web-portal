@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import OtomotivInsaniCagri from '../components/OtomotivInsaniCagri.astro';
 import { getCollection } from 'astro:content';
 
 interface Heading {
@@ -96,6 +97,9 @@ const articleLd = {
             <a href={`/makaleler/${next.slug}`} class="text-accent hover:underline">{next.data.seriBaslik ?? next.data.title} →</a>
           ) : <span />}
         </nav>
+        <div class="mt-10">
+          <OtomotivInsaniCagri />
+        </div>
         <p class="mt-8 text-xs leading-relaxed text-warm-400">
           Bu yazı Yalçın Arsan tarafından yazılmıştır. Kaynak göstererek —
           <span class="text-warm-500">Yalçın Arsan · Arsan Danışmanlık</span>, bu sayfaya bağlantı —

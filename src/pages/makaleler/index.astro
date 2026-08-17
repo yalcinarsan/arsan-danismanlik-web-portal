@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import OtomotivInsaniCagri from '../../components/OtomotivInsaniCagri.astro';
 import { getCollection } from 'astro:content';
 
 const allArticles = (await getCollection('articles', (e) => e.data.durum === 'yayında')).sort(
@@ -44,5 +45,11 @@ const seriler = [
         </div>
       );
     })}
+
+    {allArticles.length > 0 && (
+      <div class="mt-4">
+        <OtomotivInsaniCagri />
+      </div>
+    )}
   </section>
 </BaseLayout>

@@ -1,0 +1,16 @@
+---
+// Otomotiv İnsanı'na geçiş kutusu — makale sonlarında ve EA Verileri sayfasında.
+// Metin src/icerik/oi-cagri.md'de (Obsidian'dan düzenlenebilir), burada yalnızca sunum var.
+import { frontmatter as t } from '../icerik/oi-cagri.md';
+---
+<aside class="rounded-lg border border-warm-border bg-sand px-6 py-5">
+  <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">Otomotiv İnsanı</p>
+  <h2 class="text-lg font-semibold text-ink mb-2">{t.baslik}</h2>
+  <p class="text-sm text-warm-600 leading-relaxed mb-2">{t.metin}</p>
+  <!-- min-h-[44px]: mobil dokunma hedefi (WCAG 2.2 AA). Düz metin bağlantı
+       17px kalıyordu; görsel ağırlığı artırmadan tıklama alanını büyütüyoruz. -->
+  <a
+    href={t.link_hedef}
+    class="inline-flex items-center min-h-[44px] text-sm font-medium text-accent hover:underline"
+  >{t.link_metin} →</a>
+</aside>

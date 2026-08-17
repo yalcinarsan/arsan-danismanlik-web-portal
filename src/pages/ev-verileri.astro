@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EvChart from '../components/charts/EvChart.tsx';
+import OtomotivInsaniCagri from '../components/OtomotivInsaniCagri.astro';
 import {
   worldPowertrainConfig,
   regionSalesConfig,
@@ -46,6 +47,10 @@ const charts = [
         <figcaption class="text-sm text-warm-500 leading-relaxed mt-4">{note}</figcaption>
       </figure>
     ))}
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 pb-16">
+    <OtomotivInsaniCagri />
   </section>
 
   <div class="bg-sand">
