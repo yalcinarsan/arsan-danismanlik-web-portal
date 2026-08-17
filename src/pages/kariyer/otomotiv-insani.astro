@@ -2,10 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Content, frontmatter } from '../../icerik/otomotiv-insani.md';
 
-const { etiket, baslik, slogan, cta_aday, cta_kurum, kurum_eposta, imza } = frontmatter;
+const { baslik_tag, aciklama, etiket, baslik, slogan, cta_aday, cta_kurum, kurum_eposta, imza } = frontmatter;
 const mailto = `mailto:${kurum_eposta}?subject=${encodeURIComponent('Otomotiv İnsanı — Kurumsal')}`;
 ---
-<BaseLayout title="Otomotiv İnsanı" description={slogan} ogType="website">
+<BaseLayout title={baslik_tag} description={aciklama} ogType="website">
   <div class="w-full bg-[#453629] text-[#ddd0ba]">
     <div class="mx-auto max-w-2xl px-4 py-20 sm:py-24">
 

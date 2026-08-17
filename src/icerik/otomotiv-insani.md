@@ -1,4 +1,13 @@
 ---
+# baslik_tag ve aciklama SAYFADA GÖRÜNMEZ — tarayıcı sekmesi, Google sonucu ve
+# sosyal medya paylaşımında görünen başlık/açıklama. Aranan ifade önde duruyor;
+# marka adı tek başına arama getirmez.
+baslik_tag: Otomotiv İnsanı — otomotive özgü yetenek platformu
+aciklama: >-
+  Otomotiv sektöründe kariyer: elektrifikasyon dönüşümünü taşıyacak
+  profesyoneller için kurulmuş, otomotive özgü bir yetenek platformu.
+  Aday havuzu açık.
+
 etiket: Otomotiv İnsanı
 baslik: Bu dönüşümü taşıyacak olanlara dair...
 slogan: Şu an sadece otomotive özgü bir yetenek platformundasın. Genel iş ilanı sitelerinin diliyle anlatılamayacak bir sektörün, kendi dinamikleriyle iletişim kurduğu yerdesin.
