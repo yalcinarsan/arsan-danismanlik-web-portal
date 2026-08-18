@@ -11,7 +11,7 @@ import { supabase } from '../lib/supabase';
 import {
   KANAL, FONKSIYON, ELEKTRIFIKASYON,
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
-  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket,
+  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket,
 } from '../lib/adayTaksonomi';
 import { maskele, type MaskelenebilirAday } from '../lib/adayMaskeleme';
 import { anlasilirHata } from '../lib/hataMesaji';
@@ -86,6 +86,7 @@ export default function KurumDemo() {
 
   const [fKanal, setFKanal] = useState('');
   const [fFonksiyon, setFFonksiyon] = useState('');
+  const [fSehir, setFSehir] = useState('');
   const [fElektrifikasyon, setFElektrifikasyon] = useState('');
 
   useEffect(() => {
@@ -122,11 +123,22 @@ export default function KurumDemo() {
     else setDurum('gonderildi');
   }
 
+  // Lokasyon filtresi ŞEHİR bazında, ama kartta bölge gösteriliyor (maskeleme).
+  // Sebep: bölgeye indirgeyince havuzun büyük kısmı tek kovaya düşüyor ve filtre
+  // ayırt edemiyor; şehir ise gerçek soruyu ("Bursa'da kim var?") karşılıyor.
+  // Seçenekler havuzda gerçekten bulunan şehirlerden üretiliyor.
+  const sehirler = useMemo(
+    () => [...new Set(adaylar.map((a) => a.sehir).filter(Boolean) as string[])]
+      .sort((a, b) => a.localeCompare(b, 'tr')),
+    [adaylar]
+  );
+
   const suzulmus = useMemo(() => adaylar.filter((a) => (
     (!fKanal || (a.kanal ?? []).includes(fKanal)) &&
     (!fFonksiyon || (a.fonksiyon ?? []).includes(fFonksiyon)) &&
+    (!fSehir || a.sehir === fSehir) &&
     (!fElektrifikasyon || a.elektrifikasyon === fElektrifikasyon)
-  )), [adaylar, fKanal, fFonksiyon, fElektrifikasyon]);
+  )), [adaylar, fKanal, fFonksiyon, fSehir, fElektrifikasyon]);
 
   if (durum === 'yukleniyor') return <p className="text-warm-500">Yükleniyor…</p>;
 
@@ -167,7 +179,6 @@ export default function KurumDemo() {
   const fonksiyonDagilim = dagilimHesapla(suzulmus.flatMap((a) => a.fonksiyon ?? []), fonksiyonEtiket);
   const kanalDagilim = dagilimHesapla(suzulmus.flatMap((a) => a.kanal ?? []), kanalEtiket);
   const elektrifikasyonDagilim = dagilimHesapla(suzulmus.map((a) => a.elektrifikasyon), elektrifikasyonEtiket);
-  const gorunurlukDagilim = dagilimHesapla(suzulmus.map((a) => a.gorunurluk), gorunurlukEtiket);
 
   return (
     <div>
@@ -181,7 +192,7 @@ export default function KurumDemo() {
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-3 mb-6">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
         <div>
           <label className={labelCls}>Kanal</label>
           <select value={fKanal} onChange={(e) => setFKanal(e.target.value)} className={inputCls}>
@@ -194,6 +205,13 @@ export default function KurumDemo() {
           <select value={fFonksiyon} onChange={(e) => setFFonksiyon(e.target.value)} className={inputCls}>
             <option value="">Hepsi</option>
             {FONKSIYON.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className={labelCls}>Lokasyon</label>
+          <select value={fSehir} onChange={(e) => setFSehir(e.target.value)} className={inputCls}>
+            <option value="">Hepsi</option>
+            {sehirler.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
         <div>
@@ -214,7 +232,6 @@ export default function KurumDemo() {
         <OzetKart baslik="Fonksiyon" veri={fonksiyonDagilim} />
         <OzetKart baslik="Kanal" veri={kanalDagilim} />
         <OzetKart baslik="Elektrifikasyon" veri={elektrifikasyonDagilim} />
-        <OzetKart baslik="Görünürlük tercihi" veri={gorunurlukDagilim} />
       </div>
 
       <div className="space-y-3">
@@ -249,7 +266,7 @@ export default function KurumDemo() {
                         : 'bg-ink/5 text-ink'
                     }`}
                   >
-                    {aday.gorunurluk === 'acik' ? 'Açık profil' : 'Kapalı profil'}
+                    Profil: {aday.gorunurluk === 'acik' ? 'Açık' : 'Kapalı'}
                   </span>
                   <span className="text-accent">{acik ? '▲' : '▼'}</span>
                 </div>
