@@ -11,7 +11,7 @@ import { supabase } from '../lib/supabase';
 import {
   KANAL, FONKSIYON, ELEKTRIFIKASYON,
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
-  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket,
+  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket,
 } from '../lib/adayTaksonomi';
 import { maskele, type MaskelenebilirAday } from '../lib/adayMaskeleme';
 import { anlasilirHata } from '../lib/hataMesaji';
@@ -167,14 +167,17 @@ export default function KurumDemo() {
   const fonksiyonDagilim = dagilimHesapla(suzulmus.flatMap((a) => a.fonksiyon ?? []), fonksiyonEtiket);
   const kanalDagilim = dagilimHesapla(suzulmus.flatMap((a) => a.kanal ?? []), kanalEtiket);
   const elektrifikasyonDagilim = dagilimHesapla(suzulmus.map((a) => a.elektrifikasyon), elektrifikasyonEtiket);
+  const gorunurlukDagilim = dagilimHesapla(suzulmus.map((a) => a.gorunurluk), gorunurlukEtiket);
 
   return (
     <div>
       <div className="rounded-lg border border-accent/30 bg-sand p-4 mb-8">
-        <p className="text-sm text-ink">
-          <strong>Kurum görünümü — örnek.</strong> Veriler havuzdaki gerçek kayıtlardan geliyor;
-          profillerin tamamı maskeli. Adayların kimliği, siz temas talebi gönderdikten ve
-          aday kabul ettikten sonra açılır. İletişim her aşamada Arsan Danışmanlık üzerinden yürür.
+        <p className="text-sm text-ink leading-relaxed">
+          <strong>Kurum görünümü — örnek.</strong> Veriler havuzdaki gerçek kayıtlardan geliyor.
+          <strong> Bu örnek ekranda hiçbir ismi göstermiyoruz.</strong> Gerçek kullanımda adayın
+          kendi tercihi geçerli olur: “açık” profillerin adı abone kuruma görünür; “kapalı”
+          profillerde kimlik ancak temas talebini aday kabul ederse paylaşılır. Her adayın
+          tercihi kartında yazıyor. İletişim her aşamada Arsan Danışmanlık üzerinden yürür.
         </p>
       </div>
 
@@ -211,6 +214,7 @@ export default function KurumDemo() {
         <OzetKart baslik="Fonksiyon" veri={fonksiyonDagilim} />
         <OzetKart baslik="Kanal" veri={kanalDagilim} />
         <OzetKart baslik="Elektrifikasyon" veri={elektrifikasyonDagilim} />
+        <OzetKart baslik="Görünürlük tercihi" veri={gorunurlukDagilim} />
       </div>
 
       <div className="space-y-3">
@@ -235,7 +239,18 @@ export default function KurumDemo() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="text-xs text-warm-400">Kimlik gizli</span>
+                  {/* Adayın KENDİ tercihi — demo maskesiyle karıştırılmasın diye burada
+                      "kimlik gizli" değil, tercihin adı yazıyor. Demoda isim zaten
+                      hiç gösterilmiyor; bu rozet gerçek kullanımda ne olacağını söylüyor. */}
+                  <span
+                    className={`text-xs rounded-md px-2 py-1 ${
+                      aday.gorunurluk === 'acik'
+                        ? 'bg-sand text-warm-600'
+                        : 'bg-ink/5 text-ink'
+                    }`}
+                  >
+                    {aday.gorunurluk === 'acik' ? 'Açık profil' : 'Kapalı profil'}
+                  </span>
                   <span className="text-accent">{acik ? '▲' : '▼'}</span>
                 </div>
               </button>
@@ -252,7 +267,14 @@ export default function KurumDemo() {
                     <Satir etiket="Çalışma tercihi" deger={calismaEtiket(aday.calisma_tercihi)} />
                     <Satir etiket="Fırsatlara açıklık" deger={aciklikEtiket(aday.aciklik)} />
                     <Satir etiket="Eğitim ve sertifika" deger={m.sertifika_var ? 'Var (temas sonrası paylaşılır)' : null} />
-                    <Satir etiket="Kimlik ve özgeçmiş" deger="Temas talebi onaylandıktan sonra paylaşılır" />
+                    <Satir
+                      etiket="Görünürlük tercihi"
+                      deger={
+                        aday.gorunurluk === 'acik'
+                          ? 'Açık — adı ve özgeçmişi abone kuruma görünür (bu örnek ekranda gösterilmiyor)'
+                          : 'Kapalı — kimliği ancak temas talebini kabul ederse paylaşılır'
+                      }
+                    />
                   </dl>
                   {talepId === aday.id ? (
                     <div className="mt-4 rounded-md border border-accent/40 bg-sand p-3 text-sm text-ink">
