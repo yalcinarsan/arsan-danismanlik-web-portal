@@ -37,14 +37,21 @@ npm run db:uygula    # BEKLEYENLERİ canlıya uygula
 işlemdir; her push'ta kendiliğinden çalışması, yanlış bir migration'ın
 fark edilmeden canlıya gitmesi demek olurdu. Komutu sen çalıştırırsın.
 
-## İlk seferde sıra
+## Docker gerektiren komutlar
 
-1. `npm run db:giris` ve `npm run db:bagla`
-2. `npm run db:cek` — canlının bugünkü hâli `migrations/` içine bir temel
-   dosya olarak yazılır. **Bu aynı zamanda `adaylar` tablosundaki gerçek RLS
-   politikalarını da gösterir** — `schema.sql` ile aynı mı, orada görülür.
-3. Bekleyen `kurum-erisim.sql` bir migration dosyasına dönüştürülür
-4. `npm run db:uygula`
+`db:cek` (ve `supabase db dump`/`db diff`) yerel bir "gölge veritabanı"
+kurduğu için **Docker Desktop** ister; bu makinede Docker yok, o yüzden
+çalışmıyorlar. `db:durum` ve `db:uygula` doğrudan bağlanıyor, Docker
+istemiyor — günlük iş bunlarla dönüyor.
+
+Sonucu: canlı şemayı dosyaya çekemiyoruz. `adaylar` tablosundaki gerçek RLS
+politikalarının `schema.sql` ile aynı olup olmadığı **hâlâ doğrulanmadı.**
+Docker kurulursa `npm run db:cek` bunu tek komutta çözer; kurulmayacaksa
+Supabase panelinde şu sorgu aynı cevabı verir:
+
+```sql
+select policyname, cmd, qual from pg_policies where tablename = 'adaylar';
+```
 
 ## Dosyalar
 
@@ -52,12 +59,13 @@ fark edilmeden canlıya gitmesi demek olurdu. Komutu sen çalıştırırsın.
 |---|---|
 | `migrations/` | Uygulanan/bekleyen değişiklikler. Sıra dosya adındaki tarihe göre. |
 | `schema.sql` | **Tarihî kayıt.** Faz 1'in elle bakımlanan şeması. Artık buraya yazma; yeni değişiklik `migrations/` içine gider. |
-| `kurum-erisim.sql` | Kurum görünümü davetli erişimi. Henüz uygulanmadı; migration'a dönüşecek. |
+| `migrations/20260819133918_kurum_erisim.sql` | Kurum görünümü davetli erişimi. **19 Ağustos 2026'da canlıya uygulandı.** |
 | `config.toml` | CLI ayarları. |
 | `functions/` | Edge Functions. Deploy'u ayrı (`supabase functions deploy`) ve tarayıcı girişi ister. |
 
 ## Panel hâlâ çalışıyor
 
-Acil bir durumda `kurum-erisim.sql`'i Supabase → SQL Editor'e yapıştırmak da
-işe yarar; dosya idempotent, iki kez çalıştırmak güvenli. Ama o yolu
-kullanırsan `migrations/` geride kalır — sonra `npm run db:cek` ile senkronla.
+Acil bir durumda migration dosyasını Supabase → SQL Editor'e yapıştırmak da
+işe yarar; dosyalar idempotent yazılıyor, iki kez çalıştırmak güvenli. Ama o
+yolu kullanırsan `migrations/` geride kalır ve CLI o değişikliği "uygulanmamış"
+sayar — mümkünse `npm run db:uygula` kullan.
