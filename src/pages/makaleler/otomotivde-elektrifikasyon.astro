@@ -27,6 +27,12 @@ const SERI = 'otomotivde-elektrifikasyon';
 const makaleler = (await getCollection('articles', (e) => e.data.seri === SERI && e.data.durum === 'yayında'))
   .sort((a, b) => a.data.seriNo - b.data.seriNo);
 
+// Her makalede "## Kaynaklar ve Referanslar" var. Tek sayfada birleşince
+// altısı da aynı id'yi (#kaynaklar-ve-referanslar) üretiyor ve içindekiler'deki
+// altı ayrı bağlantı hep ilk bölüme atlıyordu. Kaynak listeleri zaten gezinme
+// hedefi değil; içindekiler'den çıkarıldılar. Metinde yerlerinde duruyorlar.
+const ATLANAN_BASLIKLAR = ['kaynaklar ve referanslar'];
+
 // Her makaleyi ayrı ayrı derle; başlıklarını da al ki iki kademeli
 // içindekiler kurabilelim (bölüm -> o bölümün alt başlıkları).
 const bolumler = await Promise.all(
@@ -39,13 +45,16 @@ const bolumler = await Promise.all(
       seriBaslik: m.data.seriBaslik,
       ozet: m.data.ozet,
       kimlik: `bolum-${m.data.seriNo}`,
-      altBasliklar: headings.filter((h) => h.depth === 2),
+      altBasliklar: headings.filter(
+        (h) => h.depth === 2 && !ATLANAN_BASLIKLAR.includes(h.text.trim().toLocaleLowerCase('tr'))
+      ),
       Content,
     };
   })
 );
 
 const SIRA = ['Birinci', 'İkinci', 'Üçüncü', 'Dördüncü', 'Beşinci', 'Altıncı', 'Yedinci', 'Sekizinci'];
+
 
 const baslik = 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi';
 const aciklama =
@@ -159,8 +168,38 @@ const aciklama =
 </BaseLayout>
 
 <script>
-  // İçindekiler vurgusu — TableOfContents.astro ile aynı mantık, ama burada
-  // iki kademeli liste var (bölüm + alt başlık), o yüzden ayrı duruyor.
+  // ---- Bütünleşik sayfaya özgü iki temizlik -------------------------------
+  // Bunlar neden istemci tarafında: içerik girdileri derlenmiş HTML olarak
+  // geliyor ve aynı derleme tekil makale sayfalarında da kullanılıyor. Orada
+  // ikisi de DOĞRU davranış — sunucuda değiştirirsek onları da bozarız.
+  // Betik çalışmazsa sayfa yine okunur; yalnızca bu iki fazlalık kalır.
+
+  // 1) "Önceki Yazılar" blokları. Dizinin tamamını sırayla okuyan birine
+  //    "önceki yazılar" listesi sunmak anlamsız; üstelik her bölümün başında
+  //    zaten kendi sayfasına bağlantı var.
+  document.querySelectorAll('.prose p > strong').forEach((s) => {
+    if (s.textContent?.trim().toLocaleLowerCase('tr') !== 'önceki yazılar') return;
+    const p = s.parentElement;
+    const liste = p?.nextElementSibling;
+    if (liste?.tagName === 'UL') liste.remove();
+    p?.remove();
+  });
+
+  // 2) Altı bölümün altısında da "Kaynaklar ve Referanslar" başlığı var, yani
+  //    altı özdeş id. Geçersiz HTML ve içeriden verilecek her bağlantı ilk
+  //    bölüme atlar. İçindekiler'de artık yoklar (sunucuda ayıklandı); burada
+  //    id'ler tekilleştiriliyor ki belge geçerli kalsın.
+  const gorulen = new Map<string, number>();
+  document.querySelectorAll<HTMLElement>('.prose [id]').forEach((el) => {
+    const kim = el.id;
+    const n = (gorulen.get(kim) ?? 0) + 1;
+    gorulen.set(kim, n);
+    if (n > 1) el.id = `${kim}-${n}`;
+  });
+
+  // ---- İçindekiler vurgusu ------------------------------------------------
+  // TableOfContents.astro ile aynı mantık, ama burada iki kademeli liste var
+  // (bölüm + alt başlık), o yüzden ayrı duruyor.
   const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
   if (links.length > 0) {
     const targets = Array.from(links)
