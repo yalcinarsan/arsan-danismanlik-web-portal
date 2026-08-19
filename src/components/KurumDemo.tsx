@@ -92,6 +92,7 @@ export default function KurumDemo() {
   const [hata, setHata] = useState('');
   const [gonderiliyor, setGonderiliyor] = useState(false);
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
+  const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [acikId, setAcikId] = useState<string | null>(null);
   const [talepId, setTalepId] = useState<string | null>(null);
 
@@ -111,13 +112,25 @@ export default function KurumDemo() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  async function oturumHazir(_girenEposta: string) {
+  async function oturumHazir(girenEposta: string) {
+    // Hangi hesapla girildiği ekranda yazsın: yetki reddi geldiğinde en sık
+    // sebep "beklenenden başka bir oturum açık olması" ve bu görünmezse
+    // teşhis edilemiyor.
+    setOturumEpostasi(girenEposta);
+
     // Yetki kontrolü burada değil, fonksiyonun içinde. Listede değilsen
     // 42501 (-> HTTP 403) döner ve aşağıdaki dala düşeriz.
     const { data, error } = await supabase.rpc('kurum_havuzu');
-    if (error) { setHata(anlasilirHata(error)); setDurum('yetkisiz'); return; }
+    if (error) { setHata(anlasilirHata(error, 'okuma')); setDurum('yetkisiz'); return; }
     setAdaylar((data ?? []) as Aday[]);
     setDurum('liste');
+  }
+
+  /** Açık oturumu kapatıp e-posta formuna döner. */
+  async function cikisYap() {
+    await supabase.auth.signOut();
+    setOturumEpostasi(''); setAdaylar([]); setHata(''); setEposta('');
+    setDurum('eposta');
   }
 
   async function magicLinkGonder(e: React.FormEvent) {
@@ -177,10 +190,23 @@ export default function KurumDemo() {
         <p className="text-warm-600">
           {hata || 'Bu e-posta kurum görünümü için yetkili değil.'}
         </p>
-        <p className="text-warm-600 mt-3 text-sm">
-          Erişim talebiniz için: <a className="text-accent underline"
-            href="mailto:yalcinarsan@arsandanismanlik.com.tr">yalcinarsan@arsandanismanlik.com.tr</a>
-        </p>
+        {oturumEpostasi && (
+          <p className="text-warm-600 mt-3 text-sm">
+            Şu anda <strong>{oturumEpostasi}</strong> hesabıyla giriş yapılmış durumda.
+            Beklediğiniz adres bu değilse çıkış yapıp doğru adresle girin.
+          </p>
+        )}
+        <div className="mt-5 flex flex-wrap items-center gap-4">
+          <button
+            type="button"
+            onClick={cikisYap}
+            className="rounded-md bg-accent px-5 py-2 text-sm text-white font-medium"
+          >
+            Çıkış yap ve başka e-posta ile gir
+          </button>
+          <a className="text-accent underline text-sm"
+            href="mailto:yalcinarsan@arsandanismanlik.com.tr">Erişim talebi gönder</a>
+        </div>
       </div>
     );
 

@@ -17,12 +17,26 @@ function hamMetin(hata: unknown): string | null {
   return null;
 }
 
-export function anlasilirHata(hata: unknown, baglam: 'giris' | 'kayit' | 'silme' = 'kayit'): string {
+export function anlasilirHata(
+  hata: unknown,
+  baglam: 'giris' | 'kayit' | 'silme' | 'okuma' = 'kayit',
+): string {
   // Ham hatayı konsola bırakıyoruz: kullanıcı görmesin ama teşhis mümkün olsun.
   if (hata) console.error('[Otomotiv İnsanı] ham hata:', hata);
 
   const metin = hamMetin(hata);
   const k = (metin ?? '').toLowerCase();
+
+  // Yetki reddi (42501). Veritabanı fonksiyonları bu durumda zaten okunur bir
+  // Türkçe mesaj fırlatıyor — genel bir metinle ezmek yerine onu göster.
+  // Bu dal olmadan yetkisiz erişim "Kaydedilemedi" gibi görünüyordu; okuma
+  // yapan bir ekranda hem yanlış hem yanıltıcı.
+  const kod = (hata as { code?: unknown } | null)?.code;
+  if (kod === '42501' || k.includes('permission denied') || k.includes('yetkili değil')) {
+    return k.includes('yetkili değil') && metin
+      ? metin
+      : 'Bu hesabın kurum görünümüne erişim yetkisi yok.';
+  }
 
   if (k.includes('for security purposes') || k.includes('only request this after')) {
     return 'Az önce bir giriş bağlantısı gönderdik. Yenisini istemek için birkaç saniye beklemen gerekiyor.';
@@ -46,6 +60,9 @@ export function anlasilirHata(hata: unknown, baglam: 'giris' | 'kayit' | 'silme'
   }
   if (baglam === 'silme') {
     return `Kayıt silinemedi. Tekrar dener misin? Sorun sürerse ${DESTEK_EPOSTA} adresine yazabilirsin.`;
+  }
+  if (baglam === 'okuma') {
+    return `Bilgiler getirilemedi. Sayfayı yenilemeyi dener misiniz? Sorun sürerse ${DESTEK_EPOSTA} adresine yazabilirsiniz.`;
   }
   return `Kaydedilemedi. Tekrar dener misin? Sorun sürerse ${DESTEK_EPOSTA} adresine yazabilirsin.`;
 }
