@@ -10,7 +10,13 @@
     "astro": "astro",
     "fetch:ev-data": "node scripts/fetch-iea-ev-data.mjs",
     "grafik:onizleme": "node scripts/build-grafik-onizleme.mjs",
-    "e-kitap": "node scripts/e-kitap-pdf.mjs && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=../cikti/kapak.pdf ../cikti/kapak.html && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=../cikti/govde.pdf ../cikti/govde.html && python3 scripts/e-kitap-numarala.py ../cikti/kapak.pdf ../cikti/govde.pdf \"../cikti/Otomotivde-Elektrifikasyon.pdf\""
+    "e-kitap": "node scripts/e-kitap-pdf.mjs && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=../cikti/kapak.pdf ../cikti/kapak.html && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=../cikti/govde.pdf ../cikti/govde.html && python3 scripts/e-kitap-numarala.py ../cikti/kapak.pdf ../cikti/govde.pdf \"../cikti/Otomotivde-Elektrifikasyon.pdf\"",
+    "grafik:odmd": "node scripts/build-odmd-grafik.mjs",
+    "db:giris": "supabase login",
+    "db:bagla": "supabase link --project-ref wwpkgwndgephkuwpnjov",
+    "db:durum": "supabase migration list --linked",
+    "db:cek": "supabase db pull",
+    "db:uygula": "supabase db push"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
@@ -32,6 +38,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/react-plotly.js": "^2.6.4",
     "dotenv": "^16.4.5",
+    "supabase": "^2.115.0",
     "typescript": "^5.9.3"
   }
 }

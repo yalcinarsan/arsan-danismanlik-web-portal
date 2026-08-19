@@ -53,7 +53,8 @@ Metin değişikliği için bile bana söylemen daha güvenli — bunlar çalış
 |---|---|
 | [src/components/KayitFormu.tsx](arsandanismanlik-web/src/components/KayitFormu.tsx) | Kayıt / profil güncelleme formu |
 | [src/components/ProfilimGorunumu.tsx](arsandanismanlik-web/src/components/ProfilimGorunumu.tsx) | Profil görüntüleme + kayıt silme |
-| [supabase/schema.sql](arsandanismanlik-web/supabase/schema.sql) | Veritabanı şeması (canlı veritabanının kaynağı) |
+| [supabase/BENIOKU.md](arsandanismanlik-web/supabase/BENIOKU.md) | **Veritabanı değişikliği nasıl yapılır** — `npm run db:*` komutları ve tek seferlik kurulum. Şema artık panele elle yapıştırılmıyor. |
+| [supabase/schema.sql](arsandanismanlik-web/supabase/schema.sql) | Faz 1 şeması — **tarihî kayıt.** Yeni değişiklikler `supabase/migrations/` içine yazılır. |
 | [supabase/kurum-erisim.sql](arsandanismanlik-web/supabase/kurum-erisim.sql) | **Kurum görünümü davetli erişimi** — `kurum_erisim` listesi + maskeli `kurum_havuzu()` fonksiyonu. Kime erişim verileceği Supabase panelinden bu tabloya yazılır. |
 
 ## 5. Proje hafızası
