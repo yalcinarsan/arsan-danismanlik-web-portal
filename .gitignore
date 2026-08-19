@@ -11,3 +11,9 @@ node_modules/
 
 # editor/os
 .DS_Store
+
+# claude code
+.claude/
+
+# supabase yerel
+supabase/.temp/
