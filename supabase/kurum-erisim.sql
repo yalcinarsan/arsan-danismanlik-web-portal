@@ -143,7 +143,32 @@ revoke all on function public.kurum_havuzu() from public, anon;
 grant execute on function public.kurum_havuzu() to authenticated;
 
 
--- ---------- 4) Erişim verme / alma ------------------------------------------
+-- ---------- 4) Giriş bağlantısı gönderilmeden önce liste kontrolü -----------
+-- Amaç: magic link YALNIZCA erişim tanımlı adreslere gitsin. Listede olmayan
+-- birine hiç e-posta çıkmasın, Supabase'de gereksiz hesap açılmasın.
+--
+-- Bu bir GÜVENLİK SINIRI DEĞİL, akış kontrolüdür. Asıl sınır kurum_havuzu()
+-- içindeki kontroldür: birisi bu adımı atlayıp kendine link yollatsa bile
+-- giriş yaptığında 403 alır, veri görmez. Bu yüzden burada yalnızca boolean
+-- dönüyoruz — liste dışarı sızmıyor, "bu adres tanımlı mı" cevabı veriyoruz.
+create or replace function public.kurum_erisimi_var(p_eposta text)
+returns boolean
+language sql
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.kurum_erisim k
+    where lower(k.eposta) = lower(btrim(coalesce(p_eposta, '')))
+      and (k.gecerlilik is null or k.gecerlilik > now())
+  )
+$$;
+
+grant execute on function public.kurum_erisimi_var(text) to anon, authenticated;
+
+
+-- ---------- 5) Erişim verme / alma ------------------------------------------
 -- Yalçın'ın kendi erişimi (ekran paylaşımıyla gösterirken de bu yoldan geçer,
 -- böylece arayüzde ayrıcalıklı bir kod yolu kalmıyor):
 insert into public.kurum_erisim (eposta, kurum, aciklama)

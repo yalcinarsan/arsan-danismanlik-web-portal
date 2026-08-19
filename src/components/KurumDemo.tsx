@@ -123,6 +123,25 @@ export default function KurumDemo() {
   async function magicLinkGonder(e: React.FormEvent) {
     e.preventDefault();
     setHata(''); setGonderiliyor(true);
+
+    // Önce listede mi diye sor. Amaç: tanımlı olmayan adrese hiç e-posta
+    // çıkmasın, Supabase'de boşuna hesap açılmasın. Güvenlik bu adıma
+    // dayanmıyor — biri bunu atlayıp kendine link yollatsa bile girişte
+    // kurum_havuzu() 403 döner. Bkz. supabase/kurum-erisim.sql.
+    const { data: izinli, error: kontrolHatasi } =
+      await supabase.rpc('kurum_erisimi_var', { p_eposta: eposta });
+
+    if (kontrolHatasi) {
+      setGonderiliyor(false);
+      setHata(anlasilirHata(kontrolHatasi));
+      return;
+    }
+    if (!izinli) {
+      setGonderiliyor(false);
+      setHata('Bu e-posta için kurum görünümü erişimi tanımlı değil. Erişim talebiniz için yalcinarsan@arsandanismanlik.com.tr adresine yazabilirsiniz.');
+      return;
+    }
+
     const { error } = await supabase.auth.signInWithOtp({
       email: eposta,
       options: { emailRedirectTo: window.location.href },
