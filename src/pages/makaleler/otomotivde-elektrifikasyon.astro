@@ -1,0 +1,192 @@
+---
+// Bütünleşik okuma sayfası — altı yazının tamamı tek sayfada.
+//
+// METİN BURADA KOPYALANMIYOR. Sayfa, altı makalenin AYNI içerik girdilerini
+// derleme anında birleştiriyor. Bir makaleyi düzenlediğinde bu sayfa da
+// kendiliğinden güncellenir; iki nüsha birbirinden ayrışamaz.
+//
+// Neden var: LLM'ler PDF değil web sayfası okuyor. 28 bin kelimelik Türkçe
+// otoriter bir elektrifikasyon metnini yalnızca PDF'te tutmak, "ChatGPT'ye
+// sorulunca kaynak gösterilme"yi elden bırakmak olurdu.
+//
+// PDF indirme kutusu bilerek YOK. Baskı sürümü hazır (e-kitap üreteci) ama
+// hangi koşulla sunulacağı — serbest mi, e-posta karşılığı mı — karara
+// bağlanmadı. Karar verilince kutu geri gelir; PDF public/ içine konup
+// buraya bir bağlantı eklemek yeterli.
+//
+// Yinelenen içerik: bu sayfa altı makalenin üst kümesi. Desen "pillar +
+// cluster" — her bölüm kendi makalesine, her makale de buraya bağlanıyor.
+// Canonical olarak kendisi işaretli. GSC'den izlenmeli; makaleler kendi
+// sıralamalarını kaybederse burada noindex/canonical yeniden düşünülür.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OtomotivInsaniCagri from '../../components/OtomotivInsaniCagri.astro';
+import { getCollection } from 'astro:content';
+
+const SERI = 'otomotivde-elektrifikasyon';
+
+const makaleler = (await getCollection('articles', (e) => e.data.seri === SERI && e.data.durum === 'yayında'))
+  .sort((a, b) => a.data.seriNo - b.data.seriNo);
+
+// Her makaleyi ayrı ayrı derle; başlıklarını da al ki iki kademeli
+// içindekiler kurabilelim (bölüm -> o bölümün alt başlıkları).
+const bolumler = await Promise.all(
+  makaleler.map(async (m) => {
+    const { Content, headings } = await m.render();
+    return {
+      slug: m.slug,
+      no: m.data.seriNo,
+      baslik: m.data.title,
+      seriBaslik: m.data.seriBaslik,
+      ozet: m.data.ozet,
+      kimlik: `bolum-${m.data.seriNo}`,
+      altBasliklar: headings.filter((h) => h.depth === 2),
+      Content,
+    };
+  })
+);
+
+const SIRA = ['Birinci', 'İkinci', 'Üçüncü', 'Dördüncü', 'Beşinci', 'Altıncı', 'Yedinci', 'Sekizinci'];
+
+const baslik = 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi';
+const aciklama =
+  'Altı bölümlük dizinin tamamı tek sayfada: sektörde ne oluyor, bundan sonra ne olacak, kim ne yapmalı, müşteri ne diyor, yeni ekonomi nasıl kuruluyor ve Türkiye nerede duruyor.';
+---
+<BaseLayout title={baslik} description={aciklama}>
+  <link rel="canonical" href="https://arsandanismanlik.com.tr/makaleler/otomotivde-elektrifikasyon/" slot="head" />
+
+  <article class="mx-auto max-w-6xl px-4 py-16">
+
+    {/* ---------- Başlık ---------- */}
+    <header class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
+        Bütünleşik metin · {bolumler.length} bölüm
+      </p>
+      <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-ink leading-tight mb-6">
+        Otomotivde Elektrifikasyon
+      </h1>
+      <p class="font-serif text-xl sm:text-2xl text-warm-600 leading-snug mb-8">
+        100 Yılda Bir Gelen Değişimin Anatomisi
+      </p>
+      <p class="text-lg text-warm-600 leading-relaxed">
+        Bu sayfa, ayrı ayrı yayımlanmış altı yazının tamamını sırasıyla bir araya getiriyor.
+        Dizinin bütününü baştan sona okumak isteyenler için; her bölüm kendi sayfasında da
+        ayrıca duruyor.
+      </p>
+      <p class="text-sm text-warm-500 mt-6">
+        Yalçın Arsan · Arsan Danışmanlık
+      </p>
+    </header>
+
+    {/* ---------- İçindekiler + metin ---------- */}
+    <div class="mt-14 flex gap-12">
+
+      <nav aria-label="İçindekiler" class="hidden lg:block sticky top-20 self-start w-72 shrink-0 text-sm max-h-[calc(100vh-6rem)] overflow-y-auto pr-2">
+        <p class="font-medium text-ink mb-4">İçindekiler</p>
+        <ol class="space-y-4 border-l border-warm-border">
+          {bolumler.map((b) => (
+            <li>
+              <a
+                href={`#${b.kimlik}`}
+                data-toc-link
+                data-target={b.kimlik}
+                class="toc-link block -ml-px border-l-2 border-transparent pl-3 font-medium text-ink/80 hover:text-accent transition-colors"
+              >
+                <span class="text-warm-400 tabular-nums">{b.no}.</span> {b.baslik}
+              </a>
+              {b.altBasliklar.length > 0 && (
+                <ul class="mt-2 space-y-1.5">
+                  {b.altBasliklar.map((h) => (
+                    <li>
+                      <a
+                        href={`#${h.slug}`}
+                        data-toc-link
+                        data-target={h.slug}
+                        class="toc-link block -ml-px border-l-2 border-transparent pl-6 text-[13px] text-warm-500 hover:text-accent transition-colors"
+                      >
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="min-w-0 max-w-3xl">
+        {bolumler.map((b) => (
+          <section class="scroll-mt-24">
+            {/* Bölüm ayracı: metnin kendi H2'lerinden görsel olarak
+                belirgin biçimde ayrılsın diye ayrı bir blok. */}
+            <div class="not-prose border-t-2 border-accent pt-8 mt-20 first:mt-0 mb-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+                {SIRA[b.no - 1]} bölüm
+              </p>
+              <h2 id={b.kimlik} class="font-serif text-3xl font-semibold text-ink leading-tight scroll-mt-24">
+                {b.baslik}
+              </h2>
+              {b.ozet && (
+                <p class="text-warm-600 leading-relaxed mt-4">{b.ozet}</p>
+              )}
+              <a
+                href={`/makaleler/${b.slug}/`}
+                class="inline-block mt-4 text-sm text-accent underline underline-offset-4"
+              >
+                Bu bölümü ayrı sayfada okuyun
+              </a>
+            </div>
+
+            <div class="prose prose-warm max-w-none prose-headings:scroll-mt-24 prose-headings:font-serif">
+              <b.Content />
+            </div>
+          </section>
+        ))}
+
+        <div class="mt-20 rounded-lg border border-warm-border bg-sand p-6">
+          <p class="font-medium text-ink mb-1">Dizinin sonu</p>
+          <p class="text-sm text-warm-600">
+            Altı bölümün tamamını okudunuz.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <OtomotivInsaniCagri />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<script>
+  // İçindekiler vurgusu — TableOfContents.astro ile aynı mantık, ama burada
+  // iki kademeli liste var (bölüm + alt başlık), o yüzden ayrı duruyor.
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
+  if (links.length > 0) {
+    const targets = Array.from(links)
+      .map((link) => document.getElementById(link.dataset.target ?? ''))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const setActive = (slug: string | null) => {
+      links.forEach((link) => {
+        const active = link.dataset.target === slug;
+        link.classList.toggle('text-accent', active);
+        link.classList.toggle('border-accent', active);
+      });
+    };
+
+    const THRESHOLD = 96;
+    const updateActive = () => {
+      let current = targets[0] ?? null;
+      for (const el of targets) {
+        if (el.getBoundingClientRect().top <= THRESHOLD) current = el;
+        else break;
+      }
+      setActive(current?.id ?? null);
+    };
+
+    document.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    updateActive();
+  }
+</script>
