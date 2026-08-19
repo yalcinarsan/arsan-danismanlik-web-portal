@@ -185,7 +185,26 @@ const aciklama =
     p?.remove();
   });
 
-  // 2) Altı bölümün altısında da "Kaynaklar ve Referanslar" başlığı var, yani
+  // 2) Metin içi dizi göndermeleri. Makalelerde "üçüncü makaleyi", "otomotivde
+  //    neler oluyor?" gibi ifadeler diğer yazılara bağlı. Tekil sayfalarda
+  //    doğru, burada değil: okuyucuyu zaten okumakta olduğu bölüme, sayfadan
+  //    DIŞARI atıyor. Aynı sayfadaki bölüme çeviriyoruz — PDF'te de böyle
+  //    yapılmıştı (bkz. e-kitap-pdf.mjs / icGondermeleriBagla).
+  //
+  //    Dış kaynak bağlantılarına (houston.org, x.com …) DOKUNULMUYOR: onlar
+  //    metnin kaynak göstermeleri, kesilirse kaynakça bozulur.
+  document.querySelectorAll<HTMLAnchorElement>(
+    '.prose a[href*="/makaleler/otomotivde-elektrifikasyon-"]'
+  ).forEach((a) => {
+    const m = a.getAttribute('href')?.match(/otomotivde-elektrifikasyon-0*(\d+)/);
+    if (!m) return;
+    const hedef = `bolum-${Number(m[1])}`;
+    if (!document.getElementById(hedef)) return; // o bölüm sayfada yoksa dokunma
+    a.setAttribute('href', `#${hedef}`);
+    a.dataset.icGonderme = '';
+  });
+
+  // 3) Altı bölümün altısında da "Kaynaklar ve Referanslar" başlığı var, yani
   //    altı özdeş id. Geçersiz HTML ve içeriden verilecek her bağlantı ilk
   //    bölüme atlar. İçindekiler'de artık yoklar (sunucuda ayıklandı); burada
   //    id'ler tekilleştiriliyor ki belge geçerli kalsın.
