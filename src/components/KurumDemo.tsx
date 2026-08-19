@@ -1,11 +1,17 @@
-// Kurum görünümü — DEMO.
+// Kurum görünümü — davetli erişim.
 //
-// Amaç: beta kurum görüşmelerinde ekranda gösterilecek, "abone bir kurum ne
-// görür" sorusunun somut cevabı. Veri gerçek (havuzdaki kayıtlar), ama tüm
-// profiller maskeli — bkz. lib/adayMaskeleme.ts'deki gerekçe.
+// Amaç: beta kurum görüşmelerinde "abone bir kurum ne görür" sorusunun somut
+// cevabı. Veri gerçek (havuzdaki kayıtlar), tüm profiller maskeli.
 //
-// Erişim: /kariyer/adaylar ile aynı desen — yalnızca Yalçın'ın girişi.
-// Yeni bir veri açığı yok; toplantıda ekran paylaşımıyla gösteriliyor.
+// ERİŞİM VE MASKELEME SUNUCUDA. Bu bileşen `adaylar` tablosuna hiç dokunmuyor;
+// kurum_havuzu() fonksiyonunu çağırıyor (bkz. supabase/kurum-erisim.sql).
+// Fonksiyon hem davetli listesini kontrol ediyor hem de yalnızca maskeli
+// alanları döndürüyor — ad, e-posta, telefon, son kurum/pozisyon, CV yolu
+// dönüş tipinde hiç yok.
+//
+// Buraya sabit e-posta kontrolü GERİ EKLEME: tarayıcıdaki karşılaştırma
+// güvenlik sınırı değil, atlanabilir. Yetki tek yerde, veritabanında dursun.
+// Kime erişim verileceği: kurum_erisim tablosu (Supabase paneli).
 import { useEffect, useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import {
@@ -13,15 +19,17 @@ import {
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
   elektrifikasyonEtiket, calismaEtiket, aciklikEtiket,
 } from '../lib/adayTaksonomi';
-import { maskele, type MaskelenebilirAday } from '../lib/adayMaskeleme';
 import { anlasilirHata } from '../lib/hataMesaji';
-
-const ADMIN_EPOSTA = 'yalcinarsan@arsandanismanlik.com.tr';
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';
 
-type Aday = MaskelenebilirAday & {
+/** kurum_havuzu() satırı — zaten maskeli gelir, burada ek maskeleme yapılmaz. */
+type Aday = {
+  id: string;
+  created_at: string;
+  /** Şehir değil bölge; gerekçe kurum-erisim.sql'de. */
+  bolge: string;
   deneyim_yili: string;
   kanal: string[];
   fonksiyon: string[];
@@ -30,6 +38,9 @@ type Aday = MaskelenebilirAday & {
   markalar: string[];
   calisma_tercihi: string | null;
   aciklik: string | null;
+  gorunurluk: string;
+  sertifika_var: boolean;
+  cv_var: boolean;
 };
 
 function Etiket({ children }: { children: React.ReactNode }) {
@@ -86,7 +97,7 @@ export default function KurumDemo() {
 
   const [fKanal, setFKanal] = useState('');
   const [fFonksiyon, setFFonksiyon] = useState('');
-  const [fSehir, setFSehir] = useState('');
+  const [fBolge, setFBolge] = useState('');
   const [fElektrifikasyon, setFElektrifikasyon] = useState('');
 
   useEffect(() => {
@@ -100,12 +111,10 @@ export default function KurumDemo() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  async function oturumHazir(girenEposta: string) {
-    if (girenEposta.toLocaleLowerCase('tr') !== ADMIN_EPOSTA) {
-      setDurum('yetkisiz');
-      return;
-    }
-    const { data, error } = await supabase.from('adaylar').select('*').order('created_at', { ascending: false });
+  async function oturumHazir(_girenEposta: string) {
+    // Yetki kontrolü burada değil, fonksiyonun içinde. Listede değilsen
+    // 42501 (-> HTTP 403) döner ve aşağıdaki dala düşeriz.
+    const { data, error } = await supabase.rpc('kurum_havuzu');
     if (error) { setHata(anlasilirHata(error)); setDurum('yetkisiz'); return; }
     setAdaylar((data ?? []) as Aday[]);
     setDurum('liste');
@@ -123,12 +132,12 @@ export default function KurumDemo() {
     else setDurum('gonderildi');
   }
 
-  // Lokasyon filtresi ŞEHİR bazında, ama kartta bölge gösteriliyor (maskeleme).
-  // Sebep: bölgeye indirgeyince havuzun büyük kısmı tek kovaya düşüyor ve filtre
-  // ayırt edemiyor; şehir ise gerçek soruyu ("Bursa'da kim var?") karşılıyor.
-  // Seçenekler havuzda gerçekten bulunan şehirlerden üretiliyor.
-  const sehirler = useMemo(
-    () => [...new Set(adaylar.map((a) => a.sehir).filter(Boolean) as string[])]
+  // Lokasyon filtresi BÖLGE bazında. Daha önce şehirdi; dışarıya açılan
+  // erişimde şehir + kanal + kıdem + marka birleşimi 34 kişilik havuzda
+  // kimliği tahmin ettirebildiği için bir kademe geri çekildi. Şehir zaten
+  // sunucudan hiç gelmiyor (bkz. supabase/kurum-erisim.sql).
+  const bolgeler = useMemo(
+    () => [...new Set(adaylar.map((a) => a.bolge).filter((b): b is string => !!b && b !== '—'))]
       .sort((a, b) => a.localeCompare(b, 'tr')),
     [adaylar]
   );
@@ -136,27 +145,36 @@ export default function KurumDemo() {
   const suzulmus = useMemo(() => adaylar.filter((a) => (
     (!fKanal || (a.kanal ?? []).includes(fKanal)) &&
     (!fFonksiyon || (a.fonksiyon ?? []).includes(fFonksiyon)) &&
-    (!fSehir || a.sehir === fSehir) &&
+    (!fBolge || a.bolge === fBolge) &&
     (!fElektrifikasyon || a.elektrifikasyon === fElektrifikasyon)
-  )), [adaylar, fKanal, fFonksiyon, fSehir, fElektrifikasyon]);
+  )), [adaylar, fKanal, fFonksiyon, fBolge, fElektrifikasyon]);
 
   if (durum === 'yukleniyor') return <p className="text-warm-500">Yükleniyor…</p>;
 
   if (durum === 'yetkisiz')
     return (
       <div className="rounded-lg border border-warm-border bg-sand p-8">
-        <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa yalnızca yönetici içindir.</h2>
-        <p className="text-warm-600">{hata || 'Bu e-posta ile erişim yetkin yok.'}</p>
+        <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa davetli erişime açıktır.</h2>
+        <p className="text-warm-600">
+          {hata || 'Bu e-posta kurum görünümü için yetkili değil.'}
+        </p>
+        <p className="text-warm-600 mt-3 text-sm">
+          Erişim talebiniz için: <a className="text-accent underline"
+            href="mailto:yalcinarsan@arsandanismanlik.com.tr">yalcinarsan@arsandanismanlik.com.tr</a>
+        </p>
       </div>
     );
 
   if (durum === 'eposta' || durum === 'gonderildi')
     return (
       <div className="max-w-md">
-        <p className="text-warm-600 mb-6">Yönetici girişi için e-postanı gir; sana bir giriş bağlantısı yollayacağız.</p>
+        <p className="text-warm-600 mb-6">
+          Kurum görünümü davetlidir. Size erişim tanımlandıysa e-posta adresinizi girin;
+          giriş bağlantısını göndereceğiz.
+        </p>
         {durum === 'gonderildi' ? (
           <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu kontrol et.
+            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunuzu kontrol edin.
           </div>
         ) : (
           <form onSubmit={magicLinkGonder} className="space-y-4">
@@ -209,9 +227,9 @@ export default function KurumDemo() {
         </div>
         <div>
           <label className={labelCls}>Lokasyon</label>
-          <select value={fSehir} onChange={(e) => setFSehir(e.target.value)} className={inputCls}>
+          <select value={fBolge} onChange={(e) => setFBolge(e.target.value)} className={inputCls}>
             <option value="">Hepsi</option>
-            {sehirler.map((s) => <option key={s} value={s}>{s}</option>)}
+            {bolgeler.map((b) => <option key={b} value={b}>{b}</option>)}
           </select>
         </div>
         <div>
@@ -236,7 +254,6 @@ export default function KurumDemo() {
 
       <div className="space-y-3">
         {suzulmus.map((aday) => {
-          const m = maskele(aday, 'demo');
           const acik = acikId === aday.id;
           // Kapalı profilde serbest-metin pozisyon gösterilmez; başlığı
           // yapılandırılmış alanlardan kuruyoruz — kimliğe götürmez ama iş anlamı taşır.
@@ -252,7 +269,7 @@ export default function KurumDemo() {
                 <div className="min-w-0">
                   <p className="font-medium text-ink">{baslik}</p>
                   <p className="text-sm text-warm-500 mt-0.5">
-                    {(aday.kanal ?? []).map(kanalEtiket).join(', ')} · {deneyimEtiket(aday.deneyim_yili)} · {m.konum}
+                    {(aday.kanal ?? []).map(kanalEtiket).join(', ')} · {deneyimEtiket(aday.deneyim_yili)} · {aday.bolge}
                   </p>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
@@ -280,10 +297,10 @@ export default function KurumDemo() {
                     <Satir etiket="Kanal deneyimi" deger={(aday.kanal ?? []).map(kanalEtiket).join(', ')} />
                     <Satir etiket="Elektrifikasyon" deger={elektrifikasyonEtiket(aday.elektrifikasyon)} />
                     <Satir etiket="Çalıştığı markalar" deger={(aday.markalar ?? []).join(', ')} />
-                    <Satir etiket="Konum" deger={m.konum} />
+                    <Satir etiket="Konum" deger={aday.bolge} />
                     <Satir etiket="Çalışma tercihi" deger={calismaEtiket(aday.calisma_tercihi)} />
                     <Satir etiket="Fırsatlara açıklık" deger={aciklikEtiket(aday.aciklik)} />
-                    <Satir etiket="Eğitim ve sertifika" deger={m.sertifika_var ? 'Var (temas sonrası paylaşılır)' : null} />
+                    <Satir etiket="Eğitim ve sertifika" deger={aday.sertifika_var ? 'Var (temas sonrası paylaşılır)' : null} />
                     <Satir
                       etiket="Görünürlük tercihi"
                       deger={
