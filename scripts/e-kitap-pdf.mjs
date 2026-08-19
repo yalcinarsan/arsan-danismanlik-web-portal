@@ -57,7 +57,20 @@ const RENK = {
   kum: '#f1e9dd',
   kenarlik: '#e7ddcf',
   soluk: '#857a69',
+  // Bağlantılar için kısık terracotta. Tam vurgu rengi (#b5623c) gövde metninde
+  // onlarca kez tekrarlanınca göz yoruyor; bu ton metinden ayırt ediliyor ama
+  // bağırmıyor. Beyaz üstünde 6.3:1 — WCAG AA'nın üstünde.
+  baglanti: '#8a5236',
 };
+
+/** Metin içi "…nci bölüm" göndermelerini bölüm sırasına çevirir. */
+const SIRA_SAYISI = {
+  birinci: 1, ikinci: 2, üçüncü: 3, dördüncü: 4, beşinci: 5, altıncı: 6,
+};
+// Büyük harfli biçimler ayrı yazılı: /i bayrağı Türkçe'de "İ"yi "i"ye eşlemiyor.
+// Ek listesi UZUNDAN KISAYA sıralı — alternation ilk eşleşeni aldığı için "de"
+// önce gelirse "bölümdeki"nin "ki"si bağlantının dışında kalıyor.
+const GONDERME = /(Birinci|birinci|İkinci|ikinci|Üçüncü|üçüncü|Dördüncü|dördüncü|Beşinci|beşinci|Altıncı|altıncı)(\s+bölüm(?:deki|lerde|den|de|ler|ün|ü|e)?)/g;
 
 /** Başlık metninden URL/anchor güvenli kimlik üretir (Türkçe karakterler dahil). */
 function kimlik(metin, sira) {
@@ -69,6 +82,40 @@ function kimlik(metin, sira) {
     .replace(/^-+|-+$/g, '')
     .slice(0, 60);
   return `b${sira}-${t || 'bolum'}`;
+}
+
+/**
+ * Metin içindeki "Birinci bölümde gösterdiğim gibi…" tarzı düz yazı
+ * göndermelerini ilgili bölüme tıklanabilir hale getirir.
+ *
+ * Kaynak metinde hiç markdown linki yok; bağlantılar burada, üretim sırasında
+ * kuruluyor. Böylece vault'taki yazı temiz kalıyor — Yalçın Obsidian'da
+ * anchor id'leriyle uğraşmadan yazmaya devam ediyor.
+ *
+ * Yalnızca metin düğümlerinde çalışır (HTML etiketlerinin içine dokunmaz) ve
+ * bölümün kendine gönderme yapmasını atlar.
+ */
+function icGondermeleriBagla(html, bolumler) {
+  let suanki = null;   // içinde bulunduğumuz bölümün id'si
+  let sayi = 0;
+  const atlanan = [];
+
+  const cikti = html.split(/(<[^>]+>)/).map((parca) => {
+    if (parca.startsWith('<')) {
+      const m = parca.match(/^<h1 id="([^"]+)"/);
+      if (m) suanki = m[1];
+      return parca;
+    }
+    return parca.replace(GONDERME, (tam, sira, kuyruk) => {
+      const hedef = bolumler[SIRA_SAYISI[sira.toLocaleLowerCase('tr')] - 1];
+      if (!hedef) return tam;
+      if (hedef.id === suanki) { atlanan.push(tam.trim()); return tam; }
+      sayi += 1;
+      return `<a class="gonderme" href="#${hedef.id}">${sira}${kuyruk}</a>`;
+    });
+  }).join('');
+
+  return { html: cikti, sayi, atlanan };
 }
 
 function metniTemizle(ham) {
@@ -117,6 +164,11 @@ function uret() {
   icerik = icerik.replace(/src="(?!https?:|file:)([^"]+)"/g, (_m, p) =>
     `src="${pathToFileURL(join(kaynakDizin, decodeURIComponent(p))).href}"`
   );
+
+  // Bölümler sırayla: "birinci bölüm" = ilk H1, "ikinci bölüm" = ikinci H1 …
+  const bolumler = toc.filter((t) => t.level === 1);
+  const bagli = icGondermeleriBagla(icerik, bolumler);
+  icerik = bagli.html;
 
   const tocHtml = toc.map((t) => {
     const sinif = t.level === 1 ? 'toc-bolum' : t.level === 2 ? 'toc-bolum' : 'toc-alt';
@@ -179,7 +231,10 @@ function uret() {
   p { margin: 0 0 3.2mm; orphans: 3; widows: 3; }
   strong { color: ${RENK.murekkep}; font-weight: 600; }
   em { color: ${RENK.vurgu}; font-style: italic; }
-  a { color: ${RENK.vurgu}; text-decoration: none; }
+  a { color: ${RENK.baglanti}; text-decoration: none; }
+  /* Metin içi bölüm göndermeleri: kalınlık/altçizgi yok, yalnızca ton farkı —
+     akıcı okumayı bozmadan tıklanabilir olduğunu belli etsin. */
+  a.gonderme { color: ${RENK.baglanti}; }
 
   ul, ol { margin: 0 0 3.5mm; padding-left: 6mm; }
   li { margin: 0 0 1.4mm; }
@@ -272,6 +327,10 @@ ${icerik}
   const bolumSayisi = toc.filter((t) => t.level <= 2).length;
   console.log(`✓ kapak.html + govde.html yazıldı → ${CIKTI_DIZIN}`);
   console.log(`  ${bolumSayisi} bölüm, ${toc.length} başlık içindekilerde · yan boşluk ${KENAR}mm · gövde ${PUNTO.govde}pt`);
+  console.log(`  ${bagli.sayi} metin içi bölüm göndermesi bağlandı`);
+  if (bagli.atlanan.length) {
+    console.log(`  ! kendine gönderme atlandı: ${bagli.atlanan.join(', ')}`);
+  }
 }
 
 uret();
