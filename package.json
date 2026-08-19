@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "fetch:ev-data": "node scripts/fetch-iea-ev-data.mjs",
-    "grafik:onizleme": "node scripts/build-grafik-onizleme.mjs"
+    "grafik:onizleme": "node scripts/build-grafik-onizleme.mjs",
+    "e-kitap": "node scripts/e-kitap-pdf.mjs && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=../cikti/kapak.pdf ../cikti/kapak.html && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=../cikti/govde.pdf ../cikti/govde.html && python3 scripts/e-kitap-numarala.py ../cikti/kapak.pdf ../cikti/govde.pdf \"../cikti/Otomotivde-Elektrifikasyon.pdf\""
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
