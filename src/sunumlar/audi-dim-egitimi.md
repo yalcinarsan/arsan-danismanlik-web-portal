@@ -246,47 +246,78 @@ Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağ�
 
 ---
 
-![ODMD, Ocak-Aralık 2025: motor tipine göre otomobil satışları ve pazar dağılımı](public/sunumlar/audi-dim-egitimi/odmd-2025-motor-tipi.png)
+![ODMD, Ocak-Temmuz 2026: motor tipine göre otomobil satışları, bir önceki yılın aynı dönemiyle](public/sunumlar/audi-dim-egitimi/odmd-2026-oca-tem-motor-tipi.svg)
 
 ---
 
-## 2025 Türkiye otomobil pazarı, motor tipine göre
+## Türkiye otomobil pazarı, 2026'nın ilk yedi ayı
 
-Toplam otomobil pazarı **1.084.496 adet** (ODMD, Ocak-Aralık 2025):
+Toplam otomobil pazarı **502.712 adet** (ODMD, Ocak-Temmuz 2026). Geçen yılın aynı döneminde 572.198'di — pazar **%12,1 daraldı.**
 
-- Benzinli: 509.217 adet, **%47,0**
-- Hibrit: 295.378 adet, **%27,2**
-- Elektrikli: 191.960 adet, **%17,7**
-- Dizel: 80.346 adet, **%7,4**
-- Otogazlı: 7.595 adet, **%0,7**
+| Motor tipi | Adet    | Pay   | Geçen yılın aynı dönemine göre |
+| ---------- | ------- | ----- | ------------------------------ |
+| Benzinli   | 208.046 | %41,4 | −%19,8                         |
+| Hibrit     | 165.924 | %33,0 | +%3,5                          |
+| Elektrikli | 94.046  | %18,7 | −%9,0                          |
+| Dizel      | 30.790  | %6,1  | −%32,0                         |
+| Otogazlı   | 3.906   | %0,8  | +%4,1                          |
 
 ---
 
-## Bir yılda ne değişti?
+## Geçen yılki tablo başka bir şey söylüyordu
 
-- Elektrikli: 105.315 → **191.960 adet** (yaklaşık **%82 artış**)
-- Hibrit: 181.590 → **295.378 adet** (**+%62,7**)
-- Benzinli: **−%13,9**
-- Dizel: **−%16,3**
+2025 tam yılında elektrikli **%82 büyümüştü.** 2026'nın ilk yedi ayında **adet olarak %9 küçüldü** — ama payı %18,1'den %18,7'ye çıktı.
 
-Benzinli ve dizel birlikte pazarın **%54,4'ü**; hibrit ve elektrikli birlikte **%44,9'u**. Yani satılan her iki otomobilden biri artık elektrikli bir güç ünitesi taşıyor.
+İkisi birden nasıl doğru olabiliyor: pazarın tamamı, elektrikliden daha hızlı daraldı.
+
+Bu yüzden "elektrikli düşüşte" de eksik bir cümle, "elektrikli yükselişte" de. Doğrusu: **pazar daralırken elektrikli payını korudu, hatta biraz artırdı.**
+
+---
+
+## Bir eşik geçildi
+
+- Benzinli + dizel: **%47,5** (geçen yılın aynı dönemi: %53,2)
+- Hibrit + elektrikli: **%51,7** (geçen yılın aynı dönemi: %46,1)
+
+Türkiye'de satılan her iki otomobilden biri artık elektrikli bir güç ünitesi taşıyor. Geçen yıl bu henüz böyle değildi.
+
+Ama bu cümleyi kurmadan önce bir sonraki slaydı görün.
+
+---
+
+## Büyüyen "hibrit" hangi hibrit?
+
+Hibrit toplamı %3,5 arttı. İçine bakınca tablo değişiyor:
+
+| Hibrit türü            | Oca-Tem 2025 | Oca-Tem 2026 | Değişim    |
+| ---------------------- | ------------ | ------------ | ---------- |
+| Mild hibrit (mHEV)     | 92.302       | 128.402      | **+%39,1** |
+| Hibrit (HEV)           | 38.061       | 34.361       | −%9,7      |
+| Plug-in hibrit (PHEV)  | 30.014       | 3.161        | **−%89,5** |
+
+Büyümenin tamamı **fişe takılmayan** mild hibritten geliyor. Fişe takılan iki seçenek — PHEV ve saf elektrikli — ikisi de geriledi.
+
+PHEV'deki sert düşüş vergi düzenlemesindeki değişiklikle ilişkilendiriliyor; **gerekçe teyit ettirilmeli.** Müşteriye vergi yorumu yapmayın, olguyu aktarın.
 
 ---
 
 ## İki farklı rakam: Şaşırmayın
 
-Az önceki canlı grafik Türkiye için 2025'te yaklaşık **240 bin adet ve %22 pay** gösteriyordu; ODMD ise **191.960 adet ve %17,7** diyor. İkisi de doğru, tanımları farklı:
+Az önceki canlı grafik (IEA, 2025 tam yılı) Türkiye için yaklaşık **240 bin adet ve %22 pay** gösteriyordu; ODMD'nin aynı dönemi **191.960 adet ve %17,7** diyor. İkisi de doğru, tanımları farklı:
 
 - **ODMD'nin "Elektrik" kalemi** tam elektrikli (BEV) araçları sayıyor; şarjlı hibritler "Hibrit" içinde.
 - **IEA'nın "EV" tanımı** şarjlı hibritleri (PHEV) de kapsıyor.
 
 Müşteri karşısında hangi rakamı kullanacağınızı bilin: Türkiye pazarını konuşuyorsanız ODMD, dünyayla karşılaştırma yapıyorsanız IEA.
 
+Not: PHEV 2026'da neredeyse sıfırlandığı için iki tanım arasındaki fark bu yıl kendiliğinden daralıyor.
+
 ---
 
-## Türkiye tablosundan çıkan iki not
+## Türkiye tablosundan çıkan üç not
 
-- Elektrikli artık niş değil, ana akım bir tercih. Hibritle birlikte bakıldığında pazarın büyük bölümü elektrikli bir güç ünitesi taşıyor.
+- **Pazar daralıyor, elektrifikasyon daralmıyor.** Elektrikli güç ünitesi taşıyan otomobiller artık çoğunlukta; geçen yılın aynı döneminde değildi. Soru "gelecek mi" değil, "hangi biçimde".
+- **Fişe takılan taraf 2026'da geriledi.** Saf elektrikli −%8,6, PHEV −%89,5. Bu, müşterinin karşınıza daha tereddütlü geleceği anlamına geliyor.
 - **Premium elektrikli segmenti, premium ICE segmentine oranla daha büyük.** Yani sizin konuştuğunuz müşteri kitlesinde elektrikli oranı, pazar ortalamasının üzerinde.
 
 DİM için anlamı: elektrikli araç soruları (artık) istisna değil.
@@ -296,7 +327,7 @@ DİM için anlamı: elektrikli araç soruları (artık) istisna değil.
 ## Modül 1 — akılda kalacak beş şey
 
 1. Elektrifikasyon otomotivle sınırlı değil ama tartışma otomobil üzerinden yürüyor.
-2. Toplam pazar büyümezken elektrikli segment büyüyor; bu kalıcı bir trend, dalgalanma değil.
+2. Pazar daralırken elektrikli payını koruyor; yön kalıcı, ama 2026'da fişe takılan taraf geriledi.
 3. Elektrik motoru verimli ve basit; asıl sorun **enerjinin depolanması.**
 4. Fikir 190 yıllık; değişen şey bataryanın ağırlığı ve maliyeti.
 5. Türkiye'de premium tarafta elektrikli oranı pazar ortalamasının üzerinde.
@@ -308,21 +339,21 @@ DİM için anlamı: elektrikli araç soruları (artık) istisna değil.
 
 # Temel terminoloji
 
-| Kısaltma | Açılımı | Anlamı |
-| --- | --- | --- |
-| **ICE** | Internal Combustion Engine | İçten yanmalı motor |
-| **EV / EA** | Electric Vehicle | Elektrikli araç (BEV, PHEV, HEV, FCEV'i kapsayan tabir) |
-| **BEV** | Battery Electric Vehicle | Motoruna sadece batarya ile güç veren elektrikli otomobil |
-| **HEV** | Hybrid Electric Vehicle | En az iki güç kaynağı olan otomobil; genellikle benzin + elektrik ya da dizel + elektrik |
-| **mHEV** | Mild Hybrid | Hafif hibrit: elektrik bataryası şarj edilemeyen hibrit |
-| **PHEV** | Plug-in Hybrid Electric Vehicle | Elektrik bataryası prizden şarj edilebilen hibrit |
-| **FCEV** | Fuel Cell Electric Vehicle | Hidrojen yakıt hücresiyle araç içinde elektrik üretip aracı çalıştıran otomobil |
-| **V** | Voltaj | Elektrik potansiyeli, gerilim |
-| **A** | Amper | Elektrik devresinde akımın miktarı |
-| **kW** | Kilowatt | Güç ve şarj hızı birimi. Şarjda (V × A) — örn. 220V × 10A = 2,2 kW |
-| **kWh** | Kilowatt saat | Batarya kapasitesinin en yaygın ölçüsü: bir saatte 1.000 watt güçle kullanılan enerji |
-| **AC** | Alternative Current | Alternatif akım: şebekenin dağıttığı elektrik |
-| **DC** | Direct Current | Direkt akım: bataryanın depolayabildiği akım |
+| Kısaltma    | Açılımı                         | Anlamı                                                                                       |
+| ----------- | ------------------------------- | -------------------------------------------------------------------------------------------- |
+| **ICE**     | Internal Combustion Engine      | İçten yanmalı motor                                                                          |
+| **EV / EA** | Electric Vehicle                | Elektrikli araç (BEV, PHEV, HEV, FCEV'i kapsayan tabir)                                      |
+| **BEV**     | Battery Electric Vehicle        | Motoruna sadece batarya ile güç veren elektrikli otomobil                                    |
+| **HEV**     | Hybrid Electric Vehicle         | En az iki güç kaynağı olan otomobil; genellikle <br>benzin + elektrik ya da dizel + elektrik |
+| **mHEV**    | Mild Hybrid                     | Hafif hibrit: elektrik bataryası şarj edilemeyen hibrit                                      |
+| **PHEV**    | Plug-in Hybrid Electric Vehicle | Elektrik bataryası prizden şarj edilebilen hibrit                                            |
+| **FCEV**    | Fuel Cell Electric Vehicle      | Hidrojen yakıt hücresiyle araç içinde elektrik üretip aracı çalıştıran otomobil              |
+| **V**       | Voltaj                          | Elektrik potansiyeli, gerilim                                                                |
+| **A**       | Amper                           | Elektrik devresinde akımın miktarı                                                           |
+| **kW**      | Kilowatt                        | Güç ve şarj hızı birimi. Şarjda (V × A) — örn. 220V × 10A = 2,2 kW                           |
+| **kWh**     | Kilowatt saat                   | Batarya kapasitesinin en yaygın ölçüsü: <br>bir saatte 1.000 watt güçle kullanılan enerji    |
+| **AC**      | Alternative Current             | Alternatif akım: şebekenin dağıttığı elektrik                                                |
+| **DC**      | Direct Current                  | Direkt akım: bataryanın depolayabildiği akım                                                 |
 
 ---
 
