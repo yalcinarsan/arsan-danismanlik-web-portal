@@ -31,13 +31,27 @@ const seriler = [
             {seriAna}{seriAlt && <>: <span class="text-accent">{seriAlt}</span></>}
           </h2>
 
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((a) => (
+              <ArticleCard
+                slug={a.slug}
+                title={a.data.title}
+                ozet={a.data.ozet}
+                seriBaslik={a.data.seriBaslik}
+                seriNo={a.data.seriNo}
+                tarih={a.data.tarih}
+              />
+            ))}
+          </div>
+
           {/* Bütünleşik metin — dizinin tamamı tek sayfada. Kart grid'in
-              ÜSTÜNDE ve tam genişlikte duruyor ki altı bölümün toplamı
-              olduğu görsel olarak da anlaşılsın. */}
+              ALTINDA ve tam genişlikte: önce altı bölüm görünsün, sonra
+              onların toplamı. Üstte dururken diziyi okumadan "hepsi burada"
+              teklifi geliyordu; altta bir kapanış gibi duruyor. */}
           {seri.key === 'otomotivde-elektrifikasyon' && (
             <a
               href="/makaleler/otomotivde-elektrifikasyon/"
-              class="group block mb-6 rounded-lg border-2 border-accent/40 bg-sand p-6 hover:border-accent transition-colors"
+              class="group block mt-6 rounded-lg border-2 border-accent/40 bg-sand p-6 hover:border-accent transition-colors"
             >
               <div class="flex flex-wrap items-start justify-between gap-4">
                 <div class="min-w-0">
@@ -57,19 +71,6 @@ const seriler = [
               </div>
             </a>
           )}
-
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((a) => (
-              <ArticleCard
-                slug={a.slug}
-                title={a.data.title}
-                ozet={a.data.ozet}
-                seriBaslik={a.data.seriBaslik}
-                seriNo={a.data.seriNo}
-                tarih={a.data.tarih}
-              />
-            ))}
-          </div>
         </div>
       );
     })}
