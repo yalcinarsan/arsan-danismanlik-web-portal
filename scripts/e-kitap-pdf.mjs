@@ -324,8 +324,14 @@ ${icerik}
   writeFileSync(join(CIKTI_DIZIN, 'kapak.html'), kapakHtml, 'utf8');
   writeFileSync(join(CIKTI_DIZIN, 'govde.html'), govdeHtml, 'utf8');
 
+  // Başlık hiyerarşisi yalnızca burada biliniyor — Chrome'un bastığı PDF'te
+  // geriye sadece hedef adları (`/Names/Dests`) kalıyor, hangi başlığın hangi
+  // başlığın altı olduğu kayboluyor. Yer imi ağacını e-kitap-numarala.py
+  // kuruyor; ihtiyacı olan seviye bilgisini bu dosyadan okuyor.
+  writeFileSync(join(CIKTI_DIZIN, 'icindekiler.json'), JSON.stringify(toc), 'utf8');
+
   const bolumSayisi = toc.filter((t) => t.level <= 2).length;
-  console.log(`✓ kapak.html + govde.html yazıldı → ${CIKTI_DIZIN}`);
+  console.log(`✓ kapak.html + govde.html + icindekiler.json yazıldı → ${CIKTI_DIZIN}`);
   console.log(`  ${bolumSayisi} bölüm, ${toc.length} başlık içindekilerde · yan boşluk ${KENAR}mm · gövde ${PUNTO.govde}pt`);
   console.log(`  ${bagli.sayi} metin içi bölüm göndermesi bağlandı`);
   if (bagli.atlanan.length) {
