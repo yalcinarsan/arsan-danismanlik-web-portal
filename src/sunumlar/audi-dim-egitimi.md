@@ -679,16 +679,13 @@ Bunun telefondaki karşılığı şu: **karşınızdaki müşteri konuyu sizden 
 
 ---
 
-## Egzersiz: masadaki telefon
-
-Üç kişilik gruplar, her gruba bir senaryo:
+## Hazırlıklı Olmak Gereken Senaryolar
 
 1. Müşteri 22 kW'lık cihaz taktırmış; "araç 11 kW çekiyor, bana yanlış cihaz mı sattınız" diyor.
 2. Müşteri kışın menzilin %25 düştüğünü söylüyor, "araçta arıza var" diye ısrar ediyor.
 3. Müşteri apartmanda oturuyor, şarj imkânı yok, elektrikli araç istiyor.
 4. Müşteri "bir tam şarj bana kaça mal olur" diye soruyor.
 
-Her grup 5 dakika hazırlanır, ilk 60 saniyelik konuşmayı canlandırır, sonra birlikte üzerinden geçeriz.
 
 ---
 
@@ -798,6 +795,13 @@ Sonuncusu en tehlikelisi: yanlış bir rakam, hızlı çözülmüş bir çağrı
 
 ---
 
+# Sonraki Adım: Connectivity = Bağlantılı Araç
+
+- Katma Değerli Hizmetler - araca uzaktan erişim
+- Kullanıcı Profilleri
+- Rota Planlama
+
+---
 # Soru, yorum ve kapanış
 
 Yalçın Arsan: yalcinarsan@arsandanismanlik.com.tr
