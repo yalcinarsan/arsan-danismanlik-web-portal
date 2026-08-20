@@ -12,7 +12,7 @@ cta_kurum: "Kurumlar için: Bize ulaşın"
 kurum_eposta: yalcinarsan@arsandanismanlik.com.tr
 imza: Yalçın Arsan · Arsan Danışmanlık
 ---
-Otomotiv, içindeki insanlara en çok benzeyen sektörlerden biri. Bu sektörün çalışanları, marka ve iş yapma biçimlerinin oluşturduğu bir kültürün içinde yetişir: Hangi işin nasıl yapılacağı, o iş için “*doğru profil*”in ne olduğu yazılı olmayan ama hepimizin bildiği bir kural kitabında durur. Sektörümüzün belki de en ayırt edici özelliği ise şudur: **Otomotivci olan, otomotivci kalır**. Sadakat yüksektir; otomotiv insanları marka ve kurumlar arasında dolaşır ama sektör dışına nadiren çıkar.  
+Otomotiv, içindeki insanlara en çok benzeyen sektörlerden biri. Bu sektörün çalışanları, marka ve iş yapma biçimlerinin oluşturduğu bir kültürün içinde yetişir: Hangi işin nasıl yapılacağı, o iş için '*doğru profil*'in ne olduğu yazılı olmayan ama hepimizin bildiği bir kural kitabında durur. Sektörümüzün belki de en ayırt edici özelliği ise şudur: **Otomotivci olan, otomotivci kalır**. Sadakat yüksektir; otomotiv insanları marka ve kurumlar arasında dolaşır ama sektör dışına nadiren çıkar.  
   
 **Otomotivin insan kaynağı, genel İK platformlarının diliyle anlatılamayacak kadar kendine özgü.** Bir özgeçmişte "satış yöneticisi" yazar; ama otomotivci bilir ki bir üreticide satış yönetmek, distribütörde satış yönetmek ve bayide satış yönetmek üç ayrı meslektir. Genel platformlar bu ayrımı göremez. Biz görürüz.
 
@@ -35,7 +35,7 @@ Otomotiv İnsanı, kurumlara bu havuzu sunma amacıyla yapılanıyor. Otomotive 
   
 ---  
 
-Otomotiv İnsanı'nı kademeli kuruyoruz; ilk aday havuzunu yaz aylarında açtık. İlk adım, sektör profesyonellerini bir araya getirerek aday havuzunu oluşturmak. Bireysel olarak kayıt olmak sadece birkaç dakika sürüyor; eposta ile kayıt olup hesabını doğruluyorsun, verilerin KVKK çerçevesinde, açık rızanla ve **senin belirlediğin görünürlük seviyesinde** saklanıyor.
+Otomotiv İnsanı'nı kademeli kuruyoruz; ilk aday havuzunu 1 Ağustos 2026'da açtık. İlk adım, sektör profesyonellerini bir araya getirerek aday havuzunu oluşturmak. Bireysel olarak kayıt olmak sadece birkaç dakika sürüyor; eposta ile kayıt olup hesabını doğruluyorsun, verilerin KVKK çerçevesinde, açık rızanla ve **senin belirlediğin görünürlük seviyesinde** saklanıyor.
 
 Devamında işveren tarafı (kurumsal kayıt), eğitim işlevleri ve iki tarafı buluşturan platform geliyor — Ama önce insan; çünkü bu işin adı da, özü de o: **Otomotiv İnsanı.**
 
