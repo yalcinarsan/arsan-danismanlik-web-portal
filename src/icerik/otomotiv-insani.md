@@ -9,6 +9,23 @@ cta_kurum: "Kurumlar için: Bize ulaşın"
 kurum_eposta: yalcinarsan@arsandanismanlik.com.tr
 imza: Yalçın Arsan · Arsan Danışmanlık
 ---
+<!-- ALAN NOTLARI — sayfada görünmez, editör silmez (YAML değil, gövdede).
+     Yeni bir alanın özel durumu varsa buraya bir satır ekle.
+
+  seo_baslik    Tarayıcı sekmesi + Google sonucu. Aranan ifade ÖNDE olsun;
+                marka adı tek başına arama getirmez. Sayfada görünmez.
+  seo_aciklama  Google sonucundaki iki satır + sosyal medya paylaşımı.
+                ~155 karakteri geçerse Google kesiyor. Sayfada görünmez.
+  etiket        H1'in üstündeki küçük turuncu üst-başlık.
+  baslik        Sayfanın H1'i. Büyük serif, kahraman bölümünde.
+  slogan        H1'in hemen altındaki tanıtım cümlesi, ayrı renk ve punto.
+  cta_aday      BUTON YAZISI (adres şablonda sabit: /kariyer/kayit).
+                Cümle değil etiket — kısa tut.
+  cta_kurum     İkinci buton. mailto'ya dönüşüyor, konu satırı şablonda kodlu.
+  kurum_eposta  Yukarıdaki butonun gittiği adres.
+  imza          Sayfanın en altındaki imza satırı.
+-->
+
 Otomotiv, içindeki insanlara en çok benzeyen sektörlerden biri. Bu sektörün çalışanları, marka ve iş yapma biçimlerinin oluşturduğu bir kültürün içinde yetişir: Hangi işin nasıl yapılacağı, o iş için '*doğru profil*'in ne olduğu yazılı olmayan ama hepimizin bildiği bir kural kitabında durur. Sektörümüzün belki de en ayırt edici özelliği ise şudur: **Otomotivci olan, otomotivci kalır**. Sadakat yüksektir; otomotiv insanları marka ve kurumlar arasında dolaşır ama sektör dışına nadiren çıkar.  
   
 **Otomotivin insan kaynağı, genel İK platformlarının diliyle anlatılamayacak kadar kendine özgü.** Bir özgeçmişte "satış yöneticisi" yazar; ama otomotivci bilir ki bir üreticide satış yönetmek, distribütörde satış yönetmek ve bayide satış yönetmek üç ayrı meslektir. Genel platformlar bu ayrımı göremez. Biz görürüz.
