@@ -21,8 +21,8 @@
 # Grafiklerin kendisi (renkler, veri, seriler) src/components/charts/chartConfigs.ts
 # dosyasında — bu dosya sadece YAZI içerir, koda hiç dokunmaz.
 
-baslik_tag: "EA Verileri"
-aciklama: "IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü."
+seo_baslik: "EA Verileri"
+seo_aciklama: "IEA Global EV Outlook verisiyle dünya, Avrupa ve Türkiye elektrikli araç pazarının interaktif görünümü."
 
 h1: "Elektrikli Araç Verileri"
 giris: >-

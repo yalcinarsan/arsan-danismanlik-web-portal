@@ -8,8 +8,9 @@
 #
 # Metnin gövdesi "---" çizgisinin ALTINDA, normal markdown olarak yazılır.
 
+seo_baslik: "Kişisel Verilerin Korunması"
 baslik: "Kişisel Verilerin Korunması"
-aciklama: "Otomotiv İnsanı yetenek platformu — KVKK aydınlatma metni ve açık rıza beyanı."
+seo_aciklama: "Otomotiv İnsanı yetenek platformu — KVKK aydınlatma metni ve açık rıza beyanı."
 taslak: false
 guncelleme: "2026-07-22"
 ---

@@ -13,6 +13,15 @@ site otomatik olarak yeni metni kullanır.
 
 | Dosya | Neyi kontrol eder |
 |---|---|
+> **`src/icerik/` dosyalarındaki alan adları:** `seo_` ile başlayan alanlar
+> **sayfada görünmez** — tarayıcı sekmesinde, Google sonucunda ve sosyal medya
+> paylaşımında çıkar. Geri kalan tüm alanlar sayfada görünür.
+>
+> Neden bazı görünür metinler gövdede değil de üstteki alanlarda: gövde şablona
+> tek bir blok olarak giriyor, içine ayrı ayrı konumlanamıyor. Tasarımda kendi
+> yeri olan her metin (başlık, slogan, buton etiketi, imza) adlandırılmış bir
+> alan olmak zorunda. Kural: **paragrafsa gövdeye, tasarımda yuvası varsa üste.**
+
 | [src/icerik/ev-verileri.md](arsandanismanlik-web/src/icerik/ev-verileri.md) | **EA Verileri** sayfasının tüm metni — başlık, giriş, her grafiğin altındaki not |
 | [src/icerik/otomotiv-insani.md](arsandanismanlik-web/src/icerik/otomotiv-insani.md) | **Otomotiv İnsanı manifestosu** — üstteki alanlar (başlık, slogan, buton yazıları, e-posta) + gövde metni |
 | [src/icerik/kvkk.md](arsandanismanlik-web/src/icerik/kvkk.md) | **KVKK aydınlatma metni**. `taslak: true` olduğu sürece sayfada "hukukçu onayı bekleniyor" uyarısı çıkar ve sayfa arama motorlarına kapalıdır |

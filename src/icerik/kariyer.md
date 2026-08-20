@@ -2,12 +2,8 @@
 # Kariyer sayfasının (/kariyer) metni. Serbestçe düzenleyebilirsin.
 # Üstteki alanlar sayfanın başı ve alttaki keşfet kutusu; "---" çizgisinin altı gövde metni.
 
-# baslik_tag ve aciklama SAYFADA GÖRÜNMEZ — tarayıcı sekmesi, Google sonucu ve
-# sosyal medya paylaşımında görünen başlık/açıklama. Arama niyetine göre yazılır:
-# kimse "Otomotiv İnsanı" diye aramıyor (markayı henüz bilmiyor), "otomotivde
-# kariyer" diye arıyor. Bu yüzden marka adı değil, aranan ifade önde.
-baslik_tag: "Otomotivde kariyer"
-aciklama: >-
+seo_baslik: "Otomotivde kariyer"
+seo_aciklama: >-
   Otomotive özgü yetenek platformu Otomotiv İnsanı — elektrifikasyon dönüşümünü
   taşıyacak sektör profesyonelleriyle, ekibini geleceğe hazırlayan kurumları
   buluşturuyor.

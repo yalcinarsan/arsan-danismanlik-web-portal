@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Content, frontmatter } from '../icerik/hakkimizda.md';
 
-const { baslik, aciklama } = frontmatter;
+const { seo_baslik, baslik, seo_aciklama } = frontmatter;
 ---
-<BaseLayout title={baslik} description={aciklama}>
+<BaseLayout title={seo_baslik} description={seo_aciklama}>
   <section class="mx-auto max-w-2xl px-4 py-16">
     <h1 class="text-3xl font-semibold text-ink mb-10">{baslik}</h1>
 

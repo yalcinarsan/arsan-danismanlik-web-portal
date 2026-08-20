@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Content, frontmatter } from '../icerik/kvkk.md';
 
-const { baslik, aciklama, taslak, guncelleme } = frontmatter;
+const { seo_baslik, baslik, seo_aciklama, taslak, guncelleme } = frontmatter;
 const guncellemeStr = new Intl.DateTimeFormat('tr-TR', { dateStyle: 'long' }).format(new Date(guncelleme));
 ---
-<BaseLayout title={baslik} description={aciklama}>
+<BaseLayout title={seo_baslik} description={seo_aciklama}>
   {/* Taslak sürüm arama motorlarına kapalı — hukukçu onayı gelince frontmatter'da taslak: false yapılır. */}
   {taslak && <meta name="robots" content="noindex, nofollow" slot="head" />}
 

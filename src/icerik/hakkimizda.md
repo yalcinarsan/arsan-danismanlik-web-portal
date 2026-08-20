@@ -2,8 +2,9 @@
 # Hakkımızda sayfasının içeriği. Serbestçe düzenleyebilirsin.
 # Üstteki alanlar sayfanın başı; "---" çizgisinin altı gövde metni.
 
+seo_baslik: "Hakkımızda"
 baslik: "Hakkımızda"
-aciklama: "Arsan Danışmanlık ve kurucusu Yalçın Arsan — otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı."
+seo_aciklama: "Arsan Danışmanlık ve kurucusu Yalçın Arsan — otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı."
 kurucu_unvan: "Yalçın Arsan · Kurucu, Yönetim Danışmanı"
 linkedin: "https://www.linkedin.com/in/yalcinarsan/"
 x_hesabi: "https://x.com/yalcinarsan"
