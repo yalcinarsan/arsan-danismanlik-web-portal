@@ -17,7 +17,7 @@
     "db:durum": "supabase migration list --linked",
     "db:cek": "supabase db pull",
     "db:uygula": "supabase db push",
-    "gorsel:og": "node scripts/build-og-gorsel.mjs"
+    "gorsel:logo": "python3 scripts/build-logo-varliklari.py"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
