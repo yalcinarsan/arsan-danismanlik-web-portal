@@ -13,7 +13,14 @@ const {
   title,
   description = 'Otomotiv ve elektrifikasyon odaklı yönetim danışmanlığı.',
   ogType = 'website',
-  image = '/images/logo-wordmark.png',
+  // Paylaşım görseli (og:image). Sayfa kendi görselini geçmezse bu kullanılır
+  // — pratikte sitenin tamamında bu çıkıyor.
+  //
+  // logo-wordmark.png DEĞİL: o 248x70 ve kart tipi summary_large_image, yani
+  // X/LinkedIn 1200x630 bekliyor; wordmark o alanda bulanık büyüyordu.
+  // og-arsan.png marka zemininde ortalanmış, ölçülü bir logo.
+  // Üreteci: scripts/build-og-gorsel.mjs (npm run gorsel:og)
+  image = '/images/og-arsan.png',
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://arsandanismanlik.com.tr');

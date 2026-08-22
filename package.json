@@ -16,7 +16,8 @@
     "db:bagla": "supabase link --project-ref wwpkgwndgephkuwpnjov",
     "db:durum": "supabase migration list --linked",
     "db:cek": "supabase db pull",
-    "db:uygula": "supabase db push"
+    "db:uygula": "supabase db push",
+    "gorsel:og": "node scripts/build-og-gorsel.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
