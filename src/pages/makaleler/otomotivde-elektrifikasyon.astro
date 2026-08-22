@@ -55,6 +55,11 @@ const bolumler = await Promise.all(
 
 const SIRA = ['Birinci', 'İkinci', 'Üçüncü', 'Dördüncü', 'Beşinci', 'Altıncı', 'Yedinci', 'Sekizinci'];
 
+// İçindekiler'de bölüm numaraları ROMA rakamı. Sebep: makalelerin kendi alt
+// başlıkları da numaralı ("1. Tesla: Ölçek Ekonomisi Çelişkisi"), menüde iki
+// kademe yan yana gelince Arap rakamları birbirine karışıyordu.
+const ROMA = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+
 
 const baslik = 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi';
 const aciklama =
@@ -100,7 +105,7 @@ const aciklama =
                 data-target={b.kimlik}
                 class="toc-link block -ml-px border-l-2 border-transparent pl-3 font-medium text-ink/80 hover:text-accent transition-colors"
               >
-                <span class="text-warm-400 tabular-nums">{b.no}.</span> {b.baslik}
+                <span class="text-warm-400 inline-block w-8 shrink-0">{ROMA[b.no - 1]}.</span>{b.baslik}
               </a>
               {b.altBasliklar.length > 0 && (
                 <ul class="mt-2 space-y-1.5">
