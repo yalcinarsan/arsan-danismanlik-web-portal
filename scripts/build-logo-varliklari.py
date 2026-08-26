@@ -64,6 +64,11 @@ yaz(kare_yerlestir(amblem, 256, (0, 0, 0, 0), 0.86), 'logo-mark.png')
 #     o yüzden marka zeminine oturtuluyor. 180x180 Apple'ın istediği ölçü.
 yaz(kare_yerlestir(amblem, 180, PAPER, 0.62).convert('RGB'), 'apple-touch-icon.png')
 
+# --- twitter:card=summary için KARE paylaşım görseli. Küçük kartta küçük-resim
+#     kare gösteriliyor; geniş 1200x630 kareye kırpılınca kenarlar kesiliyordu.
+#     Marka zemininde ortalanmış amblem — küçükken en okunur olan bu.
+yaz(kare_yerlestir(amblem, 600, PAPER, 0.60).convert('RGB'), 'og-kare.png')
+
 # --- Paylaşım görseli (og:image). Kapak değil: marka zemininde ölçülü logo.
 #     Sosyal kartlar akışta ~500-600px görünüyor; 1200'lük tuvalde 440px logo
 #     ekranda ~220px'e denk geliyor. Artık master'dan geldiği için tam net.

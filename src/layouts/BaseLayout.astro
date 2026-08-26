@@ -26,6 +26,8 @@ const {
 const site = Astro.site ?? new URL('https://arsandanismanlik.com.tr');
 const canonical = new URL(Astro.url.pathname, site).href;
 const ogImage = new URL(image, site).href;
+// Twitter küçük kartı için kare küçük-resim (geniş og:image kareye kötü kırpılıyor).
+const ogKare = new URL('/images/og-kare.png', site).href;
 const fullTitle = `${title} · Arsan Danışmanlık`;
 
 const orgGraph = {
@@ -99,10 +101,15 @@ const orgGraph = {
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:image" content={ogImage} />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    {/* Küçük kart: logo bir "kapak" değil, küçük bir küçük-resim. Büyük kart
+        (summary_large_image) yalnızca gerçekten güçlü bir görsel olan sayfalar
+        için anlamlı; logolu sayfalarda koca boş tuval kalıyordu. twitter:image
+        KARE (og-kare.png) — küçük kart küçük-resmi kareye kırpıyor. og:image
+        (geniş) LinkedIn/WhatsApp için duruyor. */}
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogKare} />
     <meta name="twitter:creator" content="@yalcinarsan" />
 
     {/* İkonların hepsi src/varliklar/logo-master.png'den üretiliyor —
