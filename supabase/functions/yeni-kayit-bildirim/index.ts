@@ -22,7 +22,7 @@ Deno.serve(async (req) => {
     html = [
       `<p><strong>${kurum}</strong> bir aday için <strong>temas talebi</strong> gönderdi.</p>`,
       `<p>Kurum e-posta: ${kayit.kurum_eposta ?? ''}<br>Aday ID: ${kayit.aday_id ?? ''}${kayit.aciklama ? `<br>Not: ${kayit.aciklama}` : ''}</p>`,
-      `<p><a href="https://supabase.com/dashboard/project/wwpkgwndgephkuwpnjov/editor">temas_talepleri tablosunu aç</a></p>`,
+      `<p><a href="https://supabase.com/dashboard/project/wwpkgwndgephkuwpnjov/editor/18357">temas_talepleri tablosunu aç</a></p>`,
     ].join('\n');
   } else {
     const ad = kayit.ad ?? '(isimsiz)';

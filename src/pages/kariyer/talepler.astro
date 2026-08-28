@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TalepListesi from '../../components/TalepListesi.tsx';
+---
+<BaseLayout title="Temas talepleri" description="Kurumlardan gelen temas taleplerinin yönetici görünümü.">
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Otomotiv İnsanı</p>
+    <h1 class="text-3xl font-semibold text-ink mb-3">Temas talepleri</h1>
+    <p class="text-warm-600 mb-10">Abone kurumların adaylara gönderdiği temas talepleri. Adayla iletişime geç, kararına göre durumu güncelle.</p>
+    <TalepListesi client:load />
+  </section>
+</BaseLayout>
