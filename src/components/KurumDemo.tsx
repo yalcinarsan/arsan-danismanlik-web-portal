@@ -41,6 +41,10 @@ type Aday = {
   gorunurluk: string;
   sertifika_var: boolean;
   cv_var: boolean;
+  // Abone kurum, AÇIK profillerde bunları görür (sunucu maskeliyken null döner).
+  ad?: string | null;
+  son_kurum?: string | null;
+  son_pozisyon?: string | null;
 };
 
 function Etiket({ children }: { children: React.ReactNode }) {
@@ -95,6 +99,10 @@ export default function KurumDemo() {
   const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [acikId, setAcikId] = useState<string | null>(null);
   const [talepId, setTalepId] = useState<string | null>(null);
+  const [abone, setAbone] = useState(false);
+  const [talepGonderiliyor, setTalepGonderiliyor] = useState<string | null>(null);
+  const [talepBasarili, setTalepBasarili] = useState<string[]>([]);
+  const [talepHata, setTalepHata] = useState('');
 
   const [fKanal, setFKanal] = useState('');
   const [fFonksiyon, setFFonksiyon] = useState('');
@@ -120,10 +128,23 @@ export default function KurumDemo() {
 
     // Yetki kontrolü burada değil, fonksiyonun içinde. Listede değilsen
     // 42501 (-> HTTP 403) döner ve aşağıdaki dala düşeriz.
-    const { data, error } = await supabase.rpc('kurum_havuzu');
-    if (error) { setHata(anlasilirHata(error, 'okuma')); setDurum('yetkisiz'); return; }
-    setAdaylar((data ?? []) as Aday[]);
+    const [havuz, kademe] = await Promise.all([
+      supabase.rpc('kurum_havuzu'),
+      supabase.rpc('kurum_kademem'),
+    ]);
+    if (havuz.error) { setHata(anlasilirHata(havuz.error, 'okuma')); setDurum('yetkisiz'); return; }
+    setAbone(kademe.data === 'abone');
+    setAdaylar((havuz.data ?? []) as Aday[]);
     setDurum('liste');
+  }
+
+  /** Abone kurum → gerçek temas talebi (sunucuda abone doğrulaması var). */
+  async function temasGonder(adayId: string) {
+    setTalepHata(''); setTalepGonderiliyor(adayId);
+    const { error } = await supabase.rpc('temas_talebi_gonder', { p_aday_id: adayId });
+    setTalepGonderiliyor(null);
+    if (error) { setTalepHata(anlasilirHata(error)); return; }
+    setTalepBasarili((s) => [...s, adayId]);
   }
 
   /** Açık oturumu kapatıp e-posta formuna döner. */
@@ -246,13 +267,23 @@ export default function KurumDemo() {
   return (
     <div>
       <div className="rounded-lg border border-accent/30 bg-sand p-4 mb-8">
-        <p className="text-sm text-ink leading-relaxed">
-          <strong>Kurum görünümü — örnek.</strong> Veriler havuzdaki gerçek kayıtlardan geliyor.
-          <strong> Bu örnek ekranda hiçbir ismi göstermiyoruz.</strong> Gerçek kullanımda adayın
-          kendi tercihi geçerli olur: “açık” profillerin adı abone kuruma görünür; “kapalı”
-          profillerde kimlik ancak temas talebini aday kabul ederse paylaşılır. Her adayın
-          tercihi kartında yazıyor. İletişim her aşamada Arsan Danışmanlık üzerinden yürür.
-        </p>
+        {abone ? (
+          <p className="text-sm text-ink leading-relaxed">
+            <strong>Abonelik görünümü.</strong> <strong>Açık</strong> profillerin adını ve iş
+            bilgilerini görüyorsun; <strong>kapalı</strong> profillerde kimlik gizli, yalnızca
+            yetkinlikler görünür. Bir adaya ulaşmak istersen “Temas talebi gönder” — talebi adaya
+            Arsan Danışmanlık iletir; aday kabul ederse kimliğini ve iletişimini paylaşır. İletişim
+            her aşamada Arsan üzerinden yürür.
+          </p>
+        ) : (
+          <p className="text-sm text-ink leading-relaxed">
+            <strong>Kurum görünümü — örnek.</strong> Veriler havuzdaki gerçek kayıtlardan geliyor.
+            <strong> Bu örnek ekranda hiçbir ismi göstermiyoruz.</strong> Gerçek kullanımda adayın
+            kendi tercihi geçerli olur: “açık” profillerin adı abone kuruma görünür; “kapalı”
+            profillerde kimlik ancak temas talebini aday kabul ederse paylaşılır. Her adayın
+            tercihi kartında yazıyor. İletişim her aşamada Arsan Danışmanlık üzerinden yürür.
+          </p>
+        )}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
@@ -304,6 +335,7 @@ export default function KurumDemo() {
           // yapılandırılmış alanlardan kuruyoruz — kimliğe götürmez ama iş anlamı taşır.
           const baslik = [kidemEtiket(aday.kidem), (aday.fonksiyon ?? []).map(fonksiyonEtiket).join(' · ')]
             .filter(Boolean).join(' · ');
+          const isimGoster = abone && aday.gorunurluk === 'acik' && !!aday.ad;
           return (
             <div key={aday.id} className="rounded-lg border border-warm-border overflow-hidden">
               <button
@@ -312,9 +344,11 @@ export default function KurumDemo() {
                 className="w-full flex flex-wrap items-center justify-between gap-3 px-5 py-4 text-left hover:bg-sand/50 transition-colors"
               >
                 <div className="min-w-0">
-                  <p className="font-medium text-ink">{baslik}</p>
+                  <p className="font-medium text-ink">{isimGoster ? aday.ad : baslik}</p>
                   <p className="text-sm text-warm-500 mt-0.5">
-                    {(aday.kanal ?? []).map(kanalEtiket).join(', ')} · {deneyimEtiket(aday.deneyim_yili)} · {aday.bolge}
+                    {isimGoster
+                      ? `${baslik} · ${aday.bolge}`
+                      : `${(aday.kanal ?? []).map(kanalEtiket).join(', ')} · ${deneyimEtiket(aday.deneyim_yili)} · ${aday.bolge}`}
                   </p>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
@@ -336,6 +370,9 @@ export default function KurumDemo() {
               {acik && (
                 <div className="px-5 pb-5 pt-1 border-t border-warm-border">
                   <dl>
+                    {isimGoster && <Satir etiket="Ad" deger={aday.ad} />}
+                    {isimGoster && <Satir etiket="Son kurum" deger={aday.son_kurum} />}
+                    {isimGoster && <Satir etiket="Son pozisyon" deger={aday.son_pozisyon} />}
                     <Satir etiket="Kıdem" deger={kidemEtiket(aday.kidem)} />
                     <Satir etiket="Toplam deneyim" deger={deneyimEtiket(aday.deneyim_yili)} />
                     <Satir etiket="Fonksiyon" deger={(aday.fonksiyon ?? []).map(fonksiyonEtiket).join(', ')} />
@@ -355,7 +392,23 @@ export default function KurumDemo() {
                       }
                     />
                   </dl>
-                  {talepId === aday.id ? (
+                  {abone ? (
+                    talepBasarili.includes(aday.id) ? (
+                      <div className="mt-4 rounded-md border border-accent/40 bg-sand p-3 text-sm text-ink">
+                        Talebin bize ulaştı. Adaya ileteceğiz; kabul ederse kimliğini ve iletişimini
+                        seninle paylaşırız.
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        disabled={talepGonderiliyor === aday.id}
+                        onClick={() => temasGonder(aday.id)}
+                        className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium disabled:opacity-60"
+                      >
+                        {talepGonderiliyor === aday.id ? 'Gönderiliyor…' : 'Temas talebi gönder'}
+                      </button>
+                    )
+                  ) : talepId === aday.id ? (
                     <div className="mt-4 rounded-md border border-accent/40 bg-sand p-3 text-sm text-ink">
                       Örnek akış: talep Arsan Danışmanlık'a iletilir, adaya kurumunuzun kim olduğu
                       söylenir. Aday kabul ederse kimliği ve özgeçmişi sizinle paylaşılır.
@@ -375,6 +428,7 @@ export default function KurumDemo() {
           );
         })}
       </div>
+      {talepHata && <p className="mt-4 text-sm text-accent">{talepHata}</p>}
       {hata && <p className="mt-4 text-sm text-accent">{hata}</p>}
     </div>
   );

@@ -8,6 +8,8 @@ node_modules/
 # environment
 .env
 .env.production
+.env.local
+.env*.local
 
 # editor/os
 .DS_Store
