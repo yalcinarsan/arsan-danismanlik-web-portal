@@ -30,6 +30,29 @@ function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
   );
 }
 
+// Kabul edilmiş bir talep için sıcak tanıştırma e-postası taslağı hazırlar.
+// Gönderimi yapmaz — yalnızca iki tarafı adresleyip gövdeyi doldurarak
+// kullanıcının kendi e-posta uygulamasını açar (mailto). Son sözü kullanıcı verir.
+function tanistirmaMailto(t: Talep): string {
+  const aday = t.aday_ad ?? 'Aday';
+  const kurum = t.kurum ?? 'kurum';
+  const tanim = [t.aday_son_pozisyon, t.aday_son_kurum].filter(Boolean).join(' · ');
+  const konu = `Tanışma — ${aday} & ${kurum}`;
+  const govde = [
+    `Merhaba ${kurum} ekibi ve ${aday},`,
+    ``,
+    `Sizi tanıştırmak isterim. ${aday}${tanim ? `, ${tanim}` : ''}; ${kurum} ekibi profiliyle ilgilendi, ${aday} da görüşmeye açık olduğunu belirtti.`,
+    ``,
+    `Bundan sonrasını size bırakıyorum — uygun bir zamanda tanışıp konuşabilirsiniz. Süreçte yardımcı olabileceğim bir şey olursa buradayım.`,
+    ``,
+    `Sevgiler,`,
+    `Yalçın Arsan`,
+    `Otomotiv İnsanı · Arsan Danışmanlık`,
+  ].join('\r\n');
+  const alicilar = [t.kurum_eposta, t.aday_eposta].filter(Boolean).join(',');
+  return `mailto:${alicilar}?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(govde)}`;
+}
+
 export default function TalepListesi() {
   const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [eposta, setEposta] = useState('');
@@ -179,6 +202,20 @@ export default function TalepListesi() {
                   </button>
                 ))}
               </div>
+
+              {t.durum === 'kabul' && t.aday_eposta && (
+                <div className="mt-4 border-t border-warm-border/60 pt-4">
+                  <a
+                    href={tanistirmaMailto(t)}
+                    className="inline-block rounded-md bg-accent px-5 py-2 text-sm text-white font-medium"
+                  >
+                    Tanıştırma e-postası hazırla
+                  </a>
+                  <p className="mt-2 text-xs text-warm-500">
+                    İki tarafın adresi ve hazır bir taslakla e-posta uygulamanı açar. Göndermeden önce sen düzenlersin.
+                  </p>
+                </div>
+              )}
             </div>
           );
         })}
