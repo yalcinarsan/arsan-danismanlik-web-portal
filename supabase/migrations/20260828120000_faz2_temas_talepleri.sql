@@ -8,11 +8,9 @@
 --
 -- NOT (bildirim tetikleyicileri): temas_talepleri'ne INSERT olunca ve adaylar'a
 -- yeni kayıt gelince Yalçın'a e-posta atan iki webhook fonksiyonu + tetikleyici
--- CANLIDA var ama gövdelerinde gömülü bir 'x-webhook-secret' taşıyor. Repo
--- public olduğu için onları BURAYA koymuyoruz (sır sızmasın + bu dosya yanlışlıkla
--- canlıya uygulanınca çalışan sırrı ezmesin). Redakte edilmiş referansları:
---   supabase/reference/bildirim-webhooklari.sql
--- Taze ortam kurulurken bildirimleri oradan (gerçek secret ile) kur.
+-- ayrı bir migration'da: 20260830120000_bildirim_webhooklari_vault.sql
+-- (30 Ağu'da sır Supabase Vault'a taşındı; fonksiyon gövdeleri artık sırsız,
+-- o yüzden normal migration akışına girebildiler).
 -- ============================================================================
 
 
