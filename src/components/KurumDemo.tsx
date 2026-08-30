@@ -20,6 +20,7 @@ import {
   elektrifikasyonEtiket, calismaEtiket, aciklikEtiket,
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
+import { SITE_EPOSTA } from '../lib/site';
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';
@@ -172,7 +173,7 @@ export default function KurumDemo() {
     }
     if (!izinli) {
       setGonderiliyor(false);
-      setHata('Bu e-posta için kurum görünümü erişimi tanımlı değil. Erişim talebiniz için yalcinarsan@arsandanismanlik.com.tr adresine yazabilirsiniz.');
+      setHata(`Bu e-posta için kurum görünümü erişimi tanımlı değil. Erişim talebiniz için ${SITE_EPOSTA} adresine yazabilirsiniz.`);
       return;
     }
 
@@ -226,7 +227,7 @@ export default function KurumDemo() {
             Çıkış yap ve başka e-posta ile gir
           </button>
           <a className="text-accent underline text-sm"
-            href="mailto:yalcinarsan@arsandanismanlik.com.tr">Erişim talebi gönder</a>
+            href={`mailto:${SITE_EPOSTA}`}>Erişim talebi gönder</a>
         </div>
       </div>
     );

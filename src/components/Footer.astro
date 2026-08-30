@@ -1,4 +1,5 @@
 ---
+import { SITE_EPOSTA } from '../lib/site';
 const year = new Date().getFullYear();
 ---
 <footer class="border-t border-warm-border mt-16">
@@ -12,8 +13,8 @@ const year = new Date().getFullYear();
       <div class="sm:text-right">
         <p><a href="tel:+905336806710" class="hover:text-accent">+90 533 680 6710</a></p>
         <p>
-          <a href="mailto:yalcinarsan@arsandanismanlik.com.tr" class="hover:text-accent">
-            yalcinarsan@arsandanismanlik.com.tr
+          <a href={`mailto:${SITE_EPOSTA}`} class="hover:text-accent">
+            {SITE_EPOSTA}
           </a>
         </p>
         <p class="mt-2"><a href="/kvkk" class="hover:text-accent">Kişisel Verilerin Korunması</a></p>

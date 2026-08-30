@@ -5,8 +5,7 @@ import {
   elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket,
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
-
-const ADMIN_EPOSTA = 'yalcinarsan@arsandanismanlik.com.tr';
+import { ADMIN_EPOSTA } from '../lib/site';
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';

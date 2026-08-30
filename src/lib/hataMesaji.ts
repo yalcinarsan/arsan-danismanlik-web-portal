@@ -6,7 +6,9 @@
  * anlamsız bir şey düşüyordu. Aday hiçbir zaman ham hata görmemeli.
  */
 
-const DESTEK_EPOSTA = 'yalcinarsan@arsandanismanlik.com.tr';
+import { SITE_EPOSTA } from './site';
+
+const DESTEK_EPOSTA = SITE_EPOSTA;
 
 /** Ham hatayı okunabilir bir metne indirger; boş/anlamsızsa null döner. */
 function hamMetin(hata: unknown): string | null {

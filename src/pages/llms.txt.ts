@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { SITE_EPOSTA } from '../lib/site';
 
 const BASE = 'https://arsandanismanlik.com.tr';
 
@@ -86,7 +87,7 @@ export const GET: APIRoute = async () => {
   out.push('## İletişim');
   out.push('');
   out.push('- Kurucu: Yalçın Arsan, Yönetim Danışmanı');
-  out.push('- E-posta: yalcinarsan@arsandanismanlik.com.tr');
+  out.push(`- E-posta: ${SITE_EPOSTA}`);
   out.push('- Adres: Fatih Sultan Mehmet Mah, Buyaka İş Kule 3, 34771 Ümraniye / İstanbul');
   out.push('');
 
