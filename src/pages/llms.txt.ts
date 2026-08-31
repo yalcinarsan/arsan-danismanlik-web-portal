@@ -46,9 +46,12 @@ export const GET: APIRoute = async () => {
   out.push('## Danışmanlık hizmetleri');
   out.push('');
   out.push(
-    'Arsan Danışmanlık, Türkiye merkezli, otomotiv ve ilişkili sektörlere odaklı bir yönetim danışmanlığı şirketidir (kuruluş: 2009). Dört ana hizmet:'
+    'Arsan Danışmanlık, Türkiye merkezli, otomotiv ve ilişkili sektörlere odaklı bir yönetim danışmanlığı şirketidir (kuruluş: 2009). Ana hizmet ve ürünleri:'
   );
   out.push('');
+  out.push(
+    `- [Otomotiv Satış ve Dağıtım Sistemi](${BASE}/otomotiv-satis-dagitim-sistemi/): Türkiye’de satış ve dağıtım yapılanmasını kuran otomotiv markaları için işletim modeli tasarımı ve konfigüre edilebilir platform.`
+  );
   out.push(
     `- [Yönetim Danışmanlığı](${BASE}/hizmetlerimiz/yonetim-danismanligi): Otomotiv ve ilişkili sektörlerde sorun çözme, planlama, değişim ve gelişime yönelik danışmanlık.`
   );

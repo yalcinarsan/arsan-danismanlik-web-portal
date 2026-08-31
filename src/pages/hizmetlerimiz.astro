@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OtomotivSistemiKarti from '../components/OtomotivSistemiKarti.astro';
 ---
-<BaseLayout title="Hizmetlerimiz" description="Yönetim danışmanlığı, elektrifikasyon dönüşüm danışmanlığı ve çalıştayı, vizyon & misyon yaratma seansı.">
+<BaseLayout title="Hizmetlerimiz" description="Otomotiv satış ve dağıtım işletim sistemi, yönetim danışmanlığı, elektrifikasyon dönüşüm danışmanlığı ve kurumsal çalıştaylar.">
   <section class="mx-auto max-w-2xl px-4 py-16">
     <h1 class="text-3xl font-semibold text-ink mb-6">Ne Yaparız?</h1>
     <p class="text-lg leading-relaxed text-warm-700 mb-12">
@@ -10,6 +11,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
 
     <div class="space-y-12">
+      <OtomotivSistemiKarti etiket="Çalışan ürün" />
+
       <a
         href="/hizmetlerimiz/yonetim-danismanligi"
         class="block border border-warm-border rounded-lg p-6 hover:border-accent transition-colors"

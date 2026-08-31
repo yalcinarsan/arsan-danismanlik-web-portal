@@ -48,7 +48,9 @@ kod işaretlerine (`<p class="...">` gibi) dokunmamak gerekir — emin değilsen
 |---|---|
 | [src/pages/index.astro](arsandanismanlik-web/src/pages/index.astro) | Ana sayfa (Biz kimiz / Ne yaparız / Nasıl yaparız + kartlar) |
 | [src/pages/hizmetlerimiz.astro](arsandanismanlik-web/src/pages/hizmetlerimiz.astro) | Hizmetlerimiz ana sayfası |
-| [src/pages/hizmetlerimiz/](arsandanismanlik-web/src/pages/hizmetlerimiz/) | Dört hizmet alt sayfası |
+| [src/pages/hizmetlerimiz/](arsandanismanlik-web/src/pages/hizmetlerimiz/) | Danışmanlık ve çalıştay alt sayfaları |
+| [src/pages/otomotiv-satis-dagitim-sistemi.astro](arsandanismanlik-web/src/pages/otomotiv-satis-dagitim-sistemi.astro) | Otomotiv Satış ve Dağıtım Sistemi ürün sayfası |
+| [src/components/OtomotivSistemiKarti.astro](arsandanismanlik-web/src/components/OtomotivSistemiKarti.astro) | Ana sayfa ve Hizmetlerimiz’deki kısa ürün kartı |
 | [src/pages/kariyer/index.astro](arsandanismanlik-web/src/pages/kariyer/index.astro) | Kariyer — "çok yakında" tanıtım sayfası |
 | [src/pages/kariyer/kayit.astro](arsandanismanlik-web/src/pages/kariyer/kayit.astro) | Kayıt sayfasının başlık ve açıklaması |
 | [src/pages/referanslar.astro](arsandanismanlik-web/src/pages/referanslar.astro) | Referanslar |

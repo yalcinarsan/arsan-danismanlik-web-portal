@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OtomotivSistemiKarti from '../components/OtomotivSistemiKarti.astro';
 
 const kimizNeYapariz = [
   {
@@ -20,7 +21,7 @@ const pillars = [
   {
     href: '/hizmetlerimiz',
     title: 'Hizmetlerimiz',
-    text: 'Elektrifikasyon çalıştayından vizyon & misyon yaratma seanslarına, kurumunuzun ihtiyacına göre şekillenen dört hizmet.',
+    text: 'Otomotiv satış ve dağıtım sisteminden elektrifikasyon ve yönetim danışmanlığına, kurumunuzun ihtiyacına göre şekillenen hizmetler.',
   },
   {
     href: '/makaleler',
@@ -47,6 +48,10 @@ const pillars = [
         <p class="text-sm text-warm-600 leading-relaxed">{k.text}</p>
       </div>
     ))}
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 pb-16">
+    <OtomotivSistemiKarti etiket="Yeni ürün" />
   </section>
 
   <div class="bg-sand">
