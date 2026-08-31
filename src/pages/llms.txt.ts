@@ -50,7 +50,7 @@ export const GET: APIRoute = async () => {
   );
   out.push('');
   out.push(
-    `- [Otomotiv Satış ve Dağıtım Sistemi](${BASE}/otomotiv-satis-dagitim-sistemi/): Türkiye’de satış ve dağıtım yapılanmasını kuran otomotiv markaları için işletim modeli tasarımı ve konfigüre edilebilir platform.`
+    `- [Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi](${BASE}/otomotiv-satis-dagitim-sistemi/): Türkiye’de otomotiv sipariş, stok ve satış yapılanmasını kuran markalar için işletim modeli tasarımı ve konfigüre edilebilir platform.`
   );
   out.push(
     `- [Yönetim Danışmanlığı](${BASE}/hizmetlerimiz/yonetim-danismanligi): Otomotiv ve ilişkili sektörlerde sorun çözme, planlama, değişim ve gelişime yönelik danışmanlık.`

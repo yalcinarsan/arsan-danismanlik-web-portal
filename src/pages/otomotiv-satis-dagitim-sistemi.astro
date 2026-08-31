@@ -5,9 +5,9 @@ import { SITE_EPOSTA } from '../lib/site';
 const sorular = [
   'Satışı kim yapacak: Üretici, distribütör, acente veya Bayi?',
   'Ürün, sipariş ve fiziksel araç birbiriyle nasıl eşleşecek?',
-  'Tekil araç ve VIN hangi aşamada, kim tarafından kaydedilecek?',
-  'Her taraf hangi bilgiyi görecek ve hangi işlemi yapabilecek?',
-  'Tescil, ödeme, sevkiyat ve teslimat görevleri nasıl izlenecek?',
+  'Araç siparişi hangi aşamada, sıradaki adım ne?',
+  'Hangi taraf, hangi bilgiyi görecek, hangi işlemi yapabilecek?',
+  'Tescil, ödeme, sevkiyat ve teslimat gibi görevler nasıl izlenecek?',
 ];
 
 const sabitVeYapilandirilan = [
@@ -68,18 +68,18 @@ const calisanKapsam = [
 ];
 
 const hedefKurumlar = [
-  'Türkiye’de satış ve dağıtım yapılanmasını kuran otomotiv markaları',
+  'Türkiye’de henüz satış ve dağıtım yapılanmasını kurmamış otomotiv markaları',
   'Yeni üreticiler ve elektrikli mobilite girişimleri',
-  'Türkiye pazarına yeni giren distribütörler',
-  'Mevcut kanal ve teslimat modelini yeniden kurmak isteyen otomotiv şirketleri',
+  'Türkiye pazarına yeni giren marka ve distribütörler',
+  'Mevcut kanal ve teslimat modelini yeniden kurmak ya da revize etmek isteyen otomotiv şirketleri',
 ];
 
-const description = 'Türkiye’de satış ve dağıtım yapılanmasını kuran otomotiv markaları için işletim modeli tasarımı ve konfigüre edilebilir platform.';
+const description = 'Türkiye’de otomotiv sipariş, stok ve satış yapılanmasını kuran markalar için işletim modeli tasarımı ve konfigüre edilebilir platform.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Otomotiv Satış ve Dağıtım Sistemi',
+  name: 'Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi',
   description,
   provider: { '@id': 'https://arsandanismanlik.com.tr/#organization' },
   areaServed: { '@type': 'Country', name: 'Türkiye' },
@@ -120,7 +120,7 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title="Otomotiv Satış ve Dağıtım Sistemi"
+  title="Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi"
   description={description}
   image="/images/services/otomotiv-satis-dagitim-sistemi.webp"
 >
@@ -133,7 +133,7 @@ const faqSchema = {
     <div class="mx-auto max-w-5xl px-4 py-14 sm:py-20">
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-accent">Otomotiv işletim sistemi</p>
       <h1 class="max-w-4xl text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-        Otomotiv Satış ve Dağıtım Sistemi
+        Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi
       </h1>
       <p class="mt-7 max-w-4xl text-2xl font-medium leading-snug text-ink sm:text-3xl">
         Türkiye’de kurulu satış ve satış sonrası ağı olmayan markalar için paket çözüm.
@@ -195,9 +195,10 @@ const faqSchema = {
       </ul>
     </div>
     <p class="mt-10 max-w-4xl text-lg leading-relaxed text-warm-700">
-      Bu cevaplar ayrı belgelerde ve farklı sistemlerde kaldığında sipariş ile araç arasındaki bağ zayıflar,
-      sorumluluklar belirsizleşir ve teslimat görünürlüğü kaybolur. Platform, bütün tarafların kendi yetkileri
-      ölçüsünde aynı operasyon kaydı üzerinde çalışmasını sağlar.
+      Bu cevaplar ayrı belgeler ve farklı sistemlerde tutulduğunda sipariş, araç, bayi ve müşteri arasındaki bağ
+      zayıflar, akış ve sorumluluklar belirsizleşir ve stok, teknik kontrol aşamaları ve teslimat gibi kritik
+      adımların görünürlüğü kaybolur. Platform, tarafların yetkileri ölçüsünde aynı operasyon akışı üzerinde
+      çalışmasını sağlar.
     </p>
   </section>
 
@@ -209,21 +210,21 @@ const faqSchema = {
           <p class="text-sm font-semibold text-accent">01</p>
           <h3 class="mt-3 text-xl font-semibold text-ink">İşletim modeli</h3>
           <p class="mt-3 leading-relaxed text-warm-600">
-            Kanal yapısını, aktörleri, sorumlulukları, karar noktalarını ve ilk canlı kapsamı üreticiyle birlikte netleştiririz.
+            Satış kanalı yapısı, aktörleri, sorumlulukları, karar noktaları ve sistemin ilk canlı kapsamı üreticiyle birlikte netleştirilir.
           </p>
         </article>
         <article class="rounded-xl border border-warm-border bg-paper p-6">
           <p class="text-sm font-semibold text-accent">02</p>
           <h3 class="mt-3 text-xl font-semibold text-ink">Çalışan çekirdek yapı</h3>
           <p class="mt-3 leading-relaxed text-warm-600">
-            Kurumları, kullanıcıları, ürün ağacını, sipariş ve tekil araç/VIN kayıtlarını, yetkileri ve denetim izini hazır platform çekirdeği üzerinde kurarız.
+            Kurumlar, kullanıcılar, ürün ağacı, sipariş ve tekil araç/VIN kayıtları, yetkiler ve denetim izi hazır platform çekirdeği üzerinde kurulur.
           </p>
         </article>
         <article class="rounded-xl border border-warm-border bg-paper p-6">
           <p class="text-sm font-semibold text-accent">03</p>
-          <h3 class="mt-3 text-xl font-semibold text-ink">İlk kapsamı devreye alma</h3>
+          <h3 class="mt-3 text-xl font-semibold text-ink">İlk kapsam &amp; devreye alma</h3>
           <p class="mt-3 leading-relaxed text-warm-600">
-            Seçilen akışları, gerekli belgeleri ve ilk kapsam için zorunlu bağlantıları tamamlar; iki taraflı kullanıcı testiyle kontrollü açılışa geçeriz.
+            Seçilen akışlar, gerekli rapor ve belgeler ile ilk kapsam için zorunlu bağlantılar tamamlanır; iki taraflı kullanıcı testiyle kontrollü açılışa geçilir.
           </p>
         </article>
       </div>
@@ -327,7 +328,7 @@ const faqSchema = {
     <div class="mx-auto grid max-w-5xl gap-10 px-4 py-14 sm:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
       <div>
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#dc9a78]">Çalışan referans uygulama</p>
-        <h2 class="text-3xl font-semibold text-paper">Çekirdek yapı hemen çalışır</h2>
+        <h2 class="text-3xl font-semibold text-paper">Çekirdek yapı çalışır ve test edilir</h2>
         <p class="mt-5 text-lg leading-relaxed text-[#ddd5ca]">
           Üretici ve Bayi, aynı kalıcı veri üzerinde ayrı kullanıcı hesapları ve farklı yetkilerle çalışır.
         </p>
@@ -340,6 +341,10 @@ const faqSchema = {
           </li>
         ))}
       </ul>
+      <p class="text-sm leading-relaxed text-[#ddd5ca] lg:col-start-2">
+        Bu akış, platformun bitmiş sınırı değildir. Kurumlar arası yetki, tekil araç/VIN ve ortak operasyon kaydı
+        üzerine kurulu ürün çekirdeğinin çalışan kanıtıdır. Talebe göre yeni işlevler eklenir, çıkarılır ya da revize edilir.
+      </p>
     </div>
   </section>
 
@@ -360,14 +365,14 @@ const faqSchema = {
         <h2 class="text-3xl font-semibold text-ink">Neden Arsan Danışmanlık?</h2>
         <div class="mt-6 space-y-5 text-lg leading-relaxed text-warm-700">
           <p>
-            Bu bir web sitesi veya genel amaçlı iş yazılımı projesi değildir. Türkiye’de bir aracın müşteriye
-            ulaşması; kanal modeli, tekil araç/VIN, tahsis, tescil, ödeme ve teslimat kararlarının aynı işletim
-            modeli içinde ele alınmasını gerektirir.
+            OSSS sistemi genel amaçlı bir yazılım projesi değil. Türkiye otomotiv sektöründe bir aracın müşteriye
+            ulaşması; üretici markanın benimseyeceği satış kanalı modeli, araç tanımı, sipariş, sevkiyat, stok,
+            tescil, ödeme ve teslimat adımlarının aynı işletim modeli içinde ele alınmasını gerektirir.
           </p>
           <p>
-            Arsan Danışmanlık otomotiv işletim bilgisi ile sistemi kurma kabiliyetini bir araya getirir. Çıktı
-            yalnızca bir öneri raporu veya tek başına bir yazılım değil, size özel tasarlanmış ve çalışır hâle
-            getirilmiş bir işletim modelidir.
+            Arsan Danışmanlık otomotiv bilgisi ile sektöre özgü sistem kurma pratiğini bir araya getirir. Bu
+            çalışmanın çıktısı bir danışmanlık raporu ya da tek başına çalışan bir yazılım değil, sizin
+            ihtiyaçlarınıza özel tasarlanmış ve çalışır hâle getirilmiş bir işletim modelidir.
           </p>
         </div>
       </div>
@@ -376,7 +381,7 @@ const faqSchema = {
 
   <section class="mx-auto max-w-5xl px-4 pb-8 sm:pb-12">
     <div class="rounded-2xl bg-sand px-6 py-10 text-center sm:px-10 sm:py-14">
-      <h2 class="text-3xl font-semibold text-ink">Türkiye yapılanmanızı birlikte değerlendirelim</h2>
+      <h2 class="text-3xl font-semibold text-ink">Türkiye’deki otomotiv yapılanmanızı birlikte değerlendirelim</h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-warm-700">
         Türkiye’de otomobil satmak için bir altyapı çözümü arıyorsanız mevcut durumunuzu ve ilk operasyonel kapsamı konuşalım.
       </p>

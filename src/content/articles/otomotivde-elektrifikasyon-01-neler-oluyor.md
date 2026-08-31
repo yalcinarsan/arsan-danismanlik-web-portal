@@ -14,7 +14,7 @@ ozet: "EA (Elektrikli Araç) Geçişinin Finansal Anatomisi — Tesla, Ford, BYD
 
 ## Sektörün Kimlik Krizi
 
-Otomotiv sektöründe ilk işim, 1990 yılında küçük bir Opel bayisinde satış görevlisiydi. Takip eden 30 yıl boyunca hep sektörün temel gerçekliklerinin ne kadar katı ve klasik olduğunu düşündüm: Üretici — Distribütör — Bayii — Müşteri döngüsü hiç kırılmadı. Uzun yıllar boyu aynı çerçevede çalıştık; ne yeni bir marka gördük ne de yenilikçi bir iş modeli.
+Otomotiv sektöründe ilk işim, 1990 yılında küçük bir Opel bayisinde satış görevlisiydi. Takip eden 30 yıl boyunca hep sektörün temel gerçekliklerinin ne kadar katı ve klasik olduğunu düşündüm: Üretici — Distribütör — Bayi — Müşteri döngüsü hiç kırılmadı. Uzun yıllar boyu aynı çerçevede çalıştık; ne yeni bir marka gördük ne de yenilikçi bir iş modeli.
 
 Ta ki elektrifikasyon furyasının etkisini hissettirmeye başladığı 2020'li yıllara kadar.
 

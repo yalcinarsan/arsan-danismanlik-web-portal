@@ -156,7 +156,7 @@ Bu ve benzeri ince detaylar ve üzerine konuşulması gereken şirkete özgü bi
 
 ## Bilançonun Söyleyemedikleri
 
-Bilanço tarihi maliyet ve muhasebe kuralları üzerine inşa edilmiş bir rapor formatı. Varlıkların güncel piyasa değerini, on yıllar içinde inşa edilmiş bir markanın değerini, geniş bir bayii ağının stratejik avantajını ya da bir iyi yönetilen müşteri ilişkisinin gücünü söyleyemez. Bunlar gerçek — zaman zaman çok büyük — değer kaynaklarıdır ama çoğu zaman sayfalarda yer almaz. Bunları şirketin içindeki önemli pozisyonlardaki kişilerle konuşarak yüzeye çıkarmak gerekir.
+Bilanço tarihi maliyet ve muhasebe kuralları üzerine inşa edilmiş bir rapor formatı. Varlıkların güncel piyasa değerini, on yıllar içinde inşa edilmiş bir markanın değerini, geniş bir bayi ağının stratejik avantajını ya da bir iyi yönetilen müşteri ilişkisinin gücünü söyleyemez. Bunlar gerçek — zaman zaman çok büyük — değer kaynaklarıdır ama çoğu zaman sayfalarda yer almaz. Bunları şirketin içindeki önemli pozisyonlardaki kişilerle konuşarak yüzeye çıkarmak gerekir.
 
 Finansal analiz kavramının bu kısıtı, maddi olmayan değerin baskın olduğu sektörlerde en belirgin şekilde hissedilir. Bir yazılım şirketinin bilançosu mütevazı bir varlık gösterebilir; gerçek değer kodunda, kullanıcı tabanında ve ağ etkilerinde yaşar.
 

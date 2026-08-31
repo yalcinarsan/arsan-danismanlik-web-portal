@@ -35,7 +35,7 @@ Bu rakamın altında ne yatıyor? Müşteriyi incelemeye bu sorudan başlayalım
 <figcaption>Tipik EV erken alıcısı profili.</figcaption>
 </figure>
 
-Türkiye'de muadil halka açık veri yok ama bayii ve sahadan gelen gözlem benzer bir tabloya işaret ediyor: orta-üst sınıf, büyük şehir, profesyonel meslek grupları, teknolojiye açık tüketici.
+Türkiye'de muadil halka açık veri yok ama bayi ve sahadan gelen gözlem benzer bir tabloya işaret ediyor: orta-üst sınıf, büyük şehir, profesyonel meslek grupları, teknolojiye açık tüketici.
 
 Bu profilin tamamı sıralandığında ortaya çıkan kişi şu: **yenilikçi, (nispeten) varlıklı, sosyal etkisi olan, hızlı karar veren, çevresel ve toplumsal duyarlılığı yüksek biri.** Otomobilini sadece bir mobilite aracı olarak değil, kim olduğunu ifade eden bir araç olarak görüyor.
 
@@ -120,7 +120,7 @@ Yani müşterinin önündeki tablo şu: EA alım anında biraz daha pahalı, sah
 Geldik belki de en çarpıcı tespitimize: Müşteri, EA geçişine sektör profesyonellerinden daha hazır. Yurt dışı bir araştırmayı referans olarak alacağım; ama Türkiye'de de durum çok benzer.
 
 <figure>
-<img src="/images/articles/musteri-ne-diyor/06-musteri-hazir-satici-degil.png" alt="EA geçişi için kim neye inanıyor? Tüketici ve bayii karşılaştırması: EA gelecek 10 yılda ICE'ı büyük ölçüde ikame eder - Tüketici %53, Bayii %31; OEM tarafından EA altyapı yatırımına zorlandığını söyleyen bayii %82; EA yatırımının kârlılığa olumsuz etki edeceğini düşünen %42, olumlu düşünen %13" />
+<img src="/images/articles/musteri-ne-diyor/06-musteri-hazir-satici-degil.png" alt="EA geçişi için kim neye inanıyor? Tüketici ve bayi karşılaştırması: EA gelecek 10 yılda ICE'ı büyük ölçüde ikame eder - Tüketici %53, Bayi %31; OEM tarafından EA altyapı yatırımına zorlandığını söyleyen bayi %82; EA yatırımının kârlılığa olumsuz etki edeceğini düşünen %42, olumlu düşünen %13" />
 <figcaption>Kaynak: Cox Automotive 2024, Kerrigan Advisors 2026</figcaption>
 </figure>
 
@@ -130,9 +130,9 @@ Böyle bir durumda geçişin hızlandırıcısı kim olacak?
 
 Satışın doğal akışı satıcıdan müşteriye doğru. Burada ise akış ters yönde: Müşteri kategorik olarak elektrikli araca doğru gidiyor, satıcı ise geri durmaya çalışıyor.
 
-Üçüncü yazıda bahsettiğim marka – bayii arasında yaşanan kısır döngüyü hatırlayalım: marka baskı artırır → bayi maliyetleri artar → bayi mazeret üretir → marka "bayi kalitesi düşük" der → ve yine baskı artırır.
+Üçüncü yazıda bahsettiğim marka – bayi arasında yaşanan kısır döngüyü hatırlayalım: marka baskı artırır → bayi maliyetleri artar → bayi mazeret üretir → marka "bayi kalitesi düşük" der → ve yine baskı artırır.
 
-Şimdi bunun bir başka versiyonu görüyoruz: Ana marka "EA satılmıyor" ya da "dizel / benzili de satacağız" deyince bayinin kafası karışıyor; bayii gönülsüz olduğunda müşteri yeterli güveni alamıyor; müşteri tereddüt ettiğinde satış oluşmuyor; ana marka "ben demiştim, müşteri hazır değil" diyor.
+Şimdi bunun bir başka versiyonu görüyoruz: Ana marka "EA satılmıyor" ya da "dizel / benzili de satacağız" deyince bayinin kafası karışıyor; bayi gönülsüz olduğunda müşteri yeterli güveni alamıyor; müşteri tereddüt ettiğinde satış oluşmuyor; ana marka "ben demiştim, müşteri hazır değil" diyor.
 
 Oysa müşteri sadece netlik ve somut fayda istiyor.
 

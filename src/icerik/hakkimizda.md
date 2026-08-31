@@ -12,7 +12,7 @@ x_hesabi: "https://x.com/yalcinarsan"
 
 ## Arsan Danışmanlık
 
-Otomotiv ve ilişkili sektörlere odaklanan bir yönetim danışmanlığı şirketidir. Kurumsal dönüşüm, elektrifikasyon stratejisi, yönetici koçluğu ve değişim yönetimi alanlarında, üretici, distribütör ve bayii (perakende) deneyimi üzerine çalışır ve proje üretiriz.
+Otomotiv ve ilişkili sektörlere odaklanan bir yönetim danışmanlığı şirketidir. Kurumsal dönüşüm, elektrifikasyon stratejisi, yönetici koçluğu ve değişim yönetimi alanlarında, üretici, distribütör ve bayi (perakende) deneyimi üzerine çalışır ve proje üretiriz.
 
 ## Yalçın Arsan <span class="unvan">· Kurucu, Yönetim Danışmanı</span>
 

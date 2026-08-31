@@ -16,7 +16,7 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 - **Repo:** [`yalcinarsan/arsan-danismanlik-web-portal`](https://github.com/yalcinarsan/arsan-danismanlik-web-portal) (public). Git kökü bu klasör (`arsandanismanlik-web/`).
 - **Yayınlama akışı:** `main` dalına her `git push`, **Cloudflare Pages**'i otomatik tetikler (~1-2 dk içinde canlıya çıkar). Elle bir "yayınla" adımı yok — commit atmak = yayınlamak.
 - **Yerel geliştirme:** `npm run dev` (port 4321).
-- **Otomotiv Satış ve Dağıtım Sistemi:** Ürün tanıtımı `/otomotiv-satis-dagitim-sistemi/` adresinde; ana sayfa ve `/hizmetlerimiz` üzerindeki ortak kısa kart bu sayfaya bağlanıyor. Çalışan uygulama ayrı alt alanda: `platform.arsandanismanlik.com.tr`.
+- **Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi:** Ürün tanıtımı `/otomotiv-satis-dagitim-sistemi/` adresinde; ana sayfa ve `/hizmetlerimiz` üzerindeki ortak kısa kart bu sayfaya bağlanıyor. Çalışan uygulama ayrı alt alanda: `platform.arsandanismanlik.com.tr`.
 
 ### Hosting & domain
 - **Site hosting:** Cloudflare Pages, **ücretsiz** katman.
@@ -56,6 +56,9 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 ---
 
 ## 3. Karar Günlüğü
+
+**2026-08-31 — Ürün sayfasının ikinci metin revizyonu**
+Kamuya açık çalışma adı **Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi** olarak kullanılmaya başlandı; kalıcı ürün/marka adı ayrıca netleştirilecek. Obsidian'daki kaynak metne göre sorun tanımı, kurulum modeli, çalışan çekirdek, hedef kurumlar ve Arsan Danışmanlık gerekçesi güncellendi. Terminolojide “bayi” yazımı esas alındı.
 
 **2026-08-31 — Otomotiv Satış ve Dağıtım Sistemi ürün sayfası**
 Ürünün kamuya açık anlatısı, Arsan Danışmanlık sitesi içinde bağımsız `/otomotiv-satis-dagitim-sistemi/` adresine yerleştirildi; ana sayfa ile Hizmetlerimiz sayfasındaki ortak kısa kart bu adrese bağlandı. Ürün anlatısının düzenleme kaynağı Online Otomobil Satış Platformu Obsidian vault'undaki `A - Ürün/Web Sitesi - Ürün Sayfası Taslağı.md`; site kodu yayımlanan sunum katmanı olarak kalır. Çalışan referans uygulama ayrı `platform.arsandanismanlik.com.tr` alt alanında yaşamaya devam eder; erişim gerektirmeyen tam demo hazır olana kadar kamuya açık ürün sayfasından bu giriş ekranına bağlantı verilmez.
