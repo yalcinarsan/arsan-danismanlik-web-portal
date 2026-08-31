@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Content, frontmatter, rawContent } from '../../icerik/sss.md';
+
+const { seo_baslik, seo_aciklama, etiket, baslik, giris } = frontmatter;
+
+// SSS şeması (FAQPage) — sayfadaki metnin TEK kaynağı sss.md olsun diye burada
+// üretiliyor: ### ile başlayan her satır bir soru, altındaki metin cevabı.
+// Böylece metni sss.md'den düzenledikçe hem sayfa hem şema birlikte güncellenir.
+const sorular = rawContent()
+  .split(/^###\s+/m)
+  .slice(1)
+  .map((blok) => {
+    const satirSonu = blok.indexOf('\n');
+    const soru = (satirSonu === -1 ? blok : blok.slice(0, satirSonu)).trim();
+    const cevap = (satirSonu === -1 ? '' : blok.slice(satirSonu + 1))
+      .split(/^##\s+/m)[0] // sonraki bölüm başlığına kadar
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // [metin](url) -> metin
+      .replace(/[*_`>#]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    return { soru, cevap };
+  })
+  .filter((s) => s.soru && s.cevap);
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sorular.map((s) => ({
+    '@type': 'Question',
+    name: s.soru,
+    acceptedAnswer: { '@type': 'Answer', text: s.cevap },
+  })),
+};
+---
+<BaseLayout title={seo_baslik} description={seo_aciklama} ogType="website">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqLd)} />
+
+  <section class="mx-auto max-w-2xl px-4 py-16 sm:py-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">{etiket}</p>
+    <h1 class="font-serif text-4xl sm:text-5xl leading-[1.1] text-ink mb-5">{baslik}</h1>
+    <p class="text-lg leading-relaxed text-warm-600">{giris}</p>
+
+    <div class="prose max-w-none mt-14
+      prose-headings:font-serif prose-headings:text-ink
+      prose-h2:text-2xl prose-h2:font-medium prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-2 prose-h2:border-b prose-h2:border-warm-border
+      prose-h3:text-xl prose-h3:font-medium prose-h3:text-ink prose-h3:mt-9 prose-h3:mb-2 prose-h3:scroll-mt-20
+      prose-p:text-[17px] prose-p:leading-[1.75] prose-p:text-warm-700
+      prose-strong:text-ink prose-strong:font-semibold
+      prose-a:text-accent prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+      marker:text-accent">
+      <Content />
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-warm-border">
+      <p class="text-warm-600 mb-5">Sorun burada yanıtlanmadı mı?</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/kariyer/kayit"
+           class="inline-flex items-center rounded-md bg-accent px-6 py-3 text-white font-medium hover:opacity-90 transition-opacity">
+          Otomotiv İnsanı'na katıl
+        </a>
+        <a href="mailto:yalcinarsan@arsandanismanlik.com.tr?subject=Otomotiv%20%C4%B0nsan%C4%B1%20%E2%80%94%20Soru"
+           class="inline-flex items-center rounded-md border border-warm-border px-6 py-3 text-ink font-medium hover:border-accent transition-colors">
+          Bize yazın
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
