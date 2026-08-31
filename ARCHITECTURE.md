@@ -58,7 +58,7 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 ## 3. Karar Günlüğü
 
 **2026-08-31 — Otomotiv Satış ve Dağıtım Sistemi ürün sayfası**
-Ürünün kamuya açık anlatısı, Arsan Danışmanlık sitesi içinde bağımsız `/otomotiv-satis-dagitim-sistemi/` adresine yerleştirildi; ana sayfa ile Hizmetlerimiz sayfasındaki ortak kısa kart bu adrese bağlandı. Ürün anlatısının düzenleme kaynağı Online Otomobil Satış Platformu Obsidian vault'undaki `A - Ürün/Web Sitesi - Ürün Sayfası Taslağı.md`; site kodu yayımlanan sunum katmanı olarak kalır. Çalışan referans uygulama ayrı `platform.arsandanismanlik.com.tr` alt alanında yaşamaya devam eder.
+Ürünün kamuya açık anlatısı, Arsan Danışmanlık sitesi içinde bağımsız `/otomotiv-satis-dagitim-sistemi/` adresine yerleştirildi; ana sayfa ile Hizmetlerimiz sayfasındaki ortak kısa kart bu adrese bağlandı. Ürün anlatısının düzenleme kaynağı Online Otomobil Satış Platformu Obsidian vault'undaki `A - Ürün/Web Sitesi - Ürün Sayfası Taslağı.md`; site kodu yayımlanan sunum katmanı olarak kalır. Çalışan referans uygulama ayrı `platform.arsandanismanlik.com.tr` alt alanında yaşamaya devam eder; erişim gerektirmeyen tam demo hazır olana kadar kamuya açık ürün sayfasından bu giriş ekranına bağlantı verilmez.
 
 **2026-07-07 — Site yeniden inşası, teknoloji seçimi**
 Coda Sites'tan ayrılıp kod-tabanlı bir yapıya geçme kararı. Framework: **Astro** seçildi (içerik ağırlıklı, gerektiğinde React island). Yeni, tek bir repo (`arsandanismanlik-web`) açıldı.
