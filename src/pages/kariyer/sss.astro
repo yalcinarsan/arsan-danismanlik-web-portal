@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Content, frontmatter, rawContent } from '../../icerik/sss.md';
+import OtomotivInsaniLinkleri from '../../components/OtomotivInsaniLinkleri.astro';
 
 const { seo_baslik, seo_aciklama, etiket, baslik, giris } = frontmatter;
 
@@ -66,5 +67,7 @@ const faqLd = {
         </a>
       </div>
     </div>
+
+    <OtomotivInsaniLinkleri />
   </section>
 </BaseLayout>

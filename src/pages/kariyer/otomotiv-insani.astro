@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Content, frontmatter } from '../../icerik/otomotiv-insani.md';
+import OtomotivInsaniLinkleri from '../../components/OtomotivInsaniLinkleri.astro';
 
 const { seo_baslik, seo_aciklama, etiket, baslik, slogan, cta_aday, cta_kurum, kurum_eposta, imza } = frontmatter;
 const mailto = `mailto:${kurum_eposta}?subject=${encodeURIComponent('Otomotiv İnsanı — Kurumsal')}`;
@@ -36,11 +37,10 @@ const mailto = `mailto:${kurum_eposta}?subject=${encodeURIComponent('Otomotiv İ
             {cta_kurum}
           </a>
         </div>
-        <p class="mt-6 text-sm">
-          <a href="/kariyer/sss" class="text-accent hover:underline">Sık sorulan sorular</a>
-        </p>
         <p class="mt-8 text-sm text-[#a89d8b]">{imza}</p>
       </div>
+
+      <OtomotivInsaniLinkleri koyu />
 
     </div>
   </div>

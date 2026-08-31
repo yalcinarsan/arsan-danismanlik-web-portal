@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Content, frontmatter } from '../../icerik/kariyer.md';
+import OtomotivInsaniLinkleri from '../../components/OtomotivInsaniLinkleri.astro';
 
 const { seo_baslik, seo_aciklama, etiket, baslik, giris, kesfet_baslik, kesfet_metin } = frontmatter;
 ---
@@ -25,5 +26,7 @@ const { seo_baslik, seo_aciklama, etiket, baslik, giris, kesfet_baslik, kesfet_m
       </div>
       <span class="shrink-0 text-accent font-medium group-hover:translate-x-1 transition-transform">→</span>
     </a>
+
+    <OtomotivInsaniLinkleri />
   </section>
 </BaseLayout>

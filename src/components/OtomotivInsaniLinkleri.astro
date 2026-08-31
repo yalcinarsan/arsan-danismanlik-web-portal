@@ -1,0 +1,37 @@
+---
+// Otomotiv İnsanı bölümünün küçük, tutarlı bağlantı satırı ("bölüm footer'ı").
+// OI sayfalarının altına konur; bulunulan sayfa link değil, düz metin gösterilir.
+// Koyu zeminli manifesto için `koyu` varyantı var.
+import { SITE_EPOSTA } from '../lib/site';
+
+interface Props {
+  koyu?: boolean;
+}
+const { koyu = false } = Astro.props;
+
+const links = [
+  { href: '/kariyer/otomotiv-insani', label: 'Otomotiv İnsanı' },
+  { href: '/kariyer/kayit', label: 'Kayıt ol' },
+  { href: '/kariyer/sss', label: 'Sık sorulan sorular' },
+  { href: `mailto:${SITE_EPOSTA}`, label: 'İletişim' },
+];
+
+const current = Astro.url.pathname.replace(/\/$/, '');
+const t = koyu
+  ? { kenar: 'border-[#6a5540]', soluk: 'text-[#a89d8b]', aktif: 'text-paper' }
+  : { kenar: 'border-warm-border', soluk: 'text-warm-500', aktif: 'text-ink' };
+---
+<nav aria-label="Otomotiv İnsanı bölümü" class={`mt-16 border-t ${t.kenar} pt-6`}>
+  <ul class={`flex flex-wrap items-center gap-x-5 gap-y-2 text-sm ${t.soluk}`}>
+    {links.map((l) => {
+      const aktif = l.href === current;
+      return (
+        <li>
+          {aktif
+            ? <span class={`${t.aktif} font-medium`} aria-current="page">{l.label}</span>
+            : <a href={l.href} class="hover:text-accent transition-colors">{l.label}</a>}
+        </li>
+      );
+    })}
+  </ul>
+</nav>

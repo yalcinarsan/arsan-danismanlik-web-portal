@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProfilimGorunumu from '../../components/ProfilimGorunumu.tsx';
+import OtomotivInsaniLinkleri from '../../components/OtomotivInsaniLinkleri.astro';
 ---
 <BaseLayout
   title="Otomotiv İnsanı — Profilim"
@@ -11,5 +12,7 @@ import ProfilimGorunumu from '../../components/ProfilimGorunumu.tsx';
     <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Otomotiv İnsanı</p>
     <h1 class="text-3xl font-semibold text-ink mb-10">Profilim</h1>
     <ProfilimGorunumu client:load />
+
+    <OtomotivInsaniLinkleri />
   </section>
 </BaseLayout>
