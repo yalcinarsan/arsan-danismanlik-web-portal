@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_EPOSTA } from '../lib/site';
 
 const sorular = [
-  'Satışı kim yapacak: Üretici, distribütör, acente veya Bayi?',
-  'Ürün, sipariş ve fiziksel araç birbiriyle nasıl eşleşecek?',
+  'Satışı kim yapacak: Üretici, distribütör, acente veya bayi?',
+  'Sipariş ve fiziksel araç birbiriyle nasıl eşleşecek?',
   'Araç siparişi hangi aşamada, sıradaki adım ne?',
   'Hangi taraf, hangi bilgiyi görecek, hangi işlemi yapabilecek?',
   'Tescil, ödeme, sevkiyat ve teslimat gibi görevler nasıl izlenecek?',
@@ -33,7 +33,7 @@ const akıs = [
   'Ürün ve kanal kurulumu',
   'Sipariş',
   'Üretim kuyruğu veya mevcut araç havuzu',
-  'Tekil araç / VIN',
+  'Araç / VIN',
   'Tahsis',
   'Tescil ve teslimat',
   'Sahiplik dönemi',
@@ -71,10 +71,10 @@ const hedefKurumlar = [
   'Türkiye’de henüz satış ve dağıtım yapılanmasını kurmamış otomotiv markaları',
   'Yeni üreticiler ve elektrikli mobilite girişimleri',
   'Türkiye pazarına yeni giren marka ve distribütörler',
-  'Mevcut kanal ve teslimat modelini yeniden kurmak ya da revize etmek isteyen otomotiv şirketleri',
+  'Mevcut kanal ve teslimat modelini yenilemek isteyen otomotiv şirketleri',
 ];
 
-const description = 'Türkiye’de otomotiv sipariş, stok ve satış yapılanmasını kuran markalar için işletim modeli tasarımı ve konfigüre edilebilir platform.';
+const description = 'Türkiye’de otomotiv sipariş, stok ve satış yapılanmasını kuran markalar için konfigüre edilebilir OSSS platformu.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -139,15 +139,18 @@ const faqSchema = {
         Türkiye’de kurulu satış ve satış sonrası ağı olmayan markalar için paket çözüm.
       </p>
       <p class="mt-5 max-w-3xl text-lg leading-relaxed text-warm-700">
-        Üretimi bitmiş aracı müşteriyle buluşturmak için gereken süreçleri tek bir akışta topluyoruz.
+        Üretimi bitmiş aracı müşteriyle buluşturmak için gereken tüm süreçleri tek bir akışta topladık!
       </p>
       <p class="mt-7 max-w-3xl text-base leading-relaxed text-warm-700 sm:text-lg">
         Türkiye’de satış ve dağıtım yapılanmasını yeni kuran ya da yeniden yapılandırmak isteyen otomotiv markaları
-        için işletim modeli tasarımı ile konfigüre edilebilir bir platform sunuyoruz. Kanal yapısından ürün ve
-        sipariş yönetimine, tekil araç/VIN takibinden tahsis ve teslimata kadar üretim sonrası akışı aynı operasyon
-        kaydı üzerinde çalıştırıyoruz.
+        için konfigüre edilebilir bir platform sunuyoruz. Kanal yapısından ürün ve sipariş yönetimine, araç/VIN
+        takibinden tahsis ve teslimata kadar <strong>üretimden satışa kadar olan süreçleri</strong> esnek bir akışta
+        topluyoruz.
       </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <p class="mt-7 max-w-3xl text-base font-medium leading-relaxed text-ink sm:text-lg">
+        Eğer Türkiye’de araç (otomobil, motosiklet, mikro otomobil) satmakla ilgili bir sistem ve altyapı arıyorsanız bize ulaşın.
+      </p>
+      <div class="mt-5 flex flex-col gap-3 sm:flex-row">
         <a
           href={`mailto:${SITE_EPOSTA}?subject=Otomotiv%20satış%20ve%20dağıtım%20sistemi`}
           class="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
@@ -181,8 +184,8 @@ const faqSchema = {
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent">Dağıtım hazırlığı</p>
         <h2 class="text-3xl font-semibold leading-tight text-ink">Aracınız hazır olabilir. Peki onu müşteriye ulaştıracak akış hazır mı?</h2>
         <p class="mt-6 text-lg leading-relaxed text-warm-700">
-          Türkiye’ye giren bir otomotiv markasının yalnızca satış sitesine ihtiyacı yoktur. Ürün, sipariş, fiziksel
-          araç ve satış kanalının aynı işletim modeli içinde çalışması gerekir.
+          Türkiye’ye giren bir otomotiv markasının yalnızca satış sitesine ihtiyacı yoktur. Şu soruların birlikte
+          cevaplanması gerekir:
         </p>
       </div>
       <ul class="grid gap-3 sm:grid-cols-2" aria-label="Kurulum sırasında cevaplanan temel sorular">
@@ -194,12 +197,17 @@ const faqSchema = {
         ))}
       </ul>
     </div>
-    <p class="mt-10 max-w-4xl text-lg leading-relaxed text-warm-700">
-      Bu cevaplar ayrı belgeler ve farklı sistemlerde tutulduğunda sipariş, araç, bayi ve müşteri arasındaki bağ
-      zayıflar, akış ve sorumluluklar belirsizleşir ve stok, teknik kontrol aşamaları ve teslimat gibi kritik
-      adımların görünürlüğü kaybolur. Platform, tarafların yetkileri ölçüsünde aynı operasyon akışı üzerinde
-      çalışmasını sağlar.
-    </p>
+    <div class="mt-10 max-w-4xl space-y-5 text-lg leading-relaxed text-warm-700">
+      <p>
+        Bu cevaplar ayrı belge ve sistemlerde tutulduğunda sipariş, araç, bayi ve müşteri arasındaki bağ zayıflar,
+        akış ve sorumluluklar belirsizleşir, stok, teknik kontrol aşamaları ve teslimat gibi kritik adımların
+        görünürlüğünü takip etmek zorlaşır.
+      </p>
+      <p>
+        Bizim platformumuz <strong>sistemin aynı operasyon akışı üzerinde çalışmasını</strong> sağlar. OSSS
+        (Otomotiv Sipariş, Stok ve Satış) sistemi, <strong>üretici ve distribütörler için bir yazılım çözümüdür</strong>.
+      </p>
+    </div>
   </section>
 
   <section class="bg-sand">
@@ -210,21 +218,21 @@ const faqSchema = {
           <p class="text-sm font-semibold text-accent">01</p>
           <h3 class="mt-3 text-xl font-semibold text-ink">İşletim modeli</h3>
           <p class="mt-3 leading-relaxed text-warm-600">
-            Satış kanalı yapısı, aktörleri, sorumlulukları, karar noktaları ve sistemin ilk canlı kapsamı üreticiyle birlikte netleştirilir.
+            Satış kanalı yapısı, aktörleri, sorumlulukları, karar noktaları ve sistemin ilk canlı kapsamı netleştirilir.
           </p>
         </article>
         <article class="rounded-xl border border-warm-border bg-paper p-6">
           <p class="text-sm font-semibold text-accent">02</p>
-          <h3 class="mt-3 text-xl font-semibold text-ink">Çalışan çekirdek yapı</h3>
+          <h3 class="mt-3 text-xl font-semibold text-ink">Çekirdek yapı</h3>
           <p class="mt-3 leading-relaxed text-warm-600">
-            Kurumlar, kullanıcılar, ürün ağacı, sipariş ve tekil araç/VIN kayıtları, yetkiler ve denetim izi hazır platform çekirdeği üzerinde kurulur.
+            Kurumlar, kullanıcılar, ürün ağacı, sipariş ve araç/VIN kayıtları, yetkiler ve denetim akışı kurulur.
           </p>
         </article>
         <article class="rounded-xl border border-warm-border bg-paper p-6">
           <p class="text-sm font-semibold text-accent">03</p>
           <h3 class="mt-3 text-xl font-semibold text-ink">İlk kapsam &amp; devreye alma</h3>
           <p class="mt-3 leading-relaxed text-warm-600">
-            Seçilen akışlar, gerekli rapor ve belgeler ile ilk kapsam için zorunlu bağlantılar tamamlanır; iki taraflı kullanıcı testiyle kontrollü açılışa geçilir.
+            Seçilen akışlar, gerekli rapor ve belgeler ile ilk kapsam için gerekli bağlantılar tamamlanır; iki taraflı kullanıcı testiyle kontrollü açılışa geçilir.
           </p>
         </article>
       </div>
@@ -235,8 +243,8 @@ const faqSchema = {
     <div class="max-w-3xl">
       <h2 class="text-3xl font-semibold text-ink">Her markada sabit kalan, markaya göre yapılandırılan unsurlar</h2>
       <p class="mt-5 text-lg leading-relaxed text-warm-700">
-        Her markanın ihtiyacı farklıdır: Kimi üreticiden doğrudan müşteriye satmayı, kimi ise akışı bir distribütör
-        ve satış şebekesi üzerinden yürütmeyi tercih eder.
+        Her markanın ihtiyacı farklıdır: Kimi üreticiden doğrudan müşteriye satmayı, kimi akışı bir distribütör ya
+        da satış ağı üzerinden yürütmeyi tercih eder.
       </p>
     </div>
     <div class="mt-9 overflow-hidden rounded-xl border border-warm-border">
@@ -260,10 +268,10 @@ const faqSchema = {
       </div>
     </div>
     <aside class="mt-8 rounded-xl border-l-4 border-accent bg-sand p-6 sm:p-8">
-      <h3 class="text-xl font-semibold text-ink">Müşteriye özgü, otomotive uygun altyapı</h3>
+      <h3 class="text-xl font-semibold text-ink">Markaya özgü, otomotive uygun altyapı</h3>
       <p class="mt-3 max-w-4xl leading-relaxed text-warm-700">
-        Bu hizmetin amacı, her müşterinin ihtiyacına özgü olan ve otomotivin temel dinamiklerini dikkate alan bir
-        çekirdek yapıyı o markanın gerçek işletim modeli hâline getirmektir.
+        Bu hizmetin amacı, o markanın ihtiyacına özgü olan, ama otomotivin temel dinamiklerini de dikkate alan
+        çekirdek yapıyı <strong>markanın gerçek işletim modeli</strong> haline getirmektir.
       </p>
     </aside>
   </section>
@@ -271,15 +279,15 @@ const faqSchema = {
   <section class="border-y border-warm-border bg-white">
     <div class="mx-auto grid max-w-5xl gap-10 px-4 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16">
       <div>
-        <h2 class="text-3xl font-semibold text-ink">Tek bir kanal modeli dayatmaz</h2>
+        <h2 class="text-3xl font-semibold text-ink">OSSS tek bir kanal modeli dayatmaz</h2>
         <p class="mt-5 text-lg leading-relaxed text-warm-700">
-          Platform; <strong>doğrudan satış, acente, Bayi ve distribütör ilişkilerini</strong> taşıyacak biçimde
-          tasarlanır. Kurulum sırasında markanın kullanacağı yapı, her aktörün rolü ve hangi veriye erişeceği
-          belirlenir. Kanal modeli zamanla değiştiğinde aynı araç ve sipariş kaydının korunması hedeflenir.
+          Platformumuz <strong>doğrudan satış, acente, Bayi ve distribütör ilişkilerini</strong> taşıyabilecek biçimde
+          tasarlanmıştır. Kurulum sırasında markanın kullanacağı yapı, her aktörün rolü ve hangi veriye erişeceği
+          belirlenir. Kanal modeli zamanla değişirse eski araç ve sipariş kayıtları korunur.
         </p>
         <p class="mt-5 leading-relaxed text-warm-600">
           Kanalın hukuki niteliği, fiyat yetkisi, stok riski ve faturalama yapısı birbiriyle bağlantılıdır;
-          müşteriye özgü hukuki ve mali yapı ilgili uzmanlara <strong>teyit ettirilmelidir.</strong>
+          müşteriye özgü hukuki ve mali yapı ilgili uzmanlara <strong>teyit ettirilir.</strong>
         </p>
       </div>
       <div>
@@ -319,8 +327,8 @@ const faqSchema = {
     </ol>
     <p class="mt-8 max-w-4xl text-sm leading-relaxed text-warm-500">
       3–4 haftalık hedef, ilk operasyonel kapsamın müşteri ve Arsan Danışmanlık arasında yapılan toplantılarla
-      kurulmasını ifade eder. Takvim; karar yetkilisinin, gerekli verilerin ve sistem erişimlerinin sağlanmasıyla
-      başlar. İleri seviye entegrasyonlar ile hukuki veya mali onay bekleyen kalemler ayrıca planlanır.
+      kurulmasını ifade eder. Takvim karar yetkilisinin, gerekli veri ve sistem erişimlerinin sağlanmasıyla başlar.
+      İleri seviye entegrasyonlar, hukuki veya mali onay bekleyen adımlar planlanır.
     </p>
   </section>
 
@@ -342,8 +350,7 @@ const faqSchema = {
         ))}
       </ul>
       <p class="text-sm leading-relaxed text-[#ddd5ca] lg:col-start-2">
-        Bu akış, platformun bitmiş sınırı değildir. Kurumlar arası yetki, tekil araç/VIN ve ortak operasyon kaydı
-        üzerine kurulu ürün çekirdeğinin çalışan kanıtıdır. Talebe göre yeni işlevler eklenir, çıkarılır ya da revize edilir.
+        Bu akış, platformun sınırı değildir; talebe göre yeni işlevler eklenir, çıkarılır ya da revize edilir.
       </p>
     </div>
   </section>
@@ -365,13 +372,13 @@ const faqSchema = {
         <h2 class="text-3xl font-semibold text-ink">Neden Arsan Danışmanlık?</h2>
         <div class="mt-6 space-y-5 text-lg leading-relaxed text-warm-700">
           <p>
-            OSSS sistemi genel amaçlı bir yazılım projesi değil. Türkiye otomotiv sektöründe bir aracın müşteriye
-            ulaşması; üretici markanın benimseyeceği satış kanalı modeli, araç tanımı, sipariş, sevkiyat, stok,
-            tescil, ödeme ve teslimat adımlarının aynı işletim modeli içinde ele alınmasını gerektirir.
+            OSSS sistemi genel amaçlı bir yazılım projesi değil, Türkiye otomotiv sektörüne özgü bir sistem
+            çözümüdür: Bir aracın müşteriye ulaşması; markanın benimseyeceği satış kanalı modeli, araç tanımı,
+            sipariş, sevkiyat, stok, ödeme ve teslimat adımlarının aynı işletim modeli içinde ele alınmasını gerektirir.
           </p>
-          <p>
-            Arsan Danışmanlık otomotiv bilgisi ile sektöre özgü sistem kurma pratiğini bir araya getirir. Bu
-            çalışmanın çıktısı bir danışmanlık raporu ya da tek başına çalışan bir yazılım değil, sizin
+          <p class="font-semibold text-ink">
+            Arsan Danışmanlık 35 yıllık otomotiv bilgisi ile sektöre özgü sistem kurma pratiğini bir araya getirir.
+            Bu çalışmanın çıktısı bir danışmanlık raporu ya da tek başına çalışan bir yazılım değil, sizin
             ihtiyaçlarınıza özel tasarlanmış ve çalışır hâle getirilmiş bir işletim modelidir.
           </p>
         </div>
