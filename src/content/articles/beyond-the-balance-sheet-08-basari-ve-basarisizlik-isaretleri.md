@@ -11,7 +11,7 @@ durum: yayında
 ozet: "Şirket Analizi serisinin sekizinci bölümü: Bir şirketin çöküşü önceden okunabilir mi? Önceki yedi bölümün göstergelerini bir erken uyarı sistemine dönüştürmek; hepsini tek bir rakamda birleştiren Altman Z-skoru (ve neden 1968'in imalat şirketlerine göre kalibre edildiği için sınırlı kaldığı); rakamların ötesindeki yönetişim kırmızı bayrakları (ani denetçi istifası, CFO sirkülasyonu, restatement); başarının sessiz işaretleri; Türkiye'nin konkordato dalgası; ve dönüşüm perspektifi — Avrupa'nın batarya şampiyonu Northvolt neden en akıllı paranın desteğine rağmen battı ve klasik sinyaller bunu neden kaçırdı?"
 ---
 
-**Şirket Analizi Serisi — Bölüm 8: İlk dört bölümde şirketin temel mali tablolarını okumayı, sonraki üç bölümde bunları yorumlamayı öğrendik — kârlılık, verimlilik, sermaye yapısı, şirket ya da proje değeri. Şimdi hepsini bir araya getirip zor bir soruya geliyoruz: Bir şirketin gerileme dönemini, işler tamamen sarpa sarmadan önce görebilir miyiz? Ve tersinden: sağlıklı bir şirketi, gürültülü bir finansal hikayeden nasıl ayırırız?**
+**Bölüm 8: Şirket analizi serimizin ilk dört bölümde temel mali tabloları okumayı, sonraki üç bölümde yorumlamayı hatırladık — kârlılık, verimlilik, sermaye yapısı, şirket ya da proje değeri. Şimdi hepsini bir araya getirip zor bir soruya geliyoruz: Bir şirketin gerileme dönemini, işler tamamen sarpa sarmadan önce görebilir miyiz? Ve tersinden: sağlıklı bir şirketi, karmaşık görünen finansal senaryodan nasıl ayırırız?**
 
 2016'da Tesla'nın tedarik zinciri yöneticiliğinden ayrılan Peter Carlsson, İsveç'te bir batarya şirketi kurdu: Northvolt. Fikir güçlüydü: Avrupa, elektrikli araç geçişinde Asya'ya bağımlı kalmak istemiyordu, ve Northvolt markası da kıtanın kendi markası olacaktı. Para da geldi: en büyük hissedar **Volkswagen (yaklaşık %21)**, ikinci sırada **Goldman Sachs (yaklaşık %19)**, ayrıca BMW, IKEA'nın yatırım kolu ve emeklilik fonları. Şirket toplamda 10 milyar doların üzerinde sermaye finansmanı topladı. Dünyanın en nitelikli yatırımcıları aynı masada toplanmıştı; bu bir başarı işareti değil miydi?
 
@@ -69,14 +69,14 @@ Bu bizim için iki ders anlamına gelir. Birincisi pratik: Türkiye'deki bir KOB
 
 ## Rakamların Ötesi: Yönetişim (Governance) Kırmızı Bayrakları
 
-<a href="/makaleler/beyond-the-balance-sheet-01-bir-sirketi-nasil-okursunuz#kurumsal-yönetişim-governance-şirket-nasıl-yönetiliyor" target="_blank" rel="noopener">Bölüm 1'de</a> kurumsal yönetişimin *yapısına* bakmıştık: yönetim kurulunda CEO ile başkanın ayrı kişiler olup olmadığı, bağımsız üyelerin oranı, ücret politikası. Bunlar bir şirketin fotoğrafını verir. Ama erken uyarı için asıl değerli olan, fotoğraf değil *hareket*tir; sinyaller, şirketin statik yapısında değil, davranışındaki ani değişimlerde saklıdır.
+<a href="/makaleler/beyond-the-balance-sheet-01-bir-sirketi-nasil-okursunuz#kurumsal-yönetişim-governance-şirket-nasıl-yönetiliyor" target="_blank" rel="noopener">Bölüm 1'de</a> kurumsal yönetişimin *yapısına* bakmıştık: yönetim kurulunda CEO ile başkanın ayrı kişiler olup olmadığı, bağımsız üyelerin oranı, ücret politikası. Bunlar bir şirketin fotoğrafını verir. Ama erken uyarı için asıl değerli olan, fotoğraf değil, *hareket*tir; şirketin statik yapısında değil, davranıştaki ani değişimlerde saklı sinyallerdir önemli olan.
 
 En güçlü birkaç sinyal:
 
 - **Ani denetçi istifası.** Bir denetçi, sözleşme süresi dolmadan istifa ediyorsa dikkat gerekir. Araştırmalar, denetçi istifalarının yaklaşık dörtte birinin bir muhasebe anlaşmazlığı ya da iç kontrol yetersizliği açıklamasıyla geldiğini gösteriyor. Denetçi, çoğu zaman sorunu piyasadan önce görür.
 - **CFO ve CEO sirkülasyonu.** Planlanmamış, ani üst yönetim ayrılıkları (özellikle finanstan sorumlu CFO'nunki) kovulma olmasa bile bir yönetişim ya da muhasebe kalitesi sorununa işaret edebilir. Northvolt'ta kurucu-CEO'nun tam iflas başvurusu gününde istifa etmesi, ders kitabına girecek bir örnektir: sinyal, çöküşle aynı anda geldi.
 - **Finansal tabloların yeniden düzenlenmesi (restatement) ya da yeniden değerleme.** Bir şirket geçmiş yıl tablolarını "aslında şöyleymiş" diye düzeltiyorsa, bu tek başına ciddi bir uyarıdır. Tabloları yeniden düzenleyen şirketlerde takip eden dönemde üst yönetim değişme olasılığı belirgin biçimde artıyor, ve denetim ücretleri (yani denetçinin algıladığı risk) yükseliyor.
-- **İlişkili taraf işlemleri ve aşırı baskın CEO karakteri.** Şirketin, sahiplerine ya da yöneticilerine bağlı diğer şirketlerle yaptığı işlemler; ve hiçbir dengeleyici gücün olmadığı, her kararı tek başına veren bir kurucu-CEO. İkisi de kâğıt üstünde suç değildir, ama denetimsiz kaldıklarında en büyük hataların zeminini hazırlar.
+- **İlişkili üçüncü taraf / tedarikçi işlemleri ve aşırı baskın CEO karakteri.** Şirketin, sahiplerine ya da yöneticilerine bağlı diğer şirketlerle yaptığı işlemler; ve hiçbir dengeleyici gücün olmadığı, her kararı tek başına veren bir kurucu-CEO. İkisi de kâğıt üstünde suç değildir, ama denetimsiz kaldıklarında en büyük hataların zeminini hazırlar.
 
 Bu sinyallerin ortak özelliği, finansal oranlardan *önce* görünebilmeleridir. Rakamlar geçmişi anlatır; yönetişimdeki bir çatlak, geleceği fısıldar.
 
@@ -97,7 +97,7 @@ Kısacası, gürültülü bir büyüme hikayesiyle sessizce nakit üreten bir ş
 
 Türkiye, son yıllarda bir şirketin batış sinyallerini okumanın neden hayati olduğunu acı biçimde gösteren bir laboratuvara dönüştü. Göstergesi: konkordato pratiğinin artması.
 
-Konkordato, borcunu ödeyemeyecek duruma gelen bir şirketin, mahkeme onayıyla alacaklılarıyla yaptığı toplu bir anlaşmadır. Borcun bir kısmının silinmesi ya da vadesinin uzatılması karşılığında şirkete nefes alma imkânı verir. Süreç, mahkemenin verdiği bir **geçici mühletle** başlar (üç ay, en fazla iki ay daha uzatılabilir); bu süre boyunca alacaklıların bireysel icra takipleri durur, yani şirketin malvarlığı korunur. Konkordatonun başarılı olabileceği anlaşılırsa **kesin mühlete** (bir yıl, altı ay uzatılabilir) geçilir. Yani konkordato bir iflas değil, iflası önleme denemesidir — ama bir çok vakada batışın son durağıdır.
+Konkordato, borcunu ödeyemeyecek duruma gelen bir şirketin, mahkeme onayıyla alacaklılarıyla yaptığı toplu bir anlaşmadır. Borcun bir kısmının silinmesi ya da vadesinin uzatılması karşılığında şirkete nefes alma imkânı verir. Süreç, mahkemenin verdiği bir **geçici mühletle** başlar (üç ay, en fazla iki ay daha uzatılabilir); bu süre boyunca alacaklıların bireysel icra takipleri durur, yani şirketin malvarlığı korunur. Konkordatonun başarılı olabileceği anlaşılırsa **kesin mühlete** (bir yıl, altı ay uzatılabilir) geçilir. Yani konkordato bir iflas değil, iflası önleme denemesidir — ama birçok vakada batışın son durağıdır.
 
 2018'de Türkiye'de 1.551 konkordato başvurusu yapılmışken, 2019'da bu sayı iki katından fazla artarak 3.691'e sıçradı. 2024'te başvurular yeniden 3.500'e yaklaşarak o rekora dayandı, ve 2025 verileri yeni bir rekor yılına işaret ediyor: yılın ilk aylarında başvurular önceki yıla göre çarpıcı biçimde — bazı dönemlerde iki katından fazla — arttı. En çok başvuran sektörler manzarayı özetliyor: başı tekstil çekiyor, onu inşaat, metal ürünler, plastik ve mobilya izliyor. Coğrafyanın merkezi, açık ara İstanbul.
 
@@ -120,7 +120,7 @@ Birincisi, **sağlıklı dönüştürücüleri yanlışlıkla "tehlikeli" işare
 
 Buradaki asıl ders, tüm serinin tezinin doruğu: **hiçbir tek skor, hiçbir sinyal listesi, iş modelini okumanın yerini tutmaz.** Altman Z'yi, faiz karşılama oranını, yönetişim bayraklarını bilmek gerekli ama yeterli değil. Bir şirketin gerçekten batıp batmayacağını anlamak için, sonunda o şirketin parayı nasıl kazandığını, biriminde kâr edip etmediğini ve içinde bulunduğu sektörün nereye gittiğini anlamak gerekir. Sayı size "ne" olduğunu söyler; "neden" ve "bundan sonra" için sayının arkasındaki işe bakmak zorundasınız.
 
-Northvolt'un destekçileri dünyanın en akıllı yatırımcılarıydı. Yine de birim ekonomisinin soğuk gerçeği, prestijli imzaların hepsini yetersiz kıldı. Erken uyarı sistemimizin en büyük dersi belki de bu: En tehlikeli batışlar, klasik sinyallerin "sağlıklı" dediği yerde saklı.
+Northvolt'un destekçileri dünyanın en akıllı yatırımcılarıydı. Yine de ekonomi denen dünyanın soğuk gerçeği, prestijli imzaların hepsini yetersiz kıldı. Erken uyarı sistemimizin en büyük dersi belki de bu: En tehlikeli batışlar, klasik sinyallerin "sağlıklı" dediği yerde saklı.
 
 _Serinin bir sonraki (ve son bölümünde) bu sekiz bölümde incelediğimiz her aracın ortak sınırına bakıyoruz: köklü bir dönüşümün tam ortasında, sadece geçmişe bakan klasik analiz nerede yetersiz kalır, ve bir şirketi geleceğe göre değerlendirmenin çerçevesi nasıl kurulur?_
 
