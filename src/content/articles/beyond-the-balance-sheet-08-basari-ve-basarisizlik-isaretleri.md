@@ -1,5 +1,5 @@
 ---
-title: "Batış Önceden Görülebilir mi? Başarının ve Başarısızlığın İşaretlerini Okumak"
+title: "Çöküşün Sinyalleri"
 tarih: 2026-09-01
 kaynak: "arsandanismanlik.com.tr"
 dil: tr
@@ -122,7 +122,7 @@ Buradaki asıl ders, tüm serinin tezinin doruğu: **hiçbir tek skor, hiçbir s
 
 Northvolt'un destekçileri dünyanın en akıllı yatırımcılarıydı. Yine de birim ekonomisinin soğuk gerçeği, prestijli imzaların hepsini yetersiz kıldı. Erken uyarı sistemimizin en büyük dersi belki de bu: En tehlikeli batışlar, klasik sinyallerin "sağlıklı" dediği yerde saklı.
 
-_Serinin son bölümünde, bu sekiz bölümde öğrendiğimiz her aracın ortak sınırına bakıyoruz: köklü bir dönüşümün tam ortasında, geriye bakan klasik analiz nerede yetersiz kalır, ve bir şirketi geleceğe göre değerlendirmenin bütüncül bir çerçevesi nasıl kurulur?_
+_Serinin bir sonraki (ve son bölümünde) bu sekiz bölümde incelediğimiz her aracın ortak sınırına bakıyoruz: köklü bir dönüşümün tam ortasında, sadece geçmişe bakan klasik analiz nerede yetersiz kalır, ve bir şirketi geleceğe göre değerlendirmenin çerçevesi nasıl kurulur?_
 
 Yalçın Arsan — Eylül 2026
 
