@@ -175,4 +175,212 @@ const articleLd = {
       });
     }
   </script>
+
+  <style is:global>
+    .xref-popover {
+      position: fixed;
+      z-index: 60;
+      display: none;
+      max-width: 380px;
+      padding: 0.7rem 0.85rem;
+      background: #fffdf9;
+      color: #2c2620;
+      border: 1px solid #e7ddcf;
+      border-top: 3px solid #b5623c;
+      border-radius: 8px;
+      box-shadow: 0 10px 34px rgba(44, 38, 32, 0.18);
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .xref-popover.open { display: block; animation: xrefPopIn 0.13s ease-out; }
+    @keyframes xrefPopIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: none; }
+    }
+    .xref-popover-title {
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: #b5623c;
+      margin-bottom: 0.3rem;
+    }
+    .xref-popover-body { color: #3d362e; }
+    .xref-popover-hint {
+      margin-top: 0.5rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid #efe7d9;
+      font-size: 0.72rem;
+      color: #8a7f6e;
+    }
+    .xref-popover-loading { color: #8a7f6e; font-style: italic; }
+    @media (prefers-reduced-motion: reduce) {
+      .xref-popover.open { animation: none; }
+    }
+  </style>
+  <script>
+    (() => {
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!canHover) return;
+
+      const links = Array.from(
+        document.querySelectorAll<HTMLAnchorElement>('.prose a[href*="/makaleler/"]')
+      ).filter((a) => (a.getAttribute('href') || '').includes('#'));
+      if (!links.length) return;
+
+      const docCache = new Map<string, Promise<Document | null>>();
+      const previewCache = new Map<string, { title: string; body: string } | null>();
+
+      const pop = document.createElement('div');
+      pop.className = 'xref-popover';
+      pop.setAttribute('role', 'tooltip');
+      document.body.appendChild(pop);
+
+      let showTimer: number | undefined;
+      let hideTimer: number | undefined;
+      let current: HTMLAnchorElement | null = null;
+
+      function fetchDoc(pathname: string) {
+        if (!docCache.has(pathname)) {
+          docCache.set(
+            pathname,
+            fetch(pathname)
+              .then((r) => (r.ok ? r.text() : Promise.reject(new Error('fetch'))))
+              .then((html) => new DOMParser().parseFromString(html, 'text/html'))
+              .catch(() => null)
+          );
+        }
+        return docCache.get(pathname) as Promise<Document | null>;
+      }
+
+      function extractPreview(doc: Document | null, fragId: string) {
+        if (!doc) return null;
+        const el = doc.getElementById(fragId);
+        if (!el) return null;
+        let title = '';
+        let body = '';
+        if (/^H[1-6]$/.test(el.tagName)) {
+          title = (el.textContent || '').trim();
+          const parts: string[] = [];
+          let node: Element | null = el.nextElementSibling;
+          while (node && !/^H[1-6]$/.test(node.tagName) && parts.join(' ').length < 300) {
+            if (['P', 'UL', 'OL'].includes(node.tagName)) {
+              const t = (node.textContent || '').trim();
+              if (t) parts.push(t);
+            } else if (node.tagName === 'FIGURE') {
+              const cap = node.querySelector('figcaption');
+              if (cap && cap.textContent) parts.push(cap.textContent.trim());
+            }
+            node = node.nextElementSibling;
+          }
+          body = parts.join(' ');
+        } else {
+          const block = el.closest('p, li');
+          const own = (el.textContent || '').trim();
+          if (block && (block.textContent || '').trim().length > own.length) {
+            body = (block.textContent || '').trim();
+          } else {
+            let node: Element | null = (block || el).nextElementSibling;
+            while (node && !['P', 'LI'].includes(node.tagName)) node = node.nextElementSibling;
+            body = node ? (node.textContent || '').trim() : block ? (block.textContent || '').trim() : own;
+          }
+        }
+        body = body.replace(/\s+/g, ' ').trim();
+        if (body.length > 330) body = body.slice(0, 327).replace(/\s+\S*$/, '') + '…';
+        if (!body) return null;
+        return { title, body };
+      }
+
+      function place(link: HTMLAnchorElement) {
+        const r = link.getBoundingClientRect();
+        const pw = pop.offsetWidth;
+        const ph = pop.offsetHeight;
+        const m = 8;
+        const headerH = 80;
+        const left = Math.max(m, Math.min(r.left, window.innerWidth - pw - m));
+        let top: number;
+        if (r.bottom + ph + m < window.innerHeight) top = r.bottom + m;
+        else if (r.top - ph - m > headerH) top = r.top - ph - m;
+        else top = Math.max(headerH + m, window.innerHeight - ph - m);
+        pop.style.left = left + 'px';
+        pop.style.top = top + 'px';
+      }
+
+      function render(preview: { title: string; body: string }) {
+        pop.replaceChildren();
+        if (preview.title) {
+          const t = document.createElement('div');
+          t.className = 'xref-popover-title';
+          t.textContent = preview.title;
+          pop.appendChild(t);
+        }
+        const b = document.createElement('div');
+        b.className = 'xref-popover-body';
+        b.textContent = preview.body;
+        pop.appendChild(b);
+        const h = document.createElement('div');
+        h.className = 'xref-popover-hint';
+        h.textContent = 'Tıkla → yeni sekmede aç';
+        pop.appendChild(h);
+      }
+
+      async function show(link: HTMLAnchorElement) {
+        current = link;
+        const href = link.getAttribute('href') || '';
+        const hashIdx = href.indexOf('#');
+        const pathname = href.slice(0, hashIdx);
+        const frag = decodeURIComponent(href.slice(hashIdx + 1));
+        const loading = document.createElement('div');
+        loading.className = 'xref-popover-loading';
+        loading.textContent = 'Yükleniyor…';
+        pop.replaceChildren(loading);
+        pop.classList.add('open');
+        place(link);
+        let preview = previewCache.get(href);
+        if (preview === undefined) {
+          const doc = await fetchDoc(pathname);
+          preview = extractPreview(doc, frag);
+          previewCache.set(href, preview);
+        }
+        if (current !== link) return;
+        if (!preview) {
+          hide();
+          return;
+        }
+        render(preview);
+        place(link);
+      }
+
+      function hide() {
+        pop.classList.remove('open');
+        current = null;
+      }
+
+      links.forEach((link) => {
+        link.addEventListener('mouseenter', () => {
+          clearTimeout(hideTimer);
+          showTimer = window.setTimeout(() => show(link), 200);
+        });
+        link.addEventListener('mouseleave', () => {
+          clearTimeout(showTimer);
+          hideTimer = window.setTimeout(hide, 160);
+        });
+        link.addEventListener('focus', () => {
+          clearTimeout(hideTimer);
+          show(link);
+        });
+        link.addEventListener('blur', () => {
+          clearTimeout(showTimer);
+          hide();
+        });
+      });
+
+      pop.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+      pop.addEventListener('mouseleave', () => {
+        hideTimer = window.setTimeout(hide, 160);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hide();
+      });
+      window.addEventListener('scroll', () => { if (current) hide(); }, { passive: true });
+    })();
+  </script>
 </BaseLayout>
