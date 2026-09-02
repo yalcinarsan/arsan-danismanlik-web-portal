@@ -75,6 +75,9 @@ const hedefKurumlar = [
 ];
 
 const description = 'Türkiye’de otomotiv sipariş, stok ve satış yapılanmasını kuran markalar için konfigüre edilebilir OSSS platformu.';
+const akisDemoAdresi = import.meta.env.DEV
+  ? 'http://127.0.0.1:3000/demo-akis/'
+  : 'https://platform.arsandanismanlik.com.tr/demo-akis/';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -303,6 +306,41 @@ const faqSchema = {
         <p class="mt-5 leading-relaxed text-warm-600">
           İlk operasyonel kapsam, bu zincirin marka için öncelikli bölümünden başlar. Sistem daha sonra aynı araç kaydı korunarak genişler.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-sand/60">
+    <div class="mx-auto max-w-5xl px-4 py-14 sm:py-20">
+      <div class="max-w-3xl">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent">Sistem akışı</p>
+        <h2 class="text-3xl font-semibold text-ink">Operasyonun her adımı sistemde görünür</h2>
+        <p class="mt-5 text-lg leading-relaxed text-warm-700">
+          Ürün tanımından bayi teslimine kadar sipariş, üretim, VIN ve sevkiyat adımları aynı operasyon üzerinde ilerler.
+        </p>
+      </div>
+
+      <div class="mt-10 overflow-hidden rounded-2xl border border-warm-border bg-[#f5eedf] shadow-sm">
+        <div class="h-[720px] overflow-hidden">
+          <iframe
+            src={akisDemoAdresi}
+            title="Siparişten teslimata otomotiv sistem akışı"
+            class="h-[812px] w-full -translate-y-[92px] border-0 sm:h-[796px] sm:-translate-y-[76px]"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="mt-5 flex flex-col gap-3 text-sm text-warm-600 sm:flex-row sm:items-center sm:justify-between">
+        <p>Temsili anlatım, kurumların aynı sipariş ve araç akışında nasıl birlikte çalıştığını gösterir.</p>
+        <a
+          href={akisDemoAdresi}
+          target="_blank"
+          rel="noreferrer"
+          class="shrink-0 font-semibold text-accent hover:underline"
+        >
+          Akışı tam ekranda inceleyin →
+        </a>
       </div>
     </div>
   </section>
