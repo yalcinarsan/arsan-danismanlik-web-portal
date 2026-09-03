@@ -166,7 +166,15 @@ const faqSchema = {
 
   <section class="mx-auto max-w-5xl px-4 py-10 sm:py-14">
     <figure class="overflow-hidden rounded-2xl border border-warm-border bg-white shadow-sm">
-      <figcaption class="border-b border-warm-border px-5 py-5 sm:flex sm:items-end sm:justify-between sm:gap-8">
+      <div class="relative aspect-[2/3] overflow-hidden bg-[#f5eedf] sm:aspect-[1672/1180]">
+        <iframe
+          src={`${akisDemoAdresi}?embed=hero`}
+          title="Siparişten teslimata otomotiv sistem akışı"
+          class="absolute inset-0 h-full w-full border-0"
+          loading="eager"
+        ></iframe>
+      </div>
+      <figcaption class="border-t border-warm-border px-5 py-5 sm:flex sm:items-end sm:justify-between sm:gap-8">
         <div>
           <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Sistem akışı</p>
           <h2 class="mt-2 text-xl font-semibold text-ink sm:text-2xl">Operasyonun her adımı sistemde görünür</h2>
@@ -183,14 +191,6 @@ const faqSchema = {
           Akışı tam ekranda inceleyin →
         </a>
       </figcaption>
-      <div class="relative aspect-[4/3] overflow-hidden bg-[#f5eedf] sm:aspect-[1672/944]">
-        <iframe
-          src={`${akisDemoAdresi}?embed=hero`}
-          title="Siparişten teslimata otomotiv sistem akışı"
-          class="absolute inset-0 h-full w-full border-0"
-          loading="eager"
-        ></iframe>
-      </div>
     </figure>
   </section>
 
