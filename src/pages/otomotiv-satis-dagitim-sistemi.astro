@@ -166,17 +166,30 @@ const faqSchema = {
 
   <section class="mx-auto max-w-5xl px-4 py-10 sm:py-14">
     <figure class="overflow-hidden rounded-2xl border border-warm-border bg-white shadow-sm">
-      <img
-        src="/images/services/otomotiv-satis-dagitim-sistemi.webp"
-        alt="SUV, mikro otomobil ve elektrikli scooter için üretimden Bayi teslim alımına uzanan dijital operasyon akışı"
-        width="1672"
-        height="941"
-        class="block h-auto w-full"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <figcaption class="border-t border-warm-border px-5 py-3 text-sm text-warm-500">
-        Ürün planı, sipariş, tekil araç/VIN, sevkiyat ve teslimat aynı operasyon kaydında ilerler.
+      <div class="relative aspect-[4/3] overflow-hidden bg-[#f5eedf] sm:aspect-[1672/944]">
+        <iframe
+          src={`${akisDemoAdresi}?embed=hero`}
+          title="Siparişten teslimata otomotiv sistem akışı"
+          class="absolute inset-0 h-full w-full border-0"
+          loading="eager"
+        ></iframe>
+      </div>
+      <figcaption class="border-t border-warm-border px-5 py-5 sm:flex sm:items-end sm:justify-between sm:gap-8">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Sistem akışı</p>
+          <h2 class="mt-2 text-xl font-semibold text-ink sm:text-2xl">Operasyonun her adımı sistemde görünür</h2>
+          <p class="mt-2 max-w-3xl text-sm leading-relaxed text-warm-600 sm:text-base">
+            Ürün tanımından bayi teslimine kadar sipariş, üretim, VIN ve sevkiyat adımları aynı operasyon üzerinde ilerler.
+          </p>
+        </div>
+        <a
+          href={akisDemoAdresi}
+          target="_blank"
+          rel="noreferrer"
+          class="mt-4 inline-block shrink-0 text-sm font-semibold text-accent hover:underline sm:mt-0"
+        >
+          Akışı tam ekranda inceleyin →
+        </a>
       </figcaption>
     </figure>
   </section>
@@ -306,41 +319,6 @@ const faqSchema = {
         <p class="mt-5 leading-relaxed text-warm-600">
           İlk operasyonel kapsam, bu zincirin marka için öncelikli bölümünden başlar. Sistem daha sonra aynı araç kaydı korunarak genişler.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-sand/60">
-    <div class="mx-auto max-w-5xl px-4 py-14 sm:py-20">
-      <div class="max-w-3xl">
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent">Sistem akışı</p>
-        <h2 class="text-3xl font-semibold text-ink">Operasyonun her adımı sistemde görünür</h2>
-        <p class="mt-5 text-lg leading-relaxed text-warm-700">
-          Ürün tanımından bayi teslimine kadar sipariş, üretim, VIN ve sevkiyat adımları aynı operasyon üzerinde ilerler.
-        </p>
-      </div>
-
-      <div class="mt-10 overflow-hidden rounded-2xl border border-warm-border bg-[#f5eedf] shadow-sm">
-        <div class="h-[720px] overflow-hidden">
-          <iframe
-            src={akisDemoAdresi}
-            title="Siparişten teslimata otomotiv sistem akışı"
-            class="h-[812px] w-full -translate-y-[92px] border-0 sm:h-[796px] sm:-translate-y-[76px]"
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
-
-      <div class="mt-5 flex flex-col gap-3 text-sm text-warm-600 sm:flex-row sm:items-center sm:justify-between">
-        <p>Temsili anlatım, kurumların aynı sipariş ve araç akışında nasıl birlikte çalıştığını gösterir.</p>
-        <a
-          href={akisDemoAdresi}
-          target="_blank"
-          rel="noreferrer"
-          class="shrink-0 font-semibold text-accent hover:underline"
-        >
-          Akışı tam ekranda inceleyin →
-        </a>
       </div>
     </div>
   </section>
