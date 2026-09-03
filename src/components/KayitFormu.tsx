@@ -7,7 +7,7 @@ const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
   kanal: [] as string[], fonksiyon: [] as string[], kidem: '', elektrifikasyon: '',
   markalar: [] as string[], markalarDiger: '', diller: '', sehir: '', calisma_tercihi: '', aciklik: '',
-  sertifikalar: '', serbest_metin: '', gorunurluk: 'tek_kor', kvkk: false,
+  sertifikalar: '', serbest_metin: '', gorunurluk: 'tek_kor', son_kurum_gizle: true, kvkk: false,
 };
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
@@ -66,6 +66,7 @@ export default function KayitFormu() {
         calisma_tercihi: data.calisma_tercihi ?? '', aciklik: data.aciklik ?? '',
         sertifikalar: data.sertifikalar ?? '', serbest_metin: data.serbest_metin ?? '',
         gorunurluk: data.gorunurluk ?? 'tek_kor',
+        son_kurum_gizle: data.son_kurum_gizle ?? true,
         kvkk: data.kvkk_riza ?? false,
       });
       setCvMevcutYol(data.cv_path ?? null);
@@ -155,6 +156,7 @@ export default function KayitFormu() {
       sertifikalar: f.sertifikalar || null,
       serbest_metin: f.serbest_metin || null,
       gorunurluk: f.gorunurluk,
+      son_kurum_gizle: f.son_kurum_gizle,
       cv_path: cvYol,
     };
     // Güncellemede eposta ve kvkk_riza_tarihi'ne DOKUNMUYORUZ: ilki auth kimliğine bağlı,
@@ -288,6 +290,16 @@ export default function KayitFormu() {
           <input value={f.son_kurum} onChange={(e) => setF({ ...f, son_kurum: e.target.value })} className={inputCls} />
         </div>
       </div>
+
+      {f.son_kurum.trim() && (
+        <label className="flex items-start gap-2 text-sm text-warm-700">
+          <input type="checkbox" checked={f.son_kurum_gizle}
+            onChange={(e) => setF({ ...f, son_kurum_gizle: e.target.checked })} className="mt-1 accent-accent" />
+          <span>Son kurumum beni bu havuzda görmesin.{' '}
+            <span className="text-warm-500">İşaretliyse, seni mevcut işverenine karşı korumaya çalışırız.</span>
+          </span>
+        </label>
+      )}
 
       <div>
         <label className={labelCls}>Kanal * <span className="font-normal text-warm-500">(birden çok seçebilirsin)</span></label>

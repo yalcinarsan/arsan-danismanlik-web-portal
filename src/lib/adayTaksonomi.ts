@@ -43,7 +43,7 @@ SEHIRLER.push('Yurt dışı');
 // silmek riskli). Arayüzde artık sunulmuyor; eski kayıtlar `gorunurlukEtiket` ile
 // yine okunabilsin diye eşleme aşağıda korunuyor.
 export const GORUNURLUK: [string, string, string][] = [
-  ['acik', 'Açık', 'Adın ve iletişimin işverene görünür.'],
+  ['acik', 'Açık', 'Adın, son kurumun ve pozisyonun işverene görünür; iletişim bilgin ve özgeçmişin ise yalnızca sen bir görüşme talebini onaylayınca paylaşılır.'],
   ['tek_kor', 'Kapalı', 'Kimliğin gizli; işveren seni yetkinliklerinle görür, sana ulaşmak istediğinde talebi biz iletiriz.'],
 ];
 
