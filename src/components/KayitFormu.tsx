@@ -25,6 +25,7 @@ export default function KayitFormu() {
   const [cvDosya, setCvDosya] = useState<File | null>(null);
   const [cvMevcutYol, setCvMevcutYol] = useState<string | null>(null);
   const [cvKaldirilsin, setCvKaldirilsin] = useState(false);
+  const [kurumListesi, setKurumListesi] = useState<string[]>([]);
 
   // Oturum kontrolü (magic-link'ten dönünce oturum oluşur)
   useEffect(() => {
@@ -36,6 +37,14 @@ export default function KayitFormu() {
       if (session) oturumHazir(session);
     });
     return () => sub.subscription.unsubscribe();
+  }, []);
+
+  // "Son kurum" otomatik-tamamlaması: havuzdaki mevcut kurum adları. Yazım
+  // varyantlarını azaltıp işveren-koruması eşleşmesini güvenilir kılar.
+  useEffect(() => {
+    supabase.rpc('kurum_adlari').then(({ data }) => {
+      if (data) setKurumListesi((data as { kurum: string }[]).map((r) => r.kurum));
+    });
   }, []);
 
   /**
@@ -287,7 +296,11 @@ export default function KayitFormu() {
         </div>
         <div>
           <label className={labelCls}>Son kurum</label>
-          <input value={f.son_kurum} onChange={(e) => setF({ ...f, son_kurum: e.target.value })} className={inputCls} />
+          <input value={f.son_kurum} onChange={(e) => setF({ ...f, son_kurum: e.target.value })} className={inputCls}
+            list="kurum-listesi" autoComplete="off" />
+          <datalist id="kurum-listesi">
+            {kurumListesi.map((k) => <option key={k} value={k} />)}
+          </datalist>
         </div>
       </div>
 
