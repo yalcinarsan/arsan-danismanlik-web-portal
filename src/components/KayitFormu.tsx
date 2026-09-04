@@ -296,7 +296,7 @@ export default function KayitFormu() {
           <input type="checkbox" checked={f.son_kurum_gizle}
             onChange={(e) => setF({ ...f, son_kurum_gizle: e.target.checked })} className="mt-1 accent-accent" />
           <span>Son kurumum beni bu havuzda görmesin.{' '}
-            <span className="text-warm-500">İşaretliyse, seni mevcut işverenine karşı korumaya çalışırız.</span>
+            <span className="text-warm-500">İşaretliyse, mevcut işverenin profilini göremez.</span>
           </span>
         </label>
       )}
