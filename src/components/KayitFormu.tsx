@@ -460,7 +460,7 @@ export default function KayitFormu() {
         <input type="checkbox" checked={f.kvkk} onChange={(e) => setF({ ...f, kvkk: e.target.checked })} className="mt-1 accent-accent" />
         <span>
           <a href="/kvkk" target="_blank" rel="noopener" className="text-accent hover:underline">KVKK aydınlatma metnini</a>
-          {' '}okudum; kişisel verilerimin bu kapsamda işlenmesine açık rıza veriyorum. *
+          {' '}okudum; kişisel verilerimin bu kapsamda işlenmesine ve seçtiğim görünürlüğe göre havuza erişimi olan kurumlarla paylaşılmasına açık rıza veriyorum. *
         </span>
       </label>
 

@@ -12,7 +12,7 @@ seo_baslik: "Kişisel Verilerin Korunması"
 baslik: "Kişisel Verilerin Korunması"
 seo_aciklama: "Otomotiv İnsanı yetenek platformu — KVKK aydınlatma metni ve açık rıza beyanı."
 taslak: false
-guncelleme: "2026-07-22"
+guncelleme: "2026-09-06"
 ---
 
 ## Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni
@@ -40,30 +40,28 @@ Kişisel verileriniz elektronik ortamlar üzerinden toplanmakta ve açık rızan
 - **Lokasyon & tercih:** şehir, çalışma tercihi, fırsatlara açıklık.
 - **Serbest metin** ve (yüklerseniz) özgeçmiş (CV).
 - **Görünürlük tercihiniz** ve açık rıza kaydınız (tarih/saat dahil).
-- **İnternet sitelerindeki davranış bilgileri** ve çerez verileri, anket verileri, kullanım alışkanlıkları
 
 gibi verileriniz;
 
-- Hukuki ve ticari güvenliğin sağlanması,
 - Otomotiv sektörüne özgü bir yetenek havuzu oluşturmak ve yönetmek,
-- Belirttiğiniz görünürlük seviyesine uygun olarak, uygun kurumsal fırsatlarla eşleştirme yapmak ve sizinle iletişime geçmek,
+- Belirttiğiniz görünürlük seviyesine uygun olarak, sizi uygun kurumsal fırsatlarla eşleştirmek; bu kapsamda profil bilgilerinizin, havuza erişim hakkı edinmiş **abone kurumlarla** — belirlediğiniz görünürlüğe göre **maskeli veya açık** biçimde — paylaşılması,
+- Bir kurumun sizinle görüşme talebini iletmesi ve **talebi kabul etmeniz hâlinde** kimlik, iletişim bilgisi ve özgeçmişinizin ilgili kuruma iletilmesi,
 - Platformun işletilmesi, iyileştirilmesi ve sizinle iletişim,
-- Regülasyon ve uyum ile hukuki süreçlerin yönetimi,
-- Marka algısının ölçülmesi ve iyileştirilmesi,
-- Pazar araştırması ve anket süreçlerinin gerçekleştirilmesi,
-- Segmentasyon ve pazarlama analiz çalışmaları yapılması, teklif, hediye ve promosyon sunulması, analiz ve profilleme yapılması, hedefli tanıtım yapılması; özel kutlama, temenni iletimi, ödül, çekiliş ve beğenilen, tekrar erişmek istenilen, hatırlatılmasından memnuniyet duyabilecek içeriklerin iletilmesi,
-- Şirket tarafından sunulan ürün ve hizmetlerin beğenilerinize, kullanım alışkanlıklarınıza ve ihtiyaçlarınıza göre özelleştirilmesi ve bu kapsamda ticari elektronik ileti gönderilmesi,
-- Tüm müşterilere yapılan ve/veya kişiselleştirilmiş kampanyaların, ürün ve hizmetlerin tanıtım ve pazarlaması, bunlara ilişkin iletişime geçilmesi, kampanya ve indirimler hakkında bilgilendirme yapılması; üyelik, etkinlikler ve ekonomik avantajlardan yararlanma olanaklarının sağlanması ve bunların kullanımı için gerekli işlemlerin yerine getirilmesi,
-- Etkinlik ve eğitimlerin düzenlenmesi ve katılımcıların belirlenmesi,
-- İş ortaklarımız, tedarikçilerimiz, topluluk şirketlerimiz ve doğrudan veya dolaylı pay sahiplerimiz ile birlikte sağladığımız ürün ve hizmetler ile bu kişilerin kendi ürün ve hizmetlerinin tanıtılması
+- Hukuki ve ticari güvenliğin sağlanması ile hukuki yükümlülüklerin ve uyum süreçlerinin yerine getirilmesi
 
 amaçlarıyla sınırlı olarak işlenmektedir. Kişisel verileriniz KVKK çerçevesinde ve denetiminde, ciddi bir gizlilik içerisinde Şirket tarafından size hizmet gayesi ile kullanılmakta ve işlenmektedir. Şirket tarafından sizlere ait verileri işlerken hukuka ve dürüstlük kuralına riayet ederek verilerin doğru olmasına, işlemenin kapsamı dışında kullanılmamasına, meşru amaçlar doğrultusunda işlenmesine, verilerin güncel tutulmasına ve hedeflenen amaç için gereken makul süre kadar muhafaza edilmesine dikkat edilmektedir.
+
+Kişisel verileriniz, açık rızanız olmadıkça pazarlama veya reklam amacıyla üçüncü kişilerle paylaşılmaz.
+
+**Görünürlük ve kimlik gizliliği.** Profilinizi "açık" veya "kapalı (maskeli)" olarak yayımlamayı siz seçersiniz. Kapalı profillerde kimliğiniz ve kimliğinizi ele verebilecek bilgiler kurumlara gizli kalır. Hiçbir durumda iletişim bilginiz veya özgeçmişiniz, siz bir görüşme talebini onaylamadan bir kuruma verilmez. İlgilenen kurumun kimliği önce size bildirilir; yalnızca siz kabul ederseniz kimliğiniz o kuruma açılır. Havuza erişimi olan kurumlar; verilerinizi yalnızca kendi işe alım/değerlendirme süreçleri için kullanacaklarına, üçüncü kişilerle paylaşmayacaklarına ve sizinle Platform dışından doğrudan temas kurmayacaklarına dair Arsan ile bir gizlilik sözleşmesi imzalar.
 
 ### 4. Kişisel Verilerin Kimlere ve Hangi Amaçla Aktarılabileceği
 
 #### 4.1. Yurtiçi Aktarımlar
 
 Şirket, yukarıda belirtilen veri işleme amaçlarını gerçekleştirmek üzere, 3. maddede belirtilen amaçlar ile sınırlı olarak, söz konusu kişisel verileri KVKK'nın 8. maddesine uygun olarak güvenlik ve gizlilik esasları çerçevesinde yeterli önlemler alınmak kaydıyla, yurt içinde bulunan; Şirket'in dolaylı/doğrudan iştirakleri ya da bağlı ortaklıkları, grup şirketleri iş ortakları, faaliyetleri gereği anlaşmalı olduğu ve hizmet sunduğu müşteriler, Şirket tarafından hizmet/destek/danışmanlık alınan ya da iş birliği yapılan şirketler ve diğer 3. kişi ya da kuruluşlar, Şirket'in danışmanları, hissedarları ya da çözüm ortakları, tedarikçiler veya yükleniciler, denetim şirketleri veya yasal bir zorunluluk gereği bu verileri talep etmeye yetkili olan kamu kurum veya kuruluşları ve bunlarla sınırlı olmamak üzere ilgili diğer otoriteler ile paylaşabilecektir.
+
+Yurtiçi aktarım alıcıları arasında, 3. maddedeki eşleştirme amacıyla ve seçtiğiniz görünürlük düzeyiyle sınırlı olarak, havuza erişim hakkı edinmiş **abone kurumlar** da yer alır. Bu kurumlar, verilerinizi yalnızca kendi işe alım/değerlendirme süreçleri için kullanacaklarını ve üçüncü kişilerle paylaşmayacaklarını taahhüt eden bir gizlilik sözleşmesiyle bağlıdır. İletişim bilginiz ve özgeçmişiniz, bir görüşme talebini onaylamadığınız sürece bu kurumlara aktarılmaz.
 
 #### 4.2. Yurtdışı Aktarımlar
 
@@ -107,4 +105,4 @@ Kişisel veri sahiplerinin sahip oldukları ve yukarıda belirtilen haklarını 
 
 ## Açık Rıza Beyanı
 
-Yukarıdaki **Aydınlatma Metni**'ni okudum ve anladım. Kişisel verilerimin, belirtilen amaçlarla **Arsan Danışmanlık Tic. Ltd. Şti.** tarafından işlenmesine ve platform altyapısı gereği **yurt dışında (AB / Frankfurt) saklanması dâhil** aktarılmasına **açık rızam ile** onay veriyorum. Bu rızayı dilediğim zaman geri çekebileceğimi ve kaydımı silebileceğimi biliyorum.
+Yukarıdaki **Aydınlatma Metni**'ni okudum ve anladım. Kişisel verilerimin, belirtilen amaçlarla **Arsan Danışmanlık Tic. Ltd. Şti.** tarafından işlenmesine; **seçtiğim görünürlük düzeyine uygun olarak havuza erişimi olan abone kurumlarla paylaşılmasına**; ve platform altyapısı gereği **yurt dışında (AB / Frankfurt) saklanması dâhil** aktarılmasına **açık rızam ile** onay veriyorum. Bu rızayı dilediğim zaman geri çekebileceğimi ve kaydımı silebileceğimi biliyorum.
