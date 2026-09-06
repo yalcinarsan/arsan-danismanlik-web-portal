@@ -61,17 +61,17 @@ const kurulumAdimlari = [
 const calisanKapsam = [
   'Üretici ürün ve adet planını yayımlar.',
   'Bayi planı görür ve siparişini iletir.',
-  'Sipariş kadar tekil araç kaydı oluşur; VIN bilgileri araç bazında tutulur.',
-  'Üretici üretim görünürlüğünü ve sevkiyatı yönetir.',
-  'Bayi sevk edilen araçları teslim aldığını kendi hesabından kaydeder.',
-  'İşlem zamanı, işlemi yapan kullanıcı ve durum değişiklikleri denetim izinde korunur.',
+  'Sipariş kadar araç kaydı oluşur.',
+  'Üretici üretim ve sevkiyatı yönetir.',
+  'Bayi sevk edilen araçları teslim alır.',
+  'İşlem zamanı, işlemi yapan kullanıcı ve durum değişiklikleri sistemde korunur.',
 ];
 
 const hedefKurumlar = [
-  'Türkiye’de henüz satış ve dağıtım yapılanmasını kurmamış otomotiv markaları',
-  'Yeni üreticiler ve elektrikli mobilite girişimleri',
   'Türkiye pazarına yeni giren marka ve distribütörler',
+  'Türkiye’de henüz satış ve dağıtım sistemlerini henüz kurmamış otomotiv markaları',
   'Mevcut kanal ve teslimat modelini yenilemek isteyen otomotiv şirketleri',
+  'Yeni üreticiler ve elektrikli mobilite girişimleri',
 ];
 
 const description = 'Türkiye’de otomotiv sipariş, stok ve satış yapılanmasını kuran markalar için konfigüre edilebilir OSSS platformu.';
@@ -366,7 +366,7 @@ const faqSchema = {
         ))}
       </ul>
       <p class="text-sm leading-relaxed text-[#ddd5ca] lg:col-start-2">
-        Bu akış, platformun sınırı değildir; talebe göre yeni işlevler eklenir, çıkarılır ya da revize edilir.
+        Bu akış, jeneriktir; yani platformun sınırı değildir. Talebe göre yeni işlevler eklenir, çıkarılır ya da revize edilir.
       </p>
     </div>
   </section>
