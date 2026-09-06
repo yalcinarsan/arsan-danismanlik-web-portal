@@ -55,6 +55,7 @@ function tanistirmaMailto(t: Talep): string {
 export default function TalepListesi() {
   const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [eposta, setEposta] = useState('');
+  const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [hata, setHata] = useState('');
   const [gonderiliyor, setGonderiliyor] = useState(false);
   const [talepler, setTalepler] = useState<Talep[]>([]);
@@ -72,6 +73,7 @@ export default function TalepListesi() {
   }, []);
 
   async function oturumHazir(girenEposta: string) {
+    setOturumEpostasi(girenEposta);
     if (girenEposta.toLocaleLowerCase('tr') !== ADMIN_EPOSTA) {
       setDurum('yetkisiz');
       return;
@@ -80,6 +82,13 @@ export default function TalepListesi() {
     if (error) { setHata(anlasilirHata(error)); setDurum('yetkisiz'); return; }
     setTalepler((data ?? []) as Talep[]);
     setDurum('liste');
+  }
+
+  /** Açık oturumu kapatıp e-posta formuna döner (yanlış hesapla gelen kilitlenmesin). */
+  async function cikisYap() {
+    await supabase.auth.signOut();
+    setOturumEpostasi(''); setTalepler([]); setHata(''); setEposta('');
+    setDurum('eposta');
   }
 
   async function magicLinkGonder(e: React.FormEvent) {
@@ -109,6 +118,15 @@ export default function TalepListesi() {
       <div className="rounded-lg border border-warm-border bg-sand p-8">
         <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa yalnızca yönetici içindir.</h2>
         <p className="text-warm-600">{hata || 'Bu e-posta ile erişim yetkin yok.'}</p>
+        {oturumEpostasi && (
+          <p className="text-warm-600 mt-3 text-sm">
+            Şu anda <strong>{oturumEpostasi}</strong> hesabıyla giriş yapılmış. Yönetici hesabıyla girmek için çıkış yap.
+          </p>
+        )}
+        <button type="button" onClick={cikisYap}
+          className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium">
+          Çıkış yap ve yönetici hesabıyla gir
+        </button>
       </div>
     );
 

@@ -61,6 +61,7 @@ function OzetKart({ baslik, veri }: { baslik: string; veri: [string, number][] }
 export default function AdaylarListesi() {
   const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [eposta, setEposta] = useState('');
+  const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [hata, setHata] = useState('');
   const [gonderiliyor, setGonderiliyor] = useState(false);
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
@@ -79,6 +80,7 @@ export default function AdaylarListesi() {
   }, []);
 
   async function oturumHazir(girenEposta: string) {
+    setOturumEpostasi(girenEposta);
     if (girenEposta.toLocaleLowerCase('tr') !== ADMIN_EPOSTA) {
       setDurum('yetkisiz');
       return;
@@ -87,6 +89,13 @@ export default function AdaylarListesi() {
     if (error) { setHata(anlasilirHata(error)); setDurum('yetkisiz'); return; }
     setAdaylar((data ?? []) as Aday[]);
     setDurum('liste');
+  }
+
+  /** Açık oturumu kapatıp e-posta formuna döner (yanlış hesapla gelen kilitlenmesin). */
+  async function cikisYap() {
+    await supabase.auth.signOut();
+    setOturumEpostasi(''); setAdaylar([]); setHata(''); setEposta('');
+    setDurum('eposta');
   }
 
   async function magicLinkGonder(e: React.FormEvent) {
@@ -117,6 +126,15 @@ export default function AdaylarListesi() {
       <div className="rounded-lg border border-warm-border bg-sand p-8">
         <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa yalnızca yönetici içindir.</h2>
         <p className="text-warm-600">{hata || 'Bu e-posta ile erişim yetkin yok.'}</p>
+        {oturumEpostasi && (
+          <p className="text-warm-600 mt-3 text-sm">
+            Şu anda <strong>{oturumEpostasi}</strong> hesabıyla giriş yapılmış. Yönetici hesabıyla girmek için çıkış yap.
+          </p>
+        )}
+        <button type="button" onClick={cikisYap}
+          className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium">
+          Çıkış yap ve yönetici hesabıyla gir
+        </button>
       </div>
     );
 
