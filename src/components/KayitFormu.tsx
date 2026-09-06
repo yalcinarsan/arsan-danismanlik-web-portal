@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { kurumOnerileri } from '../lib/kurumSeed';
 import { supabase } from '../lib/supabase';
 import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK, MARKALAR, SEHIRLER } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
@@ -299,7 +300,7 @@ export default function KayitFormu() {
           <input value={f.son_kurum} onChange={(e) => setF({ ...f, son_kurum: e.target.value })} className={inputCls}
             list="kurum-listesi" autoComplete="off" />
           <datalist id="kurum-listesi">
-            {kurumListesi.map((k) => <option key={k} value={k} />)}
+            {kurumOnerileri(kurumListesi).map((k) => <option key={k} value={k} />)}
           </datalist>
         </div>
       </div>
