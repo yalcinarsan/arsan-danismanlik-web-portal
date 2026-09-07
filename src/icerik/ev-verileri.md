@@ -56,7 +56,7 @@ not_3_pazar_payi_grafigi: >-
   için projeksiyon yayınlamıyor.
 
 not_4_turkiye_satis_pazar_payi_grafigi: >-
-  Sol eksen adet, sağ eksen pazar payı. Pazar payı, BEV, PHEV ve FCEV
+  Sol eksen adet, sağ eksen pazar payı. Pazar payı, BEV ve PHEV
   toplamını kapsar. Araç parkı verisi (kümülatif stok) çok farklı bir ölçekte
   olduğu için ayrı bir grafikte, aşağıda.
 
