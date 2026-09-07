@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import KurumDemo from '../../components/KurumDemo.tsx';
+import HavuzVitrin from '../../components/HavuzVitrin.tsx';
 ---
 <BaseLayout title="Kurum görünümü — örnek" description="Abone bir kurumun aday havuzunda ne göreceğini gösteren örnek ekran.">
   <meta name="robots" content="noindex" slot="head" />
@@ -10,6 +11,7 @@ import KurumDemo from '../../components/KurumDemo.tsx';
     <p class="text-warm-600 mb-10">
       Abone bir kurumun aday havuzunda ne göreceğini gösteren örnek ekran.
     </p>
+    <HavuzVitrin client:load />
     <KurumDemo client:load />
   </section>
 </BaseLayout>
