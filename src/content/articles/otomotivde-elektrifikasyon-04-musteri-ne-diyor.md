@@ -11,7 +11,9 @@ seriBaslik: "Müşteri ne diyor?"
 durum: yayında
 ozet: "Elektrifikasyon geçişinin asıl belirleyicisi müşteri. EA müşterisinin kim olduğu, neden satın aldığı, markaya değil kategoriye olan sadakati, fiyat paritesi denklemi ve 'müşteri hazır, sektör değil' tespiti; akıllı telefon uçurumuyla paralellik ve Türkiye'nin hızlı geçiş dinamikleri."
 kapakGorseli:
-  src: "/images/articles/musteri-ne-diyor/00-karakalem-musteri-v4.png"
+  src: "/images/articles/musteri-ne-diyor/00-karakalem-musteri-v4.webp"
+  srcMobil: "/images/articles/musteri-ne-diyor/00-karakalem-musteri-v4-mobile.webp"
+  paylasim: "/images/articles/musteri-ne-diyor/00-karakalem-musteri-v4-og.jpg"
   alt: "Karakalem panoramada satıcı teknik çizimler ve elektrikli aracı anlatırken yanındaki müşteri, sağda şarja bağlı elektrikli otomobiliyle ailesinin günlük yaşamına bakıyor."
   altyazi: "Satıcı ürünü anlatıyor; müşteri kendi hayatındaki karşılığını arıyor."
 ---

@@ -48,7 +48,7 @@ Kod/içerik değişikliğinden sonra "bitti" demeden önce:
 ## İçerik ve metin kuralları
 
 - **Makaleler kaynağından birebir tam metin taşınır** — özet/parafraz yok, bold vurgular orijinaline birebir uyar.
-- **Makale kapakları isteğe bağlıdır.** Kullanılacaksa [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md) izlenir; yalnızca onaylanan son görsel GitHub’a alınır, `alt` ve `altyazi` birlikte yazılır ve aynı görsel Yazma Projeleri vault’undaki özgün nota da eklenir.
+- **Makale kapakları isteğe bağlıdır.** Kullanılacaksa [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md) izlenir; yalnızca onaylanan son görsel GitHub’a alınır, `npm run gorsel:makale-kapak` ile web/paylaşım sürümleri üretilir, `alt` ve `altyazi` birlikte yazılır ve aynı özgün görsel Yazma Projeleri vault’undaki nota da eklenir.
 - **KVKK / yasal metinlerde fidelity kritik** — avukattan gelen metin kelimesi kelimesine kullanılır, yorumlanıp yeniden yazılmaz. `kvkk.md`'deki `taslak: true/false` alanı hem "hukukçu onayı bekleniyor" uyarısını hem `noindex`'i kontrol eder — canlıya almadan önce tüm `[…]` placeholder'ların dolu olduğunu doğrula.
 - **Kullanıcı arayüzü metinlerinde sentence case** — "Kaydını tamamla", "Kaydını Tamamla" değil. Marka imzası formatı: "Otomotiv İnsanı · Arsan Danışmanlık". "no-reply" tarzı gönderen adı kullanılmıyor.
 

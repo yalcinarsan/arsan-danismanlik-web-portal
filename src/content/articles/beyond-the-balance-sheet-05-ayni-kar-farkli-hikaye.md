@@ -11,7 +11,9 @@ seriBaslik: "Kârlılığı ölçmek"
 durum: yayında
 ozet: "Şirket Analizi serisinin beşinci bölümü: Kârlılığı tek bir rakamla değil, birbirini tamamlayan oranlarla okumak — mark-up ile kâr marjı farkı, gelir tablosunun her katmanındaki marjlar, aktif kârlılığı (ROTA), DuPont analizinin üç bileşeni, özsermaye kârlılığının (ROE) kaldıraçla şişirilmesi, 'süt sağma' tuzağı ve stratejik negatif marj ile yapısal negatif marj ayrımı (Uber/Spotify vs WeWork)."
 kapakGorseli:
-  src: "/images/articles/ayni-kar-farkli-hikaye/00-karakalem-isletmeler-v1.png"
+  src: "/images/articles/ayni-kar-farkli-hikaye/00-karakalem-isletmeler-v1.webp"
+  srcMobil: "/images/articles/ayni-kar-farkli-hikaye/00-karakalem-isletmeler-v1-mobile.webp"
+  paylasim: "/images/articles/ayni-kar-farkli-hikaye/00-karakalem-isletmeler-v1-og.jpg"
   alt: "Karakalemle çizilmiş iki işletme kesiti: solda az stokla yalın bir üretim düzeni, sağda daha yoğun stok ve daha karmaşık bir üretim akışı."
   altyazi: "Aynı kârı elde eden iki şirket, bu sonuca çok farklı miktarda kaynak bağlayarak ulaşabilir."
 ---

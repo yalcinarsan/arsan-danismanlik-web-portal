@@ -8,6 +8,9 @@ interface Props {
   description?: string;
   ogType?: string;
   image?: string;
+  imageAlt?: string;
+  twitterImage?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
 }
 
 const {
@@ -22,13 +25,15 @@ const {
   // og-arsan.png marka zemininde ortalanmış, ölçülü bir logo.
   // Üreteci: scripts/build-og-gorsel.mjs (npm run gorsel:og)
   image = '/images/og-arsan.png',
+  imageAlt = 'Arsan Danışmanlık',
+  twitterImage = '/images/og-kare.png',
+  twitterCard = 'summary',
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://arsandanismanlik.com.tr');
 const canonical = new URL(Astro.url.pathname, site).href;
 const ogImage = new URL(image, site).href;
-// Twitter küçük kartı için kare küçük-resim (geniş og:image kareye kötü kırpılıyor).
-const ogKare = new URL('/images/og-kare.png', site).href;
+const twitterGorseli = new URL(twitterImage, site).href;
 const fullTitle = `${title} · Arsan Danışmanlık`;
 
 const orgGraph = {
@@ -101,16 +106,18 @@ const orgGraph = {
     <meta property="og:site_name" content="Arsan Danışmanlık" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={imageAlt} />
 
     {/* Küçük kart: logo bir "kapak" değil, küçük bir küçük-resim. Büyük kart
         (summary_large_image) yalnızca gerçekten güçlü bir görsel olan sayfalar
         için anlamlı; logolu sayfalarda koca boş tuval kalıyordu. twitter:image
         KARE (og-kare.png) — küçük kart küçük-resmi kareye kırpıyor. og:image
         (geniş) LinkedIn/WhatsApp için duruyor. */}
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogKare} />
+    <meta name="twitter:image" content={twitterGorseli} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <meta name="twitter:creator" content="@yalcinarsan" />
 
     {/* İkonların hepsi src/varliklar/logo-master.png'den üretiliyor —

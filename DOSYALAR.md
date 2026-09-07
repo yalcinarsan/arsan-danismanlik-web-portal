@@ -35,14 +35,15 @@ aynı isimli klasörde.
 | Dosya | Neyi kontrol eder |
 |---|---|
 | [src/content/articles/](src/content/articles/) | **Tüm makaleler** — her biri bir `.md` dosyası |
-| [src/content/config.ts](src/content/config.ts) | Makale üst alanlarının şeması; isteğe bağlı `kapakGorseli` kullanılırsa `src`, `alt` ve `altyazi` birlikte zorunludur |
+| [src/content/config.ts](src/content/config.ts) | Makale üst alanlarının şeması; isteğe bağlı `kapakGorseli` kullanılırsa masaüstü, mobil ve paylaşım görselleri ile `alt` ve `altyazi` birlikte zorunludur |
 | [src/layouts/ArticleLayout.astro](src/layouts/ArticleLayout.astro) | Makale başlığı, geniş kapak, metin ve “Bu sayfada” navigasyonunun yerleşimi |
+| [scripts/build-makale-kapaklari.py](scripts/build-makale-kapaklari.py) | Onaylanan PNG kapaklardan hafif masaüstü/mobil WebP ve 1200×630 paylaşım JPEG’i üretir; `npm run gorsel:makale-kapak` ile çalışır |
 | [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md) | Karakalem kapak dili, altyazı, erişilebilirlik, onay, web–vault eşleştirmesi ve yayın akışı |
 
 Üstteki alanların anlamı: `durum: yayında` yayında demek (`taslak` yaparsan siteden kalkar),
 `seriNo` serideki sırası, `ozet` liste sayfasında ve arama sonuçlarında görünen açıklama.
-`kapakGorseli` isteğe bağlıdır; kullanıldığında görsel yolu, nesnel `alt` betimi ve kısa editoryal
-altyazı birlikte yazılır. Onaylanan kapak ayrıca Yazma Projeleri vault’undaki özgün nota eklenir.
+`kapakGorseli` isteğe bağlıdır; kullanıldığında masaüstü, mobil ve paylaşım görselleri, nesnel `alt`
+betimi ve kısa editoryal altyazı birlikte yazılır. Onaylanan kapak ayrıca Yazma Projeleri vault’undaki özgün nota eklenir.
 
 ## 3. Metni hâlâ kodun içinde olan sayfalar
 

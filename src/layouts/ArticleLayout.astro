@@ -21,6 +21,8 @@ interface Props {
   headings?: Heading[];
   kapakGorseli?: {
     src: string;
+    srcMobil: string;
+    paylasim: string;
     alt: string;
     altyazi: string;
   };
@@ -45,6 +47,9 @@ const tarihStr = new Intl.DateTimeFormat('tr-TR', { year: 'numeric', month: 'lon
 
 const site = Astro.site ?? new URL('https://arsandanismanlik.com.tr');
 const pageUrl = new URL(Astro.url.pathname, site).href;
+const paylasimGorseli = kapakGorseli
+  ? new URL(kapakGorseli.paylasim, site).href
+  : undefined;
 
 const articleLd = {
   '@context': 'https://schema.org',
@@ -57,12 +62,21 @@ const articleLd = {
   author: { '@type': 'Person', '@id': `${site.origin}/#person`, name: 'Yalçın Arsan' },
   publisher: { '@id': `${site.origin}/#organization` },
   mainEntityOfPage: pageUrl,
+  image: paylasimGorseli,
   articleSection: seriEtiketleri[seri] ?? seri,
   license: 'https://creativecommons.org/licenses/by/4.0/',
   isAccessibleForFree: true,
 };
 ---
-<BaseLayout title={title} description={ozet} ogType="article">
+<BaseLayout
+  title={title}
+  description={ozet}
+  ogType="article"
+  image={kapakGorseli?.paylasim}
+  imageAlt={kapakGorseli?.alt}
+  twitterImage={kapakGorseli?.paylasim}
+  twitterCard={kapakGorseli ? 'summary_large_image' : 'summary'}
+>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleLd)} />
   <meta property="article:published_time" content={tarih.toISOString()} slot="head" />
   <meta property="article:author" content="Yalçın Arsan" slot="head" />
@@ -81,6 +95,8 @@ const articleLd = {
       <figure class="article-cover mb-12">
         <img
           src={kapakGorseli.src}
+          srcset={`${kapakGorseli.srcMobil} 960w, ${kapakGorseli.src} 1774w`}
+          sizes="(max-width: 1024px) calc(100vw - 2rem), 1024px"
           width="1774"
           height="887"
           fetchpriority="high"

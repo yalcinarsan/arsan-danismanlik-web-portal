@@ -29,10 +29,11 @@ Kapak eklendiğinde bu iki alan da zorunludur. Altyazı görselin açıklamasın
 3. Karakalem dil, petrol yeşilinin işlevi ve 2:1 panorama korunarak ilk taslak üretilir.
 4. Anlatı netliği, teknik tutarlılık, gereksiz öğeler, bağlantılar, anlamsız yazılar ve renk dengesi kontrol edilir.
 5. Görsel ve altyazı birlikte değerlendirilir; kullanıcı onayından önce web makalesine veya vault’a eklenmez.
-6. Yalnızca onaylanan son sürüm `public/images/articles/` altına alınır. Ara taslaklar GitHub deposunun dışında tutulur.
-7. Onaylanan görsel ve altyazı, web makalesiyle birlikte Yazma Projeleri vault’undaki özgün nota da eklenir.
-8. `npm run build` çalıştırılır; kapak masaüstü ve dar ekranda kontrol edilir.
-9. Kullanıcının yayın onayından sonra `main` dalına gönderilir. Cloudflare Pages dağıtımı tamamlandığında canlı sayfa ayrıca doğrulanır.
+6. Yalnızca onaylanan son PNG `public/images/articles/` altına alınır. Ara taslaklar GitHub deposunun dışında tutulur.
+7. `npm run gorsel:makale-kapak` ile hafif masaüstü WebP, mobil WebP ve 1200×630 paylaşım sürümü üretilir.
+8. Onaylanan özgün görsel ve altyazı, web makalesiyle birlikte Yazma Projeleri vault’undaki özgün nota da eklenir.
+9. `npm run build` çalıştırılır; kapak masaüstü ve dar ekranda kontrol edilir.
+10. Kullanıcının yayın onayından sonra `main` dalına gönderilir. Cloudflare Pages dağıtımı tamamlandığında canlı sayfa ayrıca doğrulanır.
 
 ## Web yerleşimi
 
@@ -40,10 +41,14 @@ Görsel `public/images/articles/<makale-klasörü>/` altında tutulur ve makalen
 
 ```yaml
 kapakGorseli:
-  src: "/images/articles/<makale-klasörü>/00-karakalem-<kısa-ad>-v1.png"
+  src: "/images/articles/<makale-klasörü>/00-karakalem-<kısa-ad>-v1.webp"
+  srcMobil: "/images/articles/<makale-klasörü>/00-karakalem-<kısa-ad>-v1-mobile.webp"
+  paylasim: "/images/articles/<makale-klasörü>/00-karakalem-<kısa-ad>-v1-og.jpg"
   alt: "Görselin nesnel betimi."
   altyazi: "Görsel ile makalenin ana düşüncesini bağlayan cümle."
 ```
+
+Özgün PNG üretim ve arşiv kaynağıdır. Sayfada tarayıcı ekran genişliğine göre 960 piksel mobil WebP veya 1774 piksel masaüstü WebP kullanır. 1200×630 JPEG, Open Graph, X kartı ve Article yapılandırılmış verisine bağlanır.
 
 Kapak, makalenin metin ve içerik navigasyonunu birlikte kapsayan genişliğini kullanır. Metin ile sağdaki “Bu sayfada” navigasyonu kapağın altında başlar.
 

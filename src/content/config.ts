@@ -16,6 +16,8 @@ const articles = defineCollection({
     ozet: z.string().optional(),
     kapakGorseli: z.object({
       src: z.string(),
+      srcMobil: z.string(),
+      paylasim: z.string(),
       alt: z.string(),
       altyazi: z.string(),
     }).optional(),
