@@ -10,6 +10,10 @@ seriNo: 5
 seriBaslik: "Otomotivde Yeni Ekonomi"
 durum: yayında
 ozet: "Elektrifikasyonun çevresinde şekillenen yeni ekonomiye bakış: yan sanayinin dönüşümü, Türkiye'nin şarj ekonomisi, şarj cihazı üretimi, otomotiv markaları ile petrol şirketlerinin farklı çeviklikleri, BYD'nin Türkiye kararı — ve Türkiye'nin en belirgin boşluğu: son üç yılda üç kez iptal edilen yatırımların ardından hâlâ aktif bir yerli batarya hücre üretimi projesi yok."
+kapakGorseli:
+  src: "/images/articles/yeni-ekonomi/00-karakalem-yeni-ekonomi-v1.png"
+  alt: "Karakalem panoramada içten yanmalı motor ve şanzıman parçaları üreten atölye, elektrikli araç batarya montajı, güç elektroniği, şarj altyapısı, güneş enerjisi ve ihracat ağına dönüşüyor."
+  altyazi: "Elektrikli araç tek başına yeni bir ürün değil; çevresinde yeni bir sanayi ve hizmet ekonomisi kuruyor."
 ---
 
 'Otomotivde Elektrifikasyon' yazı dizimizin beşincisindeyiz. İlk dört yazıda sırasıyla "[ne oluyor?](/makaleler/otomotivde-elektrifikasyon-01-neler-oluyor)", "[ne olacak?](/makaleler/otomotivde-elektrifikasyon-02-bundan-sonra-ne-olacak)", "[sektörün yerel aktörleri ne yapmalı?](/makaleler/otomotivde-elektrifikasyon-03-kim-ne-yapmali)" ve "[müşteri ne diyor?](/makaleler/otomotivde-elektrifikasyon-04-musteri-ne-diyor)" sorularına yanıt aradık. Şimdi bu büyük resme bir adım geriden bakıyor, müşteri çevresinde şekillenen yeni ekonomiye & bu bunu oluşturan altyapıya bakıyoruz.
