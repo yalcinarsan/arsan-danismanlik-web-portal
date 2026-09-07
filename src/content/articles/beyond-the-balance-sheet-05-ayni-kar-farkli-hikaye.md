@@ -12,6 +12,11 @@ durum: yayında
 ozet: "Şirket Analizi serisinin beşinci bölümü: Kârlılığı tek bir rakamla değil, birbirini tamamlayan oranlarla okumak — mark-up ile kâr marjı farkı, gelir tablosunun her katmanındaki marjlar, aktif kârlılığı (ROTA), DuPont analizinin üç bileşeni, özsermaye kârlılığının (ROE) kaldıraçla şişirilmesi, 'süt sağma' tuzağı ve stratejik negatif marj ile yapısal negatif marj ayrımı (Uber/Spotify vs WeWork)."
 ---
 
+<figure class="editorial-illustration">
+<img src="/images/articles/ayni-kar-farkli-hikaye/00-karakalem-isletmeler-v1.png" width="1774" height="887" fetchpriority="high" decoding="async" alt="Karakalemle çizilmiş iki işletme kesiti: solda az stokla yalın bir üretim düzeni, sağda daha yoğun stok ve daha karmaşık bir üretim akışı." />
+<figcaption>Aynı kârı elde eden iki şirket, bu sonuca çok farklı miktarda kaynak bağlayarak ulaşabilir.</figcaption>
+</figure>
+
 **Şirket Analizi Serisinin ilk dört bölümde finansal tabloları tanıdık. Şimdi sıra biraz daha derin bir konuya geldi: Bu rakamları nasıl yorumlayacağız? Kârlılık ölçümü, finansal analizin belki de en yanıltıcı alanı: Tek bir kâr rakamı size çok şey söyler — ama çoğu zaman doğru şeyi söylemez.**
 
 İki şirket düşünün. Her ikisi de 100 milyon TL ciro yapıyor. Her ikisi de 20 milyon TL net kâr açıklıyor. Aynı kâr marjı, aynı sektör, aynı büyüklük.

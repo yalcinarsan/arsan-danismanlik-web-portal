@@ -12,6 +12,11 @@ durum: yayında
 ozet: "Elektrifikasyon geçişinin asıl belirleyicisi müşteri. EA müşterisinin kim olduğu, neden satın aldığı, markaya değil kategoriye olan sadakati, fiyat paritesi denklemi ve 'müşteri hazır, sektör değil' tespiti; akıllı telefon uçurumuyla paralellik ve Türkiye'nin hızlı geçiş dinamikleri."
 ---
 
+<figure class="editorial-illustration">
+<img src="/images/articles/musteri-ne-diyor/00-karakalem-musteri-v4.png" width="1774" height="887" fetchpriority="high" decoding="async" alt="Karakalem panoramada satıcı teknik çizimler ve elektrikli aracı anlatırken yanındaki müşteri, sağda şarja bağlı elektrikli otomobiliyle ailesinin günlük yaşamına bakıyor." />
+<figcaption>Satıcı ürünü anlatıyor; müşteri kendi hayatındaki karşılığını arıyor.</figcaption>
+</figure>
+
 'Otomotivde Elektrifikasyon' yazı dizimizin dördüncüsüne geldik; ilk üç yazıda sırasıyla "[otomotivde ne oluyor?](/makaleler/otomotivde-elektrifikasyon-01-neler-oluyor)", "[bundan sonra ne olacak?](/makaleler/otomotivde-elektrifikasyon-02-bundan-sonra-ne-olacak)" ve "[sektörde hangi aktör ne yapmalı?](/makaleler/otomotivde-elektrifikasyon-03-kim-ne-yapmali)" sorularına yanıt aradık. Bu kez denklemin asıl belirleyicisine bakıyoruz: Elektrikli Araç (EA) müşterisi. Kimdir bu esrarengiz karakter; ne düşünür, nasıl karar verir, ne ister?
 
 Otomotiv sektörünün büyük paydaşlarının elektrifikasyondaki rolünden bahsettiğim [üçüncü makaleyi](/makaleler/otomotivde-elektrifikasyon-03-kim-ne-yapmali) şu cümleyle bağlamıştım: "Elektrifikasyon geçişinin en belirleyici aktörü olan müşteriyi bir sonraki yazıda derinlemesine inceleyeceğiz." Müşteri en belirleyici faktör çünkü distribütör ne yaparsa yapsın, bayi ne kadar çevik hareket ederse etsin, ana marka stratejisini ne kadar incelikle kurarsa kursun — bütün bu çabaların yöneldiği tek bir merkez var: Müşteri. Nihai karar noktası. Üstelik bu öyle değişik bir müşteri profili ki, yaşanan büyük değişime sektörün tüm diğer paydaşlarından daha hazır görünüyor.
