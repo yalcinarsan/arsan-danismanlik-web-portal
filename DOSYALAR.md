@@ -32,12 +32,17 @@ site otomatik olarak yeni metni kullanır.
 Her makale ayrı bir dosya. Görseller `public/images/articles/` altında, makale adıyla
 aynı isimli klasörde.
 
-| Dosya | |
+| Dosya | Neyi kontrol eder |
 |---|---|
 | [src/content/articles/](arsandanismanlik-web/src/content/articles/) | **Tüm makaleler** — her biri bir `.md` dosyası |
+| [src/content/config.ts](arsandanismanlik-web/src/content/config.ts) | Makale üst alanlarının şeması; isteğe bağlı `kapakGorseli` kullanılırsa `src`, `alt` ve `altyazi` birlikte zorunludur |
+| [src/layouts/ArticleLayout.astro](arsandanismanlik-web/src/layouts/ArticleLayout.astro) | Makale başlığı, geniş kapak, metin ve “Bu sayfada” navigasyonunun yerleşimi |
+| [MAKALE-GORSEL-DILI.md](arsandanismanlik-web/MAKALE-GORSEL-DILI.md) | Karakalem kapak dili, altyazı, erişilebilirlik, onay, web–vault eşleştirmesi ve yayın akışı |
 
 Üstteki alanların anlamı: `durum: yayında` yayında demek (`taslak` yaparsan siteden kalkar),
 `seriNo` serideki sırası, `ozet` liste sayfasında ve arama sonuçlarında görünen açıklama.
+`kapakGorseli` isteğe bağlıdır; kullanıldığında görsel yolu, nesnel `alt` betimi ve kısa editoryal
+altyazı birlikte yazılır. Onaylanan kapak ayrıca Yazma Projeleri vault’undaki özgün nota eklenir.
 
 ## 3. Metni hâlâ kodun içinde olan sayfalar
 

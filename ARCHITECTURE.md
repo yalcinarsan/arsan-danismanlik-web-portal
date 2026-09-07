@@ -25,7 +25,9 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 
 ### İçerik modeli — CMS yok, git-tabanlı
 - Makaleler `src/content/articles/` altında birer **markdown dosyası** (Astro "Content Collections" — hafif bir şema/liste sistemi, geleneksel bir CMS değil).
-- Görsel/tablo eklemek elle: kaynaktan (Medium/X) indirilip `<figure>/<figcaption>` ile makaleye gömülüyor. **Kapak görseli kullanılmıyor** — sadece yazı-içi tablo/grafik.
+- Görsel ve tablolar `public/images/articles/` altında makale klasörlerinde tutuluyor; yazı içindekiler `<figure>/<figcaption>` ile makaleye gömülüyor.
+- Makale kapağı isteğe bağlı. Kullanıldığında frontmatter içindeki `kapakGorseli.src`, `alt` ve `altyazi` alanları birlikte tanımlanıyor. Kapak, metin ile içerik navigasyonunun ortak genişliğini kullanıyor; metin ve sağdaki navigasyon kapağın altında başlıyor.
+- Kapaklarda sıcak kırık beyaz zeminli grafit karakalem ve anlam taşıyan petrol yeşili vurgu esas. Üretim, erişilebilirlik, web–vault eşleştirmesi ve yayın standardı [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md) içinde tutuluyor.
 - **Sıkı taşıma kuralı:** makaleler kaynağından **birebir tam metin** taşınıyor (özet/parafraz yok), **bold vurgular** da orijinaline birebir uyuyor.
 - Bu yaklaşımın bilinçli sınırı: içerik düzenlemek git+markdown bilgisi (ya da bu oturum) gerektiriyor — tek başına tarayıcıdan "yaz-yayınla" yapılamıyor. Şu an (tek yazar, ayda birkaç makale) bu yeterli; ölçek büyürse git üzerine hafif bir arayüz (Keystatic, Decap CMS gibi) eklenebilir.
 
@@ -56,6 +58,9 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 ---
 
 ## 3. Karar Günlüğü
+
+**2026-09-07 — Makalelerde karakalem kapak dili ve geniş yerleşim**
+12 Temmuz’daki “kapak kullanılmayacak” kararı, üç pilotun birlikte değerlendirilmesinden sonra revize edildi. Kapak hâlâ zorunlu değil; makalenin ana düşüncesine editoryal bir katman eklediğinde kullanılacak. Ortak dil sıcak kırık beyaz kâğıt üzerinde grafit karakalem ve anlam taşıyan petrol yeşili vurgu olarak belirlendi. `kapakGorseli` veri yapısında görsel yolu, erişilebilir `alt` metni ve editoryal altyazı birlikte zorunlu. Kapak metin ve içerik navigasyonunun toplam genişliğine taşındı; sağdaki navigasyon kapağın altında başlıyor. İlk referanslar “Aynı Kâr, Farklı Hikaye”, “Müşteri Ne Diyor?” ve “Otomotivde Yeni Ekonomi”. Onaylanan kapaklar web deposuna ve Yazma Projeleri vault’undaki özgün nota birlikte ekleniyor; ara taslaklar GitHub’a alınmıyor. Ayrıntılı standart: [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md).
 
 **2026-08-31 — Ürün sayfasının ikinci metin revizyonu**
 Kamuya açık çalışma adı **Otomotiv Sipariş, Stok, Satış (OSSS) Sistemi** olarak kullanılmaya başlandı; kalıcı ürün/marka adı ayrıca netleştirilecek. Obsidian'daki kaynak metne göre sorun tanımı, kurulum modeli, çalışan çekirdek, hedef kurumlar ve Arsan Danışmanlık gerekçesi güncellendi. Terminolojide “bayi” yazımı esas alındı.
