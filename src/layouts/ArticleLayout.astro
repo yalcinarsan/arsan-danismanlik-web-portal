@@ -19,9 +19,14 @@ interface Props {
   seriBaslik?: string;
   url?: string;
   headings?: Heading[];
+  kapakGorseli?: {
+    src: string;
+    alt: string;
+    altyazi: string;
+  };
 }
 
-const { title, ozet, tarih, seri, seriNo, seriBaslik, url, headings = [] } = Astro.props;
+const { title, ozet, tarih, seri, seriNo, seriBaslik, url, headings = [], kapakGorseli } = Astro.props;
 
 const seriEtiketleri: Record<string, string> = {
   'otomotivde-elektrifikasyon': 'Otomotivde Elektrifikasyon',
@@ -63,13 +68,34 @@ const articleLd = {
   <meta property="article:author" content="Yalçın Arsan" slot="head" />
   {url && <meta property="article:opensource_url" content={url} slot="head" />}
 
-  <div class="mx-auto max-w-4xl px-4 py-12 flex gap-12 justify-center">
-    <article class="max-w-2xl min-w-0 flex-1">
+  <div class="mx-auto max-w-5xl px-4 py-12">
+    <header class="max-w-2xl mb-10">
       <p class="text-sm text-accent font-medium mb-2">
         {seriEtiketleri[seri] ?? seri} · {seriBaslik ?? `Bölüm ${seriNo}`}
       </p>
       <h1 class="text-3xl font-semibold text-ink mb-2">{title}</h1>
-      <p class="text-sm text-warm-500 mb-10">{tarihStr}</p>
+      <p class="text-sm text-warm-500">{tarihStr}</p>
+    </header>
+
+    {kapakGorseli && (
+      <figure class="article-cover mb-12">
+        <img
+          src={kapakGorseli.src}
+          width="1774"
+          height="887"
+          fetchpriority="high"
+          decoding="async"
+          alt={kapakGorseli.alt}
+          class="block w-full h-auto cursor-zoom-in"
+        />
+        <figcaption class="mt-3 text-center text-sm text-warm-500">
+          {kapakGorseli.altyazi}
+        </figcaption>
+      </figure>
+    )}
+
+    <div class="flex gap-12 justify-center">
+      <article class="max-w-2xl min-w-0 flex-1">
       <div class="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:scroll-mt-20 prose-a:text-accent prose-figcaption:text-center prose-figcaption:text-warm-500 prose-img:cursor-zoom-in">
         <slot />
       </div>
@@ -107,8 +133,9 @@ const articleLd = {
           <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" class="underline hover:text-accent">CC BY 4.0</a>
         </p>
       </footer>
-    </article>
-    <TableOfContents headings={headings} />
+      </article>
+      <TableOfContents headings={headings} />
+    </div>
   </div>
 
   <div id="lightbox" aria-hidden="true">
@@ -157,7 +184,7 @@ const articleLd = {
     const box = document.getElementById('lightbox');
     const boxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
     if (box && boxImg) {
-      document.querySelectorAll<HTMLImageElement>('.prose img').forEach((img) => {
+      document.querySelectorAll<HTMLImageElement>('.prose img, .article-cover img').forEach((img) => {
         img.addEventListener('click', () => {
           boxImg.src = img.currentSrc || img.src;
           boxImg.alt = img.alt;

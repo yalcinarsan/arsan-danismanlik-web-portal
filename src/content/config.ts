@@ -14,6 +14,11 @@ const articles = defineCollection({
     seriBaslik: z.string().optional(),
     durum: z.enum(['taslak', 'yayında', 'arşiv']).default('taslak'),
     ozet: z.string().optional(),
+    kapakGorseli: z.object({
+      src: z.string(),
+      alt: z.string(),
+      altyazi: z.string(),
+    }).optional(),
   }),
 });
 
