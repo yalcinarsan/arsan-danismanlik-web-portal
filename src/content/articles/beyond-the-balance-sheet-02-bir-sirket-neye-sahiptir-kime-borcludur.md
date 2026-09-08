@@ -10,6 +10,12 @@ seriNo: 2
 seriBaslik: "Bilançoyu okumak"
 durum: yayında
 ozet: "Şirket Analizi serisinin ikinci bölümü: Bilançonun mantığı — kırılmaz denklem, beş yapı taşı, amortismanın gizemi, defter değeri ile piyasa değeri arasındaki fark ve dönüşüm dönemlerinde varlıkların gerçekten ne kadar değerli olduğu sorusu."
+kapakGorseli:
+  src: "/images/articles/bir-sirket-neye-sahiptir-kime-borcludur/00-karakalem-bilanco-v1.webp"
+  srcMobil: "/images/articles/bir-sirket-neye-sahiptir-kime-borcludur/00-karakalem-bilanco-v1-mobile.webp"
+  paylasim: "/images/articles/bir-sirket-neye-sahiptir-kime-borcludur/00-karakalem-bilanco-v1-og.jpg"
+  alt: "Karakalemle çizilmiş şirket kesitinde nakit, stok ve üretim makineleri; dışarıda bunlara bağlanan banka, tedarikçi ve ortaklar, arka planda ise petrol yeşili yolla ulaşılan yeni üretim tesisi görülüyor."
+  altyazi: "Bilanço, şirketin bugün neye sahip olduğunu ve bu varlıklar üzerinde kimlerin hakkı bulunduğunu gösterir; gelecekte hangilerinin değer üretmeye devam edeceğini değil."
 ---
 
 **Şirket Analizi Serisi — Bölüm 2:** Şirketlerin analizine giriş yaptığımız bu serinin ikinci bölümünde iş hayatının belki de en çok yanlış anlaşılan belgesiyle yüz yüzeyiz: bilanço. Dışarıdan bakıldığında muhasebecilerin anlaşılmaması amacıyla tasarladığı karmaşık bir tablo gibi görünür. Ama arkasındaki mantığı bir kez kavradığınızda, bir şirketin finansal sağlığı hakkında faaliyet raporundaki neredeyse her rapordan daha fazla bilgi sunduğunu göreceksiniz.
