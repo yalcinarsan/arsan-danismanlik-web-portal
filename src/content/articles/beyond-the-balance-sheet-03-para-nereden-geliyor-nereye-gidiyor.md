@@ -10,6 +10,12 @@ seriNo: 3
 seriBaslik: "Gelir tablosunu okumak"
 durum: yayında
 ozet: "Şirket Analizi serisinin üçüncü bölümü: Gelir tablosunu gerçekçi okumak — cirodan net kâra uzanan katmanlar (brüt kâr, faaliyet kârı, faiz, vergi), olağandışı kalemlerin ve 'düzeltilmiş' HBK'nın tuzakları, ve mükemmel bir gelir tablosunun (Kodak örneği) ölümcül bir stratejiyi nasıl gizleyebildiği."
+kapakGorseli:
+  src: "/images/articles/para-nereden-geliyor-nereye-gidiyor/00-karakalem-gelir-tablosu-v1.webp"
+  srcMobil: "/images/articles/para-nereden-geliyor-nereye-gidiyor/00-karakalem-gelir-tablosu-v1-mobile.webp"
+  paylasim: "/images/articles/para-nereden-geliyor-nereye-gidiyor/00-karakalem-gelir-tablosu-v1-og.jpg"
+  alt: "Karakalemle çizilmiş çok katlı işletmede madeni para ve banknot destelerinden oluşan gelir akışı gider noktalarında azalarak alt kattaki kâr haznesine ulaşıyor; dışarıdaki müşteriler petrol yeşili yolla yeni bir hizmete yöneliyor."
+  altyazi: "Gelir tablosu, şirketin gelir ve giderlerinin nasıl oluştuğunu gösterir. Farklı dönemleri kapsayabilir; kapsadığı dönemin hikâyesidir."
 ---
 
 **Şirket Analizi Serisi — Bölüm 3:** Şirketlerin analizine giriş yaptığımız bu dokuz bölümlük serinin üçüncü bölümde en iyi anlaşıldığı sandığı ama çoğu zaman yanlış okunan tabloya bakıyoruz: gelir tablosu. Görünüşte basit bir yapısı var — en üstte para giriyor, en altta kâr (ya da zarar) çıkıyor. Ama bu iki satır arasında katmanlı bir hikaye var ve her biri farklı bir şey anlatıyor. Bir katmanı kaçırırsanız, hikayenin tamamı gözden kaçabilir.

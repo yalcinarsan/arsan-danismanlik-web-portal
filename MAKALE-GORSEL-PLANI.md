@@ -84,7 +84,9 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Sahne:** Çok katlı bir işletmenin üstünden giren geniş gelir akışı; üretim maliyeti, faaliyet gideri, faiz ve vergi katmanlarından geçtikçe incelir ve altta düzenli bir kâr haznesine ulaşır. Binanın dışında müşteriler ve teknoloji başka bir yöne kayarken içerideki akış hâlâ kusursuz çalışır. Petrol yeşili dışarıda büyüyen yeni talepte görünür; iç akış grafitte kalır.
 
-**Altyazı önerisi:** Gelir tablosu paranın bugün nasıl aktığını gösterir; o akışın yarın sürüp sürmeyeceğini değil.
+**Altyazı:** Gelir tablosu, şirketin gelir ve giderlerinin nasıl oluştuğunu gösterir. Farklı dönemleri kapsayabilir; kapsadığı dönemin hikâyesidir.
+
+**Durum:** Onaylandı
 
 ### 8. ‘Nakit’ Çok Şey Anlatır!
 

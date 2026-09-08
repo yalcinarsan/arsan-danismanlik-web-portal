@@ -66,6 +66,7 @@ Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopya
 
 - **Bir Şirketi Nasıl Okursunuz?:** Faaliyet raporundaki kurumsal sunum, işletmenin gerçek işleyişi ve belgenin dışında kalan değişen pazar arasındaki okuma rotası.
 - **Bir Şirket Neye Sahiptir, Kime Borçludur?:** Şirketin bugünkü varlıkları, bunlar üzerindeki banka, tedarikçi ve ortak hakları ile gelecekte değer üretecek kapasitenin ayrımı.
+- **Para Nereden Geliyor, Nereye Gidiyor?:** Geniş başlayan gelir akışının işletme katmanlarındaki giderlerle daralarak dönem kârına dönüşmesi ve dışarıda yön değiştiren talep.
 - **Aynı Kâr, Farklı Hikaye:** Aynı sonuca farklı miktarda kaynak bağlayan iki işletmenin karşılaştırması.
 - **Otomotivde Neler Oluyor?:** Köklü üreticilerin dönüşüm yükü ile Tesla ve BYD gibi yeni oyuncuların yalın başlangıç avantajı.
 - **Bundan Sonra Ne Olacak?:** Geçici daralmalara rağmen kesintisiz ilerleyen elektrikli dönüşüm yönü.
