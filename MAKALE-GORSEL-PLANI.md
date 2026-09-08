@@ -74,7 +74,7 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Sahne:** Şeffaf kesit halinde bir şirket: nakit, stok, alacak ve fabrika ekipmanı farklı bölümlerde görünür; banka, tedarikçi ve ortakların hakları binaya bağlanan somut hatlarla temsil edilir. Arka tarafta yeni bir üretim dünyası kurulurken eski makinelerin bir bölümü grafitte soluklaşır, gelecekte işe yarayan varlıklar petrol yeşiliyle canlı kalır.
 
-**Altyazı:** Bilanço, şirketin bugün neye sahip olduğunu ve bu varlıklar üzerinde kimlerin hakkı bulunduğunu gösterir; gelecekte hangilerinin değer üretmeye devam edeceğini değil.
+**Altyazı:** Bilanço, şirketin bugün neye sahip olduğunu ve bu varlıklar üzerinde kimlerin hakkı bulunduğunu gösterir. Anlıktır; üretildiği gün itibarıyla şirketin finansal açıdan fotoğrafını çeker.
 
 **Durum:** Onaylandı
 
