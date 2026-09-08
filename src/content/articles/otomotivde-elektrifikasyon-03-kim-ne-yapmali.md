@@ -10,6 +10,12 @@ seriNo: 3
 seriBaslik: "Kim ne yapmalı?"
 durum: yayında
 ozet: "Otomotiv Sektörünün Yerel Aktörleri — marka, distribütör ve bayi arasında yeni denge arayışı. Yerel strateji ihtiyacı, bayinin çeviklik avantajı, acente modeli ve hiyerarşiden ortaklığa geçiş."
+kapakGorseli:
+  src: "/images/articles/kim-ne-yapmali/00-karakalem-kim-ne-yapmali-v1.webp"
+  srcMobil: "/images/articles/kim-ne-yapmali/00-karakalem-kim-ne-yapmali-v1-mobile.webp"
+  paylasim: "/images/articles/kim-ne-yapmali/00-karakalem-kim-ne-yapmali-v1-og.jpg"
+  alt: "Karakalem panoramada otomobil üreticisi, distribütör ve bayi temsilcileri fabrikanın, ofisin ve müşteri alanının içinden geçen ortak masada bir araç modeli etrafında birlikte çalışıyor; arka planda eski hiyerarşi silikleşiyor."
+  altyazi: "Dönüşüm, marka, distribütör ve bayinin birbirine talimat vermesinden çok aynı problemi birlikte çözmesini gerektiriyor."
 ---
 
 Otomotivde elektrifikasyon akımının getirdiği dönüşümü incelemeye devam: İlk iki yazıda otomotiv sektörünün yaşadığı dönüşümü iki perspektiften inceledik. Önce "otomotiv sektöründe ne oluyor?" sorusunu hem sektörel hem de finansal analiz ile yanıtladık: Tesla'nın alışılmadık (dalgalı kâr / yüksek nakit) performansını, geleneksel otomotiv markalarının neden elektrikli otomobilden para kazanmakta zorlandıklarını, BYD özelinde detaylı incelediğimiz Çin kökenli markaların ne anlamda yükseldiğini, Tesla ve Çin'lilerde gördüğümüz **dikey entegrasyonun** yarattığı yapısal avantajı, son olarak da pazarlama maliyetlerinin görünmeyen ağırlığını irdeledik.

@@ -8,7 +8,7 @@ Bu belge, Arsan Danışmanlık makalelerinde kullanılan karakalem kapak görsel
 - Petrol yeşili sınırlı ve anlam taşıyan vurgu rengidir. Yeni olanı, dönüşümü, yönü veya çözümü işaret eder; yalnızca dekorasyon amacıyla kullanılmaz.
 - Tercih edilen biçim 2:1 oranında, tek ve kesintisiz bir editoryal panoramadır.
 - Görsel bir düşünceyi anlatır. Makaledeki her başlığı resme doldurmak yerine ana gerilimi, karşılaştırmayı veya dönüşümü görünür kılar.
-- Kutu kutu bölünmüş infografik düzeninden; görsel içine başlık, açıklama, logo ve etiket yerleştirmekten kaçınılır.
+- Kutu kutu bölünmüş infografik düzeninden; görsel içine başlık, açıklama ve etiket yerleştirmekten kaçınılır. Gerçek şirketler analizin doğrudan aktörü olduğunda, anlatıyı netleştiren doğru ve ölçülü marka işaretleri kullanıcı onayıyla kullanılabilir; sahte veya bozulmuş marka işareti bırakılmaz.
 - Nesnelerin anlatıdaki rolü açık olmalıdır. Aynı fikri tekrar eden veya anlamı olmayan araç, kişi ve dekor kullanılmaz.
 - Teknik ilişkiler doğru kurulmalıdır: kablo ve bağlantılar tamamlanır, araç ve ekipmanın işlevi anlaşılır, anlamsız yazı ve sahte marka işaretleri bırakılmaz.
 - Ana düşünce, sayfanın geniş kapak boyutunda kolayca okunmalı; dar ekranda küçüldüğünde de ana aktörler kaybolmamalıdır.
@@ -54,7 +54,7 @@ Kapak, makalenin metin ve içerik navigasyonunu birlikte kapsayan genişliğini 
 
 ## Obsidian eşleştirmesi
 
-Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopyalanır. Mevcut frontmatter değiştirilmeden hemen altına görsel ve italik altyazı eklenir:
+Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopyalanır. Mevcut frontmatter değiştirilmeden, frontmatter’ın veya varsa mevcut başlık–yazar bloğunun ardından görsel ve italik altyazı eklenir:
 
 ```markdown
 ![[ea-05-00-karakalem-yeni-ekonomi-v1.png]]
@@ -62,10 +62,14 @@ Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopya
 *Elektrikli araç tek başına yeni bir ürün değil; çevresinde yeni bir sanayi ve hizmet ekonomisi kuruyor.*
 ```
 
-## Onaylanan ilk üç örnek
+## Onaylanan referanslar
 
 - **Aynı Kâr, Farklı Hikaye:** Aynı sonuca farklı miktarda kaynak bağlayan iki işletmenin karşılaştırması.
+- **Otomotivde Neler Oluyor?:** Köklü üreticilerin dönüşüm yükü ile Tesla ve BYD gibi yeni oyuncuların yalın başlangıç avantajı.
+- **Bundan Sonra Ne Olacak?:** Geçici daralmalara rağmen kesintisiz ilerleyen elektrikli dönüşüm yönü.
+- **Otomotivde Kim Ne Yapmalı?:** Üretici, distribütör ve bayinin eski hiyerarşinin yerine ortak çalışma düzeni kurması.
 - **Müşteri Ne Diyor?:** Satıcının ürün anlatısı ile müşterinin kendi hayatındaki karşılığı arasındaki ayrım.
 - **Otomotivde Yeni Ekonomi:** Mekanik parça dünyasından batarya, şarj, enerji, yazılım, hizmet ve ihracat ekosistemine geçiş.
+- **Türkiye’nin Yolu:** Kamu altyapısı, sanayi ve tüketicinin ortak bir bölgesel hareketlilik koridorunda birleşmesi.
 
-Bu üç örnek sonraki üretimler için ton ve yaklaşım referansıdır; yeni görseller bunların kopyası olmak zorunda değildir.
+Bu örnekler sonraki üretimler için ton ve yaklaşım referansıdır; yeni görseller bunların kopyası olmak zorunda değildir.

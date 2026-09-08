@@ -10,6 +10,12 @@ seriNo: 6
 seriBaslik: "Türkiye'nin Yolu"
 durum: yayında
 ozet: "Politika ve uluslararası dinamikler: ABD'nin geri çekilmesi, AB'nin yumuşayan kararlılığı, Çin'in aktif şekillendirmesi. Türkiye ÖTV politikasının vergi aracından sanayi politikası aracına dönüşme potansiyeli. Üç ayak — devlet, sanayi, tüketici — birlikte hareket ederse şekillendiren, ayrı ayrı hareket ederse izleyen bir Türkiye. Altı yazılık serinin toplu kapanışı."
+kapakGorseli:
+  src: "/images/articles/turkiyenin-yolu/00-karakalem-turkiyenin-yolu-v1.webp"
+  srcMobil: "/images/articles/turkiyenin-yolu/00-karakalem-turkiyenin-yolu-v1-mobile.webp"
+  paylasim: "/images/articles/turkiyenin-yolu/00-karakalem-turkiyenin-yolu-v1-og.jpg"
+  alt: "Karakalem panoramada elektrik şebekesi ve kamu altyapısı, otomotiv fabrikası ve apartman önündeki elektrikli araç kullanımı üç yoldan ortak bir kavşakta birleşerek köprü üzerinden dış pazara uzanıyor."
+  altyazi: "Türkiye, devlet, sanayi ve tüketici aynı yönde hareket ettiğinde izleyen değil şekillendiren olabilir."
 ---
 
 'Otomotivde Elektrifikasyon' yazı dizimizin altıncı ve son bölümüne geldik. Önceki yazılarda sırasıyla "[ne oluyor?](/makaleler/otomotivde-elektrifikasyon-01-neler-oluyor)", "[ne olacak?](/makaleler/otomotivde-elektrifikasyon-02-bundan-sonra-ne-olacak)", "[sektörün yerel aktörleri ne yapmalı?](/makaleler/otomotivde-elektrifikasyon-03-kim-ne-yapmali)", "[müşteri ne diyor?](/makaleler/otomotivde-elektrifikasyon-04-musteri-ne-diyor)" ve "[otomotivde yeni ekonomi nasıl şekilleniyor?](/makaleler/otomotivde-elektrifikasyon-05-yeni-ekonomi)" sorularına yanıt aradık. Şimdi denklemin son ama bana göre (müşteriden sonra) en belirleyici aktörlerine bakıyoruz: **yasa yapıcı mekanizmalar ve sektörel politika.**

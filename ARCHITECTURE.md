@@ -59,6 +59,9 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 
 ## 3. Karar Günlüğü
 
+**2026-09-08 — Otomotivde Elektrifikasyon kapak setinin tamamlanması**
+Serinin eksik dört kapağı kullanıcıyla tek tek değerlendirilerek tamamlandı: “Otomotivde Neler Oluyor?”, “Bundan Sonra Ne Olacak?”, “Otomotivde Kim Ne Yapmalı?” ve “Türkiye’nin Yolu”. Böylece altı yazının tamamı ortak karakalem diline kavuştu. Gerçek şirketler analizin doğrudan aktörü olduğunda doğru ve ölçülü marka işaretlerinin kullanılabileceği; her kapağın onaydan sonra özgün PNG, web/paylaşım sürümleri ve Obsidian eşleştirmesiyle birlikte tamamlanacağı kararı kalıcı standarda eklendi. Kalan Şirket Analizi kapaklarının kavram haritası [MAKALE-GORSEL-PLANI.md](MAKALE-GORSEL-PLANI.md) içinde tutuluyor.
+
 **2026-09-07 — Makalelerde karakalem kapak dili ve geniş yerleşim**
 12 Temmuz’daki “kapak kullanılmayacak” kararı, üç pilotun birlikte değerlendirilmesinden sonra revize edildi. Kapak hâlâ zorunlu değil; makalenin ana düşüncesine editoryal bir katman eklediğinde kullanılacak. Ortak dil sıcak kırık beyaz kâğıt üzerinde grafit karakalem ve anlam taşıyan petrol yeşili vurgu olarak belirlendi. `kapakGorseli` veri yapısında masaüstü ve mobil görsel, paylaşım sürümü, erişilebilir `alt` metni ve editoryal altyazı birlikte zorunlu. Kapak metin ve içerik navigasyonunun toplam genişliğine taşındı; sağdaki navigasyon kapağın altında başlıyor. İlk referanslar “Aynı Kâr, Farklı Hikaye”, “Müşteri Ne Diyor?” ve “Otomotivde Yeni Ekonomi”. Onaylanan kapaklar web deposuna ve Yazma Projeleri vault’undaki özgün nota birlikte ekleniyor; ara taslaklar GitHub’a alınmıyor. Özgün PNG’den hafif WebP ve 1200×630 paylaşım sürümleri `npm run gorsel:makale-kapak` ile üretiliyor. Ayrıntılı standart: [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md).
 

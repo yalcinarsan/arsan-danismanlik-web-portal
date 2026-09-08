@@ -10,6 +10,12 @@ seriNo: 2
 seriBaslik: "Bundan sonra ne olacak?"
 durum: yayında
 ozet: "EA Geçişinin Yakın Geleceği — Veri, Gözlem ve Tahminler. Müşteri asimetrisi, S-eğrisi, tarife savaşları, Çinli markaların yükselişi, otonom sürüş, bayilik modeli ve batarya teknolojisi üzerine veri temelli tahminler."
+kapakGorseli:
+  src: "/images/articles/otomotiv-elektrifikasyonu-bundan-sonra-ne-olacak/00-karakalem-bundan-sonra-v1.webp"
+  srcMobil: "/images/articles/otomotiv-elektrifikasyonu-bundan-sonra-ne-olacak/00-karakalem-bundan-sonra-v1-mobile.webp"
+  paylasim: "/images/articles/otomotiv-elektrifikasyonu-bundan-sonra-ne-olacak/00-karakalem-bundan-sonra-v1-og.jpg"
+  alt: "Karakalem panoramada içten yanmalı ve elektrikli araçlar, yol çalışması ve kontrol noktasının yavaşlattığı ancak şarj altyapısı artarak ufka devam eden aynı ulaşım koridorunda ilerliyor."
+  altyazi: "Geçişin hızı değişebilir; yönü değişmiyor."
 ---
 
 Bu yazı, bir önceki makalemde yaptığım durum analizinin devamı. İlk makalede [otomotivde neler oluyor?](/makaleler/otomotivde-elektrifikasyon-01-neler-oluyor) sorusuna cevap aramıştım — olumlu ve olumsuz yönleriyle Tesla finansalları, bu konuda Tesla dışında şeffaf raporlama yapan tek global marka olan Ford'un $18 milyarlık EA zararı, BYD'nin yükselişi, dikey entegrasyonun ve pazarlama maliyetlerinin yapısal etkileri.

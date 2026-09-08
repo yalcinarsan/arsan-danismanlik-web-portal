@@ -10,6 +10,12 @@ seriNo: 1
 seriBaslik: "Ne oluyor?"
 durum: yayında
 ozet: "EA (Elektrikli Araç) Geçişinin Finansal Anatomisi — Tesla, Ford, BYD, Toyota ve VW'nin 2020-2025 finansal tabloları üzerinden sektörün en büyük yapısal dönüşümünü beş perspektiften inceliyoruz."
+kapakGorseli:
+  src: "/images/articles/otomotivde-neler-oluyor/00-karakalem-neler-oluyor-v2.webp"
+  srcMobil: "/images/articles/otomotivde-neler-oluyor/00-karakalem-neler-oluyor-v2-mobile.webp"
+  paylasim: "/images/articles/otomotivde-neler-oluyor/00-karakalem-neler-oluyor-v2-og.jpg"
+  alt: "Karakalem panoramada Ford, Toyota ve Volkswagen logolu köklü üretim kompleksi dönüşüm geçirirken Tesla ve BYD'nin yalın tesislerinden çıkan elektrikli otomobiller aynı müşterilerin karşısında buluşuyor."
+  altyazi: "Elektrifikasyon, sıfırdan kurulan yeni oyunculara avantaj sağlarken köklü üreticileri işleyen düzenlerini yeniden kurmaya zorluyor."
 ---
 
 ## Sektörün Kimlik Krizi

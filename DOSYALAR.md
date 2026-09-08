@@ -39,6 +39,7 @@ aynı isimli klasörde.
 | [src/layouts/ArticleLayout.astro](src/layouts/ArticleLayout.astro) | Makale başlığı, geniş kapak, metin ve “Bu sayfada” navigasyonunun yerleşimi |
 | [scripts/build-makale-kapaklari.py](scripts/build-makale-kapaklari.py) | Onaylanan PNG kapaklardan hafif masaüstü/mobil WebP ve 1200×630 paylaşım JPEG’i üretir; `npm run gorsel:makale-kapak` ile çalışır |
 | [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md) | Karakalem kapak dili, altyazı, erişilebilirlik, onay, web–vault eşleştirmesi ve yayın akışı |
+| [MAKALE-GORSEL-PLANI.md](MAKALE-GORSEL-PLANI.md) | Tamamlanan kapaklar ile sıradaki makalelerin ana fikir, sahne ve altyazı haritası |
 
 Üstteki alanların anlamı: `durum: yayında` yayında demek (`taslak` yaparsan siteden kalkar),
 `seriNo` serideki sırası, `ozet` liste sayfasında ve arama sonuçlarında görünen açıklama.
