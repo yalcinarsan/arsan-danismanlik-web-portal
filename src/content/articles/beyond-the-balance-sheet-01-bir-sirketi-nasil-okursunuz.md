@@ -10,6 +10,12 @@ seriNo: 1
 seriBaslik: "Faaliyet raporunu okumak"
 durum: yayında
 ozet: "Şirket Analizi serisinin ilk bölümü: Faaliyet raporu nedir, kim yazar, kim okur — ve bu belgeyi bilinçli okumak için bilmeniz gereken temel muhasebe ilkeleri, denetim, kurumsal yönetişim ve analistin üç altın kuralı."
+kapakGorseli:
+  src: "/images/articles/bir-sirketi-nasil-okursunuz/00-karakalem-sirketi-okumak-v1.webp"
+  srcMobil: "/images/articles/bir-sirketi-nasil-okursunuz/00-karakalem-sirketi-okumak-v1-mobile.webp"
+  paylasim: "/images/articles/bir-sirketi-nasil-okursunuz/00-karakalem-sirketi-okumak-v1-og.jpg"
+  alt: "Karakalemle çizilmiş açık faaliyet raporunda şirket binası, üretim tesisi, yönetim bölümü, grafikler ve tablolar; raporun ötesinde değişen pazar görülüyor. Petrol yeşili kalem analistin okuma izini başlatıyor."
+  altyazi: "Bir şirketi anlamak, raporda yazanı okumak kadar neyin dışarıda kaldığını da görebilmeyi gerektirir."
 ---
 
 Mesleğimin en sevdiğim bölümlerinden biri "analiz". Özellikle de değişim ve dönüşüm dönemlerinde kritik hale geldiğini düşündüğüm bu temel kurumsal yetkinlik, aslında fazlasıyla jenerik bir kavram: Kim, neyi, ne amaçla analiz ediyor? Zaman zaman kendi sektörüm için yaptığım analizler için zaman harcarken fark ettim ki kurumsal anlamda analiz kavramı, özellikle de bilgi bolluğu içinde boğulduğumuz modern çağda oldukça muğlak bir hal almış. Bu konuyu, biraz olsun netleştirmek amacıyla önümüzdeki günlerde parçalara bölerek inceleyecek ve kendimce yorumlayacağım.

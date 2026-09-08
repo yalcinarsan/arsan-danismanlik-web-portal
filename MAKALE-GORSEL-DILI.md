@@ -64,6 +64,7 @@ Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopya
 
 ## Onaylanan referanslar
 
+- **Bir Şirketi Nasıl Okursunuz?:** Faaliyet raporundaki kurumsal sunum, işletmenin gerçek işleyişi ve belgenin dışında kalan değişen pazar arasındaki okuma rotası.
 - **Aynı Kâr, Farklı Hikaye:** Aynı sonuca farklı miktarda kaynak bağlayan iki işletmenin karşılaştırması.
 - **Otomotivde Neler Oluyor?:** Köklü üreticilerin dönüşüm yükü ile Tesla ve BYD gibi yeni oyuncuların yalın başlangıç avantajı.
 - **Bundan Sonra Ne Olacak?:** Geçici daralmalara rağmen kesintisiz ilerleyen elektrikli dönüşüm yönü.

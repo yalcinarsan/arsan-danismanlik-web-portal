@@ -66,6 +66,8 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Altyazı önerisi:** Bir şirketi anlamak, raporda yazanı okumak kadar neyin dışarıda kaldığını da görebilmeyi gerektirir.
 
+**Durum:** Onaylandı
+
 ### 6. Bir Şirket Neye Sahiptir, Kime Borçludur?
 
 **Ana fikir:** Bilanço bugünkü varlıkları ve bunlar üzerindeki hakları gösterir; varlıkların gelecekteki ekonomik değerini garanti etmez.
