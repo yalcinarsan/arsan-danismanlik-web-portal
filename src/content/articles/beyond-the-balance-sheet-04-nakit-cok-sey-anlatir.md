@@ -10,6 +10,12 @@ seriNo: 4
 seriBaslik: "Nakit akışını okumak"
 durum: yayında
 ozet: "Şirket Analizi serisinin dördüncü bölümü: Nakit akış tablosu — kârın neden nakit olmadığı, tablonun üç bölümü (işletme, yatırım, finansman), asıl kritik ölçüt serbest nakit akışı, uyarı işaretleri (Carillion örneği), Türkiye'de 2018 sonrası manzara ve nakit yakmanın ne zaman strateji ne zaman çöküş olduğu (Tesla vs Carillion)."
+kapakGorseli:
+  src: "/images/articles/nakit-cok-sey-anlatir/00-karakalem-nakit-akisi-v1.webp"
+  srcMobil: "/images/articles/nakit-cok-sey-anlatir/00-karakalem-nakit-akisi-v1-mobile.webp"
+  paylasim: "/images/articles/nakit-cok-sey-anlatir/00-karakalem-nakit-akisi-v1-og.jpg"
+  alt: "Karakalem kesit çiziminde ortak para rezervinden ayrılan iki nakit hattı görülüyor; petrol yeşili hat yeni fabrika ve üretim altyapısını kurarken gri hat çalışan bir tesisin yer altındaki çatlaklarına, onarımlarına ve borçlarına dağılıyor."
+  altyazi: "Nakit çıkışı tek başına kötü haber değildir; önemli olan paranın bir gelecek mi, bir açık mı finanse ettiğidir."
 ---
 
 **Şirket Analizi Serisi — Bölüm 4:** Dokuz bölümlük şirket analizi serimizde çoğu finansal analistin en kritik gördüğü bölüme geldik: Nakit akışı. En karmaşık olduğu için değil, en dikkatli olanlarımızı bile gafil avlayabilen, kolaylıkla yanlış yorumlanabilecek bir tablo olduğu için. Bu önemli gösterge ile ilgili olarak yapabileceğim en basit tanım: Eğer hakkını vererek yapıyorsanız, nakit akış tablosu bir şirketin raporladığı rakamlar ile gerçekliği arasındaki uçurumun saklanmasının imkansız hale geldiği yerdir.

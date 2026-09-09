@@ -96,6 +96,8 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Altyazı önerisi:** Nakit çıkışı tek başına kötü haber değildir; önemli olan paranın bir gelecek mi, bir açık mı finanse ettiğidir.
 
+**Durum:** Onaylandı
+
 ## Üçüncü üretim grubu — Şirket Analizi 6–8
 
 ### 9. Kağıt Üstünde Sağlıklı, Gerçekte Sıkışık Şirketler
