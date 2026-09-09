@@ -106,7 +106,9 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Sahne:** Dışarıdan dolu ve güçlü görünen bir işletmenin iç kesitinde nakit; stok rafları, bekleyen araçlar ve tahsil edilmemiş alacaklar arasında sıkışmıştır. Yanından geçen daha yalın doğrudan sipariş hattında müşteri ödemesi üretime ve tedarikçiye hızlı akar. Petrol yeşili, serbest ve hızlı dönen nakit yolunu izler; sıkışan yol grafitte düğümlenir.
 
-**Altyazı önerisi:** Likidite, kasadaki paradan çok paranın işin içinde ne kadar süreyle bağlı kaldığıyla ilgilidir.
+**Altyazı:** Kârlılık ve güçlü görünen bir bilanço ödeme gücünü garanti etmez; gerçek likidite, nakdin iş modelinin içinde nasıl ve ne hızda döndüğüyle anlaşılır.
+
+**Durum:** Onaylandı
 
 ### 10. Bu Şirket Ucuz mu, Pahalı mı?
 

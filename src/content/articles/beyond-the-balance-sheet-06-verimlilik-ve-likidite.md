@@ -9,6 +9,12 @@ seriNo: 6
 seriBaslik: "Verimlilik ve likiditeyi ölçmek"
 durum: yayında
 ozet: "Şirket Analizi serisinin altıncı bölümü: Kârlı bir şirketin neden aynı anda nakit sıkışması yaşayabildiği — verimlilik oranları (stok devir hızı, DSO, DPO ve bunları birleştiren nakit dönüşüm döngüsü/CCC), likidite oranları (cari oran, asit-test, nakit oranı), aynı rakamın sektöre göre neden farklı anlamlar taşıdığı (süpermarket vs üretici vs inşaat vs SaaS), Türkiye'de enflasyon ve kur katmanı, ve işletme sermayesinin bir maliyetten rekabet silahına dönüşmesi (Amazon'un negatif CCC'si, Tesla'nın 2021'de −26 güne inen ama 2025'e doğru +13'e normalleşen döngüsü)."
+kapakGorseli:
+  src: "/images/articles/verimlilik-ve-likidite/00-karakalem-likidite-v1.webp"
+  srcMobil: "/images/articles/verimlilik-ve-likidite/00-karakalem-likidite-v1-mobile.webp"
+  paylasim: "/images/articles/verimlilik-ve-likidite/00-karakalem-likidite-v1-og.jpg"
+  alt: "Gece çalışan finans yöneticisi, yükselen grafikler gösteren rapor ile neredeyse boş nakit kutusu arasında oturuyor; camın arkasındaki faal işletmede petrol yeşili para hattı stok, bekleyen araçlar ve alacak zarfları boyunca uzanıyor."
+  altyazi: "Kârlılık ve güçlü görünen bir bilanço ödeme gücünü garanti etmez; gerçek likidite, nakdin iş modelinin içinde nasıl ve ne hızda döndüğüyle anlaşılır."
 ---
 
 **Şirket Analizi Serisi — Bölüm 6: Şirket analizi serimizin altıncı bölümünde, önceki iki bölümde tanıştığımız kârlılık ve nakit akışı kavramlarının daha derinine iniyoruz: Kârlı görünen bir şirket, aynı zamanda ödeme günü geldiğinde para bulamayan bir şirket olabilir mi? Evet, olabilir — hem de sık sık. *Verimlilik ve likidite oranları*, tam bu ihtimali gün yüzüne çıkaran araçlar.**
