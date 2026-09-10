@@ -6,7 +6,7 @@
 # kayıt formu değil: makaleden ya da veri sayfasından gelen okuyucu projeyi
 # henüz tanımıyor, önce ne olduğunu okumalı.
 
-baslik: "Otomotivi geleceğe taşıyacak olanlar"
+baslik: "Otomotivi geleceğe taşıyacak olanlara dair"
 metin: >-
   Elektrifikasyon yalnızca aracı değil, sektörün yetkinlik haritasını da
   değiştiriyor. Otomotiv İnsanı, bu değişimi okuyan profesyonellerle ekibini
