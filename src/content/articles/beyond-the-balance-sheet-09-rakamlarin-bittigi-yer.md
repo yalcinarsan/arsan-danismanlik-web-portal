@@ -9,6 +9,12 @@ seriNo: 9
 seriBaslik: "Klasik analizin ötesi — bütüncül değerlendirme"
 durum: yayında
 ozet: "Şirket Analizi serisinin dokuzuncu ve son bölümü: Sekiz bölümde tek tek öğrendiğimiz bütün araçların — bilanço, gelir tablosu, nakit akışı, kârlılık, verimlilik, sermaye yapısı, değerleme, erken uyarı sinyalleri — ortak bir kör noktası var: hepsi geçmişe ve durağan bir işletmeye bakar. Köklü bir dönüşümün ortasında bu ne demek? Serinin tüm karşı-vakalarını (Tesla-Carillion, Uber-WeWork, BYD-Northvolt) tek bir usta kalıpta toplamak; Bölüm 1'in Üç Altın Kuralı'na dördüncü soruyu eklemek; ve bir şirketi yalnızca geçmişine göre değil, geleceğine göre okumanın dört katmanlı çerçevesi."
+kapakGorseli:
+  src: "/images/articles/rakamlarin-bittigi-yer/00-karakalem-rakamlarin-bittigi-yer-v1.webp"
+  srcMobil: "/images/articles/rakamlarin-bittigi-yer/00-karakalem-rakamlarin-bittigi-yer-v1-mobile.webp"
+  paylasim: "/images/articles/rakamlarin-bittigi-yer/00-karakalem-rakamlarin-bittigi-yer-v1-og.jpg"
+  alt: "Karakalem panoramada kadın analist, normal boyutlu açık bir finansal rapor ve analiz araçlarının başında oturuyor; bakışı batarya üretimine, yönetim toplantısına, elektrikli aracını şarj eden müşteriye ve dönüşen sanayi ile enerji manzarasına uzanıyor."
+  altyazi: "Rakamlar şirketin geçmişini ve bugününü gösterir; geleceğini anlamak için iş modelini, stratejiyi, insanları ve sektörün yönünü birlikte okumak gerekir."
 ---
 
 **Bölüm 9: Sekiz bölüm boyunca bir şirketi okumanın araçlarını tek tek inceledik; faaliyet raporundan bilançoya, gelir tablosundan nakit akışına, kârlılıktan verimliliğe, sermaye yapısından değerlemeye, ve nihayet çöküşün erken sinyallerine. Artık elimizde içi dolu bir alet çantası var. Son bölümde alet çantasını kapatmadan önce soracağımız bir soru var: Bu araçların tümünün paylaştığı ortak bir kör nokta var mı? Ve bir şirketi yalnızca geçmişine göre değil, geleceğine göre okumak istiyorsak ne yapacağız?**

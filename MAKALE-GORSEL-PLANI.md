@@ -1,6 +1,6 @@
 # Makale Kapak Görseli Planı
 
-**Durum:** Otomotiv grubu onaylandı; Şirket Analizi kavramları değerlendirme bekliyor — 8 Eylül 2026
+**Durum:** Otomotiv ve Şirket Analizi kapakları tamamlandı — 10 Eylül 2026
 
 **Referans:** [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md)
 
@@ -98,7 +98,7 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Durum:** Onaylandı
 
-## Üçüncü üretim grubu — Şirket Analizi 6–8
+## Üçüncü üretim grubu — Şirket Analizi 6–9
 
 ### 9. Kağıt Üstünde Sağlıklı, Gerçekte Sıkışık Şirketler
 
@@ -130,9 +130,19 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Durum:** Onaylandı
 
+### 12. Rakamların Bittiği Yer
+
+**Ana fikir:** Klasik finansal analiz geçmişi ve bugünü ölçer; geleceği anlamak için iş modeli, strateji ve birim ekonomisi, insanlar ve yönetişim ile sektörün yönü birlikte okunmalıdır.
+
+**Sahne:** Solda kadın analist, normal boyutlu ve kendisine doğru çevrilmiş açık finansal rapor ile analiz araçlarının başında oturur. Bakışı batarya üretimi, yönetim toplantısı, aracını şarj eden müşteri ve geleneksel sanayiden yenilenebilir enerjiye uzanan dönüşüm manzarasını aynı çerçevede birleştirir. Petrol yeşili yalnızca batarya, kalem ve bağlı şarj kablosu gibi doğal odaklarda kullanılır; sahneyi birbirine bağlayan yapay bir çizgi bulunmaz.
+
+**Altyazı:** Rakamlar şirketin geçmişini ve bugününü gösterir; geleceğini anlamak için iş modelini, stratejiyi, insanları ve sektörün yönünü birlikte okumak gerekir.
+
+**Durum:** Onaylandı
+
 ## Uygulama sırası
 
-1. Onaylanan dört otomotiv kapağının web, vault ve GitHub eşleştirmesi tamamlanır.
+1. Onaylanan altı otomotiv kapağının web, vault ve GitHub eşleştirmesi tamamlanır.
 2. Şirket Analizi 1–4 kavramları birlikte değerlendirilir ve onaylanan görseller üretilir.
-3. Aynı yöntem Şirket Analizi 6–8 grubuna uygulanır.
-4. Kapakların çoğu hazır olduğunda Makaleler ve seri liste sayfalarında küçük önizleme kullanımına karar verilir.
+3. Aynı yöntem Şirket Analizi 6–9 grubuna uygulanır.
+4. Kapakların tamamı hazır olduğunda Makaleler ve seri liste sayfalarında küçük önizleme kullanımına karar verilir.
