@@ -9,6 +9,12 @@ seriNo: 8
 seriBaslik: "Başarı ve başarısızlık işaretlerini okumak"
 durum: yayında
 ozet: "Şirket Analizi serisinin sekizinci bölümü: Bir şirketin çöküşü önceden okunabilir mi? Önceki yedi bölümün göstergelerini bir erken uyarı sistemine dönüştürmek; hepsini tek bir rakamda birleştiren Altman Z-skoru (ve neden 1968'in imalat şirketlerine göre kalibre edildiği için sınırlı kaldığı); rakamların ötesindeki yönetişim kırmızı bayrakları (ani denetçi istifası, CFO sirkülasyonu, restatement); başarının sessiz işaretleri; Türkiye'nin konkordato dalgası; ve dönüşüm perspektifi — Avrupa'nın batarya şampiyonu Northvolt neden en akıllı paranın desteğine rağmen battı ve klasik sinyaller bunu neden kaçırdı?"
+kapakGorseli:
+  src: "/images/articles/basari-ve-basarisizlik-isaretleri/00-karakalem-cokus-sinyalleri-v1.webp"
+  srcMobil: "/images/articles/basari-ve-basarisizlik-isaretleri/00-karakalem-cokus-sinyalleri-v1-mobile.webp"
+  paylasim: "/images/articles/basari-ve-basarisizlik-isaretleri/00-karakalem-cokus-sinyalleri-v1-og.jpg"
+  alt: "Karakalem kesit çiziminde faal ve sağlam görünen şirket binasının farklı bölümlerinden başlayan üç ince çatlak temelde tek noktada birleşiyor; öndeki analistin kaleminden çıkan petrol yeşili çizgi bu örüntüyü izliyor."
+  altyazi: "Çöküş çoğu zaman tek bir büyük işaretle değil, aynı yöne bakan küçük sinyallerin birleşmesiyle görünür."
 ---
 
 **Bölüm 8: Şirket analizi serimizin ilk dört bölümde temel mali tabloları okumayı, sonraki üç bölümde yorumlamayı hatırladık — kârlılık, verimlilik, sermaye yapısı, şirket ya da proje değeri. Şimdi hepsini bir araya getirip zor bir soruya geliyoruz: Bir şirketin gerileme dönemini, işler tamamen sarpa sarmadan önce görebilir miyiz? Ve tersinden: gerçekten sağlıklı bir şirketi, yalnızca sağlıklı görünen bir şirketten nasıl ayırırız?**

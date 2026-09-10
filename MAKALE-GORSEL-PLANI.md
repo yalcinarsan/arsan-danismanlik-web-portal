@@ -124,9 +124,11 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Ana fikir:** Çöküş çoğunlukla tek bir büyük işaretle değil; finansal, operasyonel ve yönetişim sinyallerinin aynı yönde birleşmesiyle önceden görünür.
 
-**Sahne:** İlk bakışta sağlam duran büyük bir şirket yapısı. Yakından bakıldığında stok birikmesi, kuruyan nakit hattı, temelde ince çatlaklar, ayrılan yönetici ve denetçi gibi küçük hareketler görülür. Öndeki analist, bu işaretleri petrol yeşili ince bir hatla birbirine bağlar; hat binanın altında tek bir kırılma noktasında birleşir. Kırmızı alarm ve felaket görüntüsü kullanılmaz.
+**Sahne:** İlk bakışta sağlam ve faal duran büyük bir şirket yapısının farklı bölümlerinden başlayan üç ince çatlak, görünmeyen temelde tek bir gerilim noktasında birleşir. Öndeki analistin kaleminden çıkan petrol yeşili ince hat, dağınık izleri aynı örüntünün parçaları olarak görünür kılar. Kırmızı alarm ve felaket görüntüsü kullanılmaz.
 
-**Altyazı önerisi:** Çöküş çoğu zaman tek bir büyük işaretle değil, aynı yöne bakan küçük sinyallerin birleşmesiyle görünür.
+**Altyazı:** Çöküş çoğu zaman tek bir büyük işaretle değil, aynı yöne bakan küçük sinyallerin birleşmesiyle görünür.
+
+**Durum:** Onaylandı
 
 ## Uygulama sırası
 
