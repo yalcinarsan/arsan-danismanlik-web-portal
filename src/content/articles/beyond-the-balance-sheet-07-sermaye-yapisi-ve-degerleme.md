@@ -9,6 +9,12 @@ seriNo: 7
 seriBaslik: "Sermaye yapısını ve değerlemeyi okumak"
 durum: yayında
 ozet: "Şirket Analizi serisinin yedinci bölümü: Sermaye yapısı ve kaldıraç — borç/özsermaye oranı, borç oranı, faiz karşılama oranı (GM'nin 2024-2026 arasında keskin düşen faiz karşılama oranı); değerleme — defter değeri vs piyasa değeri, F/K oranı, net aktif değeri (Tesla'nın P/B 17x'i); DCF'in sınırları; Türkiye'de döviz borcu ve enflasyon muhasebesinin değerleme çarpanlarını nasıl çarpıttığı; ve dönüşüm perspektifi — Tesla/Toyota/Volkswagen üçlüsünde düşük F/K gerçekten ucuzluk mudur?"
+kapakGorseli:
+  src: "/images/articles/sermaye-yapisi-ve-degerleme/00-karakalem-degerleme-v1.webp"
+  srcMobil: "/images/articles/sermaye-yapisi-ve-degerleme/00-karakalem-degerleme-v1-mobile.webp"
+  paylasim: "/images/articles/sermaye-yapisi-ve-degerleme/00-karakalem-degerleme-v1-og.jpg"
+  alt: "Karakalem panoramada farklı fiziksel ölçekte üç faal fabrika ve önlerinden geleceğe uzanan mimari projeksiyonlar görülüyor; sağdaki yalın şirketin petrol yeşili üretim, enerji ve hizmet ekosistemi ufka doğru genişlerken üç analist bu gelecek izlerine bakıyor."
+  altyazi: "Piyasa, yalnızca şirketin bugün sahip olduklarını değil, gelecekte yaratabileceğine duyduğu güveni de fiyatlar."
 ---
 
 **Şirket Analizi Serisi — Bölüm 7: İlk dört bölümde şirketin üç temel mali tablosunu okumayı öğrendik; bilanço, gelir tablosu, nakit akış tablosu. Beş ve altıncı bölümde bunları yorumlamaya geçtik: bir şirket ne kadar kârlı, ne kadar verimli çalışıyor, kısa vadeli borçlarını ödeyebiliyor mu? Bu bölümde soruyu bir kez daha değiştiriyoruz: Bu şirket nasıl finanse ediliyor, ve piyasa ona ne kadar değer biçiyor?**

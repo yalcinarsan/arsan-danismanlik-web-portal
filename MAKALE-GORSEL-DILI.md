@@ -69,6 +69,7 @@ Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopya
 - **Para Nereden Geliyor, Nereye Gidiyor?:** Geniş başlayan gelir akışının işletme katmanlarındaki giderlerle daralarak dönem kârına dönüşmesi ve dışarıda yön değiştiren talep.
 - **‘Nakit’ Çok Şey Anlatır!:** Aynı nakit çıkışının bir işletmede geleceğin üretim kapasitesine, diğerinde kapanmayan gündelik açıklara dönüşmesi.
 - **Kağıt Üstünde Sağlıklı, Gerçekte Sıkışık Şirketler:** Sağlıklı görünen rapor ile ödeme anındaki nakit yetersizliği arasındaki gerilim; nakdin stok, bekleyen ürün ve alacaklarda izlenen uzun yolu.
+- **Bu Şirket Ucuz mu, Pahalı mı?:** Bugünkü fiziksel varlıkların ölçeği ile piyasanın geleceğe uzattığı büyüme ve değer beklentisinin birbirinden ayrılması.
 - **Aynı Kâr, Farklı Hikaye:** Aynı sonuca farklı miktarda kaynak bağlayan iki işletmenin karşılaştırması.
 - **Otomotivde Neler Oluyor?:** Köklü üreticilerin dönüşüm yükü ile Tesla ve BYD gibi yeni oyuncuların yalın başlangıç avantajı.
 - **Bundan Sonra Ne Olacak?:** Geçici daralmalara rağmen kesintisiz ilerleyen elektrikli dönüşüm yönü.

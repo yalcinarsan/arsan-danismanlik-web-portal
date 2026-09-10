@@ -116,7 +116,9 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 
 **Sahne:** Aynı sektörde üç şirket bugünkü fiziksel ölçekleriyle yan yana durur; önlerindeki geleceğe farklı büyüklük ve yönde gölgeler/projeksiyonlar uzatırlar. Büyük fabrikalı şirketin gelecek izi daralırken daha yalın şirketin petrol yeşili gelecek izi büyür. Yatırımcılar yalnız binalara değil, bu ileriye uzanan izlere bakar. Fiyat etiketi ve rakam kullanılmaz.
 
-**Altyazı önerisi:** Bir şirketin fiyatı bugünkü varlıklarından çok, geleceğine duyulan güveni yansıtır.
+**Altyazı:** Piyasa, yalnızca şirketin bugün sahip olduklarını değil, gelecekte yaratabileceğine duyduğu güveni de fiyatlar.
+
+**Durum:** Onaylandı
 
 ### 11. Çöküşün Sinyalleri
 
