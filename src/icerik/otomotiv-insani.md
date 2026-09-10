@@ -2,7 +2,7 @@
 seo_baslik: Otomotiv İnsanı — otomotive özgü yetenek platformu
 seo_aciklama: "Otomotiv sektöründe kariyer: elektrifikasyon dönüşümünü taşıyacak profesyoneller için kurulmuş, otomotive özgü bir yetenek platformu. Aday havuzu açık."
 etiket: Otomotiv İnsanı
-baslik: Bu dönüşümü taşıyacak olanlara dair...
+baslik: Otomotivi geleceğe taşıyacak olanlara dair...
 slogan: Burası otomotive özgü bir yetenek platformu. İş ilanı sitelerinin diliyle anlatılamayacak bir sektörün kendine özgü yöntemlerle iletişim kurduğu yer.
 cta_aday: Aday havuzuna katıl
 cta_kurum: "Kurumlar için: Bize ulaşın"
