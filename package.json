@@ -18,7 +18,12 @@
     "db:cek": "supabase db pull",
     "db:uygula": "supabase db push",
     "gorsel:logo": "python3 scripts/build-logo-varliklari.py",
-    "gorsel:makale-kapak": "python3 scripts/build-makale-kapaklari.py"
+    "gorsel:makale-kapak": "python3 scripts/build-makale-kapaklari.py",
+    "kitap:birlestir": "node scripts/sirket-analizi-birlestir.mjs",
+    "kitap:gorsel": "python3 scripts/e-kitap-gorsel-hazirla.py",
+    "kitap:pdf": "node scripts/e-kitap-sirket-analizi.mjs && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=25000 --print-to-pdf=../cikti/kapak.pdf ../cikti/kapak.html && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=25000 --print-to-pdf=../cikti/govde.pdf ../cikti/govde.html && python3 scripts/e-kitap-numarala.py ../cikti/kapak.pdf ../cikti/govde.pdf \"../cikti/Bilanconun-Otesinde.pdf\" \"Bilançonun Ötesinde · Arsan Danışmanlık\"",
+    "kitap:word": "node scripts/e-kitap-word.mjs",
+    "kitap": "npm run kitap:birlestir && npm run kitap:gorsel && npm run kitap:pdf && npm run kitap:word"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
@@ -39,7 +44,9 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@types/react-plotly.js": "^2.6.4",
+    "docx": "^9.7.1",
     "dotenv": "^16.4.5",
+    "image-size": "^2.0.2",
     "supabase": "^2.115.0",
     "typescript": "^5.9.3"
   },

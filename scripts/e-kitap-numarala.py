@@ -96,7 +96,7 @@ def yer_imlerini_kur(yazici: PdfWriter, govde_yol: str, kaydirma: int) -> None:
         print(f"  ! hedefi bulunamayan başlık: {', '.join(atlanan)}")
 
 
-def damgala(kapak_yol: str, govde_yol: str, cikti_yol: str) -> None:
+def damgala(kapak_yol: str, govde_yol: str, cikti_yol: str, marka: str = MARKA) -> None:
     pdfmetrics.registerFont(TTFont("Arial", ARIAL))
 
     # Kapak ve gövde ayrı basılıyor (kapak kenar boşluksuz, gövde boşluklu);
@@ -121,7 +121,7 @@ def damgala(kapak_yol: str, govde_yol: str, cikti_yol: str) -> None:
     for i in range(1, toplam):
         c.setFont("Arial", 7.5)
         c.setFillColor(SOLUK)
-        c.drawString(SOL, ALT, MARKA)
+        c.drawString(SOL, ALT, marka)
         c.drawRightString(SAG, ALT, str(i))
         c.showPage()
     c.save()
@@ -151,6 +151,6 @@ def damgala(kapak_yol: str, govde_yol: str, cikti_yol: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        sys.exit("kullanım: e-kitap-numarala.py <kapak.pdf> <govde.pdf> <cikti.pdf>")
-    damgala(sys.argv[1], sys.argv[2], sys.argv[3])
+    if len(sys.argv) not in (4, 5):
+        sys.exit("kullanım: e-kitap-numarala.py <kapak.pdf> <govde.pdf> <cikti.pdf> [alt bilgi markası]")
+    damgala(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] if len(sys.argv) == 5 else MARKA)
