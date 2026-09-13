@@ -17,6 +17,7 @@ type Talep = {
   aday_id: string; aday_ad: string | null; aday_eposta: string | null; aday_telefon: string | null;
   aday_son_kurum: string | null; aday_son_pozisyon: string | null;
   aday_gorunurluk: string | null; aday_sehir: string | null;
+  yanit_token: string;
 };
 
 function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
@@ -50,6 +51,36 @@ function tanistirmaMailto(t: Talep): string {
   ].join('\r\n');
   const alicilar = [t.kurum_eposta, t.aday_eposta].filter(Boolean).join(',');
   return `mailto:${alicilar}?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(govde)}`;
+}
+
+// Adaya gidecek girişsiz onay linki (/kariyer/temas-yanit?token=...). Otomatik
+// e-posta devreye girene kadar Yalçın bunu elle iletebilir; akış böylece hemen
+// gösterilebilir/kullanılabilir.
+function OnayLinki({ token }: { token: string }) {
+  const [kopyalandi, setKopyalandi] = useState(false);
+  const url = `${typeof window !== 'undefined' ? window.location.origin : ''}/kariyer/temas-yanit?token=${token}`;
+  async function kopyala() {
+    try {
+      await navigator.clipboard.writeText(url);
+      setKopyalandi(true);
+      setTimeout(() => setKopyalandi(false), 2000);
+    } catch { /* pano erişimi yoksa sessizce geç — metin zaten seçilebilir */ }
+  }
+  return (
+    <div className="mt-4 border-t border-warm-border/60 pt-4">
+      <p className="text-xs font-medium text-warm-600 mb-1.5">Adaya gidecek onay linki</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <code className="flex-1 min-w-0 truncate rounded-md bg-sand px-2.5 py-1.5 text-xs text-warm-700">{url}</code>
+        <button type="button" onClick={kopyala}
+          className="rounded-md border border-warm-border px-3 py-1.5 text-xs text-warm-700 hover:bg-sand">
+          {kopyalandi ? 'Kopyalandı' : 'Kopyala'}
+        </button>
+      </div>
+      <p className="mt-1.5 text-xs text-warm-500">
+        Aday bu linke girip Kabul/Ret verir; durum kendiliğinden güncellenir. Otomatik e-posta devreye girene kadar elle iletebilirsin.
+      </p>
+    </div>
+  );
 }
 
 export default function TalepListesi() {
@@ -219,6 +250,8 @@ export default function TalepListesi() {
                   </button>
                 ))}
               </div>
+
+              {(t.durum === 'yeni' || t.durum === 'iletildi') && <OnayLinki token={t.yanit_token} />}
 
               {t.durum === 'kabul' && t.aday_eposta && (
                 <div className="mt-4 border-t border-warm-border/60 pt-4">

@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Görüşme talebi" description="Otomotiv İnsanı — sana iletilen görüşme talebi.">
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="mx-auto max-w-xl px-4 py-16 sm:py-24">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">Otomotiv İnsanı</p>
+    <div id="icerik">
+      <p class="text-warm-600">Yükleniyor…</p>
+    </div>
+    <p class="mt-10 text-xs text-warm-400">İletişim her aşamada Arsan Danışmanlık üzerinden yürür. Kimliğin, yalnızca sen görüşmeyi kabul edersen ilgili kuruma açılır.</p>
+  </section>
+</BaseLayout>
+
+<script>
+  import { supabase } from '../../lib/supabase';
+
+  const kok = document.getElementById('icerik');
+  const token = new URLSearchParams(window.location.search).get('token');
+  const eposta = 'yalcinarsan@arsandanismanlik.com.tr';
+
+  const esc = (s: string | null | undefined): string => {
+    const m: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+    return (s ?? '').replace(/[&<>"']/g, (c: string) => m[c]);
+  };
+
+  function gecersiz(baslik: string = 'Bağlantı geçerli değil'): void {
+    if (!kok) return;
+    kok.innerHTML =
+      `<h1 class="text-2xl font-semibold text-ink mb-3">${esc(baslik)}</h1>` +
+      `<p class="text-warm-600">Bu bağlantı geçersiz ya da artık geçerli değil. Bir sorun olduğunu düşünüyorsan ` +
+      `<a class="text-accent underline" href="mailto:${eposta}">bize yazabilirsin</a>.</p>`;
+  }
+
+  function sonucGoster(karar: string, kurum: string): void {
+    if (!kok) return;
+    if (karar === 'kabul') {
+      kok.innerHTML =
+        `<h1 class="text-2xl font-semibold text-ink mb-3">Teşekkürler — ilettik</h1>` +
+        `<p class="text-warm-600 leading-relaxed"><strong>${esc(kurum)}</strong> ile tanıştırılman için Arsan Danışmanlık'a ilettik. ` +
+        `Uygun bir zamanda seninle iletişime geçilecek.</p>`;
+    } else {
+      kok.innerHTML =
+        `<h1 class="text-2xl font-semibold text-ink mb-3">Tamamdır</h1>` +
+        `<p class="text-warm-600 leading-relaxed">Bu talebi geçtik; kimliğin <strong>${esc(kurum)}</strong> ile paylaşılmadı. ` +
+        `Havuzda kalmaya devam ediyorsun — başka fırsatlarda yine haber veririz.</p>`;
+    }
+  }
+
+  async function yanitla(karar: string, kurum: string, btnlar: HTMLButtonElement[]): Promise<void> {
+    btnlar.forEach((b) => (b.disabled = true));
+    const { data, error } = await supabase.rpc('temas_yanit_ver', { p_token: token, p_karar: karar });
+    if (error || !data) {
+      gecersiz();
+      return;
+    }
+    sonucGoster(String(data), kurum);
+  }
+
+  async function basla(): Promise<void> {
+    if (!kok) return;
+    if (!token) {
+      gecersiz();
+      return;
+    }
+    const { data, error } = await supabase.rpc('temas_yanit_bilgi', { p_token: token });
+    const bilgi = Array.isArray(data) ? data[0] : data;
+    if (error || !bilgi) {
+      gecersiz();
+      return;
+    }
+
+    const kurum: string = bilgi.kurum || 'Bir kurum';
+    const ilkAd: string = (bilgi.aday_ad || '').trim().split(' ')[0];
+    const selam = ilkAd ? `Merhaba ${esc(ilkAd)}, ` : '';
+
+    if (!bilgi.yanitlanabilir) {
+      if (bilgi.durum === 'kabul') sonucGoster('kabul', kurum);
+      else if (bilgi.durum === 'ret') sonucGoster('ret', kurum);
+      else gecersiz('Bu talep artık geçerli değil');
+      return;
+    }
+
+    kok.innerHTML =
+      `<h1 class="text-2xl font-semibold text-ink mb-4">Bir kurum seninle görüşmek istiyor</h1>` +
+      `<p class="text-warm-600 leading-relaxed mb-3">${selam}<strong>${esc(kurum)}</strong>, Otomotiv İnsanı havuzundaki profilinle ilgilendi ve seninle tanışmak istiyor.</p>` +
+      `<p class="text-warm-600 leading-relaxed mb-6">Karar senin. <strong>Görüşmeye açıksan</strong> Arsan Danışmanlık seni tanıştırır; iletişim bilgin ve özgeçmişin ancak o zaman paylaşılır. <strong>İstemiyorsan</strong> kimliğin bu kuruma hiç iletilmez.</p>` +
+      `<div class="flex flex-col sm:flex-row gap-3">` +
+      `<button id="kabul" class="rounded-md bg-accent px-6 py-2.5 text-white font-medium">Görüşmeye açığım</button>` +
+      `<button id="ret" class="rounded-md border border-warm-border px-6 py-2.5 text-warm-700 font-medium hover:bg-sand">Şimdilik hayır</button>` +
+      `</div>`;
+
+    const kabul = document.getElementById('kabul') as HTMLButtonElement | null;
+    const ret = document.getElementById('ret') as HTMLButtonElement | null;
+    const btnlar = [kabul, ret].filter((b): b is HTMLButtonElement => b !== null);
+    kabul?.addEventListener('click', () => yanitla('kabul', kurum, btnlar));
+    ret?.addEventListener('click', () => yanitla('ret', kurum, btnlar));
+  }
+
+  basla();
+</script>
