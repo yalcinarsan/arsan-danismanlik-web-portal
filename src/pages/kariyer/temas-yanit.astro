@@ -17,6 +17,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   const kok = document.getElementById('icerik');
   const token = new URLSearchParams(window.location.search).get('token');
+  // token=demo: pitch/tanıtım için örnek görünüm. DB'ye hiç dokunmaz, tükenmez;
+  // butonlar sonucu yalnızca istemci tarafında gösterir. Gerçek aday/talep yok.
+  const demoMu = token === 'demo';
   const eposta = 'yalcinarsan@arsandanismanlik.com.tr';
 
   const esc = (s: string | null | undefined): string => {
@@ -49,6 +52,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   async function yanitla(karar: string, kurum: string, btnlar: HTMLButtonElement[]): Promise<void> {
     btnlar.forEach((b) => (b.disabled = true));
+    if (demoMu) {
+      sonucGoster(karar, kurum); // örnek — DB'ye yazmaz
+      return;
+    }
     const { data, error } = await supabase.rpc('temas_yanit_ver', { p_token: token, p_karar: karar });
     if (error || !data) {
       gecersiz();
@@ -57,12 +64,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     sonucGoster(String(data), kurum);
   }
 
+  function bekleyenGoster(kurum: string, selam: string, demo: boolean): void {
+    if (!kok) return;
+    kok.innerHTML =
+      `<h1 class="text-2xl font-semibold text-ink mb-4">Bir kurum seninle görüşmek istiyor</h1>` +
+      `<p class="text-warm-600 leading-relaxed mb-3">${selam}<strong>${esc(kurum)}</strong>, Otomotiv İnsanı havuzundaki profilinle ilgilendi ve seninle tanışmak istiyor.</p>` +
+      `<p class="text-warm-600 leading-relaxed mb-6">Karar senin. <strong>Görüşmeye açıksan</strong> Arsan Danışmanlık seni tanıştırır; iletişim bilgin ve özgeçmişin ancak o zaman paylaşılır. <strong>İstemiyorsan</strong> kimliğin bu kuruma hiç iletilmez.</p>` +
+      `<div class="flex flex-col sm:flex-row gap-3">` +
+      `<button id="kabul" class="rounded-md bg-accent px-6 py-2.5 text-white font-medium">Görüşmeye açığım</button>` +
+      `<button id="ret" class="rounded-md border border-warm-border px-6 py-2.5 text-warm-700 font-medium hover:bg-sand">Şimdilik hayır</button>` +
+      `</div>` +
+      (demo ? `<p class="mt-6 text-xs text-warm-400">Örnek görünüm — gerçek bir talep veya aday içermez.</p>` : ``);
+
+    const kabul = document.getElementById('kabul') as HTMLButtonElement | null;
+    const ret = document.getElementById('ret') as HTMLButtonElement | null;
+    const btnlar = [kabul, ret].filter((b): b is HTMLButtonElement => b !== null);
+    kabul?.addEventListener('click', () => yanitla('kabul', kurum, btnlar));
+    ret?.addEventListener('click', () => yanitla('ret', kurum, btnlar));
+  }
+
   async function basla(): Promise<void> {
     if (!kok) return;
     if (!token) {
       gecersiz();
       return;
     }
+    if (demoMu) {
+      bekleyenGoster('Örnek Kurum', '', true);
+      return;
+    }
+
     const { data, error } = await supabase.rpc('temas_yanit_bilgi', { p_token: token });
     const bilgi = Array.isArray(data) ? data[0] : data;
     if (error || !bilgi) {
@@ -81,20 +112,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       return;
     }
 
-    kok.innerHTML =
-      `<h1 class="text-2xl font-semibold text-ink mb-4">Bir kurum seninle görüşmek istiyor</h1>` +
-      `<p class="text-warm-600 leading-relaxed mb-3">${selam}<strong>${esc(kurum)}</strong>, Otomotiv İnsanı havuzundaki profilinle ilgilendi ve seninle tanışmak istiyor.</p>` +
-      `<p class="text-warm-600 leading-relaxed mb-6">Karar senin. <strong>Görüşmeye açıksan</strong> Arsan Danışmanlık seni tanıştırır; iletişim bilgin ve özgeçmişin ancak o zaman paylaşılır. <strong>İstemiyorsan</strong> kimliğin bu kuruma hiç iletilmez.</p>` +
-      `<div class="flex flex-col sm:flex-row gap-3">` +
-      `<button id="kabul" class="rounded-md bg-accent px-6 py-2.5 text-white font-medium">Görüşmeye açığım</button>` +
-      `<button id="ret" class="rounded-md border border-warm-border px-6 py-2.5 text-warm-700 font-medium hover:bg-sand">Şimdilik hayır</button>` +
-      `</div>`;
-
-    const kabul = document.getElementById('kabul') as HTMLButtonElement | null;
-    const ret = document.getElementById('ret') as HTMLButtonElement | null;
-    const btnlar = [kabul, ret].filter((b): b is HTMLButtonElement => b !== null);
-    kabul?.addEventListener('click', () => yanitla('kabul', kurum, btnlar));
-    ret?.addEventListener('click', () => yanitla('ret', kurum, btnlar));
+    bekleyenGoster(kurum, selam, false);
   }
 
   basla();
