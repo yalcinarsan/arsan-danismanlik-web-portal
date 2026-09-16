@@ -1,0 +1,229 @@
+---
+// Bütünleşik okuma sayfası — dokuz yazının tamamı tek sayfada.
+// (otomotivde-elektrifikasyon.astro ile aynı desen; "Şirket Analizi" serisine uyarlandı.)
+//
+// METİN BURADA KOPYALANMIYOR. Sayfa, dokuz makalenin AYNI içerik girdilerini
+// derleme anında birleştiriyor. Bir makaleyi düzenlediğinde bu sayfa da
+// kendiliğinden güncellenir.
+//
+// Neden var: LLM'ler PDF değil web sayfası okuyor; uzun otoriter metni tek web
+// sayfasında da tutmak "ChatGPT'ye sorulunca kaynak gösterilme"yi korur.
+//
+// PDF/Word indirme kutusu şimdilik YOK. E-kitap üreteci (npm run kitap) hazır;
+// hangi koşulla sunulacağı (serbest mi, e-posta karşılığı mı) karara bağlı.
+// Karar verilince PDF+Word public/ içine konup buraya bir kutu eklemek yeterli.
+//
+// Desen "pillar + cluster": her bölüm kendi makalesine, her makale de buraya
+// bağlanıyor. Canonical olarak kendisi işaretli.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OtomotivInsaniCagri from '../../components/OtomotivInsaniCagri.astro';
+import { getCollection } from 'astro:content';
+
+const SERI = 'beyond-the-balance-sheet';
+
+const makaleler = (await getCollection('articles', (e) => e.data.seri === SERI && e.data.durum === 'yayında'))
+  .sort((a, b) => a.data.seriNo - b.data.seriNo);
+
+// Bu seride tekrarlanan başlık (ör. "Kaynaklar ve Referanslar") yok — çıpa
+// çakışması riski yok. Yeni eklenirse buraya küçük harf başlık metni yazılır.
+const ATLANAN_BASLIKLAR: string[] = [];
+
+const bolumler = await Promise.all(
+  makaleler.map(async (m) => {
+    const { Content, headings } = await m.render();
+    return {
+      slug: m.slug,
+      no: m.data.seriNo,
+      baslik: m.data.title,
+      seriBaslik: m.data.seriBaslik,
+      ozet: m.data.ozet,
+      kimlik: `bolum-${m.data.seriNo}`,
+      altBasliklar: headings.filter(
+        (h) => h.depth === 2 && !ATLANAN_BASLIKLAR.includes(h.text.trim().toLocaleLowerCase('tr'))
+      ),
+      Content,
+    };
+  })
+);
+
+const SIRA = ['Birinci', 'İkinci', 'Üçüncü', 'Dördüncü', 'Beşinci', 'Altıncı', 'Yedinci', 'Sekizinci', 'Dokuzuncu'];
+const ROMA = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
+
+const baslik = 'Bilançonun Ötesinde: Bir Şirketi Anlamak';
+const aciklama =
+  'Dokuz bölümlük dizinin tamamı tek sayfada: mali tabloları okumaktan başlayıp bir şirketi geleceğine göre bütüncül değerlendirmeye uzanan yolculuk — bilanço, nakit akışı, kârlılık, değerleme, çöküş sinyalleri ve dönüşüm çağında bütüncül okuma.';
+---
+<BaseLayout title={baslik} description={aciklama}>
+  <link rel="canonical" href="https://arsandanismanlik.com.tr/makaleler/bilanconun-otesinde/" slot="head" />
+
+  <article class="mx-auto max-w-6xl px-4 py-16">
+
+    {/* ---------- Başlık ---------- */}
+    <header class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
+        Bütünleşik metin · {bolumler.length} bölüm
+      </p>
+      <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-ink leading-tight mb-6">
+        Bilançonun Ötesinde
+      </h1>
+      <p class="font-serif text-xl sm:text-2xl text-warm-600 leading-snug mb-8">
+        Bir Şirketi Anlamak
+      </p>
+      <p class="text-lg text-warm-600 leading-relaxed">
+        Bu sayfa, ayrı ayrı yayımlanmış dokuz yazının tamamını sırasıyla bir araya getiriyor.
+        Dizinin bütününü baştan sona okumak isteyenler için; her bölüm kendi sayfasında da
+        ayrıca duruyor.
+      </p>
+      <p class="text-sm text-warm-500 mt-6">
+        Yalçın Arsan · Arsan Danışmanlık
+      </p>
+    </header>
+
+    {/* ---------- İçindekiler + metin ---------- */}
+    <div class="mt-14 flex gap-12">
+
+      <nav aria-label="İçindekiler" class="hidden lg:block sticky top-20 self-start w-72 shrink-0 text-sm max-h-[calc(100vh-6rem)] overflow-y-auto pr-2">
+        <p class="font-medium text-ink mb-4">İçindekiler</p>
+        <ol class="space-y-4 border-l border-warm-border">
+          {bolumler.map((b) => (
+            <li>
+              <a
+                href={`#${b.kimlik}`}
+                data-toc-link
+                data-target={b.kimlik}
+                class="toc-link block -ml-px border-l-2 border-transparent pl-3 font-medium text-ink/80 hover:text-accent transition-colors"
+              >
+                <span class="text-warm-400 inline-block w-8 shrink-0">{ROMA[b.no - 1]}.</span>{b.baslik}
+              </a>
+              {b.altBasliklar.length > 0 && (
+                <ul class="mt-2 space-y-1.5">
+                  {b.altBasliklar.map((h) => (
+                    <li>
+                      <a
+                        href={`#${h.slug}`}
+                        data-toc-link
+                        data-target={h.slug}
+                        class="toc-link block -ml-px border-l-2 border-transparent pl-6 text-[13px] text-warm-500 hover:text-accent transition-colors"
+                      >
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <div class="min-w-0 max-w-3xl">
+        {bolumler.map((b) => (
+          <section class="scroll-mt-24">
+            <div class="not-prose border-t-2 border-accent pt-8 mt-20 first:mt-0 mb-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+                {SIRA[b.no - 1]} bölüm
+              </p>
+              <h2 id={b.kimlik} class="font-serif text-3xl font-semibold text-ink leading-tight scroll-mt-24">
+                {b.baslik}
+              </h2>
+              {b.ozet && (
+                <p class="text-warm-600 leading-relaxed mt-4">{b.ozet}</p>
+              )}
+              <a
+                href={`/makaleler/${b.slug}/`}
+                class="inline-block mt-4 text-sm text-accent underline underline-offset-4"
+              >
+                Bu bölümü ayrı sayfada okuyun
+              </a>
+            </div>
+
+            <div class="prose prose-warm max-w-none prose-headings:scroll-mt-24 prose-headings:font-serif">
+              <b.Content />
+            </div>
+          </section>
+        ))}
+
+        <div class="mt-20 rounded-lg border border-warm-border bg-sand p-6">
+          <p class="font-medium text-ink mb-1">Dizinin sonu</p>
+          <p class="text-sm text-warm-600">
+            Dokuz bölümün tamamını okudunuz.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <OtomotivInsaniCagri />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<script>
+  // ---- Bütünleşik sayfaya özgü temizlikler (istemci tarafında; içerik girdileri
+  //      tekil makale sayfalarında da aynı derlemeyle kullanılıyor) ----
+
+  // 1) Metin içi kardeş-bölüm göndermeleri: makalelerde bölümler arası
+  //    <a href="/makaleler/beyond-the-balance-sheet-0N-…#çıpa"> bağlantıları var.
+  //    Tekil sayfada doğru; burada okuyucuyu sayfadan DIŞARI atıyor. Aynı
+  //    sayfadaki hedefe çeviriyoruz: çıpa sayfada varsa onu koru, yoksa bölüm
+  //    başına (#bolum-N). Dış kaynak bağlantılarına (x.com vb.) dokunulmuyor.
+  document.querySelectorAll<HTMLAnchorElement>(
+    '.prose a[href*="/makaleler/beyond-the-balance-sheet-"]'
+  ).forEach((a) => {
+    const href = a.getAttribute('href') || '';
+    const hashIdx = href.indexOf('#');
+    let hedefId: string | null = null;
+    if (hashIdx !== -1) {
+      const frag = decodeURIComponent(href.slice(hashIdx + 1));
+      if (frag && document.getElementById(frag)) hedefId = frag;
+    }
+    if (!hedefId) {
+      const m = href.match(/beyond-the-balance-sheet-0*(\d+)/);
+      if (m && document.getElementById(`bolum-${Number(m[1])}`)) hedefId = `bolum-${Number(m[1])}`;
+    }
+    if (!hedefId) return;
+    a.setAttribute('href', `#${hedefId}`);
+    a.removeAttribute('target');
+    a.removeAttribute('rel');
+    a.dataset.icGonderme = '';
+  });
+
+  // 2) Aynı id iki kez geçerse (güvenlik ağı) tekilleştir — belge geçerli kalsın.
+  const gorulen = new Map<string, number>();
+  document.querySelectorAll<HTMLElement>('.prose [id]').forEach((el) => {
+    const kim = el.id;
+    const n = (gorulen.get(kim) ?? 0) + 1;
+    gorulen.set(kim, n);
+    if (n > 1) el.id = `${kim}-${n}`;
+  });
+
+  // ---- İçindekiler vurgusu (iki kademeli: bölüm + alt başlık) ----
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
+  if (links.length > 0) {
+    const targets = Array.from(links)
+      .map((link) => document.getElementById(link.dataset.target ?? ''))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const setActive = (slug: string | null) => {
+      links.forEach((link) => {
+        const active = link.dataset.target === slug;
+        link.classList.toggle('text-accent', active);
+        link.classList.toggle('border-accent', active);
+      });
+    };
+
+    const THRESHOLD = 96;
+    const updateActive = () => {
+      let current = targets[0] ?? null;
+      for (const el of targets) {
+        if (el.getBoundingClientRect().top <= THRESHOLD) current = el;
+        else break;
+      }
+      setActive(current?.id ?? null);
+    };
+
+    document.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    updateActive();
+  }
+</script>

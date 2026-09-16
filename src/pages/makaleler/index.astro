@@ -9,8 +9,16 @@ const allArticles = (await getCollection('articles', (e) => e.data.durum === 'ya
 );
 
 const seriler = [
-  { key: 'otomotivde-elektrifikasyon', label: 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi' },
-  { key: 'beyond-the-balance-sheet', label: 'Bilançonun Ötesinde: Bir Şirketi Anlamak' },
+  {
+    key: 'otomotivde-elektrifikasyon',
+    label: 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi',
+    birlesik: { url: '/makaleler/otomotivde-elektrifikasyon/', metin: 'Altı bölümün tamamı, tek sayfada' },
+  },
+  {
+    key: 'beyond-the-balance-sheet',
+    label: 'Bilançonun Ötesinde: Bir Şirketi Anlamak',
+    birlesik: { url: '/makaleler/bilanconun-otesinde/', metin: 'Dokuz bölümün tamamı, tek sayfada' },
+  },
 ];
 ---
 <BaseLayout title="Makaleler" description="Otomotiv elektrifikasyonu ve finansal analiz üzerine yazı dizileri.">
@@ -48,9 +56,9 @@ const seriler = [
               ALTINDA ve tam genişlikte: önce altı bölüm görünsün, sonra
               onların toplamı. Üstte dururken diziyi okumadan "hepsi burada"
               teklifi geliyordu; altta bir kapanış gibi duruyor. */}
-          {seri.key === 'otomotivde-elektrifikasyon' && (
+          {seri.birlesik && (
             <a
-              href="/makaleler/otomotivde-elektrifikasyon/"
+              href={seri.birlesik.url}
               class="group block mt-6 rounded-lg border-2 border-accent/40 bg-sand p-6 hover:border-accent transition-colors"
             >
               <div class="flex flex-wrap items-start justify-between gap-4">
@@ -59,7 +67,7 @@ const seriler = [
                     Bütünleşik metin
                   </p>
                   <p class="font-serif text-xl font-semibold text-ink group-hover:text-accent transition-colors">
-                    Altı bölümün tamamı, tek sayfada
+                    {seri.birlesik.metin}
                   </p>
                   <p class="text-sm text-warm-600 mt-2 max-w-2xl leading-relaxed">
                     Diziyi baştan sona okumak isteyenler için bütün metin bir arada.
