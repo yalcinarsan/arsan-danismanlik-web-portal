@@ -1,16 +1,22 @@
 ---
 // Otomotiv İnsanı'na geçiş kutusu — makale sonlarında ve EA Verileri sayfasında.
 // Metin src/icerik/oi-cagri.md'de (Obsidian'dan düzenlenebilir), burada yalnızca sunum var.
+//
+// Koyu (ink) zemin bilinçli: sayfanın geri kalanı sıcak/açık; bu kutu "ayrı bir
+// proje" olduğunu görsel olarak belli etsin diye kontrast kuruyor. "Yeni proje"
+// rozeti de bunu sözle pekiştiriyor.
 import { frontmatter as t } from '../icerik/oi-cagri.md';
 ---
-<aside class="rounded-lg border border-warm-border bg-sand px-6 py-5">
-  <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">Otomotiv İnsanı</p>
-  <h2 class="text-lg font-semibold text-ink mb-2">{t.baslik}</h2>
-  <p class="text-sm text-warm-600 leading-relaxed mb-2">{t.metin}</p>
-  <!-- min-h-[44px]: mobil dokunma hedefi (WCAG 2.2 AA). Düz metin bağlantı
-       17px kalıyordu; görsel ağırlığı artırmadan tıklama alanını büyütüyoruz. -->
+<aside class="rounded-2xl bg-ink px-6 py-6 sm:px-8 sm:py-7">
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+    <span class="inline-block rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-paper">Yeni proje</span>
+    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Otomotiv İnsanı</span>
+  </div>
+  <h2 class="font-serif text-xl sm:text-2xl font-semibold text-paper mb-2">{t.baslik}</h2>
+  <p class="text-sm text-sand/90 leading-relaxed mb-5 max-w-2xl">{t.metin}</p>
+  {/* min-h-[44px]: mobil dokunma hedefi (WCAG 2.2 AA). */}
   <a
     href={t.link_hedef}
-    class="inline-flex items-center min-h-[44px] text-sm font-medium text-accent hover:underline"
+    class="inline-flex items-center min-h-[44px] rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-paper transition hover:brightness-110"
   >{t.link_metin} →</a>
 </aside>

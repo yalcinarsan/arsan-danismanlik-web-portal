@@ -1,92 +1,166 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
 import OtomotivInsaniCagri from '../../components/OtomotivInsaniCagri.astro';
 import { getCollection } from 'astro:content';
 
-const allArticles = (await getCollection('articles', (e) => e.data.durum === 'yayında')).sort(
-  (a, b) => a.data.seriNo - b.data.seriNo
-);
+const all = await getCollection('articles', (e) => e.data.durum === 'yayında');
 
-const seriler = [
-  {
-    key: 'otomotivde-elektrifikasyon',
-    label: 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi',
-    birlesik: { url: '/makaleler/otomotivde-elektrifikasyon/', metin: 'Altı bölümün tamamı, tek sayfada' },
+const AYLAR = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+
+// Uzun ozet'ten çipe uygun kısa açıklama: "…bölümü:" sonrasını al, ~150 karaktere kırp.
+const kisaOzet = (oz: string | undefined) => {
+  const kaynak = oz ?? '';
+  const p = kaynak.split('bölümü:');
+  let s = (p.length > 1 ? p[1] : kaynak).trim();
+  if (s.length > 150) s = s.slice(0, 150).replace(/\s+\S*$/, '') + '…';
+  return s;
+};
+
+// Seri sunum bilgisi (metin dizeleri burada; bölüm verisi makalelerden türetiliyor).
+// Sıra: en yeni seri üstte.
+const seriMeta: Record<string, { label: string; altBaslik: string; ozet: string; birlesik: string }> = {
+  'beyond-the-balance-sheet': {
+    label: 'Bilançonun Ötesinde',
+    altBaslik: 'Bir Şirketi Anlamak',
+    ozet: 'Mali tabloların temellerinden başlayıp bir şirketi yalnızca geçmişine göre değil, geleceğine göre okumaya uzanan dokuz bölüm — bilanço, nakit akışı, kârlılık, değerleme, çöküş sinyalleri ve dönüşüm çağında bütüncül okuma.',
+    birlesik: '/makaleler/bilanconun-otesinde/',
   },
-  {
-    key: 'beyond-the-balance-sheet',
-    label: 'Bilançonun Ötesinde: Bir Şirketi Anlamak',
-    birlesik: { url: '/makaleler/bilanconun-otesinde/', metin: 'Dokuz bölümün tamamı, tek sayfada' },
+  'otomotivde-elektrifikasyon': {
+    label: 'Otomotivde Elektrifikasyon',
+    altBaslik: '100 Yılda Bir Gelen Değişimin Anatomisi',
+    ozet: 'Elektrifikasyonun otomotivde yarattığı dönüşümü finansal anatomiden müşteriye, yeni ekonomiye ve devlet politikasına altı ayrı açıdan okuyan seri.',
+    birlesik: '/makaleler/otomotivde-elektrifikasyon/',
   },
-];
+};
+const SIRA = ['beyond-the-balance-sheet', 'otomotivde-elektrifikasyon'];
+
+const seriler = SIRA
+  .filter((key) => all.some((a) => a.data.seri === key))
+  .map((key) => {
+    const bolumler = all
+      .filter((a) => a.data.seri === key)
+      .sort((a, b) => a.data.seriNo - b.data.seriNo);
+    const ilk = bolumler[0];
+    const son = bolumler[bolumler.length - 1];
+    const tarihAralik =
+      ilk && son ? `${AYLAR[ilk.data.tarih.getMonth()]}–${AYLAR[son.data.tarih.getMonth()]} ${son.data.tarih.getFullYear()}` : '';
+    return {
+      key,
+      ...seriMeta[key],
+      bolumSayisi: bolumler.length,
+      kapak: ilk?.data.kapakGorseli?.src,
+      tarihAralik,
+      ilkSlug: ilk?.slug,
+      chips: bolumler.map((a) => ({ no: a.data.seriNo, slug: a.slug, title: a.data.title, aciklama: kisaOzet(a.data.ozet) })),
+    };
+  });
+
+const sonEklenenler = [...all]
+  .sort((a, b) => b.data.tarih.getTime() - a.data.tarih.getTime())
+  .slice(0, 3)
+  .map((a) => ({ slug: a.slug, title: a.data.title, seri: seriMeta[a.data.seri]?.label ?? a.data.seri, no: a.data.seriNo }));
 ---
-<BaseLayout title="Makaleler" description="Otomotiv elektrifikasyonu ve finansal analiz üzerine yazı dizileri.">
+<BaseLayout title="Makaleler" description="Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.">
   <section class="mx-auto max-w-5xl px-4 py-16">
-    <h1 class="text-3xl font-semibold text-ink mb-8">Makaleler</h1>
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Arsan Danışmanlık</p>
+    <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-ink leading-tight mb-3">Makaleler</h1>
+    <p class="text-lg text-warm-600 max-w-2xl">Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.</p>
 
-    {allArticles.length === 0 && (
-      <p class="text-warm-500">Henüz yayınlanmış makale yok.</p>
+    {all.length === 0 && <p class="text-warm-500 mt-8">Henüz yayınlanmış makale yok.</p>}
+
+    {sonEklenenler.length > 0 && (
+      <div class="mt-8 flex flex-wrap items-center gap-2.5 border-b border-warm-border pb-8">
+        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-warm-500 mr-1">Son eklenenler</span>
+        {sonEklenenler.map((r) => (
+          <a
+            href={`/makaleler/${r.slug}/`}
+            class="inline-flex items-center gap-1.5 rounded-full border border-warm-border bg-white px-3.5 py-1.5 text-[13px] text-ink hover:border-accent transition-colors"
+          >
+            <span class="font-medium">{r.title}</span>
+            <span class="text-warm-500">· {r.seri} · Bölüm {r.no}</span>
+          </a>
+        ))}
+      </div>
     )}
 
-    {seriler.map((seri) => {
-      const items = allArticles.filter((a) => a.data.seri === seri.key);
-      if (items.length === 0) return null;
-      const [seriAna, seriAlt] = seri.label.split(/:\s(.+)/);
-      return (
-        <div class="mb-12">
-          <h2 class="text-lg font-semibold text-ink mb-4">
-            {seriAna}{seriAlt && <>: <span class="text-accent">{seriAlt}</span></>}
-          </h2>
-
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((a) => (
-              <ArticleCard
-                slug={a.slug}
-                title={a.data.title}
-                ozet={a.data.ozet}
-                seriBaslik={a.data.seriBaslik}
-                seriNo={a.data.seriNo}
-                tarih={a.data.tarih}
-              />
-            ))}
-          </div>
-
-          {/* Bütünleşik metin — dizinin tamamı tek sayfada. Kart grid'in
-              ALTINDA ve tam genişlikte: önce altı bölüm görünsün, sonra
-              onların toplamı. Üstte dururken diziyi okumadan "hepsi burada"
-              teklifi geliyordu; altta bir kapanış gibi duruyor. */}
-          {seri.birlesik && (
-            <a
-              href={seri.birlesik.url}
-              class="group block mt-6 rounded-lg border-2 border-accent/40 bg-sand p-6 hover:border-accent transition-colors"
-            >
-              <div class="flex flex-wrap items-start justify-between gap-4">
-                <div class="min-w-0">
-                  <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
-                    Bütünleşik metin
-                  </p>
-                  <p class="font-serif text-xl font-semibold text-ink group-hover:text-accent transition-colors">
-                    {seri.birlesik.metin}
-                  </p>
-                  <p class="text-sm text-warm-600 mt-2 max-w-2xl leading-relaxed">
-                    Diziyi baştan sona okumak isteyenler için bütün metin bir arada.
-                  </p>
-                </div>
-                <span class="shrink-0 text-sm text-accent underline underline-offset-4">
-                  Tamamını oku
-                </span>
-              </div>
-            </a>
+    <div class="mt-10 space-y-8">
+      {seriler.map((s) => (
+        <article class="overflow-hidden rounded-2xl border border-warm-border bg-white">
+          {s.kapak && (
+            <img src={s.kapak} alt="" loading="lazy" class="h-44 w-full border-b border-warm-border object-cover" />
           )}
-        </div>
-      );
-    })}
+          <div class="p-6 sm:p-7">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-2">
+              {s.bolumSayisi} bölümlük seri{s.tarihAralik && <> · {s.tarihAralik}</>}
+            </p>
+            <h2 class="font-serif text-2xl sm:text-[26px] font-semibold text-ink leading-tight">{s.label}</h2>
+            <p class="font-serif text-lg text-warm-600 mt-1 mb-3">{s.altBaslik}</p>
+            <p class="text-warm-600 leading-relaxed max-w-2xl mb-5">{s.ozet}</p>
 
-    {allArticles.length > 0 && (
-      <div class="mt-4">
+            <div class="flex flex-wrap items-center gap-2 mb-6">
+              <span class="text-sm text-warm-500 mr-1">Bölümler</span>
+              {s.chips.map((c) => (
+                <span class="chip-wrap">
+                  <a href={`/makaleler/${c.slug}/`} class="chip" aria-label={`Bölüm ${c.no}: ${c.title}`}>{c.no}</a>
+                  <span class="pop" role="tooltip">
+                    <span class="pop-eyebrow">Bölüm {c.no}</span>
+                    <span class="pop-title">{c.title}</span>
+                    <span class="pop-desc">{c.aciklama}</span>
+                  </span>
+                </span>
+              ))}
+            </div>
+
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+              {s.ilkSlug && (
+                <a
+                  href={`/makaleler/${s.ilkSlug}/`}
+                  class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-paper min-h-[44px] transition hover:brightness-110"
+                >İlk makaleden başla →</a>
+              )}
+              <a href={s.birlesik} class="text-sm font-medium text-accent hover:underline">Tek sayfada oku</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    {all.length > 0 && (
+      <div class="mt-12">
         <OtomotivInsaniCagri />
       </div>
     )}
   </section>
 </BaseLayout>
+
+<style>
+  .chip-wrap { position: relative; display: inline-flex; }
+  .chip {
+    width: 32px; height: 32px; border-radius: 8px;
+    border: 1px solid #e7ddcf; background: #f1e9dd; color: #2c2620;
+    font-size: 13.5px; font-weight: 500;
+    display: inline-flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: border-color .12s, color .12s;
+  }
+  .chip:hover { border-color: #b5623c; color: #b5623c; }
+
+  .pop {
+    position: absolute; bottom: calc(100% + 12px); left: 0;
+    width: min(290px, 78vw);
+    background: #fff; border: 1px solid #e7ddcf; border-top: 3px solid #b5623c;
+    border-radius: 10px; box-shadow: 0 10px 30px rgba(44, 38, 32, .13);
+    padding: 12px 14px 13px; display: none; z-index: 20; text-align: left;
+  }
+  .pop::after {
+    content: ""; position: absolute; top: 100%; left: 16px;
+    border: 7px solid transparent; border-top-color: #fff;
+  }
+  /* Yalnızca gerçek hover + ince işaretleyici olan cihazlarda (masaüstü).
+     Mobilde çip sadece bir numara; dokununca bölüme gider. */
+  @media (hover: hover) and (pointer: fine) {
+    .chip-wrap:hover .pop { display: block; }
+  }
+  .pop-eyebrow { display: block; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #b5623c; font-weight: 600; margin-bottom: 3px; }
+  .pop-title { display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 15px; color: #2c2620; line-height: 1.25; margin-bottom: 5px; }
+  .pop-desc { display: block; font-size: 12.5px; color: #857a69; line-height: 1.5; }
+</style>
