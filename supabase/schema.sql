@@ -15,7 +15,7 @@
 
 -- ---------- ENUM'lar (taksonomi) -------------------------------------------
 create type deneyim_yili   as enum ('0-3', '4-7', '8-15', '15+');
-create type kanal          as enum ('oem', 'distributor', 'bayi', 'yan_sanayi', 'diger');
+create type kanal          as enum ('oem', 'distributor', 'bayi', 'yan_sanayi', 'diger', 'medya');
 create type fonksiyon       as enum (
   'satis', 'satis_sonrasi', 'pazarlama_iletisim', 'urun_planlama',
   'finans', 'ik', 'dijital_yazilim', 'genel_yonetim'
