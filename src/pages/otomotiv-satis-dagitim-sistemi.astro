@@ -78,6 +78,9 @@ const description = 'Türkiye’de otomotiv satış ağı kuran markalar için k
 const akisDemoAdresi = import.meta.env.DEV
   ? 'http://127.0.0.1:3000/demo-akis/'
   : 'https://platform.arsandanismanlik.com.tr/demo-akis/';
+const sistemSunumuAdresi = import.meta.env.DEV
+  ? 'http://127.0.0.1:3000/sunum/'
+  : 'https://platform.arsandanismanlik.com.tr/sunum/';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -192,6 +195,24 @@ const faqSchema = {
         </a>
       </figcaption>
     </figure>
+
+    <aside class="mt-5 rounded-xl border border-warm-border bg-sand px-5 py-5 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:px-6">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Gerçek uygulama ekranları</p>
+        <h2 class="mt-2 text-xl font-semibold text-ink sm:text-2xl">Sistemi adım adım inceleyin</h2>
+        <p class="mt-2 max-w-3xl text-sm leading-relaxed text-warm-600 sm:text-base">
+          Üretici ve Bayi rollerinin aynı operasyon üzerinde nasıl çalıştığını gerçek uygulama ekranlarıyla görün.
+        </p>
+      </div>
+      <a
+        href={sistemSunumuAdresi}
+        target="_blank"
+        rel="noreferrer"
+        class="mt-5 inline-flex min-h-11 shrink-0 items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:mt-0"
+      >
+        Sistem sunumunu açın →
+      </a>
+    </aside>
   </section>
 
   <section class="mx-auto max-w-5xl px-4 py-14 sm:py-20">
