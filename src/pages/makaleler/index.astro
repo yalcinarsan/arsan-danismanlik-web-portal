@@ -69,18 +69,11 @@ const sonEklenenler = [...all]
     {all.length === 0 && <p class="text-warm-500 mt-8">Henüz yayınlanmış makale yok.</p>}
 
     {sonEklenenler.length > 0 && (
-      <div class="mt-8 flex flex-wrap items-center gap-2.5 border-b border-warm-border pb-8">
-        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-warm-500 mr-1">Son eklenenler</span>
-        {sonEklenenler.map((r) => (
-          <a
-            href={`/makaleler/${r.slug}/`}
-            class="inline-flex items-center gap-1.5 rounded-full border border-warm-border bg-white px-3.5 py-1.5 text-[13px] text-ink hover:border-accent transition-colors"
-          >
-            <span class="font-medium">{r.title}</span>
-            <span class="text-warm-500">· {r.seri} · Bölüm {r.no}</span>
-          </a>
-        ))}
-      </div>
+      <p class="mt-6 text-sm text-warm-500">
+        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-accent mr-2">En yeni</span>
+        <a href={`/makaleler/${sonEklenenler[0].slug}/`} class="font-medium text-ink hover:text-accent transition-colors">{sonEklenenler[0].title}</a>
+        <span class="text-warm-400"> · {sonEklenenler[0].seri} · Bölüm {sonEklenenler[0].no}</span>
+      </p>
     )}
 
     <div class="mt-10 space-y-8">
