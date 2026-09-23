@@ -57,12 +57,14 @@ const seriler = SIRA
 
 const sonYayinlananlar = [...all]
   .sort((a, b) => b.data.tarih.getTime() - a.data.tarih.getTime())
-  .slice(0, 6)
+  .slice(0, 8)
   .map((a) => ({
     slug: a.slug,
     title: a.data.title,
+    seriKey: a.data.seri,
     seri: seriMeta[a.data.seri]?.label ?? a.data.seri,
     tarihStr: `${a.data.tarih.getDate()} ${AYLAR[a.data.tarih.getMonth()]} ${a.data.tarih.getFullYear()}`,
+    aciklama: kisaOzet(a.data.ozet),
   }));
 ---
 <BaseLayout title="Makaleler" description="Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.">
@@ -118,14 +120,25 @@ const sonYayinlananlar = [...all]
 
       <aside class="hidden lg:block lg:col-span-1">
         <div class="sticky top-24">
-          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-warm-500 mb-4">Son yayınlananlar</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-warm-500 mb-3">Son yayınlananlar</p>
+          <div class="mb-4 flex flex-wrap gap-1.5">
+            <button type="button" class="f-pill f-active" data-filtre="all">Tümü</button>
+            {seriler.map((s) => (
+              <button type="button" class="f-pill" data-filtre={s.key}>{s.label}</button>
+            ))}
+          </div>
           <ul class="space-y-4">
             {sonYayinlananlar.map((a) => (
-              <li>
+              <li class="son-item" data-seri={a.seriKey}>
                 <a href={`/makaleler/${a.slug}/`} class="group block">
                   <span class="block text-sm font-medium text-ink leading-snug group-hover:text-accent transition-colors">{a.title}</span>
                   <span class="block text-xs text-warm-500 mt-0.5">{a.tarihStr} · {a.seri}</span>
                 </a>
+                <span class="son-pop" role="tooltip">
+                  <span class="pop-eyebrow">{a.seri}</span>
+                  <span class="pop-title">{a.title}</span>
+                  <span class="pop-desc">{a.aciklama}</span>
+                </span>
               </li>
             ))}
           </ul>
@@ -171,4 +184,37 @@ const sonYayinlananlar = [...all]
   .pop-eyebrow { display: block; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #b5623c; font-weight: 600; margin-bottom: 3px; }
   .pop-title { display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 15px; color: #2c2620; line-height: 1.25; margin-bottom: 5px; }
   .pop-desc { display: block; font-size: 12.5px; color: #857a69; line-height: 1.5; }
+
+  /* Sidebar: seri filtresi */
+  .f-pill { border: 1px solid #e7ddcf; background: transparent; color: #857a69; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; cursor: pointer; line-height: 1.4; transition: color .12s, background-color .12s, border-color .12s; }
+  .f-pill:hover { border-color: #b5623c; color: #2c2620; }
+  .f-pill.f-active { background: #2c2620; border-color: #2c2620; color: #faf7f2; }
+
+  /* Sidebar: hover preview (sağa açılır; sidebar sağ kenarda olduğu için sola doğru) */
+  .son-item { position: relative; }
+  .son-pop {
+    position: absolute; right: calc(100% + 16px); top: -4px; width: 300px;
+    background: #fff; border: 1px solid #e7ddcf; border-top: 3px solid #b5623c;
+    border-radius: 10px; box-shadow: 0 10px 30px rgba(44, 38, 32, .14);
+    padding: 12px 14px 13px; display: none; z-index: 30; text-align: left;
+  }
+  .son-pop::after { content: ""; position: absolute; left: 100%; top: 16px; border: 7px solid transparent; border-left-color: #fff; }
+  @media (hover: hover) and (pointer: fine) {
+    .son-item:hover .son-pop { display: block; }
+  }
 </style>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.f-pill');
+  const items = document.querySelectorAll<HTMLElement>('.son-item');
+  pills.forEach((p) =>
+    p.addEventListener('click', () => {
+      pills.forEach((x) => x.classList.remove('f-active'));
+      p.classList.add('f-active');
+      const f = p.dataset.filtre;
+      items.forEach((it) => {
+        it.hidden = !(f === 'all' || it.dataset.seri === f);
+      });
+    })
+  );
+</script>
