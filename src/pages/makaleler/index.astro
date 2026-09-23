@@ -55,28 +55,26 @@ const seriler = SIRA
     };
   });
 
-const sonEklenenler = [...all]
+const sonYayinlananlar = [...all]
   .sort((a, b) => b.data.tarih.getTime() - a.data.tarih.getTime())
-  .slice(0, 3)
-  .map((a) => ({ slug: a.slug, title: a.data.title, seri: seriMeta[a.data.seri]?.label ?? a.data.seri, no: a.data.seriNo }));
+  .slice(0, 6)
+  .map((a) => ({
+    slug: a.slug,
+    title: a.data.title,
+    seri: seriMeta[a.data.seri]?.label ?? a.data.seri,
+    tarihStr: `${a.data.tarih.getDate()} ${AYLAR[a.data.tarih.getMonth()]} ${a.data.tarih.getFullYear()}`,
+  }));
 ---
 <BaseLayout title="Makaleler" description="Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.">
-  <section class="mx-auto max-w-5xl px-4 py-16">
+  <section class="mx-auto max-w-6xl px-4 py-16">
     <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Arsan Danışmanlık</p>
     <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-ink leading-tight mb-3">Makaleler</h1>
     <p class="text-lg text-warm-600 max-w-2xl">Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.</p>
 
     {all.length === 0 && <p class="text-warm-500 mt-8">Henüz yayınlanmış makale yok.</p>}
 
-    {sonEklenenler.length > 0 && (
-      <p class="mt-6 text-sm text-warm-500">
-        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-accent mr-2">En yeni</span>
-        <a href={`/makaleler/${sonEklenenler[0].slug}/`} class="font-medium text-ink hover:text-accent transition-colors">{sonEklenenler[0].title}</a>
-        <span class="text-warm-400"> · {sonEklenenler[0].seri} · Bölüm {sonEklenenler[0].no}</span>
-      </p>
-    )}
-
-    <div class="mt-10 space-y-8">
+    <div class="mt-10 lg:grid lg:grid-cols-4 lg:gap-12">
+      <div class="lg:col-span-3 space-y-8">
       {seriler.map((s) => (
         <article class="overflow-hidden rounded-2xl border border-warm-border bg-white">
           {s.kapak && (
@@ -116,6 +114,23 @@ const sonEklenenler = [...all]
           </div>
         </article>
       ))}
+      </div>
+
+      <aside class="hidden lg:block lg:col-span-1">
+        <div class="sticky top-24">
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-warm-500 mb-4">Son yayınlananlar</p>
+          <ul class="space-y-4">
+            {sonYayinlananlar.map((a) => (
+              <li>
+                <a href={`/makaleler/${a.slug}/`} class="group block">
+                  <span class="block text-sm font-medium text-ink leading-snug group-hover:text-accent transition-colors">{a.title}</span>
+                  <span class="block text-xs text-warm-500 mt-0.5">{a.tarihStr} · {a.seri}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
     </div>
 
     {all.length > 0 && (
