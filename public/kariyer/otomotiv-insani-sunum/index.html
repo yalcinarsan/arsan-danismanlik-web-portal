@@ -232,18 +232,18 @@
           <div class="screen__body stack">
             <p class="eyebrow-sm">Havuz bir bakışta</p>
             <div style="display:flex;align-items:baseline;gap:.6rem;">
-              <span class="bignum">47</span><span style="color:var(--warm-600);">otomotiv profesyoneli</span>
+              <span class="bignum" id="hv-toplam">53</span><span style="color:var(--warm-600);">otomotiv profesyoneli</span>
             </div>
             <div class="tiles">
-              <div class="tile"><div class="n">%68</div><div class="l">15+ yıl deneyimli</div></div>
-              <div class="tile"><div class="n">%89</div><div class="l">orta kademe ve üzeri</div></div>
-              <div class="tile"><div class="n">%40</div><div class="l">elektrifikasyonda saha deneyimli</div></div>
+              <div class="tile"><div class="n" id="hv-k15">%66</div><div class="l">15+ yıl deneyimli</div></div>
+              <div class="tile"><div class="n" id="hv-orta">%89</div><div class="l">orta kademe ve üzeri</div></div>
+              <div class="tile"><div class="n" id="hv-ev">%38</div><div class="l">elektrifikasyonda saha deneyimli</div></div>
             </div>
             <div class="bars" style="margin-top:.4rem;">
-              <div class="bar-row"><span class="lab">OEM / Ana marka</span><span class="val">39</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
-              <div class="bar-row"><span class="lab">Distribütör</span><span class="val">15</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div></div>
-              <div class="bar-row"><span class="lab">Bayi</span><span class="val">14</span><div class="bar-track"><div class="bar-fill" style="width:36%"></div></div></div>
-              <div class="bar-row"><span class="lab">Yan sanayi</span><span class="val">15</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div></div>
+              <div class="bar-row"><span class="lab">OEM / Ana marka</span><span class="val" id="hv-oem-v">44</span><div class="bar-track"><div class="bar-fill" id="hv-oem-f" style="width:100%"></div></div></div>
+              <div class="bar-row"><span class="lab">Distribütör</span><span class="val" id="hv-dist-v">20</span><div class="bar-track"><div class="bar-fill" id="hv-dist-f" style="width:45%"></div></div></div>
+              <div class="bar-row"><span class="lab">Bayi</span><span class="val" id="hv-bayi-v">17</span><div class="bar-track"><div class="bar-fill" id="hv-bayi-f" style="width:39%"></div></div></div>
+              <div class="bar-row"><span class="lab">Yan sanayi</span><span class="val" id="hv-yan-v">16</span><div class="bar-track"><div class="bar-fill" id="hv-yan-f" style="width:36%"></div></div></div>
             </div>
           </div>
         </div>
@@ -448,6 +448,42 @@
       else if (e.key === 'End') { e.preventDefault(); go(total - 1); }
     });
   })();
+</script>
+<script>
+// "Havuz bir bakışta" slaytını canlı public_stats() ile doldur (anon; PII yok).
+// Ağ hatası olursa HTML'deki son bilinen değerler yedek olarak kalır.
+(function () {
+  var API = 'https://wwpkgwndgephkuwpnjov.supabase.co';
+  var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind3cGtnd25kZ2VwaGt1d3Buam92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4NjI4OTUsImV4cCI6MjA5OTQzODg5NX0.LFc1m9Yq3tX0GQ_IO-nxVvpq5lf4gbyio9SpGuUEuXg';
+  function pct(n, t) { return t ? '%' + Math.round(n / t * 100) : ''; }
+  function set(id, v) { var el = document.getElementById(id); if (el && v != null && v !== '') el.textContent = v; }
+  function bar(idv, idf, v, max) {
+    set(idv, v);
+    var f = document.getElementById(idf);
+    if (f && max) f.style.width = Math.round(v / max * 100) + '%';
+  }
+  fetch(API + '/rest/v1/rpc/public_stats', {
+    method: 'POST',
+    headers: { 'apikey': ANON, 'Authorization': 'Bearer ' + ANON, 'Content-Type': 'application/json' },
+    body: '{}'
+  })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (s) {
+      if (!s || !s.toplam) return;
+      var t = s.toplam, k = s.kidem || {}, d = s.deneyim || {}, e = s.elektrifikasyon || {}, c = s.kanal || {};
+      set('hv-toplam', t);
+      set('hv-k15', pct(d['15+'] || 0, t));
+      set('hv-orta', pct((k.orta_kademe || 0) + (k.ust_duzey || 0) + (k.direktor_plus || 0), t));
+      set('hv-ev', pct(e.ev_deneyimim_var || 0, t));
+      var oem = c.oem || 0, dist = c.distributor || 0, bayi = c.bayi || 0, yan = c.yan_sanayi || 0;
+      var max = Math.max(oem, dist, bayi, yan, 1);
+      bar('hv-oem-v', 'hv-oem-f', oem, max);
+      bar('hv-dist-v', 'hv-dist-f', dist, max);
+      bar('hv-bayi-v', 'hv-bayi-f', bayi, max);
+      bar('hv-yan-v', 'hv-yan-f', yan, max);
+    })
+    .catch(function () { /* yedek (statik) değerler kalır */ });
+})();
 </script>
 </body>
 </html>
