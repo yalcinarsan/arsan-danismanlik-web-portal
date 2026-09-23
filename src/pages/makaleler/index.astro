@@ -55,16 +55,19 @@ const seriler = SIRA
     };
   });
 
+// Tüm makaleler tarihe göre (yeni->eski). İlk TUMU_ADET tanesi "Tümü" görünümünde;
+// gerisi gizli ama bir seri filtrelenince o serinin tamamı görünür.
+const TUMU_ADET = 9;
 const sonYayinlananlar = [...all]
   .sort((a, b) => b.data.tarih.getTime() - a.data.tarih.getTime())
-  .slice(0, 8)
-  .map((a) => ({
+  .map((a, i) => ({
     slug: a.slug,
     title: a.data.title,
     seriKey: a.data.seri,
     seri: seriMeta[a.data.seri]?.label ?? a.data.seri,
     tarihStr: `${a.data.tarih.getDate()} ${AYLAR[a.data.tarih.getMonth()]} ${a.data.tarih.getFullYear()}`,
     aciklama: kisaOzet(a.data.ozet),
+    fazla: i >= TUMU_ADET,
   }));
 ---
 <BaseLayout title="Makaleler" description="Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.">
@@ -129,7 +132,7 @@ const sonYayinlananlar = [...all]
           </div>
           <ul class="space-y-4">
             {sonYayinlananlar.map((a) => (
-              <li class="son-item" data-seri={a.seriKey}>
+              <li class="son-item" data-seri={a.seriKey} data-fazla={a.fazla ? '1' : '0'} hidden={a.fazla}>
                 <a href={`/makaleler/${a.slug}/`} class="group block">
                   <span class="block text-sm font-medium text-ink leading-snug group-hover:text-accent transition-colors">{a.title}</span>
                   <span class="block text-xs text-warm-500 mt-0.5">{a.tarihStr} · {a.seri}</span>
@@ -213,7 +216,8 @@ const sonYayinlananlar = [...all]
       p.classList.add('f-active');
       const f = p.dataset.filtre;
       items.forEach((it) => {
-        it.hidden = !(f === 'all' || it.dataset.seri === f);
+        // Tümü: yalnızca en son TUMU_ADET (fazla olmayanlar). Seri: o serinin tamamı.
+        it.hidden = f === 'all' ? it.dataset.fazla === '1' : it.dataset.seri !== f;
       });
     })
   );
