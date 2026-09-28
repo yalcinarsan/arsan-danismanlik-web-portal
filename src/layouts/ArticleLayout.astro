@@ -33,6 +33,7 @@ const { title, ozet, tarih, seri, seriNo, seriBaslik, url, headings = [], kapakG
 const seriEtiketleri: Record<string, string> = {
   'otomotivde-elektrifikasyon': 'Otomotivde Elektrifikasyon',
   'beyond-the-balance-sheet': 'Bilançonun Ötesinde: Bir Şirketi Anlamak',
+  'strateji-nasil-kurulur': 'Strateji Nasıl Kurulur',
 };
 
 const seriMakaleleri = (await getCollection('articles'))
@@ -192,6 +193,14 @@ const articleLd = {
     }
     .prose a[data-footnote-ref]::after {
       content: ']';
+    }
+    /* Dar ekranda geniş tablolar sayfayı taşırmasın; tablo kendi içinde yatay kayar. */
+    @media (max-width: 640px) {
+      .prose table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
     }
   </style>
   <script>

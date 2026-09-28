@@ -38,6 +38,8 @@ aynı isimli klasörde.
 | [src/content/config.ts](src/content/config.ts) | Makale üst alanlarının şeması; isteğe bağlı `kapakGorseli` kullanılırsa masaüstü, mobil ve paylaşım görselleri ile `alt` ve `altyazi` birlikte zorunludur |
 | [src/layouts/ArticleLayout.astro](src/layouts/ArticleLayout.astro) | Makale başlığı, geniş kapak, metin ve “Bu sayfada” navigasyonunun yerleşimi |
 | [scripts/build-makale-kapaklari.py](scripts/build-makale-kapaklari.py) | Onaylanan PNG kapaklardan hafif masaüstü/mobil WebP ve 1200×630 paylaşım JPEG’i üretir; `npm run gorsel:makale-kapak` ile çalışır |
+| [scripts/build-basabas-grafik.mjs](scripts/build-basabas-grafik.mjs) | “Otomotiv Bayisi Nasıl Para Kazanır?” yazısındaki başabaş grafiğini (Görsel 3) site paleti ve yazı tipleriyle PNG olarak üretir; varsayımlar dosyanın başında |
+| [scripts/build-x-tablo-gorselleri.mjs](scripts/build-x-tablo-gorselleri.mjs) | Bir makaledeki markdown tabloları X sürümü için PNG görsele çevirir (X editörü tablo kabul etmiyor); çıktı repo dışında, `../cikti/x-gorselleri/` altında |
 | [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md) | Karakalem kapak dili, altyazı, erişilebilirlik, onay, web–vault eşleştirmesi ve yayın akışı |
 | [MAKALE-GORSEL-PLANI.md](MAKALE-GORSEL-PLANI.md) | Tamamlanan kapaklar ile sıradaki makalelerin ana fikir, sahne ve altyazı haritası |
 

@@ -7,6 +7,7 @@ const BASE = 'https://arsandanismanlik.com.tr';
 const seriBaslik: Record<string, string> = {
   'otomotivde-elektrifikasyon': 'Otomotivde Elektrifikasyon: 100 Yılda Bir Gelen Değişimin Anatomisi',
   'beyond-the-balance-sheet': 'Bilançonun Ötesinde: Bir Şirketi Anlamak',
+  'strateji-nasil-kurulur': 'Strateji Nasıl Kurulur: Bayi, Distribütör ve Üretici Gözünden',
 };
 
 export const GET: APIRoute = async () => {

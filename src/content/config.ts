@@ -9,7 +9,7 @@ const articles = defineCollection({
     url: z.string().url().optional(),
     dil: z.enum(['tr', 'en']),
     kategori: z.string(),
-    seri: z.enum(['otomotivde-elektrifikasyon', 'beyond-the-balance-sheet']),
+    seri: z.enum(['otomotivde-elektrifikasyon', 'beyond-the-balance-sheet', 'strateji-nasil-kurulur']),
     seriNo: z.number().int().min(1),
     seriBaslik: z.string().optional(),
     durum: z.enum(['taslak', 'yayında', 'arşiv']).default('taslak'),

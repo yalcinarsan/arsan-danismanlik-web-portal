@@ -59,6 +59,9 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 
 ## 3. Karar Günlüğü
 
+**2026-09-28 — Üçüncü makale serisi: Strateji Nasıl Kurulur**
+Yeni seri anahtarı `strateji-nasil-kurulur` (kategori `strateji`) şemaya, makale yerleşimindeki seri etiketlerine ve `llms.txt`'ye eklendi. İlk yazı “Otomotiv Bayisi Nasıl Para Kazanır?”. Makaleler sayfasında seri en üstte; devam eden seriler için `devamEdiyor` alanı “Devam eden seri · N bölüm yayında” etiketini gösteriyor, `birlesik` (Tek sayfada oku) artık isteğe bağlı ve tek aylık seride tarih aralığı tek ay olarak yazılıyor. Yazıdaki iki şirket örneği halka açık tablolardan, isimsiz betimlemeyle veriliyor (“önde gelen bir otomotiv perakende grubu”, “çok markalı bir distribütör grubu”); kaynaklarda şirket adı ve bağlantısı yok. Dar ekranda geniş tabloların sayfayı taşırmaması için makale gövdesindeki tablolar 640 pikselin altında kendi içinde yatay kayıyor (bütün makalelere uygulanır, masaüstü değişmez). Başabaş grafiği `scripts/build-basabas-grafik.mjs` ile, X sürümü için tablo görselleri `scripts/build-x-tablo-gorselleri.mjs` ile üretiliyor. Kapak, yayından sonra kullanıcı tarafından ChatGPT ile hazırlanıp eklenecek.
+
 **2026-09-08 — Otomotivde Elektrifikasyon kapak setinin tamamlanması**
 Serinin eksik dört kapağı kullanıcıyla tek tek değerlendirilerek tamamlandı: “Otomotivde Neler Oluyor?”, “Bundan Sonra Ne Olacak?”, “Otomotivde Kim Ne Yapmalı?” ve “Türkiye’nin Yolu”. Böylece altı yazının tamamı ortak karakalem diline kavuştu. Gerçek şirketler analizin doğrudan aktörü olduğunda doğru ve ölçülü marka işaretlerinin kullanılabileceği; her kapağın onaydan sonra özgün PNG, web/paylaşım sürümleri ve Obsidian eşleştirmesiyle birlikte tamamlanacağı kararı kalıcı standarda eklendi. Kalan Şirket Analizi kapaklarının kavram haritası [MAKALE-GORSEL-PLANI.md](MAKALE-GORSEL-PLANI.md) içinde tutuluyor.
 

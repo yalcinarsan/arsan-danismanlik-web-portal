@@ -18,7 +18,14 @@ const kisaOzet = (oz: string | undefined) => {
 
 // Seri sunum bilgisi (metin dizeleri burada; bölüm verisi makalelerden türetiliyor).
 // Sıra: en yeni seri üstte.
-const seriMeta: Record<string, { label: string; altBaslik: string; ozet: string; birlesik: string }> = {
+// birlesik: 'Tek sayfada oku' sayfası (varsa). devamEdiyor: seri henüz tamamlanmadı.
+const seriMeta: Record<string, { label: string; altBaslik: string; ozet: string; birlesik?: string; devamEdiyor?: boolean }> = {
+  'strateji-nasil-kurulur': {
+    label: 'Strateji Nasıl Kurulur',
+    altBaslik: 'Bayi, Distribütör ve Üretici Gözünden',
+    ozet: 'Gerçek ve güncel otomotiv örneklerinden yola çıkarak genel bir strateji kurma akışına ilerleyen seri. Değer zincirinin aktörleri sırayla ele alınıyor; her yazı o aktör için bugünün koşullarında somut tercihlerle bitiyor.',
+    devamEdiyor: true,
+  },
   'beyond-the-balance-sheet': {
     label: 'Bilançonun Ötesinde',
     altBaslik: 'Bir Şirketi Anlamak',
@@ -32,7 +39,7 @@ const seriMeta: Record<string, { label: string; altBaslik: string; ozet: string;
     birlesik: '/makaleler/otomotivde-elektrifikasyon/',
   },
 };
-const SIRA = ['beyond-the-balance-sheet', 'otomotivde-elektrifikasyon'];
+const SIRA = ['strateji-nasil-kurulur', 'beyond-the-balance-sheet', 'otomotivde-elektrifikasyon'];
 
 const seriler = SIRA
   .filter((key) => all.some((a) => a.data.seri === key))
@@ -43,7 +50,11 @@ const seriler = SIRA
     const ilk = bolumler[0];
     const son = bolumler[bolumler.length - 1];
     const tarihAralik =
-      ilk && son ? `${AYLAR[ilk.data.tarih.getMonth()]}–${AYLAR[son.data.tarih.getMonth()]} ${son.data.tarih.getFullYear()}` : '';
+      !ilk || !son
+        ? ''
+        : ilk.data.tarih.getMonth() === son.data.tarih.getMonth() && ilk.data.tarih.getFullYear() === son.data.tarih.getFullYear()
+          ? `${AYLAR[son.data.tarih.getMonth()]} ${son.data.tarih.getFullYear()}`
+          : `${AYLAR[ilk.data.tarih.getMonth()]}–${AYLAR[son.data.tarih.getMonth()]} ${son.data.tarih.getFullYear()}`;
     return {
       key,
       ...seriMeta[key],
@@ -70,11 +81,11 @@ const sonYayinlananlar = [...all]
     fazla: i >= TUMU_ADET,
   }));
 ---
-<BaseLayout title="Makaleler" description="Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.">
+<BaseLayout title="Makaleler" description="Otomotiv, elektrifikasyon, şirket analizi ve strateji üzerine derinlemesine yazı dizileri.">
   <section class="mx-auto max-w-6xl px-4 py-16">
     <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Arsan Danışmanlık</p>
     <h1 class="font-serif text-4xl sm:text-5xl font-semibold text-ink leading-tight mb-3">Makaleler</h1>
-    <p class="text-lg text-warm-600 max-w-2xl">Otomotiv, elektrifikasyon ve şirket analizi üzerine derinlemesine yazı dizileri.</p>
+    <p class="text-lg text-warm-600 max-w-2xl">Otomotiv, elektrifikasyon, şirket analizi ve strateji üzerine derinlemesine yazı dizileri.</p>
 
     {all.length === 0 && <p class="text-warm-500 mt-8">Henüz yayınlanmış makale yok.</p>}
 
@@ -87,7 +98,7 @@ const sonYayinlananlar = [...all]
           )}
           <div class="p-6 sm:p-7">
             <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-2">
-              {s.bolumSayisi} bölümlük seri{s.tarihAralik && <> · {s.tarihAralik}</>}
+              {s.devamEdiyor ? `Devam eden seri · ${s.bolumSayisi} bölüm yayında` : `${s.bolumSayisi} bölümlük seri`}{s.tarihAralik && <> · {s.tarihAralik}</>}
             </p>
             <h2 class="font-serif text-2xl sm:text-[26px] font-semibold text-ink leading-tight">{s.label}</h2>
             <p class="font-serif text-lg text-warm-600 mt-1 mb-3">{s.altBaslik}</p>
@@ -114,7 +125,7 @@ const sonYayinlananlar = [...all]
                   class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-paper min-h-[44px] transition hover:brightness-110"
                 >İlk makaleden başla →</a>
               )}
-              <a href={s.birlesik} class="text-sm font-medium text-accent hover:underline">Tek sayfada oku</a>
+              {s.birlesik && <a href={s.birlesik} class="text-sm font-medium text-accent hover:underline">Tek sayfada oku</a>}
             </div>
           </div>
         </article>
