@@ -1,6 +1,6 @@
 # Makale Kapak Görseli Planı
 
-**Durum:** Otomotiv ve Şirket Analizi kapakları tamamlandı — 10 Eylül 2026
+**Durum:** Otomotiv ve Şirket Analizi kapakları tamamlandı; Strateji Nasıl Kurulur serisinin ilk kapağı onaylanarak yerleştirildi — 28 Eylül 2026
 
 **Referans:** [MAKALE-GORSEL-DILI.md](MAKALE-GORSEL-DILI.md)
 
@@ -139,6 +139,18 @@ Bu harita, makalelerin kapaklarını birbirinin tekrarı olmadan üretmek için 
 **Altyazı:** Rakamlar şirketin geçmişini ve bugününü gösterir; geleceğini anlamak için iş modelini, stratejiyi, insanları ve sektörün yönünü birlikte okumak gerekir.
 
 **Durum:** Onaylandı
+
+## Strateji Nasıl Kurulur — 1. bölüm
+
+### Otomotiv Bayisi Nasıl Para Kazanır?
+
+**Ana fikir:** Bayinin stratejisi, sınırlı sermayeyi hangi faaliyetlere ve ne kadar süreyle bağlayacağını seçmesiyle somutlaşır.
+
+**Sahne:** Tek bayi panoramasında solda çizgili park yerleri ve açık manevra koridoruyla düzenli araç stoğu, ortada müşteriye teslim edilen petrol yeşili araç, sağda çalışan servis ve müşteri kabulü bulunur. Ön plandaki iki yönetici stok listesi ve servis planını değerlendirir. Elektrifikasyon serisinin ince karakalem dili ve doğal petrol yeşili vurguları korunur.
+
+**Altyazı:** Bayinin stratejisi, sınırlı sermayeyi hangi araçlara, hangi hizmetlere ve ne kadar süreyle bağlayacağını seçmekle başlar.
+
+**Durum:** Görsel ve altyazı onaylandı; web ve Obsidian'a yerleştirildi — 28 Eylül 2026.
 
 ## Uygulama sırası
 

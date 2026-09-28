@@ -80,4 +80,6 @@ Onaylanan görsel, Yazma Projeleri vault’unda `attachments/` klasörüne kopya
 - **Otomotivde Yeni Ekonomi:** Mekanik parça dünyasından batarya, şarj, enerji, yazılım, hizmet ve ihracat ekosistemine geçiş.
 - **Türkiye’nin Yolu:** Kamu altyapısı, sanayi ve tüketicinin ortak bir bölgesel hareketlilik koridorunda birleşmesi.
 
+- **Otomotiv Bayisi Nasıl Para Kazanır?:** Düzenli araç stoğu, teslimat ve servisi tek panoramada gören yöneticilerin sınırlı sermayeyi faaliyetler arasında ayırma kararı.
+
 Bu örnekler sonraki üretimler için ton ve yaklaşım referansıdır; yeni görseller bunların kopyası olmak zorunda değildir.

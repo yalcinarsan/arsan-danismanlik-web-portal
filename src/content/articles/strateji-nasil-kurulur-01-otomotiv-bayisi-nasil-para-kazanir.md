@@ -9,6 +9,12 @@ seriNo: 1
 seriBaslik: "Bayinin kazanç döngüleri"
 durum: yayında
 ozet: "Strateji Nasıl Kurulur serisinin ilk bölümü: Bir otomotiv bayisi bugün nasıl para kazanır? Araç, müşteri ve sermaye döngüleri; 2021–2023'ten bugüne tersine dönen koşullar; aynı marjın faiz ve stokta kalma süresine göre nasıl eridiği (başabaş günü formülü); bir perakende grubu ile bir distribütör grubunun halka açık tablolarında aynı baskı; 'araç stoğunu neden ben taşıyorum?' sorusu; riskin zincirde yer değiştirmesi; 2026 koşullarında yedi tercih ve bir bayi modeli."
+kapakGorseli:
+  src: "/images/articles/otomotiv-bayisi-nasil-para-kazanir/00-karakalem-bayi-kazanc-donguleri-v1.webp"
+  srcMobil: "/images/articles/otomotiv-bayisi-nasil-para-kazanir/00-karakalem-bayi-kazanc-donguleri-v1-mobile.webp"
+  paylasim: "/images/articles/otomotiv-bayisi-nasil-para-kazanir/00-karakalem-bayi-kazanc-donguleri-v1-og.jpg"
+  alt: "Bir otomotiv bayisinin solda düzenli park sıralarındaki araç stoğunu, ortada müşteriye araç teslimini ve sağda servis atölyesini gösteren karakalem panorama; ön planda iki yönetici stok listesi ve servis planı üzerinde çalışıyor."
+  altyazi: "Bayinin stratejisi, sınırlı sermayeyi hangi araçlara, hangi hizmetlere ve ne kadar süreyle bağlayacağını seçmekle başlar."
 ---
 
 Şubat ayından bu yana otomotiv sektörüne iki farklı açıdan bakmaya çalıştım: <a href="/makaleler/otomotivde-elektrifikasyon/" target="_blank" rel="noopener">Otomotivde Elektrifikasyon</a> dizisinde sektördeki radikal değişime odaklandık; teknolojinin, müşteri tercihlerinin, üretimin ve rekabetin nasıl değiştiğini, yüz yılı aşkın süredir istikrarlı çalışan bir yapının neden yeniden şekillenmeye başladığını konuştuk. <a href="/makaleler/bilanconun-otesinde/" target="_blank" rel="noopener">Bilançonun Ötesinde</a> dizisinde ölçeği küçültüp bir şirketin içine girdik: Klasik finansal analiz araçlarının (faaliyet raporu, bilanço, gelir tablosu, nakit akışı, kârlılık ve sermaye yapısının) şirket hakkında ne anlattığını inceleyip otomotiv özelinde örneklerle yorumlamaya çalıştık.
