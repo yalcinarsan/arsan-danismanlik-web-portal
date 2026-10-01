@@ -5,7 +5,10 @@ export const DENEYIM = [['0-3', '0-3 yıl'], ['4-7', '4-7 yıl'], ['8-15', '8-15
 export const KANAL = [['oem', 'OEM / Ana marka'], ['distributor', 'Distribütör'], ['bayi', 'Bayi'], ['yan_sanayi', 'Yan sanayi'], ['medya', 'Medya / İçerik üreticisi'], ['diger', 'Diğer']];
 export const FONKSIYON = [
   ['satis', 'Satış'], ['satis_sonrasi', 'Satış sonrası'], ['pazarlama_iletisim', 'Pazarlama & iletişim'],
-  ['urun_planlama', 'Ürün & planlama'], ['finans', 'Finans'], ['ik', 'İK'],
+  ['urun_planlama', 'Ürün & planlama'],
+  ['muhendislik_arge', 'Mühendislik & Ar-Ge'], ['uretim_operasyon', 'Üretim & operasyon'],
+  ['kalite', 'Kalite'], ['satinalma_tedarik', 'Satınalma & tedarik zinciri'],
+  ['finans', 'Finans'], ['ik', 'İK'],
   ['dijital_yazilim', 'Dijital & yazılım'], ['genel_yonetim', 'Genel yönetim'],
 ];
 export const KIDEM = [['uzman', 'Uzman'], ['orta_kademe', 'Orta kademe'], ['ust_duzey', 'Üst düzey'], ['direktor_plus', 'Direktör ve üzeri']];
