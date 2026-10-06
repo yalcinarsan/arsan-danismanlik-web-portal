@@ -41,6 +41,25 @@ function dagilimHesapla(degerler: (string | null | undefined)[], etiketFn?: (v: 
   return [...sayac.entries()].sort((a, b) => b[1] - a[1]);
 }
 
+/** kurum_mercegi RPC'sinin döndürdüğü {slug: sayı} nesnesini OzetKart verisine çevirir. */
+function jsonbDagilim(obj: Record<string, number> | undefined, etiketFn?: (v: string) => string): [string, number][] {
+  if (!obj) return [];
+  return Object.entries(obj)
+    .map(([k, v]) => [etiketFn ? etiketFn(k) : k, v] as [string, number])
+    .sort((a, b) => b[1] - a[1]);
+}
+
+type Mercek = {
+  kurum: string; grup: string;
+  kaynak: { toplam_gruptan: number; gizli: number; gorunur: number };
+  uyum: {
+    gorunur_toplam: number;
+    fonksiyon: Record<string, number>; kidem: Record<string, number>;
+    deneyim: Record<string, number>; elektrifikasyon: Record<string, number>;
+    kanal: Record<string, number>;
+  };
+};
+
 function OzetKart({ baslik, veri }: { baslik: string; veri: [string, number][] }) {
   if (veri.length === 0) return null;
   return (
@@ -67,6 +86,10 @@ export default function AdaylarListesi() {
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
   const [acikId, setAcikId] = useState<string | null>(null);
   const [cvYukleniyor, setCvYukleniyor] = useState<string | null>(null);
+  const [mercekKurum, setMercekKurum] = useState('');
+  const [mercek, setMercek] = useState<Mercek | null>(null);
+  const [mercekYukleniyor, setMercekYukleniyor] = useState(false);
+  const [mercekHata, setMercekHata] = useState('');
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -108,6 +131,17 @@ export default function AdaylarListesi() {
     setGonderiliyor(false);
     if (error) setHata(anlasilirHata(error, 'giris'));
     else setDurum('gonderildi');
+  }
+
+  async function mercekAra(e: React.FormEvent) {
+    e.preventDefault();
+    const kurum = mercekKurum.trim();
+    if (!kurum) return;
+    setMercekHata(''); setMercekYukleniyor(true);
+    const { data, error } = await supabase.rpc('kurum_mercegi', { p_kurum: kurum });
+    setMercekYukleniyor(false);
+    if (error) { setMercekHata(anlasilirHata(error)); setMercek(null); return; }
+    setMercek(data as Mercek);
   }
 
   async function cvAc(aday: Aday) {
@@ -175,6 +209,43 @@ export default function AdaylarListesi() {
   return (
     <div>
       <p className="text-sm text-warm-500 mb-4">{adaylar.length} kayıt · en yeni önce</p>
+
+      <form onSubmit={mercekAra} className="mb-10 rounded-lg border border-warm-border p-4">
+        <p className="text-sm font-medium text-ink mb-1">Kurum merceği</p>
+        <p className="text-xs text-warm-500 mb-3">Bir kurum adı gir; o kurum + grubundan (iştirakler dahil) havuzda kaç kişi var ve o kurumun görebileceği adayların dağılımı.</p>
+        <div className="flex flex-wrap gap-2">
+          <input value={mercekKurum} onChange={(e) => setMercekKurum(e.target.value)}
+            className={inputCls + ' max-w-xs'} placeholder="Kurum adı (ör. Doğuş Otomotiv)" />
+          <button type="submit" disabled={mercekYukleniyor}
+            className="rounded-md bg-accent px-5 py-2 text-sm text-white font-medium disabled:opacity-60">
+            {mercekYukleniyor ? 'Aranıyor…' : 'Ara'}
+          </button>
+        </div>
+        {mercekHata && <p className="mt-2 text-sm text-accent">{mercekHata}</p>}
+        {mercek && (
+          <div className="mt-4 space-y-4">
+            <div className="rounded-md bg-sand p-3">
+              <p className="text-sm text-ink">
+                Kaynak — <strong>{mercek.kurum}</strong> grubundan havuzda{' '}
+                <strong>{mercek.kaynak.toplam_gruptan}</strong> kişi{' '}
+                <span className="text-warm-600">({mercek.kaynak.gizli} gizli · {mercek.kaynak.gorunur} görünür)</span>
+              </p>
+              <p className="mt-1 text-xs text-accent">⚠ Bu "kaynak" sayısını kurumla paylaşma — kendi çalışanlarının çıkış aradığını ele verir. Yalnız senin farkındalığın için.</p>
+            </div>
+            <p className="text-sm text-ink">
+              Uyum — <strong>{mercek.kurum}</strong>'un görebileceği{' '}
+              <strong>{mercek.uyum.gorunur_toplam}</strong> aday (bu konuşulabilir):
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <OzetKart baslik="Fonksiyon" veri={jsonbDagilim(mercek.uyum.fonksiyon, fonksiyonEtiket)} />
+              <OzetKart baslik="Kıdem" veri={jsonbDagilim(mercek.uyum.kidem, kidemEtiket)} />
+              <OzetKart baslik="Toplam deneyim" veri={jsonbDagilim(mercek.uyum.deneyim, deneyimEtiket)} />
+              <OzetKart baslik="Elektrifikasyon" veri={jsonbDagilim(mercek.uyum.elektrifikasyon, elektrifikasyonEtiket)} />
+              <OzetKart baslik="Kanal" veri={jsonbDagilim(mercek.uyum.kanal, kanalEtiket)} />
+            </div>
+          </div>
+        )}
+      </form>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-10">
         <OzetKart baslik="Kanal" veri={kanalDagilim} />
