@@ -49,9 +49,12 @@ function jsonbDagilim(obj: Record<string, number> | undefined, etiketFn?: (v: st
     .sort((a, b) => b[1] - a[1]);
 }
 
+type MercekKisi = { ad: string; son_kurum: string | null; son_pozisyon: string | null; gizli: boolean; gorunurluk: string };
+
 type Mercek = {
   kurum: string; grup: string;
   kaynak: { toplam_gruptan: number; gizli: number; gorunur: number };
+  kisiler: MercekKisi[];
   uyum: {
     gorunur_toplam: number;
     fonksiyon: Record<string, number>; kidem: Record<string, number>;
@@ -231,6 +234,21 @@ export default function AdaylarListesi() {
                 <span className="text-warm-600">({mercek.kaynak.gizli} gizli · {mercek.kaynak.gorunur} görünür)</span>
               </p>
               <p className="mt-1 text-xs text-accent">⚠ Bu "kaynak" sayısını kurumla paylaşma — kendi çalışanlarının çıkış aradığını ele verir. Yalnız senin farkındalığın için.</p>
+              {mercek.kisiler.length > 0 && (
+                <ul className="mt-3 space-y-1.5 border-t border-warm-border/60 pt-3">
+                  {mercek.kisiler.map((k, i) => (
+                    <li key={i} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+                      <span className="font-medium text-ink">{k.ad}</span>
+                      {[k.son_kurum, k.son_pozisyon].filter(Boolean).length > 0 && (
+                        <span className="text-warm-500">{[k.son_kurum, k.son_pozisyon].filter(Boolean).join(' · ')}</span>
+                      )}
+                      <span className={'text-xs rounded px-1.5 py-0.5 ' + (k.gizli ? 'bg-accent/10 text-accent' : 'bg-warm-border/50 text-warm-600')}>
+                        {k.gizli ? 'gizli — kuruma görünmez' : 'görünür'}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <p className="text-sm text-ink">
               Uyum — <strong>{mercek.kurum}</strong>'un görebileceği{' '}
