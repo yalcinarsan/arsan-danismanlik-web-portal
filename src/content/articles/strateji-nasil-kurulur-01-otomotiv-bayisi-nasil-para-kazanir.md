@@ -263,7 +263,7 @@ Bayinin kendi tercihleri kadar, distribütörle hangi koşullarda çalışabildi
 - **Krediye erişim dar:** Şubat 2022'de belirlenen ve o günden beri güncellenmeyen taşıt kredisi sınırlarına göre, fatura değeri 1,2–2 milyon TL arasındaki otomobillerde kredi aracın ancak %20'sini, en fazla 12 ay vadeyle karşılayabiliyor; 2 milyon TL'nin üzerindeki içten yanmalı otomobillerde kredi hiç kullanılamıyor. Yerli üretim elektrikliler için Mart 2025'te çok daha geniş sınırlar getirildi.
 - **İkinci el reel olarak değer kaybediyor:** Aralık 2024'ten bu yana yaklaşık %36.
 - **Sermaye reel olarak pahalı:** Ticari kredi %40,8, enflasyon %31,5.
-- **Satış karışımı hızla değişiyor, marka sayısı artıyor:** 2026'da satılan otomobillerin %52'si hibrit ya da elektrikli; Çin kökenli markaların payı yılbaşında %12'ye yaklaştı ve yıl içinde pek çok yeni marka ve model pazara giriyor.
+- **Satış karışımı ve rekabet hızla değişiyor:** 2026'da satılan otomobillerin %52'si hibrit ya da elektrikli. Çin kökenli markaların payı ocakta %12'ye yaklaştı; ek gümrük vergileri ve ithalat şartlarının etkisiyle ilk yarıda %5'e geriledi. Yeni marka ve model girişleri ise sürüyor.
 
 Bu zeminde ilk karar, sınırlı parayı ve yönetim zamanını nereye ayıracağımız. Her bayinin başlangıç noktası aynı değil:
 
@@ -350,7 +350,7 @@ Bir sonraki yazıda değer zincirinde bir adım yukarı çıkacağız. Bayinin s
 
 **Cardata** — İkinci el fiyat analizi, Ağustos 2026 ([CNN Türk](https://www.cnnturk.com/otomobil/2-elde-fiyatlar-5-aydir-geriliyor-3458208)).
 
-**Kampanyalar ve yeni markalar** — [Türkiye Gazetesi, Eylül 2026](https://www.turkiyegazetesi.com.tr/t-otomobil/sektorden-sifir-faiz-ve-takas-destegi-otomotiv-pazari-daraldi-kampanyalar-hizlandi-1814277) · [Sabah, Mart 2026](https://www.sabah.com.tr/yazarlar/sandik/2026/03/02/satilan-100-otodan-12si-cinli).
+**Kampanyalar ve yeni markalar** — [Türkiye Gazetesi, Eylül 2026](https://www.turkiyegazetesi.com.tr/t-otomobil/sektorden-sifir-faiz-ve-takas-destegi-otomotiv-pazari-daraldi-kampanyalar-hizlandi-1814277) · [Sabah, Mart 2026](https://www.sabah.com.tr/yazarlar/sandik/2026/03/02/satilan-100-otodan-12si-cinli) · [Hürriyet Bigpara, Temmuz 2026](https://bigpara.hurriyet.com.tr/haberler/ekonomi-haberleri/yilin-ilk-yarisinda-satislari-yuzde-40-azaldi-cinliler-duvara-carpti_ID102200943/).
 
 **IFRS Foundation** — [IAS 29: Enflasyon muhasebesi ve net parasal pozisyon sonucu](https://www.ifrs.org/issued-standards/list-of-standards/ias-29-financial-reporting-in-hyperinflationary-economies/).
 
