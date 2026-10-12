@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YoneticiPanel from '../../components/YoneticiPanel.tsx';
+---
+<BaseLayout title="Panel" description="Otomotiv İnsanı yönetici paneli.">
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">Otomotiv İnsanı</p>
+    <h1 class="text-3xl font-semibold text-ink mb-10">Yönetici paneli</h1>
+    <YoneticiPanel client:load />
+  </section>
+</BaseLayout>
