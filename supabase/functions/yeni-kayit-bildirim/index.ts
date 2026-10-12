@@ -26,6 +26,9 @@ async function resendGonder(from: string, to: string, subject: string, html: str
 }
 
 const BILDIRIM = 'Otomotiv İnsanı <bildirim@arsandanismanlik.com.tr>';
+// Adaya giden temas e-postası, tanıdıkları (hoşgeldin'i de alan) kişisel
+// gönderenden çıkar — "bildirim@" + spam-kokan konu junk'a düşüyordu.
+const YALCIN = 'Yalçın Arsan <yalcinarsan@arsandanismanlik.com.tr>';
 const YONETICI = 'yalcinarsan@arsandanismanlik.com.tr';
 
 Deno.serve(async (req) => {
@@ -52,10 +55,14 @@ Deno.serve(async (req) => {
     const adayEposta = payload.aday_eposta;
     const token = kayit.yanit_token;
     if (adayEposta && token) {
-      const ilkAd = esc(String(payload.aday_ad ?? '').trim().split(' ')[0]);
+      const adRaw = String(payload.aday_ad ?? '').trim().split(' ')[0];
+      const ilkAd = esc(adRaw);
       const selam = ilkAd ? `Merhaba ${ilkAd},` : 'Merhaba,';
+      const konu = adRaw
+        ? `${adRaw}, Otomotiv İnsanı'nda bir görüşme talebin var`
+        : "Otomotiv İnsanı'nda bir görüşme talebin var";
       const link = `${SITE}/kariyer/temas-yanit?token=${encodeURIComponent(token)}`;
-      await resendGonder(BILDIRIM, adayEposta, 'Bir kurum seninle görüşmek istiyor', [
+      await resendGonder(YALCIN, adayEposta, konu, [
         `<p>${selam}</p>`,
         `<p>Otomotiv İnsanı havuzundaki profilinle bir kurum ilgilendi ve seninle tanışmak istiyor. Görüşmeye açık olup olmadığını buradan bize bildirebilirsin:</p>`,
         `<p><a href="${link}">Görüşme talebini gör ve yanıtla</a></p>`,
