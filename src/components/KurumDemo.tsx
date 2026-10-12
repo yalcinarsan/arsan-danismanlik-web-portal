@@ -384,20 +384,21 @@ export default function KurumDemo() {
                     <Satir etiket="Çalışma tercihi" deger={calismaEtiket(aday.calisma_tercihi)} />
                     <Satir etiket="Fırsatlara açıklık" deger={aciklikEtiket(aday.aciklik)} />
                     <Satir etiket="Eğitim ve sertifika" deger={aday.sertifika_var ? 'Var (temas sonrası paylaşılır)' : null} />
+                    <Satir etiket="Özgeçmiş (CV)" deger={aday.cv_var ? 'Var (aday onayıyla paylaşılır)' : null} />
                     <Satir
                       etiket="Görünürlük tercihi"
                       deger={
                         aday.gorunurluk === 'acik'
-                          ? 'Açık — adı ve özgeçmişi abone kuruma görünür (bu örnek ekranda gösterilmiyor)'
-                          : 'Kapalı — kimliği ancak temas talebini kabul ederse paylaşılır'
+                          ? 'Açık — ad ve iş geçmişi size görünür; iletişim bilgisi ve özgeçmiş yalnız aday onayıyla paylaşılır'
+                          : 'Kapalı — kimlik, iletişim ve özgeçmiş yalnız aday temas talebini kabul ederse paylaşılır'
                       }
                     />
                   </dl>
                   {abone ? (
                     talepBasarili.includes(aday.id) ? (
                       <div className="mt-4 rounded-md border border-accent/40 bg-sand p-3 text-sm text-ink">
-                        Talebin bize ulaştı. Adaya ileteceğiz; kabul ederse kimliğini ve iletişimini
-                        seninle paylaşırız.
+                        Talebin bize ulaştı. Adaya ileteceğiz; kabul ederse kimliğini, iletişim bilgisini
+                        ve özgeçmişini seninle paylaşırız.
                       </div>
                     ) : (
                       <button
@@ -412,7 +413,7 @@ export default function KurumDemo() {
                   ) : talepId === aday.id ? (
                     <div className="mt-4 rounded-md border border-accent/40 bg-sand p-3 text-sm text-ink">
                       Örnek akış: talep Arsan Danışmanlık'a iletilir, adaya kurumunuzun kim olduğu
-                      söylenir. Aday kabul ederse kimliği ve özgeçmişi sizinle paylaşılır.
+                      söylenir. Aday kabul ederse kimliği, iletişim bilgisi ve özgeçmişi sizinle paylaşılır.
                     </div>
                   ) : (
                     <button
