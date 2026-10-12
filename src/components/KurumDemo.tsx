@@ -273,8 +273,7 @@ export default function KurumDemo() {
             <strong>Abonelik görünümü.</strong> <strong>Açık</strong> profillerin adını ve iş
             bilgilerini görüyorsun; <strong>kapalı</strong> profillerde kimlik gizli, yalnızca
             yetkinlikler görünür. Bir adaya ulaşmak istersen “Temas talebi gönder” — talebi adaya
-            Arsan Danışmanlık iletir; aday kabul ederse kimliğini ve iletişimini paylaşır. İletişim
-            her aşamada Arsan üzerinden yürür.
+            Arsan Danışmanlık iletir; aday kabul ederse kimliğini ve iletişimini paylaşır.
           </p>
         ) : (
           <p className="text-sm text-ink leading-relaxed">
@@ -282,7 +281,7 @@ export default function KurumDemo() {
             <strong> Bu örnek ekranda hiçbir ismi göstermiyoruz.</strong> Gerçek kullanımda adayın
             kendi tercihi geçerli olur: “açık” profillerin adı abone kuruma görünür; “kapalı”
             profillerde kimlik ancak temas talebini aday kabul ederse paylaşılır. Her adayın
-            tercihi kartında yazıyor. İletişim her aşamada Arsan Danışmanlık üzerinden yürür.
+            tercihi kartında yazıyor.
           </p>
         )}
       </div>
