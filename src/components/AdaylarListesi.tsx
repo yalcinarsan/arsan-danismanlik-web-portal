@@ -20,6 +20,20 @@ type Aday = {
   created_at: string;
 };
 
+/** Bir adayın tüm metin alanlarını tek aranabilir dizgede birleştirir (Türkçe küçük harf). */
+function adayAramaMetni(a: Aday): string {
+  return [
+    a.ad, a.eposta, a.telefon, a.son_pozisyon, a.son_kurum, a.sehir,
+    a.sertifikalar, a.serbest_metin,
+    ...(a.markalar ?? []),
+    ...(a.diller ?? []).map((d) => d.dil),
+    deneyimEtiket(a.deneyim_yili), kidemEtiket(a.kidem), elektrifikasyonEtiket(a.elektrifikasyon),
+    gorunurlukEtiket(a.gorunurluk), calismaEtiket(a.calisma_tercihi), aciklikEtiket(a.aciklik),
+    ...(a.kanal ?? []).map(kanalEtiket),
+    ...(a.fonksiyon ?? []).map(fonksiyonEtiket),
+  ].filter(Boolean).join(' ').toLocaleLowerCase('tr');
+}
+
 function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
   if (!deger) return null;
   return (
@@ -93,6 +107,7 @@ export default function AdaylarListesi() {
   const [mercek, setMercek] = useState<Mercek | null>(null);
   const [mercekYukleniyor, setMercekYukleniyor] = useState(false);
   const [mercekHata, setMercekHata] = useState('');
+  const [ara, setAra] = useState('');
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -209,6 +224,11 @@ export default function AdaylarListesi() {
   const sehirDagilim = dagilimHesapla(adaylar.map((a) => a.sehir));
   const calismaDagilim = dagilimHesapla(adaylar.map((a) => a.calisma_tercihi), calismaEtiket);
 
+  const q = ara.trim().toLocaleLowerCase('tr');
+  const gosterilen = q
+    ? adaylar.filter((a) => { const s = adayAramaMetni(a); return q.split(/\s+/).every((t) => s.includes(t)); })
+    : adaylar;
+
   return (
     <div>
       <p className="text-sm text-warm-500 mb-4">{adaylar.length} kayıt · en yeni önce</p>
@@ -276,8 +296,19 @@ export default function AdaylarListesi() {
         <OzetKart baslik="Çalışma tercihi" veri={calismaDagilim} />
       </div>
 
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <input value={ara} onChange={(e) => setAra(e.target.value)}
+          className={inputCls + ' max-w-md'}
+          placeholder="Adaylarda ara — ad, e-posta, kurum, pozisyon, şehir, marka, metin…" />
+        <span className="text-sm text-warm-500 shrink-0">
+          {ara.trim() ? `${gosterilen.length} / ${adaylar.length} kayıt` : `${adaylar.length} kayıt`}
+        </span>
+      </div>
+
+      {gosterilen.length === 0 && <p className="text-warm-500 text-sm">Eşleşen aday yok.</p>}
+
       <div className="space-y-3">
-        {adaylar.map((aday) => {
+        {gosterilen.map((aday) => {
           const acik = acikId === aday.id;
           return (
             <div key={aday.id} className="rounded-lg border border-warm-border overflow-hidden">
