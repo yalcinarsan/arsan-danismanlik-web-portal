@@ -29,6 +29,10 @@ export type Panel = {
   temas: { toplam: number; durumlar: Dagilim };
   temas_son: TemasSatir[];
   adaylar_son: AdaySatir[];
+  talep_profilleri?: {
+    talep: number; aday: number; kurum: number; kabul: number;
+    fonksiyon: Dagilim; kanal: Dagilim; kidem: Dagilim; bolge: Dagilim; elektrifikasyon: Dagilim;
+  };
 };
 
 const dtFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
@@ -252,6 +256,7 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
   panel: Panel; oturumEpostasi: string; onYenile: () => void; onCikis: () => void; yenileniyor: boolean;
 }) {
   const { ozet } = panel;
+  const tp = panel.talep_profilleri;
   const dis = panel.kurumlar.filter((x) => x.tur === 'demo' || x.tur === 'ucretli');
   const ic = panel.kurumlar.filter((x) => x.tur === 'test' || x.tur === 'yonetici');
 
@@ -353,17 +358,27 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
                 </ul>
           } />
 
-        {/* En çok filtrelenen — planlanıyor */}
-        <section className="rounded-xl border border-dashed border-warm-border bg-sand/30 p-5">
-          <div className="flex items-baseline gap-2.5 mb-2">
-            <h2 className="text-base font-semibold text-warm-600">En çok filtrelenen özellikler</h2>
-            <span className="text-xs text-warm-400">planlanıyor</span>
-          </div>
-          <p className="text-sm text-warm-500 leading-relaxed">
-            Kurumların havuzda hangi filtreleri (fonksiyon, kıdem, bölge…) kullandığını kaydetmeye başlayınca
-            en çok aranan profiller burada görünecek — havuzu talebe göre büyütmek için.
-          </p>
-        </section>
+        {/* Talep alan profiller — kurumların gerçekte ne aradığı, mevcut temas taleplerinden (yeni kayıt toplamadan).
+            Filtre kullanım kaydı bilinçli olarak ertelendi; kurum sayısı artınca yeniden düşünülecek. */}
+        <Modul baslik="Talep alan profiller"
+          not={tp ? `${tp.talep} talep · ${tp.aday} aday · ${tp.kurum} kurum` : undefined}
+          aksiyon={{ metin: 'Talepler', href: '/kariyer/talepler' }}
+          cocuk={
+            !tp || tp.talep === 0
+              ? <p className="text-sm text-warm-500">Henüz temas talebi yok.</p>
+              : <>
+                  <p className="text-xs text-warm-400 mb-3">
+                    Kurumların temas talebi gönderdiği adaylar · iç ve test hesapları hariç
+                    {tp.kurum === 1 && ' · şimdilik tek kurumun tercihleri'}
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <OzetKart baslik="Fonksiyon" veri={dagilim(tp.fonksiyon, fonksiyonEtiket).slice(0, 5)} />
+                    <OzetKart baslik="Kanal" veri={dagilim(tp.kanal, kanalEtiket).slice(0, 5)} />
+                    <OzetKart baslik="Kıdem" veri={dagilim(tp.kidem, kidemEtiket)} />
+                    <OzetKart baslik="Bölge" veri={dagilim(tp.bolge)} />
+                  </div>
+                </>
+          } />
       </div>
 
       {/* Havuz dağılımı — tam genişlik */}
