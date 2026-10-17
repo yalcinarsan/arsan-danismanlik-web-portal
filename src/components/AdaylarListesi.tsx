@@ -17,6 +17,7 @@ type Aday = {
   markalar: string[]; diller: { dil: string }[];
   sehir: string | null; calisma_tercihi: string | null; aciklik: string | null;
   sertifikalar: string | null; serbest_metin: string | null; gorunurluk: string; cv_path: string | null;
+  son_kurum_gizle: boolean | null; kvkk_riza: boolean | null; kvkk_riza_tarihi: string | null;
   created_at: string;
 };
 
@@ -348,6 +349,8 @@ export default function AdaylarListesi() {
                     <Satir etiket="Kıdem" deger={kidemEtiket(aday.kidem)} />
                     <Satir etiket="Son pozisyon" deger={aday.son_pozisyon} />
                     <Satir etiket="Son kurum" deger={aday.son_kurum} />
+                    {/* Kayıt formundaki "Son kurumum beni bu havuzda görmesin" seçimi; son kurum boşsa form bu kutuyu göstermiyor. */}
+                    <Satir etiket="Son kurumundan gizli" deger={aday.son_kurum ? (aday.son_kurum_gizle ? 'Evet — son kurumu bu profili göremez' : 'Hayır') : null} />
                     <Satir etiket="Kanal" deger={aday.kanal?.map(kanalEtiket).join(', ')} />
                     <Satir etiket="Fonksiyon" deger={aday.fonksiyon?.map(fonksiyonEtiket).join(', ')} />
                     <Satir etiket="Elektrifikasyon" deger={elektrifikasyonEtiket(aday.elektrifikasyon)} />
@@ -358,6 +361,9 @@ export default function AdaylarListesi() {
                     <Satir etiket="Eğitim ve sertifikalar" deger={aday.sertifikalar} />
                     <Satir etiket="Seni en iyi anlatan" deger={aday.serbest_metin} />
                     <Satir etiket="Görünürlük" deger={gorunurlukEtiket(aday.gorunurluk)} />
+                    <Satir etiket="KVKK onayı" deger={aday.kvkk_riza
+                      ? `Verildi${aday.kvkk_riza_tarihi ? ` · ${new Intl.DateTimeFormat('tr-TR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(aday.kvkk_riza_tarihi))}` : ' · tarih kaydı yok'}`
+                      : 'Kayıtlı onay yok'} />
                   </dl>
                   {aday.cv_path && (
                     <button
