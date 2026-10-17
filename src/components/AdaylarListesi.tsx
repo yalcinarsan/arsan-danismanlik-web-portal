@@ -108,6 +108,13 @@ export default function AdaylarListesi() {
   const [mercekYukleniyor, setMercekYukleniyor] = useState(false);
   const [mercekHata, setMercekHata] = useState('');
   const [ara, setAra] = useState('');
+  // Panelin "Son kayıtlar" kartı /kariyer/adaylar?aday=<id> ile gelir: o adayın kartı açık ve görünür olsun.
+  const [hedefId, setHedefId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (durum !== 'liste' || !hedefId) return;
+    document.getElementById(`aday-${hedefId}`)?.scrollIntoView({ block: 'start' });
+  }, [durum, hedefId]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -129,6 +136,11 @@ export default function AdaylarListesi() {
     const { data, error } = await supabase.from('adaylar').select('*').order('created_at', { ascending: false });
     if (error) { setHata(anlasilirHata(error)); setDurum('yetkisiz'); return; }
     setAdaylar((data ?? []) as Aday[]);
+    const istenen = new URLSearchParams(window.location.search).get('aday');
+    if (istenen && (data ?? []).some((a) => a.id === istenen)) {
+      setAcikId(istenen);
+      setHedefId(istenen);
+    }
     setDurum('liste');
   }
 
@@ -311,7 +323,8 @@ export default function AdaylarListesi() {
         {gosterilen.map((aday) => {
           const acik = acikId === aday.id;
           return (
-            <div key={aday.id} className="rounded-lg border border-warm-border overflow-hidden">
+            <div key={aday.id} id={`aday-${aday.id}`}
+              className={`rounded-lg border overflow-hidden scroll-mt-24 ${hedefId === aday.id ? 'border-accent ring-2 ring-accent/30' : 'border-warm-border'}`}>
               <button
                 type="button"
                 onClick={() => setAcikId(acik ? null : aday.id)}

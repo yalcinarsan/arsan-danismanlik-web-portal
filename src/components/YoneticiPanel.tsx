@@ -16,7 +16,7 @@ type Kurum = {
   toplam_temas: number; bekleyen_temas: number;
 };
 type TemasSatir = { kurum: string | null; aday_ad: string | null; durum: string; olusturuldu: string; yanit_ts: string | null };
-type AdaySatir = { ad: string | null; son_pozisyon: string | null; sehir: string | null; created_at: string };
+type AdaySatir = { id?: string; ad: string | null; son_pozisyon: string | null; sehir: string | null; created_at: string };
 type Dagilim = Record<string, number>;
 export type Panel = {
   ozet: {
@@ -278,7 +278,8 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
       </div>
 
       {/* Modüller */}
-      <div className="grid gap-6 lg:grid-cols-2">
+      {/* grid-cols-1 = minmax(0,1fr): telefonda uzun içerik (e-posta, kurum adı) sütunu ekrandan taşırmasın */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Temas talepleri */}
         <Modul baslik="Temas talepleri" not={`${ozet.temas_toplam} talep`} aksiyon={{ metin: 'Tümünü yönet', href: '/kariyer/talepler' }}
           cocuk={
@@ -322,21 +323,33 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
             </div>
           } />
 
-        {/* Son kayıtlar */}
-        <Modul baslik="Son kayıtlar" not={`havuzda ${ozet.aday_toplam}`} aksiyon={{ metin: 'Adaylar', href: '/kariyer/adaylar' }}
+        {/* Son kayıtlar — kutu içinde kayar; satır adayın kartını yeni sekmede açar (/kariyer/adaylar?aday=<id>) */}
+        <Modul baslik="Son kayıtlar" not={`son ${panel.adaylar_son.length} · havuzda ${ozet.aday_toplam}`} aksiyon={{ metin: 'Adaylar', href: '/kariyer/adaylar' }}
           cocuk={
             panel.adaylar_son.length === 0
               ? <p className="text-sm text-warm-500">Kayıt yok.</p>
-              : <ul className="divide-y divide-warm-border/70">
-                  {panel.adaylar_son.map((a, i) => (
-                    <li key={i} className="flex items-center justify-between gap-3 py-2.5 first:pt-0 last:pb-0">
-                      <div className="min-w-0">
-                        <p className="text-sm text-ink truncate font-medium">{a.ad || '(isimsiz)'}</p>
-                        <p className="text-xs text-warm-400 truncate">{[a.son_pozisyon, a.sehir].filter(Boolean).join(' · ') || '—'}</p>
-                      </div>
-                      <span className="shrink-0 text-xs text-warm-400">{gun(a.created_at)}</span>
-                    </li>
-                  ))}
+              : <ul className="divide-y divide-warm-border/70 max-h-80 overflow-y-auto overscroll-contain -mx-2 px-2">
+                  {panel.adaylar_son.map((a, i) => {
+                    const icerik = (
+                      <>
+                        <div className="min-w-0">
+                          <p className="text-sm text-ink truncate font-medium">{a.ad || '(isimsiz)'}</p>
+                          <p className="text-xs text-warm-400 truncate">{[a.son_pozisyon, a.sehir].filter(Boolean).join(' · ') || '—'}</p>
+                        </div>
+                        <span className="shrink-0 text-xs text-warm-400">{gun(a.created_at)}</span>
+                      </>
+                    );
+                    return (
+                      <li key={a.id ?? i}>
+                        {a.id
+                          ? <a href={`/kariyer/adaylar?aday=${a.id}`} target="_blank" rel="noopener"
+                              className="flex items-center justify-between gap-3 py-2.5 -mx-2 px-2 rounded hover:bg-sand/60 focus-visible:bg-sand/60 transition-colors">
+                              {icerik}
+                            </a>
+                          : <div className="flex items-center justify-between gap-3 py-2.5">{icerik}</div>}
+                      </li>
+                    );
+                  })}
                 </ul>
           } />
 
