@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { kurumOnerileri } from '../lib/kurumSeed';
 import { supabase } from '../lib/supabase';
-import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK, MARKALAR, SEHIRLER } from '../lib/adayTaksonomi';
+import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK, MARKALAR, SEHIRLER, ILISKI_FORM } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
+import { REFERANS_FORM_ACIKLAMA, REFERANS_FORM_BEYAN } from '../lib/referansMetinleri';
 
 const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
@@ -10,6 +11,11 @@ const bos = {
   markalar: [] as string[], markalarDiger: '', diller: '', sehir: '', calisma_tercihi: '', aciklik: '',
   sertifikalar: '', serbest_metin: '', gorunurluk: 'tek_kor', son_kurum_gizle: true, kvkk: false,
 };
+
+// Referans (en fazla 3). `yanitli`: referans görüşünü yazdı → aday değiştiremez, silemez.
+export type RefForm = { id?: string; ad: string; eposta: string; telefon: string; kurum_unvan: string; iliski: string; yanitli: boolean };
+const bosRef = (): RefForm => ({ ad: '', eposta: '', telefon: '', kurum_unvan: '', iliski: '', yanitli: false });
+const EPOSTA_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';
@@ -27,6 +33,9 @@ export default function KayitFormu() {
   const [cvMevcutYol, setCvMevcutYol] = useState<string | null>(null);
   const [cvKaldirilsin, setCvKaldirilsin] = useState(false);
   const [kurumListesi, setKurumListesi] = useState<string[]>([]);
+  const [refler, setRefler] = useState<RefForm[]>([]);
+  const [refYuklendi, setRefYuklendi] = useState(false); // kayıtlı referans vardı → boş liste de kaydedilmeli (silme)
+  const [refBeyan, setRefBeyan] = useState(false);
 
   // Oturum kontrolü (magic-link'ten dönünce oturum oluşur)
   useEffect(() => {
@@ -80,6 +89,16 @@ export default function KayitFormu() {
         kvkk: data.kvkk_riza ?? false,
       });
       setCvMevcutYol(data.cv_path ?? null);
+      const { data: refData } = await supabase.rpc('referanslarim');
+      const kayitli = (refData ?? []) as { id: string; ad: string; eposta: string; telefon: string | null; kurum_unvan: string | null; iliski: string; yorum: string | null }[];
+      if (kayitli.length) {
+        setRefler(kayitli.map((r) => ({
+          id: r.id, ad: r.ad, eposta: r.eposta, telefon: r.telefon ?? '', kurum_unvan: r.kurum_unvan ?? '',
+          iliski: r.iliski, yanitli: !!r.yorum,
+        })));
+        setRefYuklendi(true);
+        setRefBeyan(true); // daha önce beyan edilerek eklenmişlerdi
+      }
     }
     setDurum('form');
   }
@@ -127,6 +146,15 @@ export default function KayitFormu() {
     if (!f.kvkk) { setHata('Devam etmek için KVKK açık rızası gerekli.'); return; }
     if (!f.ad || !f.deneyim_yili || !f.kidem || !f.elektrifikasyon || f.kanal.length === 0 || f.fonksiyon.length === 0) {
       setHata('Lütfen zorunlu alanları (*) doldur.'); return;
+    }
+    // Referanslar: tamamen boş satırlar yok sayılır; dolu olanlarda ad, e-posta ve ilişki zorunlu.
+    const duzenlenebilir = refler.filter((r) => !r.yanitli)
+      .filter((r) => [r.ad, r.eposta, r.telefon, r.kurum_unvan, r.iliski].some((x) => x.trim()));
+    if (duzenlenebilir.some((r) => !r.ad.trim() || !EPOSTA_RE.test(r.eposta.trim()) || !r.iliski)) {
+      setHata('Referanslarda ad soyad, geçerli bir e-posta ve ilişki zorunlu.'); return;
+    }
+    if (duzenlenebilir.length > 0 && !refBeyan) {
+      setHata('Referans eklemek için, bu kişilerin bilgisi dahilinde paylaştığını onaylaman gerekli.'); return;
     }
     setGonderiliyor(true);
     const { data: sess } = await supabase.auth.getSession();
@@ -180,10 +208,26 @@ export default function KayitFormu() {
           kvkk_riza: true,
           kvkk_riza_tarihi: new Date().toISOString(),
         });
+    if (error) { setGonderiliyor(false); setHata(anlasilirHata(error, 'kayit')); return; }
+
+    if (duzenlenebilir.length > 0 || refYuklendi) {
+      const { error: refHata } = await supabase.rpc('referanslari_kaydet', {
+        p_liste: duzenlenebilir.map((r) => ({
+          id: r.id ?? null, ad: r.ad.trim(), eposta: r.eposta.trim(),
+          telefon: r.telefon.trim(), kurum_unvan: r.kurum_unvan.trim(), iliski: r.iliski,
+        })),
+      });
+      if (refHata) {
+        setGonderiliyor(false);
+        setMevcutKayit(true);
+        setHata('Profilin kaydedildi ama referanslar kaydedilemedi: ' + anlasilirHata(refHata));
+        return;
+      }
+    }
     setGonderiliyor(false);
-    if (error) setHata(anlasilirHata(error, 'kayit'));
-    else setDurum('basarili');
+    setDurum('basarili');
   }
+
 
   // Sayfa başlığı/girişi — "başarılı" ekranında gereksiz/kafa karıştırıcı olduğu için
   // Astro'daki statik sayfa metni yerine burada, duruma göre koşullu render ediliyor.
@@ -217,6 +261,9 @@ export default function KayitFormu() {
             ? 'Değişikliklerin kaydedildi.'
             : 'Havuza katıldın. Sana uygun bir fırsat olduğunda, belirlediğin görünürlük seviyesinde ulaşacağız.'}
         </p>
+        {refler.some((r) => !r.yanitli && r.ad.trim()) && (
+          <p className="text-warm-600 mb-4">Referanslarına talebi profil sayfandan gönderebilirsin.</p>
+        )}
         <a href="/kariyer/profilim" className="text-accent hover:underline">Profilini görüntüle</a>
       </div>
     );
@@ -443,6 +490,9 @@ export default function KayitFormu() {
         <textarea rows={4} value={f.serbest_metin} onChange={(e) => setF({ ...f, serbest_metin: e.target.value })} className={inputCls} />
       </div>
 
+      {/* Referanslar — en fazla 3; talebi aday profil sayfasından kendisi gönderir. */}
+      <ReferansDuzenleyici refler={refler} setRefler={setRefler} refBeyan={refBeyan} setRefBeyan={setRefBeyan} />
+
       <div>
         <label className={labelCls}>Görünürlük</label>
         <div className="space-y-2">
@@ -472,5 +522,78 @@ export default function KayitFormu() {
       </button>
     </form>
     </>
+  );
+}
+
+/** Formdaki "Referanslarım" alanı (en fazla 3). Önizlenebilsin diye ayrı. */
+export function ReferansDuzenleyici({ refler, setRefler, refBeyan, setRefBeyan }: {
+  refler: RefForm[]; setRefler: React.Dispatch<React.SetStateAction<RefForm[]>>;
+  refBeyan: boolean; setRefBeyan: (v: boolean) => void;
+}) {
+  function refGuncelle(i: number, alan: keyof Omit<RefForm, 'id' | 'yanitli'>, deger: string) {
+    setRefler((liste) => liste.map((r, j) => (j === i ? { ...r, [alan]: deger } : r)));
+  }
+  return (
+    <div>
+      <label className={labelCls}>Referanslarım <span className="font-normal text-warm-500">(isteğe bağlı, en fazla 3 kişi)</span></label>
+      <p className="text-sm text-warm-500 mb-3">{REFERANS_FORM_ACIKLAMA}</p>
+      <div className="space-y-3">
+        {refler.map((r, i) => (
+          <div key={r.id ?? `yeni-${i}`} className={`rounded-md border p-4 ${r.yanitli ? 'border-warm-border bg-sand/50' : 'border-warm-border'}`}>
+            {r.yanitli ? (
+              <p className="text-sm text-ink">
+                <span className="font-medium">{r.ad}</span> <span className="text-warm-500">· {r.eposta}</span>
+                <span className="block mt-1 text-warm-500">Bu kişi görüşünü yazdı; bu referans artık değiştirilemez.</span>
+              </p>
+            ) : (
+              <>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-medium text-warm-600 mb-1">Ad Soyad *</label>
+                    <input value={r.ad} onChange={(e) => refGuncelle(i, 'ad', e.target.value)} className={inputCls} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-warm-600 mb-1">E-posta *</label>
+                    <input type="email" value={r.eposta} onChange={(e) => refGuncelle(i, 'eposta', e.target.value)} className={inputCls} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-warm-600 mb-1">Telefon</label>
+                    <input value={r.telefon} onChange={(e) => refGuncelle(i, 'telefon', e.target.value)} className={inputCls} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-warm-600 mb-1">Kurumu ve unvanı</label>
+                    <input value={r.kurum_unvan} onChange={(e) => refGuncelle(i, 'kurum_unvan', e.target.value)} className={inputCls}
+                      placeholder="örn. ABC Otomotiv · Satış Müdürü" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-warm-600 mb-1">Bu kişi senin… *</label>
+                    <select value={r.iliski} onChange={(e) => refGuncelle(i, 'iliski', e.target.value)} className={inputCls}>
+                      <option value="">Seç…</option>
+                      {ILISKI_FORM.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+                    </select>
+                  </div>
+                </div>
+                <button type="button" onClick={() => setRefler((liste) => liste.filter((_, j) => j !== i))}
+                  className="mt-3 text-sm text-warm-500 hover:text-ink">
+                  Bu referansı kaldır
+                </button>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+      {refler.length < 3 && (
+        <button type="button" onClick={() => setRefler((liste) => [...liste, bosRef()])}
+          className="mt-3 text-sm text-accent hover:underline">
+          + Referans ekle
+        </button>
+      )}
+      {refler.some((r) => !r.yanitli) && (
+        <label className="mt-3 flex items-start gap-2 text-sm text-warm-700">
+          <input type="checkbox" checked={refBeyan} onChange={(e) => setRefBeyan(e.target.checked)} className="mt-1 accent-accent" />
+          <span>{REFERANS_FORM_BEYAN}</span>
+        </label>
+      )}
+    </div>
   );
 }

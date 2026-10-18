@@ -16,7 +16,7 @@ export default defineConfig({
     // sayfa düzeyinde noindex de eksik (ayrıca eklenecek).
     sitemap({
       filter: (page) =>
-        !/\/(sunumlar|kariyer\/(kurum-demo|adaylar|profilim|dogrula|talepler|temas-yanit|panel))\//.test(page),
+        !/\/(sunumlar|kariyer\/(kurum-demo|adaylar|profilim|dogrula|talepler|temas-yanit|panel|referans))\//.test(page),
     }),
   ],
   markdown: {

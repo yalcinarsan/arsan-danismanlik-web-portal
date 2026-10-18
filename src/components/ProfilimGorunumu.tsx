@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import {
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
-  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket,
+  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket, iliskiEtiket,
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 
@@ -17,6 +17,18 @@ type Aday = {
   sehir: string | null; calisma_tercihi: string | null; aciklik: string | null;
   sertifikalar: string | null; serbest_metin: string | null; gorunurluk: string; cv_path: string | null;
   created_at: string;
+};
+
+export type Referans = {
+  id: string; ad: string; eposta: string; kurum_unvan: string | null; iliski: string;
+  talep_ts: string | null; talep_sayisi: number; yorum: string | null; yorum_ts: string | null;
+};
+const gunFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long' });
+const TALEP_SONUC: Record<string, string> = {
+  gonderildi: 'Talep gönderildi.',
+  bekle: 'Bu kişiye son 24 saat içinde zaten talep gönderdin; biraz bekle.',
+  sinir: 'Bu kişiye en fazla 3 kez talep gönderilebilir.',
+  yanitlandi: 'Bu kişi görüşünü zaten yazdı.',
 };
 
 function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
@@ -55,6 +67,9 @@ export default function ProfilimGorunumu() {
   const [silmeAcik, setSilmeAcik] = useState(false);
   const [silmeOnayi, setSilmeOnayi] = useState('');
   const [siliniyor, setSiliniyor] = useState(false);
+  const [referanslar, setReferanslar] = useState<Referans[]>([]);
+  const [refIslem, setRefIslem] = useState<string | null>(null);
+  const [refMesaj, setRefMesaj] = useState<Record<string, string>>({});
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -79,7 +94,22 @@ export default function ProfilimGorunumu() {
       const { data: signed } = await supabase.storage.from('cv').createSignedUrl(data.cv_path, 60 * 10);
       if (signed) setCvUrl(signed.signedUrl);
     }
+    await referanslariGetir();
     setDurum('gorunum');
+  }
+
+  async function referanslariGetir() {
+    const { data } = await supabase.rpc('referanslarim');
+    setReferanslar((data ?? []) as Referans[]);
+  }
+
+  /** Aday, referansına kişiye özel linki içeren e-postayı kendisi gönderir (sunucuda 24 saat ve 3 gönderim sınırı). */
+  async function talepGonder(id: string) {
+    setRefIslem(id);
+    const { data, error } = await supabase.rpc('referans_talep_gonder', { p_id: id });
+    setRefIslem(null);
+    setRefMesaj((m) => ({ ...m, [id]: error ? anlasilirHata(error) : TALEP_SONUC[String(data)] ?? '' }));
+    await referanslariGetir();
   }
 
   async function magicLinkGonder(e: React.FormEvent) {
@@ -231,6 +261,9 @@ export default function ProfilimGorunumu() {
         )}
       </dl>
 
+      {/* Referanslar: talebi aday kendisi gönderir; gelen görüşü okur, gizleyemez. */}
+      <ProfilReferanslari referanslar={referanslar} refIslem={refIslem} refMesaj={refMesaj} onGonder={talepGonder} />
+
       {/* KVKK silme hakkı. Bilinçli olarak sayfanın en altında, sessiz ve iki aşamalı:
           önce gizli, sonra yazarak onay. */}
       <div className="mt-16 pt-8 border-t border-warm-border">
@@ -289,6 +322,61 @@ export default function ProfilimGorunumu() {
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+/** Profildeki referans listesi ve "Referans talebi gönder" düğmeleri. Önizlenebilsin diye ayrı. */
+export function ProfilReferanslari({ referanslar, refIslem, refMesaj, onGonder }: {
+  referanslar: Referans[]; refIslem: string | null; refMesaj: Record<string, string>; onGonder: (id: string) => void;
+}) {
+  return (
+    <div className="mt-10">
+      <div className="flex flex-wrap items-baseline justify-between gap-3 mb-3">
+        <h2 className="text-lg font-semibold text-ink">Referanslarım</h2>
+        <a href="/kariyer/kayit" className="text-sm text-accent hover:underline">
+          {referanslar.length ? 'Referansları düzenle' : 'Referans ekle'}
+        </a>
+      </div>
+      {referanslar.length === 0 ? (
+        <p className="text-sm text-warm-500">
+          Henüz referans eklemedin. Seninle çalışmış en fazla 3 kişiyi ekleyebilir, onlardan görüş isteyebilirsin;
+          yazdıkları görüş profilinde ve görüşmeyi kabul ettiğin kurumlarda görünür.
+        </p>
+      ) : (
+        <ul className="space-y-3">
+          {referanslar.map((r) => {
+            const bekliyor = !!r.talep_ts && Date.now() - new Date(r.talep_ts).getTime() < 24 * 3600 * 1000;
+            return (
+              <li key={r.id} className="rounded-md border border-warm-border p-4">
+                <p className="text-ink font-medium">{r.ad}</p>
+                <p className="text-sm text-warm-500">
+                  {[iliskiEtiket(r.iliski), r.kurum_unvan, r.eposta].filter(Boolean).join(' · ')}
+                </p>
+                {r.yorum ? (
+                  <div className="mt-3">
+                    <p className="text-xs text-warm-500 mb-1">Görüşünü yazdı · {r.yorum_ts ? gunFmt.format(new Date(r.yorum_ts)) : ''}</p>
+                    <p className="text-sm text-ink whitespace-pre-line leading-relaxed">{r.yorum}</p>
+                  </div>
+                ) : (
+                  <div className="mt-3 flex flex-wrap items-center gap-3">
+                    <span className="text-sm text-warm-600">
+                      {r.talep_ts ? `Talep gönderildi · ${gunFmt.format(new Date(r.talep_ts))}` : 'Talep henüz gönderilmedi'}
+                    </span>
+                    {r.talep_sayisi < 3 && !bekliyor && (
+                      <button type="button" onClick={() => onGonder(r.id)} disabled={refIslem === r.id}
+                        className="rounded-md bg-accent px-4 py-1.5 text-sm text-white font-medium disabled:opacity-60">
+                        {refIslem === r.id ? 'Gönderiliyor…' : r.talep_ts ? 'Yeniden gönder' : 'Referans talebi gönder'}
+                      </button>
+                    )}
+                  </div>
+                )}
+                {refMesaj[r.id] && <p className="mt-2 text-sm text-accent">{refMesaj[r.id]}</p>}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import {
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
-  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket,
+  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, gorunurlukEtiket, iliskiEtiket,
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 import { ADMIN_EPOSTA } from '../lib/site';
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';
+
+type AdminReferans = {
+  aday_id: string; ad: string; eposta: string; telefon: string | null; kurum_unvan: string | null; iliski: string;
+  talep_ts: string | null; talep_sayisi: number; yorum: string | null; yorum_ts: string | null;
+};
 
 type Aday = {
   id: string; ad: string; eposta: string; telefon: string | null;
@@ -109,6 +114,7 @@ export default function AdaylarListesi() {
   const [mercekYukleniyor, setMercekYukleniyor] = useState(false);
   const [mercekHata, setMercekHata] = useState('');
   const [ara, setAra] = useState('');
+  const [referanslar, setReferanslar] = useState<Record<string, AdminReferans[]>>({});
   // Panelin "Son kayıtlar" kartı /kariyer/adaylar?aday=<id> ile gelir: o adayın kartı açık ve görünür olsun.
   const [hedefId, setHedefId] = useState<string | null>(null);
 
@@ -137,6 +143,13 @@ export default function AdaylarListesi() {
     const { data, error } = await supabase.from('adaylar').select('*').order('created_at', { ascending: false });
     if (error) { setHata(anlasilirHata(error)); setDurum('yetkisiz'); return; }
     setAdaylar((data ?? []) as Aday[]);
+    // Referanslar (yönetici okuma politikası). Tablo yoksa ya da hata olursa liste yine açılır.
+    const { data: refData } = await supabase.from('referanslar')
+      .select('aday_id, ad, eposta, telefon, kurum_unvan, iliski, talep_ts, talep_sayisi, yorum, yorum_ts')
+      .order('olusturuldu');
+    const grup: Record<string, AdminReferans[]> = {};
+    for (const r of (refData ?? []) as AdminReferans[]) (grup[r.aday_id] ??= []).push(r);
+    setReferanslar(grup);
     const istenen = new URLSearchParams(window.location.search).get('aday');
     if (istenen && (data ?? []).some((a) => a.id === istenen)) {
       setAcikId(istenen);
@@ -365,6 +378,27 @@ export default function AdaylarListesi() {
                       ? `Verildi${aday.kvkk_riza_tarihi ? ` · ${new Intl.DateTimeFormat('tr-TR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(aday.kvkk_riza_tarihi))}` : ' · tarih kaydı yok'}`
                       : 'Kayıtlı onay yok'} />
                   </dl>
+                  {(referanslar[aday.id] ?? []).length > 0 && (
+                    <div className="mt-4">
+                      <p className="text-sm font-medium text-ink mb-2">Referanslar</p>
+                      <ul className="space-y-3">
+                        {referanslar[aday.id].map((r, i) => (
+                          <li key={i} className="rounded-md border border-warm-border/70 p-3 text-sm">
+                            <p className="text-ink font-medium">{r.ad} <span className="font-normal text-warm-500">· {iliskiEtiket(r.iliski)}{r.kurum_unvan ? ` · ${r.kurum_unvan}` : ''}</span></p>
+                            <p className="text-warm-500">{[r.eposta, r.telefon].filter(Boolean).join(' · ')}</p>
+                            <p className="text-warm-500 mt-1">
+                              {r.yorum
+                                ? `Görüşünü yazdı · ${r.yorum_ts ? new Intl.DateTimeFormat('tr-TR', { dateStyle: 'medium' }).format(new Date(r.yorum_ts)) : ''}`
+                                : r.talep_ts
+                                  ? `Talep gönderildi (${r.talep_sayisi} kez) · ${new Intl.DateTimeFormat('tr-TR', { dateStyle: 'medium' }).format(new Date(r.talep_ts))} · yanıt yok`
+                                  : 'Aday henüz talep göndermedi'}
+                            </p>
+                            {r.yorum && <p className="mt-2 text-ink whitespace-pre-line leading-relaxed">{r.yorum}</p>}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   {aday.cv_path && (
                     <button
                       type="button"

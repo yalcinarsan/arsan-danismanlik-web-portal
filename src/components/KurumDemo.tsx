@@ -17,10 +17,20 @@ import { supabase } from '../lib/supabase';
 import {
   KANAL, FONKSIYON, ELEKTRIFIKASYON,
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket,
-  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket,
+  elektrifikasyonEtiket, calismaEtiket, aciklikEtiket, iliskiEtiket,
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
+import { adDuzelt } from '../lib/tanistirma';
 import { SITE_EPOSTA } from '../lib/site';
+
+/** kurum_kabul_edenler() satırı: bu kurumun talebini kabul eden aday + yanıtlanmış referansları.
+ *  İletişim bilgisi ve özgeçmiş bilinçli olarak yok: onlar Yalçın'ın tanıştırma e-postasıyla gider. */
+export type KabulEden = {
+  ad: string | null; son_pozisyon: string | null; kidem: string | null; fonksiyon: string[] | null;
+  kabul_ts: string | null;
+  referanslar: { ad: string; kurum_unvan: string | null; iliski: string; yorum: string; yorum_ts: string | null }[];
+};
+const gunFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long' });
 
 const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
 const labelCls = 'block text-sm font-medium text-ink mb-1.5';
@@ -104,6 +114,7 @@ export default function KurumDemo() {
   const [talepGonderiliyor, setTalepGonderiliyor] = useState<string | null>(null);
   const [talepBasarili, setTalepBasarili] = useState<string[]>([]);
   const [talepHata, setTalepHata] = useState('');
+  const [kabulEdenler, setKabulEdenler] = useState<KabulEden[]>([]);
 
   const [fKanal, setFKanal] = useState('');
   const [fFonksiyon, setFFonksiyon] = useState('');
@@ -136,6 +147,11 @@ export default function KurumDemo() {
     if (havuz.error) { setHata(anlasilirHata(havuz.error, 'okuma')); setDurum('yetkisiz'); return; }
     setAbone(kademe.data === 'abone');
     setAdaylar((havuz.data ?? []) as Aday[]);
+    // Örnek (abone olmayan) görünümde isim gösterilmiyor; bölüm yalnız abonelere.
+    if (kademe.data === 'abone') {
+      const { data: kabul } = await supabase.rpc('kurum_kabul_edenler');
+      setKabulEdenler((kabul ?? []) as KabulEden[]);
+    }
     setDurum('liste');
   }
 
@@ -286,6 +302,8 @@ export default function KurumDemo() {
         )}
       </div>
 
+      {abone && kabulEdenler.length > 0 && <KabulEdenlerBolumu kabulEdenler={kabulEdenler} />}
+
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
         <div>
           <label className={labelCls}>Kanal</label>
@@ -432,5 +450,49 @@ export default function KurumDemo() {
       {talepHata && <p className="mt-4 text-sm text-accent">{talepHata}</p>}
       {hata && <p className="mt-4 text-sm text-accent">{hata}</p>}
     </div>
+  );
+}
+
+/** Görüşmeyi kabul eden adaylar + referans görüşleri (abone kurum ekranı). Önizlenebilsin diye ayrı. */
+export function KabulEdenlerBolumu({ kabulEdenler }: { kabulEdenler: KabulEden[] }) {
+  return (
+    <section className="mb-12">
+      <div className="flex flex-wrap items-baseline gap-2.5 mb-1">
+        <h2 className="text-xl font-semibold text-ink">Görüşmeyi kabul eden adaylar</h2>
+        <span className="text-sm text-warm-500">{kabulEdenler.length}</span>
+      </div>
+      <p className="text-sm text-warm-500 mb-4">
+        Temas talebini kabul eden adaylar ve onlar hakkında referanslarının yazdığı görüşler.
+        İletişim bilgisi ve özgeçmiş, Arsan Danışmanlık'ın tanıştırma e-postasıyla gelir.
+      </p>
+      <div className="grid gap-4 md:grid-cols-2">
+        {kabulEdenler.map((k, i) => (
+          <article key={i} className="rounded-lg border border-warm-border bg-white p-5">
+            <p className="font-medium text-ink">{k.ad ? adDuzelt(k.ad) : 'Aday'}</p>
+            <p className="text-sm text-warm-500 mt-0.5">
+              {[k.son_pozisyon, kidemEtiket(k.kidem)].filter(Boolean).join(' · ')}
+              {k.kabul_ts && ` · kabul: ${gunFmt.format(new Date(k.kabul_ts))}`}
+            </p>
+            <div className="mt-4 border-t border-warm-border pt-3">
+              {k.referanslar.length === 0 ? (
+                <p className="text-sm text-warm-400">Referans görüşü henüz yok.</p>
+              ) : (
+                <ul className="space-y-4">
+                  {k.referanslar.map((r, j) => (
+                    <li key={j}>
+                      <p className="text-sm font-medium text-ink">{r.ad}</p>
+                      <p className="text-xs text-warm-500">
+                        {[iliskiEtiket(r.iliski), r.kurum_unvan, r.yorum_ts && gunFmt.format(new Date(r.yorum_ts))].filter(Boolean).join(' · ')}
+                      </p>
+                      <p className="mt-1.5 text-sm text-warm-700 whitespace-pre-line leading-relaxed">{r.yorum}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }

@@ -50,6 +50,23 @@ export const GORUNURLUK: [string, string, string][] = [
   ['tek_kor', 'Kapalı', 'Kimliğin gizli; işveren seni yetkinliklerinle görür, sana ulaşmak istediğinde talebi biz iletiriz.'],
 ];
 
+// Referansın adayla ilişkisi (referanslar.iliski — veritabanındaki kontrol listesiyle aynı).
+// ILISKI: üçüncü kişi gözüyle (kurum, yönetici, profil görünümü); ILISKI_FORM: adayın formunda.
+export const ILISKI: [string, string][] = [
+  ['yonetici', 'Yöneticisi'],
+  ['calisma_arkadasi', 'Çalışma arkadaşı'],
+  ['ekibinden', 'Ekibinden'],
+  ['musteri_is_ortagi', 'Müşterisi ya da iş ortağı'],
+  ['diger', 'Diğer'],
+];
+export const ILISKI_FORM: [string, string][] = [
+  ['yonetici', 'Yöneticim'],
+  ['calisma_arkadasi', 'Çalışma arkadaşım'],
+  ['ekibinden', 'Ekibimdendi'],
+  ['musteri_is_ortagi', 'Müşterim ya da iş ortağım'],
+  ['diger', 'Diğer'],
+];
+
 function etiketle(liste: (readonly string[])[], deger: string | null | undefined): string {
   return liste.find(([v]) => v === deger)?.[1] ?? deger ?? '—';
 }
@@ -66,3 +83,4 @@ export function gorunurlukEtiket(v?: string | null) {
   if (v === 'cift_kor') return 'Kapalı';
   return GORUNURLUK.find(([val]) => val === v)?.[1] ?? v ?? '—';
 }
+export function iliskiEtiket(v?: string | null) { return etiketle(ILISKI, v); }

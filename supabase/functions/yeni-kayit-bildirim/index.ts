@@ -1,7 +1,9 @@
-// Supabase Database Webhook hedefi. İki tabloyu dinler:
+// Supabase Database Webhook hedefi. Üç tabloyu dinler:
 //  - adaylar          → yeni kayıt bildirimi (Yalçın'a)
 //  - temas_talepleri  → (a) Yalçın'a bildirim (/talepler'e bağlanır),
 //                       (b) ADAYA otomatik onay linki (girişsiz Kabul/Ret)
+//  - referanslar      → aday "Referans talebi gönder"e basınca REFERANSA kişiye özel link
+//                       (payload: { type: 'REFERANS_TALEBI', record: {ad, eposta, token}, aday_ad })
 //
 // Payload: { type, table, record, aday_eposta?, aday_ad? }
 // aday_eposta / aday_ad yalnızca temas_talepleri trigger'ında doldurulur
@@ -25,6 +27,10 @@ async function resendGonder(from: string, to: string, subject: string, html: str
   return res.ok;
 }
 
+/** "AHMET yusuf imur" → "Ahmet Yusuf İmur" (src/lib/tanistirma.ts adDuzelt ile aynı). */
+const adDuzelt = (ad: string) => ad.trim().split(/\s+/).filter(Boolean)
+  .map((k) => k.charAt(0).toLocaleUpperCase('tr') + k.slice(1).toLocaleLowerCase('tr')).join(' ');
+
 const BILDIRIM = 'Otomotiv İnsanı <bildirim@arsandanismanlik.com.tr>';
 // Adaya giden temas e-postası, tanıdıkları (hoşgeldin'i de alan) kişisel
 // gönderenden çıkar — "bildirim@" + spam-kokan konu junk'a düşüyordu.
@@ -40,6 +46,25 @@ Deno.serve(async (req) => {
   const payload = await req.json();
   const kayit = payload.record ?? {};
   const table = payload.table ?? '';
+
+  if (table === 'referanslar') {
+    // Metin TASLAK: cikti/taslaklar/referans-islevi-tasarim.md — yayından önce Yalçın'la gözden geçirilecek.
+    const refEposta = kayit.eposta;
+    const token = kayit.token;
+    if (!refEposta || !token) return new Response('eksik alan', { status: 400 });
+    const adayDuz = adDuzelt(String(payload.aday_ad ?? '')) || 'Bir aday';
+    const aday = esc(adayDuz);
+    const refAd = esc(String(kayit.ad ?? '').trim());
+    const link = `${SITE}/kariyer/referans?token=${encodeURIComponent(token)}`;
+    await resendGonder(YALCIN, refEposta, `${adayDuz} sizi referans olarak gösterdi`, [
+      `<p>Merhaba ${refAd},</p>`,
+      `<p>${aday}, Otomotiv İnsanı'ndaki profilinde sizi referans olarak gösterdi ve iletişim bilgilerinizi bizimle paylaştı.</p>`,
+      `<p>Kendisini tanıyan biri olarak görüşlerinizi birkaç cümleyle paylaşırsanız çok seviniriz: <a href="${link}">Görüşümü yaz</a></p>`,
+      `<p>Bu bağlantı yalnızca size özel. Yazmak istemezseniz bir şey yapmanıza gerek yok; bilgileriniz başka bir amaçla kullanılmaz. Kişisel verilerinizle ilgili ayrıntı: <a href="${SITE}/kvkk">arsandanismanlik.com.tr/kvkk</a></p>`,
+      `<p>Yalçın Arsan<br>Otomotiv İnsanı · Arsan Danışmanlık</p>`,
+    ].join('\n'));
+    return new Response('ok', { status: 200 });
+  }
 
   if (table === 'temas_talepleri') {
     const kurum = esc(kayit.kurum || kayit.kurum_eposta || 'Bir kurum');
