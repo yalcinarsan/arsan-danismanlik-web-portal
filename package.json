@@ -17,6 +17,7 @@
     "db:durum": "supabase migration list --linked",
     "db:cek": "supabase db pull",
     "db:uygula": "supabase db push",
+    "db:dosya": "node scripts/db-uygula.mjs",
     "gorsel:logo": "python3 scripts/build-logo-varliklari.py",
     "gorsel:makale-kapak": "python3 scripts/build-makale-kapaklari.py",
     "kitap:birlestir": "node scripts/sirket-analizi-birlestir.mjs",

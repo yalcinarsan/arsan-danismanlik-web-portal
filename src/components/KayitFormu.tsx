@@ -160,25 +160,24 @@ export default function KayitFormu() {
     const { data: sess } = await supabase.auth.getSession();
     const uid = sess.session?.user.id;
 
-    // CV yükleme/kaldırma — satırı kaydetmeden ÖNCE yapılır ki dosya işlemi
-    // başarısız olursa veritabanında yanlış bir yol kalmasın.
+    // CV sırası: yeni dosya satırdan ÖNCE yüklenir (yüklenemezse hiçbir şey değişmez);
+    // eski dosya ise ancak satır kaydedildikten SONRA silinir. Satır kaydedilemezse yeni
+    // dosya geri silinir. Böylece hangi adım başarısız olursa olsun ne sahipsiz dosya kalır
+    // ne de satır var olmayan bir dosyayı gösterir (denetim 18 Eki: 28 Temmuz'dan kalma
+    // sahipsiz bir CV bulundu).
     let cvYol = cvMevcutYol;
+    let yeniYuklenen: string | null = null;
     if (cvKaldirilsin && cvMevcutYol) {
-      const { error: silHata } = await supabase.storage.from('cv').remove([cvMevcutYol]);
-      if (silHata) { setHata(anlasilirHata(silHata)); setGonderiliyor(false); return; }
       cvYol = null;
     } else if (cvDosya) {
       const uzanti = (cvDosya.name.split('.').pop() ?? 'pdf').toLowerCase();
       const yeniYol = `${uid}/cv.${uzanti}`;
-      // Uzantı değiştiyse eski dosya farklı adla kalırdı — önce onu temizle.
-      if (cvMevcutYol && cvMevcutYol !== yeniYol) {
-        await supabase.storage.from('cv').remove([cvMevcutYol]);
-      }
       const { error: yukleHata } = await supabase.storage
         .from('cv')
         .upload(yeniYol, cvDosya, { upsert: true, contentType: cvDosya.type || undefined });
       if (yukleHata) { setHata(anlasilirHata(yukleHata)); setGonderiliyor(false); return; }
       cvYol = yeniYol;
+      yeniYuklenen = yeniYol;
     }
 
     const alanlar = {
@@ -208,7 +207,16 @@ export default function KayitFormu() {
           kvkk_riza: true,
           kvkk_riza_tarihi: new Date().toISOString(),
         });
-    if (error) { setGonderiliyor(false); setHata(anlasilirHata(error, 'kayit')); return; }
+    if (error) {
+      // Aynı yola yüklendiyse eski dosyanın üzerine yazılmıştır; silmek satırın gösterdiği
+      // dosyayı yok eder. Yalnızca yeni bir yola yüklenen dosyayı geri al.
+      if (yeniYuklenen && yeniYuklenen !== cvMevcutYol) await supabase.storage.from('cv').remove([yeniYuklenen]);
+      setGonderiliyor(false); setHata(anlasilirHata(error, 'kayit')); return;
+    }
+    // Satır kaydedildi: artık kullanılmayan eski dosyayı temizle (kaldırıldıysa ya da uzantısı değiştiyse).
+    if (cvMevcutYol && cvMevcutYol !== cvYol) await supabase.storage.from('cv').remove([cvMevcutYol]);
+    // Referanslar kaydedilemezse form açık kalır; tekrar kaydederken CV adımı yeniden çalışmasın.
+    setCvMevcutYol(cvYol); setCvDosya(null); setCvKaldirilsin(false);
 
     if (duzenlenebilir.length > 0 || refYuklendi) {
       const { error: refHata } = await supabase.rpc('referanslari_kaydet', {

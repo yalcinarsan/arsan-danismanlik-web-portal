@@ -15,7 +15,31 @@ Artık Supabase CLI, `migrations/` klasöründeki dosyaların hangilerinin canl�
 uygulandığını kendi tutuyor. Bir dosyayı iki kez uygulamak ya da uygulamayı
 unutmak mümkün değil.
 
-## Tek seferlik kurulum
+## Fiilen kullanılan yol: `db:dosya` (18 Ekim 2026'dan beri)
+
+CLI kurulumu (aşağıda) tarayıcı girişi ve veritabanı şifresi istediği için hiç
+tamamlanmadı. Ağustos sonundan itibaren değişiklikler Management API üzerinden
+uygulandı, ama **kayda işlenmedi**. 18 Ekim denetiminde 22 dosyadan yalnızca 4'ü
+"uygulandı" görünüyordu. O hâliyle `db:uygula` çalıştırılsaydı 18 dosyayı yeniden
+uygulamaya çalışacaktı: `create policy`/`create trigger` satırlarında hata verip
+yarıda kalacak, bazı veri güncellemelerini tekrar çalıştıracaktı.
+
+Artık tek yol bu komut. Dosyayı uygular **ve** aynı işlemde kayda işler: biri
+başarısız olursa hiçbiri olmaz.
+
+```bash
+npm run db:dosya -- --durum                                  # kayda işlenmemiş dosyalar
+npm run db:dosya -- --dene supabase/migrations/<dosya>.sql   # canlıda dene, geri al
+npm run db:dosya -- supabase/migrations/<dosya>.sql          # uygula + kayda işle
+```
+
+`.env.local`'deki `SUPABASE_ACCESS_TOKEN` ile çalışır, tarayıcı girişi istemez.
+
+**Uyarı:** Dosyalar her zaman iki kez çalıştırılabilecek biçimde yazılmıyor.
+`create policy`, `create trigger` ve veri güncellemeleri tekrar çalışınca hata
+verir ya da veriyi yeniden değiştirir. Uygulanmış bir dosyayı yeniden uygulama.
+
+## Tek seferlik kurulum (CLI · kullanılmıyor)
 
 ```bash
 npm run db:giris     # tarayıcı açılır, Supabase hesabınla giriş yaparsın
@@ -66,6 +90,6 @@ select policyname, cmd, qual from pg_policies where tablename = 'adaylar';
 ## Panel hâlâ çalışıyor
 
 Acil bir durumda migration dosyasını Supabase → SQL Editor'e yapıştırmak da
-işe yarar; dosyalar idempotent yazılıyor, iki kez çalıştırmak güvenli. Ama o
-yolu kullanırsan `migrations/` geride kalır ve CLI o değişikliği "uygulanmamış"
-sayar — mümkünse `npm run db:uygula` kullan.
+işe yarar. Ama o yolu kullanırsan değişiklik kayda işlenmez. Ardından
+`npm run db:dosya -- --yalniz-kayit supabase/migrations/<dosya>.sql` ile kayda
+işle. Yoksa aynı kayma yeniden başlar.

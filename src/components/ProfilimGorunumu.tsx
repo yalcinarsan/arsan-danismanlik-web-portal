@@ -146,7 +146,11 @@ export default function ProfilimGorunumu() {
     setHata(''); setSiliniyor(true);
     const { data: sess } = await supabase.auth.getSession();
     const uid = sess.session?.user.id;
-    if (aday?.cv_path) await supabase.storage.from('cv').remove([aday.cv_path]);
+    // CV silinemezse profili de silme: aksi halde sahibi olmayan bir özgeçmiş depoda kalır.
+    if (aday?.cv_path) {
+      const { error: cvHata } = await supabase.storage.from('cv').remove([aday.cv_path]);
+      if (cvHata) { setHata(anlasilirHata(cvHata, 'silme')); setSiliniyor(false); return; }
+    }
     const { error } = await supabase.from('adaylar').delete().eq('user_id', uid);
     if (error) { setHata(anlasilirHata(error, 'silme')); setSiliniyor(false); return; }
     await supabase.auth.signOut();
