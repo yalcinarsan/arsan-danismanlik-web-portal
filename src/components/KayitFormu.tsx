@@ -326,7 +326,7 @@ export default function KayitFormu() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelCls}>Ad Soyad *</label>
-          <input required value={f.ad} onChange={(e) => setF({ ...f, ad: e.target.value })} className={inputCls} />
+          <input required maxLength={80} value={f.ad} onChange={(e) => setF({ ...f, ad: e.target.value })} className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>Telefon</label>
@@ -558,7 +558,7 @@ export function ReferansDuzenleyici({ refler, setRefler, refBeyan, setRefBeyan }
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div>
                     <label className="block text-xs font-medium text-warm-600 mb-1">Ad Soyad *</label>
-                    <input value={r.ad} onChange={(e) => refGuncelle(i, 'ad', e.target.value)} className={inputCls} />
+                    <input maxLength={80} value={r.ad} onChange={(e) => refGuncelle(i, 'ad', e.target.value)} className={inputCls} />
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-warm-600 mb-1">E-posta *</label>
@@ -570,7 +570,7 @@ export function ReferansDuzenleyici({ refler, setRefler, refBeyan, setRefBeyan }
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-warm-600 mb-1">Kurumu ve unvanı</label>
-                    <input value={r.kurum_unvan} onChange={(e) => refGuncelle(i, 'kurum_unvan', e.target.value)} className={inputCls}
+                    <input maxLength={120} value={r.kurum_unvan} onChange={(e) => refGuncelle(i, 'kurum_unvan', e.target.value)} className={inputCls}
                       placeholder="örn. ABC Otomotiv · Satış Müdürü" />
                   </div>
                   <div>

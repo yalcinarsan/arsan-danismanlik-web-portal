@@ -39,6 +39,20 @@ npm run db:dosya -- supabase/migrations/<dosya>.sql          # uygula + kayda i�
 `create policy`, `create trigger` ve veri güncellemeleri tekrar çalışınca hata
 verir ya da veriyi yeniden değiştirir. Uygulanmış bir dosyayı yeniden uygulama.
 
+## Girişsiz ziyaretçi (anon) yetkisi
+
+18 Ekim 2026'dan beri (`20261018150000_ziyaretci_yetkileri_ad_siniri.sql`) yeni
+fonksiyonlar ve tablolar **girişsiz ziyaretçiye kapalı doğar**. Girişsiz çalışan
+yalnızca 6 fonksiyon var: `public_stats`, `kurum_erisimi_var`, `referans_sayfa`,
+`referans_yanitla`, `temas_yanit_bilgi`, `temas_yanit_ver`. Giriş yapılmadan
+açılan bir sayfa için yeni fonksiyon yazarsan migration'ına açıkça şunu ekle:
+
+```sql
+grant execute on function public.<ad>(<parametre tipleri>) to anon;
+```
+
+Kontrol: `select has_function_privilege('anon', 'public.<ad>(...)', 'execute');`
+
 ## Tek seferlik kurulum (CLI · kullanılmıyor)
 
 ```bash
