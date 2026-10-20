@@ -73,6 +73,8 @@ Metin değişikliği için bile bana söylemen daha güvenli — bunlar çalış
 |---|---|
 | [src/components/KayitFormu.tsx](src/components/KayitFormu.tsx) | Kayıt / profil güncelleme formu |
 | [src/components/ProfilimGorunumu.tsx](src/components/ProfilimGorunumu.tsx) | Profil görüntüleme + kayıt silme |
+| [src/components/ortak/Giris.tsx](src/components/ortak/Giris.tsx) | Aday, kurum ve yönetici ekranlarının ortak girişi: giriş bağlantısı formu, "Şu hesapla girildi" satırı, çıkış |
+| [src/components/ortak/Parcalar.tsx](src/components/ortak/Parcalar.tsx) · [src/lib/formStil.ts](src/lib/formStil.ts) | Ortak görünüm parçaları (bilgi satırı, özet kartı, hata kutusu) ve form alanı stilleri |
 | [supabase/BENIOKU.md](supabase/BENIOKU.md) | **Veritabanı değişikliği nasıl yapılır** — `npm run db:*` komutları ve tek seferlik kurulum. Şema artık panele elle yapıştırılmıyor. |
 | [supabase/schema.sql](supabase/schema.sql) | Faz 1 şeması — **tarihî kayıt.** Yeni değişiklikler `supabase/migrations/` içine yazılır. |
 | [supabase/kurum-erisim.sql](supabase/kurum-erisim.sql) | **Kurum görünümü davetli erişimi** — `kurum_erisim` listesi + maskeli `kurum_havuzu()` fonksiyonu. Kime erişim verileceği Supabase panelinden bu tabloya yazılır. |

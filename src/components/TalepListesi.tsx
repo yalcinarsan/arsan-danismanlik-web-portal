@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { gorunurlukEtiket } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 import { ADMIN_EPOSTA } from '../lib/site';
 import { tanistirmaMailto } from '../lib/tanistirma';
-
-const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
-const labelCls = 'block text-sm font-medium text-ink mb-1.5';
+import { useOturum, oturumuKapat, YoneticiGirisFormu, OturumSatiri, YoneticiYetkisiz } from './ortak/Giris';
+import { Satir } from './ortak/Parcalar';
 
 const DURUMLAR: [string, string][] = [
   ['yeni', 'Yeni'], ['iletildi', 'İletildi'], ['kabul', 'Kabul'], ['ret', 'Ret'],
@@ -20,16 +19,6 @@ type Talep = {
   aday_gorunurluk: string | null; aday_sehir: string | null;
   yanit_token: string;
 };
-
-function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
-  if (!deger) return null;
-  return (
-    <div className="grid grid-cols-3 gap-4 py-2 border-b border-warm-border/60">
-      <dt className="text-sm text-warm-500">{etiket}</dt>
-      <dd className="col-span-2 text-ink text-sm">{deger}</dd>
-    </div>
-  );
-}
 
 // Adaya gidecek girişsiz onay linki (/kariyer/temas-yanit?token=...). Otomatik
 // e-posta devreye girene kadar Yalçın bunu elle iletebilir; akış böylece hemen
@@ -62,24 +51,13 @@ function OnayLinki({ token }: { token: string }) {
 }
 
 export default function TalepListesi() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
-  const [eposta, setEposta] = useState('');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [hata, setHata] = useState('');
-  const [gonderiliyor, setGonderiliyor] = useState(false);
   const [talepler, setTalepler] = useState<Talep[]>([]);
   const [guncelleniyor, setGuncelleniyor] = useState<string | null>(null);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) oturumHazir(data.session.user.email ?? '');
-      else setDurum('eposta');
-    });
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) oturumHazir(session.user.email ?? '');
-    });
-    return () => sub.subscription.unsubscribe();
-  }, []);
+  useOturum((oturum) => oturumHazir(oturum.user.email ?? ''), () => setDurum('eposta'));
 
   async function oturumHazir(girenEposta: string) {
     setOturumEpostasi(girenEposta);
@@ -95,21 +73,9 @@ export default function TalepListesi() {
 
   /** Açık oturumu kapatıp e-posta formuna döner (yanlış hesapla gelen kilitlenmesin). */
   async function cikisYap() {
-    await supabase.auth.signOut();
-    setOturumEpostasi(''); setTalepler([]); setHata(''); setEposta('');
+    await oturumuKapat();
+    setOturumEpostasi(''); setTalepler([]); setHata('');
     setDurum('eposta');
-  }
-
-  async function magicLinkGonder(e: React.FormEvent) {
-    e.preventDefault();
-    setHata(''); setGonderiliyor(true);
-    const { error } = await supabase.auth.signInWithOtp({
-      email: eposta,
-      options: { emailRedirectTo: window.location.href },
-    });
-    setGonderiliyor(false);
-    if (error) setHata(anlasilirHata(error, 'giris'));
-    else setDurum('gonderildi');
   }
 
   async function durumDegistir(id: string, yeniDurum: string) {
@@ -123,51 +89,15 @@ export default function TalepListesi() {
   if (durum === 'yukleniyor') return <p className="text-warm-500">Yükleniyor…</p>;
 
   if (durum === 'yetkisiz')
-    return (
-      <div className="rounded-lg border border-warm-border bg-sand p-8">
-        <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa yalnızca yönetici içindir.</h2>
-        <p className="text-warm-600">{hata || 'Bu e-posta ile erişim yetkin yok.'}</p>
-        {oturumEpostasi && (
-          <p className="text-warm-600 mt-3 text-sm">
-            Şu anda <strong>{oturumEpostasi}</strong> hesabıyla giriş yapılmış. Yönetici hesabıyla girmek için çıkış yap.
-          </p>
-        )}
-        <button type="button" onClick={cikisYap}
-          className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium">
-          Çıkış yap ve yönetici hesabıyla gir
-        </button>
-      </div>
-    );
+    return <YoneticiYetkisiz hata={hata} oturumEpostasi={oturumEpostasi} onCikis={cikisYap} />;
 
-  if (durum === 'eposta' || durum === 'gonderildi')
-    return (
-      <div className="max-w-md">
-        <p className="text-warm-600 mb-6">Yönetici girişi için e-postanı gir; sana bir giriş bağlantısı yollayacağız.</p>
-        {durum === 'gonderildi' ? (
-          <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu kontrol et.
-          </div>
-        ) : (
-          <form onSubmit={magicLinkGonder} className="space-y-4">
-            <div>
-              <label className={labelCls}>E-posta *</label>
-              <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)}
-                className={inputCls} placeholder="ornek@eposta.com" />
-            </div>
-            {hata && <p className="text-sm text-accent">{hata}</p>}
-            <button type="submit" disabled={gonderiliyor}
-              className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
-              {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
-            </button>
-          </form>
-        )}
-      </div>
-    );
+  if (durum === 'eposta') return <YoneticiGirisFormu />;
 
   const bekleyen = talepler.filter((t) => t.durum === 'yeni').length;
 
   return (
     <div>
+      <OturumSatiri eposta={oturumEpostasi} onCikis={cikisYap} className="mb-4" />
       <p className="text-sm text-warm-500 mb-6">
         {talepler.length} talep · en yeni önce{bekleyen > 0 && ` · ${bekleyen} yeni`}
       </p>

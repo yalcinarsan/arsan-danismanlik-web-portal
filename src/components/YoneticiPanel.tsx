@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 import {
   deneyimEtiket, kanalEtiket, fonksiyonEtiket, kidemEtiket, elektrifikasyonEtiket,
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 import { ADMIN_EPOSTA } from '../lib/site';
-
-const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
-const labelCls = 'block text-sm font-medium text-ink mb-1.5';
+import { sayimDagilimi as dagilim } from '../lib/dagilim';
+import { useOturum, oturumuKapat, YoneticiGirisFormu, OturumSatiri, YoneticiYetkisiz } from './ortak/Giris';
+import { OzetKart } from './ortak/Parcalar';
 
 type Kurum = {
   kurum: string; eposta: string; kademe: string; aciklama: string | null;
@@ -43,10 +43,6 @@ function kalanGun(s: string | null): string {
   if (!s) return 'süresiz';
   const g = Math.ceil((new Date(s).getTime() - Date.now()) / 86400000);
   return g > 0 ? `${g} gün kaldı` : 'doldu';
-}
-function dagilim(obj: Dagilim | undefined, fn?: (v: string) => string): [string, number][] {
-  if (!obj) return [];
-  return Object.entries(obj).map(([k, v]) => [fn ? fn(k) : k, v] as [string, number]).sort((a, b) => b[1] - a[1]);
 }
 
 // ———————————————————————————————————————————————————————————————
@@ -102,28 +98,6 @@ const DURUM_ROZET: Record<string, { metin: string; cls: string }> = {
 };
 function durumRozet(d: string) { return DURUM_ROZET[d] ?? { metin: d, cls: 'bg-warm-border/50 text-warm-600' }; }
 
-function OzetKart({ baslik, veri }: { baslik: string; veri: [string, number][] }) {
-  if (veri.length === 0) return null;
-  const enYuksek = veri[0]?.[1] || 1;
-  return (
-    <div className="rounded-lg border border-warm-border p-4">
-      <p className="text-sm font-medium text-ink mb-2.5">{baslik}</p>
-      <ul className="space-y-1.5">
-        {veri.map(([e, n]) => (
-          <li key={e} className="text-sm text-warm-600">
-            <div className="flex justify-between gap-3">
-              <span>{e}</span><span className="text-warm-400 tabular-nums">{n}</span>
-            </div>
-            <div className="mt-1 h-1 rounded-full bg-sand overflow-hidden">
-              <div className="h-full rounded-full bg-accent/50" style={{ width: `${Math.round((n / enYuksek) * 100)}%` }} />
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function KurumSatir({ x }: { x: Kurum }) {
   const bakti = !!x.son_erisim;
   const rozet = TUR_ROZET[x.tur];
@@ -155,24 +129,13 @@ function KurumSatir({ x }: { x: Kurum }) {
 // ———————————————————————————————————————————————————————————————
 
 export default function YoneticiPanel() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'panel'>('yukleniyor');
-  const [eposta, setEposta] = useState('');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'yetkisiz' | 'panel'>('yukleniyor');
   const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [hata, setHata] = useState('');
-  const [gonderiliyor, setGonderiliyor] = useState(false);
   const [yenileniyor, setYenileniyor] = useState(false);
   const [panel, setPanel] = useState<Panel | null>(null);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) oturumHazir(data.session.user.email ?? '');
-      else setDurum('eposta');
-    });
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) oturumHazir(session.user.email ?? '');
-    });
-    return () => sub.subscription.unsubscribe();
-  }, []);
+  useOturum((oturum) => oturumHazir(oturum.user.email ?? ''), () => setDurum('eposta'));
 
   async function oturumHazir(girenEposta: string) {
     setOturumEpostasi(girenEposta);
@@ -191,58 +154,16 @@ export default function YoneticiPanel() {
   }
 
   async function cikisYap() {
-    await supabase.auth.signOut();
-    setOturumEpostasi(''); setPanel(null); setHata(''); setEposta(''); setDurum('eposta');
-  }
-
-  async function magicLinkGonder(e: React.FormEvent) {
-    e.preventDefault();
-    setHata(''); setGonderiliyor(true);
-    const { error } = await supabase.auth.signInWithOtp({ email: eposta, options: { emailRedirectTo: window.location.href } });
-    setGonderiliyor(false);
-    if (error) setHata(anlasilirHata(error, 'giris')); else setDurum('gonderildi');
+    await oturumuKapat();
+    setOturumEpostasi(''); setPanel(null); setHata(''); setDurum('eposta');
   }
 
   if (durum === 'yukleniyor') return <p className="text-warm-500">Yükleniyor…</p>;
 
   if (durum === 'yetkisiz')
-    return (
-      <div className="rounded-lg border border-warm-border bg-sand p-8">
-        <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa yalnızca yönetici içindir.</h2>
-        <p className="text-warm-600">{hata || 'Bu e-posta ile erişim yetkin yok.'}</p>
-        {oturumEpostasi && (
-          <p className="text-warm-600 mt-3 text-sm">
-            Şu anda <strong>{oturumEpostasi}</strong> hesabıyla giriş yapılmış. Yönetici hesabıyla girmek için çıkış yap.
-          </p>
-        )}
-        <button type="button" onClick={cikisYap} className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium">
-          Çıkış yap ve yönetici hesabıyla gir
-        </button>
-      </div>
-    );
+    return <YoneticiYetkisiz hata={hata} oturumEpostasi={oturumEpostasi} onCikis={cikisYap} />;
 
-  if (durum === 'eposta' || durum === 'gonderildi')
-    return (
-      <div className="max-w-md">
-        <p className="text-warm-600 mb-6">Yönetici girişi için e-postanı gir; sana bir giriş bağlantısı yollayacağız.</p>
-        {durum === 'gonderildi' ? (
-          <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu kontrol et.
-          </div>
-        ) : (
-          <form onSubmit={magicLinkGonder} className="space-y-4">
-            <div>
-              <label className={labelCls}>E-posta *</label>
-              <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)} className={inputCls} placeholder="ornek@eposta.com" />
-            </div>
-            {hata && <p className="text-sm text-accent">{hata}</p>}
-            <button type="submit" disabled={gonderiliyor} className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
-              {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
-            </button>
-          </form>
-        )}
-      </div>
-    );
+  if (durum === 'eposta') return <YoneticiGirisFormu />;
 
   if (!panel) return null;
   return (
@@ -263,15 +184,11 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
   return (
     <div className="space-y-8">
       {/* Üst bar: oturum + yenile */}
-      <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-        <span className="text-warm-500">Giriş: <strong className="text-warm-600 font-medium">{oturumEpostasi}</strong></span>
-        <div className="flex items-center gap-4">
-          <button type="button" onClick={onYenile} disabled={yenileniyor} className="text-accent hover:underline disabled:opacity-50">
-            {yenileniyor ? 'Yenileniyor…' : 'Yenile'}
-          </button>
-          <button type="button" onClick={onCikis} className="text-warm-500 hover:text-ink hover:underline">Çıkış</button>
-        </div>
-      </div>
+      <OturumSatiri eposta={oturumEpostasi} onCikis={onCikis}>
+        <button type="button" onClick={onYenile} disabled={yenileniyor} className="text-accent hover:underline disabled:opacity-50">
+          {yenileniyor ? 'Yenileniyor…' : 'Yenile'}
+        </button>
+      </OturumSatiri>
 
       {/* Göstergeler */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -372,10 +289,10 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
                     {tp.kurum === 1 && ' · şimdilik tek kurumun tercihleri'}
                   </p>
                   <div className="grid gap-3 sm:grid-cols-2">
-                    <OzetKart baslik="Fonksiyon" veri={dagilim(tp.fonksiyon, fonksiyonEtiket).slice(0, 5)} />
-                    <OzetKart baslik="Kanal" veri={dagilim(tp.kanal, kanalEtiket).slice(0, 5)} />
-                    <OzetKart baslik="Kıdem" veri={dagilim(tp.kidem, kidemEtiket)} />
-                    <OzetKart baslik="Bölge" veri={dagilim(tp.bolge)} />
+                    <OzetKart cubuk baslik="Fonksiyon" veri={dagilim(tp.fonksiyon, fonksiyonEtiket).slice(0, 5)} />
+                    <OzetKart cubuk baslik="Kanal" veri={dagilim(tp.kanal, kanalEtiket).slice(0, 5)} />
+                    <OzetKart cubuk baslik="Kıdem" veri={dagilim(tp.kidem, kidemEtiket)} />
+                    <OzetKart cubuk baslik="Bölge" veri={dagilim(tp.bolge)} />
                   </div>
                 </>
           } />
@@ -385,11 +302,11 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
       <Modul baslik="Havuz dağılımı" not={`${panel.havuz.toplam} aday`}
         cocuk={
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <OzetKart baslik="Fonksiyon" veri={dagilim(panel.havuz.fonksiyon, fonksiyonEtiket)} />
-            <OzetKart baslik="Kıdem" veri={dagilim(panel.havuz.kidem, kidemEtiket)} />
-            <OzetKart baslik="Toplam deneyim" veri={dagilim(panel.havuz.deneyim, deneyimEtiket)} />
-            <OzetKart baslik="Elektrifikasyon" veri={dagilim(panel.havuz.elektrifikasyon, elektrifikasyonEtiket)} />
-            <OzetKart baslik="Kanal" veri={dagilim(panel.havuz.kanal, kanalEtiket)} />
+            <OzetKart cubuk baslik="Fonksiyon" veri={dagilim(panel.havuz.fonksiyon, fonksiyonEtiket)} />
+            <OzetKart cubuk baslik="Kıdem" veri={dagilim(panel.havuz.kidem, kidemEtiket)} />
+            <OzetKart cubuk baslik="Toplam deneyim" veri={dagilim(panel.havuz.deneyim, deneyimEtiket)} />
+            <OzetKart cubuk baslik="Elektrifikasyon" veri={dagilim(panel.havuz.elektrifikasyon, elektrifikasyonEtiket)} />
+            <OzetKart cubuk baslik="Kanal" veri={dagilim(panel.havuz.kanal, kanalEtiket)} />
           </div>
         } />
     </div>

@@ -80,7 +80,8 @@ Deno.serve(async (req) => {
     const adayEposta = payload.aday_eposta;
     const token = kayit.yanit_token;
     if (adayEposta && token) {
-      const adRaw = String(payload.aday_ad ?? '').trim().split(' ')[0];
+      // Referans e-postasındaki gibi düzeltilmiş ad: "deneme" → "Deneme" (denetim 18 Eki, bulgu 10).
+      const adRaw = adDuzelt(String(payload.aday_ad ?? '')).split(' ')[0];
       const ilkAd = esc(adRaw);
       const selam = ilkAd ? `Merhaba ${ilkAd},` : 'Merhaba,';
       const konu = adRaw

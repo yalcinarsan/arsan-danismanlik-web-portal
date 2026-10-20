@@ -6,9 +6,10 @@ import {
 } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 import { ADMIN_EPOSTA } from '../lib/site';
-
-const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
-const labelCls = 'block text-sm font-medium text-ink mb-1.5';
+import { inputCls } from '../lib/formStil';
+import { dagilimHesapla, sayimDagilimi } from '../lib/dagilim';
+import { useOturum, oturumuKapat, YoneticiGirisFormu, OturumSatiri, YoneticiYetkisiz } from './ortak/Giris';
+import { Satir, OzetKart } from './ortak/Parcalar';
 
 type AdminReferans = {
   aday_id: string; ad: string; eposta: string; telefon: string | null; kurum_unvan: string | null; iliski: string;
@@ -40,35 +41,6 @@ function adayAramaMetni(a: Aday): string {
   ].filter(Boolean).join(' ').toLocaleLowerCase('tr');
 }
 
-function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
-  if (!deger) return null;
-  return (
-    <div className="grid grid-cols-3 gap-4 py-2 border-b border-warm-border/60">
-      <dt className="text-sm text-warm-500">{etiket}</dt>
-      <dd className="col-span-2 text-ink text-sm">{deger}</dd>
-    </div>
-  );
-}
-
-/** Tek/çoklu değerli bir alanın dağılımını (etiket → sayı), çoktan aza sıralı çıkarır. */
-function dagilimHesapla(degerler: (string | null | undefined)[], etiketFn?: (v: string) => string): [string, number][] {
-  const sayac = new Map<string, number>();
-  for (const d of degerler) {
-    if (!d) continue;
-    const etiket = etiketFn ? etiketFn(d) : d;
-    sayac.set(etiket, (sayac.get(etiket) ?? 0) + 1);
-  }
-  return [...sayac.entries()].sort((a, b) => b[1] - a[1]);
-}
-
-/** kurum_mercegi RPC'sinin döndürdüğü {slug: sayı} nesnesini OzetKart verisine çevirir. */
-function jsonbDagilim(obj: Record<string, number> | undefined, etiketFn?: (v: string) => string): [string, number][] {
-  if (!obj) return [];
-  return Object.entries(obj)
-    .map(([k, v]) => [etiketFn ? etiketFn(k) : k, v] as [string, number])
-    .sort((a, b) => b[1] - a[1]);
-}
-
 type MercekKisi = { ad: string; son_kurum: string | null; son_pozisyon: string | null; gizli: boolean; gorunurluk: string };
 
 type Mercek = {
@@ -83,29 +55,10 @@ type Mercek = {
   };
 };
 
-function OzetKart({ baslik, veri }: { baslik: string; veri: [string, number][] }) {
-  if (veri.length === 0) return null;
-  return (
-    <div className="rounded-lg border border-warm-border p-4">
-      <p className="text-sm font-medium text-ink mb-2">{baslik}</p>
-      <ul className="space-y-1">
-        {veri.map(([etiket, sayi]) => (
-          <li key={etiket} className="flex justify-between gap-3 text-sm text-warm-600">
-            <span>{etiket}</span>
-            <span className="text-warm-400 tabular-nums">{sayi}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default function AdaylarListesi() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
-  const [eposta, setEposta] = useState('');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [hata, setHata] = useState('');
-  const [gonderiliyor, setGonderiliyor] = useState(false);
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
   const [acikId, setAcikId] = useState<string | null>(null);
   const [cvYukleniyor, setCvYukleniyor] = useState<string | null>(null);
@@ -123,16 +76,7 @@ export default function AdaylarListesi() {
     document.getElementById(`aday-${hedefId}`)?.scrollIntoView({ block: 'start' });
   }, [durum, hedefId]);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) oturumHazir(data.session.user.email ?? '');
-      else setDurum('eposta');
-    });
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) oturumHazir(session.user.email ?? '');
-    });
-    return () => sub.subscription.unsubscribe();
-  }, []);
+  useOturum((oturum) => oturumHazir(oturum.user.email ?? ''), () => setDurum('eposta'));
 
   async function oturumHazir(girenEposta: string) {
     setOturumEpostasi(girenEposta);
@@ -160,21 +104,9 @@ export default function AdaylarListesi() {
 
   /** Açık oturumu kapatıp e-posta formuna döner (yanlış hesapla gelen kilitlenmesin). */
   async function cikisYap() {
-    await supabase.auth.signOut();
-    setOturumEpostasi(''); setAdaylar([]); setHata(''); setEposta('');
+    await oturumuKapat();
+    setOturumEpostasi(''); setAdaylar([]); setHata('');
     setDurum('eposta');
-  }
-
-  async function magicLinkGonder(e: React.FormEvent) {
-    e.preventDefault();
-    setHata(''); setGonderiliyor(true);
-    const { error } = await supabase.auth.signInWithOtp({
-      email: eposta,
-      options: { emailRedirectTo: window.location.href },
-    });
-    setGonderiliyor(false);
-    if (error) setHata(anlasilirHata(error, 'giris'));
-    else setDurum('gonderildi');
   }
 
   async function mercekAra(e: React.FormEvent) {
@@ -200,46 +132,9 @@ export default function AdaylarListesi() {
   if (durum === 'yukleniyor') return <p className="text-warm-500">Yükleniyor…</p>;
 
   if (durum === 'yetkisiz')
-    return (
-      <div className="rounded-lg border border-warm-border bg-sand p-8">
-        <h2 className="text-xl font-semibold text-ink mb-2">Bu sayfa yalnızca yönetici içindir.</h2>
-        <p className="text-warm-600">{hata || 'Bu e-posta ile erişim yetkin yok.'}</p>
-        {oturumEpostasi && (
-          <p className="text-warm-600 mt-3 text-sm">
-            Şu anda <strong>{oturumEpostasi}</strong> hesabıyla giriş yapılmış. Yönetici hesabıyla girmek için çıkış yap.
-          </p>
-        )}
-        <button type="button" onClick={cikisYap}
-          className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium">
-          Çıkış yap ve yönetici hesabıyla gir
-        </button>
-      </div>
-    );
+    return <YoneticiYetkisiz hata={hata} oturumEpostasi={oturumEpostasi} onCikis={cikisYap} />;
 
-  if (durum === 'eposta' || durum === 'gonderildi')
-    return (
-      <div className="max-w-md">
-        <p className="text-warm-600 mb-6">Yönetici girişi için e-postanı gir; sana bir giriş bağlantısı yollayacağız.</p>
-        {durum === 'gonderildi' ? (
-          <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu kontrol et.
-          </div>
-        ) : (
-          <form onSubmit={magicLinkGonder} className="space-y-4">
-            <div>
-              <label className={labelCls}>E-posta *</label>
-              <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)}
-                className={inputCls} placeholder="ornek@eposta.com" />
-            </div>
-            {hata && <p className="text-sm text-accent">{hata}</p>}
-            <button type="submit" disabled={gonderiliyor}
-              className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
-              {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
-            </button>
-          </form>
-        )}
-      </div>
-    );
+  if (durum === 'eposta') return <YoneticiGirisFormu />;
 
   const kanalDagilim = dagilimHesapla(adaylar.flatMap((a) => a.kanal ?? []), kanalEtiket);
   const fonksiyonDagilim = dagilimHesapla(adaylar.flatMap((a) => a.fonksiyon ?? []), fonksiyonEtiket);
@@ -257,6 +152,7 @@ export default function AdaylarListesi() {
 
   return (
     <div>
+      <OturumSatiri eposta={oturumEpostasi} onCikis={cikisYap} className="mb-4" />
       <p className="text-sm text-warm-500 mb-4">{adaylar.length} kayıt · en yeni önce</p>
 
       <form onSubmit={mercekAra} className="mb-10 rounded-lg border border-warm-border p-4">
@@ -301,11 +197,11 @@ export default function AdaylarListesi() {
               <strong>{mercek.uyum.gorunur_toplam}</strong> aday (bu konuşulabilir):
             </p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <OzetKart baslik="Fonksiyon" veri={jsonbDagilim(mercek.uyum.fonksiyon, fonksiyonEtiket)} />
-              <OzetKart baslik="Kıdem" veri={jsonbDagilim(mercek.uyum.kidem, kidemEtiket)} />
-              <OzetKart baslik="Toplam deneyim" veri={jsonbDagilim(mercek.uyum.deneyim, deneyimEtiket)} />
-              <OzetKart baslik="Elektrifikasyon" veri={jsonbDagilim(mercek.uyum.elektrifikasyon, elektrifikasyonEtiket)} />
-              <OzetKart baslik="Kanal" veri={jsonbDagilim(mercek.uyum.kanal, kanalEtiket)} />
+              <OzetKart baslik="Fonksiyon" veri={sayimDagilimi(mercek.uyum.fonksiyon, fonksiyonEtiket)} />
+              <OzetKart baslik="Kıdem" veri={sayimDagilimi(mercek.uyum.kidem, kidemEtiket)} />
+              <OzetKart baslik="Toplam deneyim" veri={sayimDagilimi(mercek.uyum.deneyim, deneyimEtiket)} />
+              <OzetKart baslik="Elektrifikasyon" veri={sayimDagilimi(mercek.uyum.elektrifikasyon, elektrifikasyonEtiket)} />
+              <OzetKart baslik="Kanal" veri={sayimDagilimi(mercek.uyum.kanal, kanalEtiket)} />
             </div>
           </div>
         )}

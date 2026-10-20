@@ -4,6 +4,9 @@ import { supabase } from '../lib/supabase';
 import { DENEYIM, KANAL, FONKSIYON, KIDEM, ELEKTRIFIKASYON, CALISMA, ACIKLIK, GORUNURLUK, MARKALAR, SEHIRLER, ILISKI_FORM } from '../lib/adayTaksonomi';
 import { anlasilirHata } from '../lib/hataMesaji';
 import { REFERANS_FORM_ACIKLAMA, REFERANS_FORM_BEYAN } from '../lib/referansMetinleri';
+import { inputCls, labelCls, eksikInputCls, eksikGrupCls } from '../lib/formStil';
+import { useOturum, oturumuKapat, GirisFormu, OturumSatiri } from './ortak/Giris';
+import { HataKutusu } from './ortak/Parcalar';
 
 const bos = {
   ad: '', telefon: '', deneyim_yili: '', son_pozisyon: '', son_kurum: '',
@@ -17,13 +20,30 @@ export type RefForm = { id?: string; ad: string; eposta: string; telefon: string
 const bosRef = (): RefForm => ({ ad: '', eposta: '', telefon: '', kurum_unvan: '', iliski: '', yanitli: false });
 const EPOSTA_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
-const labelCls = 'block text-sm font-medium text-ink mb-1.5';
+// Zorunlu alanlar, formdaki sırasıyla. Boş kalanların adı hata kutusunda yazar,
+// sayfa ilkine kayar (canlı test, 18 Eki: "zorunlu alanları doldur" yazısı
+// düğmenin üstünde gözden kaçıyordu, hangi alanın eksik olduğu da belli değildi).
+type ZorunluAlan = 'ad' | 'deneyim_yili' | 'kidem' | 'kanal' | 'fonksiyon' | 'elektrifikasyon' | 'kvkk';
+const ZORUNLU: [ZorunluAlan, string][] = [
+  ['ad', 'Ad Soyad'], ['deneyim_yili', 'Toplam deneyim'], ['kidem', 'Kıdem'],
+  ['kanal', 'Kanal'], ['fonksiyon', 'Fonksiyon'], ['elektrifikasyon', 'Elektrifikasyon'],
+  ['kvkk', 'KVKK onayı'],
+];
+function eksikAlanlar(f: typeof bos): ZorunluAlan[] {
+  return ZORUNLU.map(([alan]) => alan).filter((alan) => {
+    const d = f[alan];
+    return Array.isArray(d) ? d.length === 0 : typeof d === 'string' ? !d.trim() : !d;
+  });
+}
+const alanKimligi = (alan: ZorunluAlan) => `kayit-${alan}`;
 
 export default function KayitFormu() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'form' | 'basarili'>('yukleniyor');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'form' | 'basarili'>('yukleniyor');
+  // Giriş yapılan hesabın e-postası (yeni kayıtta satıra da yazılır).
   const [eposta, setEposta] = useState('');
   const [hata, setHata] = useState('');
+  // İlk kaydetme denemesinden sonra açılır: boş zorunlu alanlar o andan itibaren işaretli.
+  const [eksikGoster, setEksikGoster] = useState(false);
   const [gonderiliyor, setGonderiliyor] = useState(false);
   const [f, setF] = useState(bos);
   // Bu kullanıcının zaten bir kaydı var mı? Varsa form "güncelleme" moduna geçer.
@@ -38,16 +58,7 @@ export default function KayitFormu() {
   const [refBeyan, setRefBeyan] = useState(false);
 
   // Oturum kontrolü (magic-link'ten dönünce oturum oluşur)
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) oturumHazir(data.session);
-      else setDurum('eposta');
-    });
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) oturumHazir(session);
-    });
-    return () => sub.subscription.unsubscribe();
-  }, []);
+  useOturum(oturumHazir, () => setDurum('eposta'));
 
   // "Son kurum" otomatik-tamamlaması: havuzdaki mevcut kurum adları. Yazım
   // varyantlarını azaltıp işveren-koruması eşleşmesini güvenilir kılar.
@@ -103,16 +114,13 @@ export default function KayitFormu() {
     setDurum('form');
   }
 
-  async function magicLinkGonder(e: React.FormEvent) {
-    e.preventDefault();
-    setHata(''); setGonderiliyor(true);
-    const { error } = await supabase.auth.signInWithOtp({
-      email: eposta,
-      options: { emailRedirectTo: window.location.href },
-    });
-    setGonderiliyor(false);
-    if (error) setHata(anlasilirHata(error, 'giris'));
-    else setDurum('gonderildi');
+  /** Oturumu kapatıp e-posta ekranına döner; formda önceki hesabın bilgisi kalmaz. */
+  async function cikisYap() {
+    await oturumuKapat();
+    setF(bos); setMevcutKayit(false); setEposta(''); setHata(''); setEksikGoster(false);
+    setCvDosya(null); setCvMevcutYol(null); setCvKaldirilsin(false);
+    setRefler([]); setRefYuklendi(false); setRefBeyan(false);
+    setDurum('eposta');
   }
 
   /** CV dosyası seçimi — boyut ve tür kontrolü burada, yükleme kaydetme anında. */
@@ -143,9 +151,15 @@ export default function KayitFormu() {
   async function kaydet(e: React.FormEvent) {
     e.preventDefault();
     setHata('');
-    if (!f.kvkk) { setHata('Devam etmek için KVKK açık rızası gerekli.'); return; }
-    if (!f.ad || !f.deneyim_yili || !f.kidem || !f.elektrifikasyon || f.kanal.length === 0 || f.fonksiyon.length === 0) {
-      setHata('Lütfen zorunlu alanları (*) doldur.'); return;
+    const eksik = eksikAlanlar(f);
+    if (eksik.length > 0) {
+      setEksikGoster(true);
+      const ilk = document.getElementById(alanKimligi(eksik[0]));
+      ilk?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Hemen doldurmaya başlanabilsin; odak kaydırmayı bozmasın.
+      const odak = ilk?.matches('input, select') ? ilk : ilk?.querySelector<HTMLElement>('input, select, button');
+      odak?.focus({ preventScroll: true });
+      return;
     }
     // Referanslar: tamamen boş satırlar yok sayılır; dolu olanlarda ad, e-posta ve ilişki zorunlu.
     const duzenlenebilir = refler.filter((r) => !r.yanitli)
@@ -277,44 +291,31 @@ export default function KayitFormu() {
     );
 
   // ---- Adım 1: e-posta ----
-  if (durum === 'eposta' || durum === 'gonderildi')
+  // "Zaten kayıtlıysan" notu yalnız burada: formda ve düzenleme modunda anlamsızdı (canlı test, 18 Eki).
+  if (durum === 'eposta')
     return (
       <>
         {baslikBlok}
-        <div className="max-w-md">
-          <p className="text-warm-600 mb-6">
-            Başlamak için e-postanı gir; sana bir giriş bağlantısı yollayacağız (şifre yok). Bağlantıya
-            tıklayınca profilini oluşturursun.
-          </p>
-          {durum === 'gonderildi' ? (
-            <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-              <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunu (ve spam'i)
-              kontrol et, bağlantıya tıkla — buraya geri dönüp profilini oluşturacaksın.
-            </div>
-          ) : (
-            <form onSubmit={magicLinkGonder} className="space-y-4">
-              <div>
-                <label className={labelCls}>E-posta *</label>
-                <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)}
-                  className={inputCls} placeholder="ornek@eposta.com" />
-              </div>
-              {hata && <p className="text-sm text-accent">{hata}</p>}
-              <button type="submit" disabled={gonderiliyor}
-                className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
-                {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
-              </button>
-            </form>
-          )}
-        </div>
+        <GirisFormu
+          aciklama="Başlamak için e-postanı gir; sana bir giriş bağlantısı yollayacağız (şifre yok). Bağlantıya tıklayınca profilini oluşturursun."
+          gonderildiNotu="Gelen kutunu (ve spam'i) kontrol et, bağlantıya tıkla — buraya geri dönüp profilini oluşturacaksın."
+        />
+        <p className="mt-10 text-sm text-warm-500">
+          Zaten kayıtlıysan <a href="/kariyer/profilim" className="text-accent hover:underline">profilini buradan görüntüleyebilirsin</a>.
+        </p>
       </>
     );
 
   // ---- Adım 2: profil formu (yeni kayıt veya mevcut kaydın güncellenmesi) ----
+  const eksikler = eksikGoster ? eksikAlanlar(f) : [];
+  const eksik = (alan: ZorunluAlan) => eksikler.includes(alan);
   return (
     <>
       {baslikBlok}
-      <form onSubmit={kaydet} className="space-y-8">
-      <p className="text-sm text-warm-500">Giriş: {eposta}</p>
+      {/* noValidate: tarayıcının kendi "bu alanı doldurun" balonu yalnız ilk boş alanı söylüyordu;
+          denetim kaydet() içinde, eksiklerin hepsini birden gösteriyor. */}
+      <form onSubmit={kaydet} noValidate className="space-y-8">
+      <OturumSatiri eposta={eposta} onCikis={cikisYap} />
 
       {mevcutKayit && (
         <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
@@ -325,23 +326,26 @@ export default function KayitFormu() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className={labelCls}>Ad Soyad *</label>
-          <input required maxLength={80} value={f.ad} onChange={(e) => setF({ ...f, ad: e.target.value })} className={inputCls} />
+          <label className={labelCls} htmlFor={alanKimligi('ad')}>Ad Soyad *</label>
+          <input id={alanKimligi('ad')} required aria-invalid={eksik('ad') || undefined} maxLength={80} value={f.ad}
+            onChange={(e) => setF({ ...f, ad: e.target.value })} className={eksik('ad') ? eksikInputCls : inputCls} />
         </div>
         <div>
           <label className={labelCls}>Telefon</label>
           <input value={f.telefon} onChange={(e) => setF({ ...f, telefon: e.target.value })} className={inputCls} />
         </div>
         <div>
-          <label className={labelCls}>Toplam deneyim *</label>
-          <select required value={f.deneyim_yili} onChange={(e) => setF({ ...f, deneyim_yili: e.target.value })} className={inputCls}>
+          <label className={labelCls} htmlFor={alanKimligi('deneyim_yili')}>Toplam deneyim *</label>
+          <select id={alanKimligi('deneyim_yili')} required aria-invalid={eksik('deneyim_yili') || undefined} value={f.deneyim_yili}
+            onChange={(e) => setF({ ...f, deneyim_yili: e.target.value })} className={eksik('deneyim_yili') ? eksikInputCls : inputCls}>
             <option value="">Seç…</option>
             {DENEYIM.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
           </select>
         </div>
         <div>
-          <label className={labelCls}>Kıdem *</label>
-          <select required value={f.kidem} onChange={(e) => setF({ ...f, kidem: e.target.value })} className={inputCls}>
+          <label className={labelCls} htmlFor={alanKimligi('kidem')}>Kıdem *</label>
+          <select id={alanKimligi('kidem')} required aria-invalid={eksik('kidem') || undefined} value={f.kidem}
+            onChange={(e) => setF({ ...f, kidem: e.target.value })} className={eksik('kidem') ? eksikInputCls : inputCls}>
             <option value="">Seç…</option>
             {KIDEM.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
           </select>
@@ -370,7 +374,7 @@ export default function KayitFormu() {
         </label>
       )}
 
-      <div>
+      <div id={alanKimligi('kanal')} className={eksik('kanal') ? eksikGrupCls : undefined}>
         <label className={labelCls}>Kanal * <span className="font-normal text-warm-500">(birden çok seçebilirsin)</span></label>
         <div className="flex flex-wrap gap-2">
           {KANAL.map(([v, l]) => (
@@ -382,7 +386,7 @@ export default function KayitFormu() {
         </div>
       </div>
 
-      <div>
+      <div id={alanKimligi('fonksiyon')} className={eksik('fonksiyon') ? eksikGrupCls : undefined}>
         <label className={labelCls}>Fonksiyon * <span className="font-normal text-warm-500">(birden çok seçebilirsin)</span></label>
         <div className="flex flex-wrap gap-2">
           {FONKSIYON.map(([v, l]) => (
@@ -394,7 +398,7 @@ export default function KayitFormu() {
         </div>
       </div>
 
-      <div>
+      <div id={alanKimligi('elektrifikasyon')} className={eksik('elektrifikasyon') ? eksikGrupCls : undefined}>
         <label className={labelCls}>Elektrifikasyon karşısındaki konumun *</label>
         <div className="space-y-2">
           {ELEKTRIFIKASYON.map(([v, l]) => (
@@ -514,15 +518,21 @@ export default function KayitFormu() {
         </div>
       </div>
 
-      <label className="flex items-start gap-2 text-sm text-warm-700">
-        <input type="checkbox" checked={f.kvkk} onChange={(e) => setF({ ...f, kvkk: e.target.checked })} className="mt-1 accent-accent" />
+      <label id={alanKimligi('kvkk')} className={`flex items-start gap-2 text-sm text-warm-700 ${eksik('kvkk') ? eksikGrupCls : ''}`}>
+        <input type="checkbox" checked={f.kvkk} aria-invalid={eksik('kvkk') || undefined}
+          onChange={(e) => setF({ ...f, kvkk: e.target.checked })} className="mt-1 accent-accent" />
         <span>
           <a href="/kvkk" target="_blank" rel="noopener" className="text-accent hover:underline">KVKK aydınlatma metnini</a>
           {' '}okudum; kişisel verilerimin bu kapsamda işlenmesine ve seçtiğim görünürlüğe göre havuza erişimi olan kurumlarla paylaşılmasına açık rıza veriyorum. *
         </span>
       </label>
 
-      {hata && <p className="text-sm text-accent">{hata}</p>}
+      {eksikler.length > 0 && (
+        <HataKutusu>
+          <strong className="font-semibold">Eksik:</strong> {eksikler.map((a) => ZORUNLU.find(([z]) => z === a)?.[1]).join(', ')}
+        </HataKutusu>
+      )}
+      {hata && <HataKutusu>{hata}</HataKutusu>}
 
       <button type="submit" disabled={gonderiliyor}
         className="rounded-md bg-accent px-8 py-3 text-white font-medium disabled:opacity-60">

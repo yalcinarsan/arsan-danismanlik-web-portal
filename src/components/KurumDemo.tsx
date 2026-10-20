@@ -12,7 +12,7 @@
 // Buraya sabit e-posta kontrolü GERİ EKLEME: tarayıcıdaki karşılaştırma
 // güvenlik sınırı değil, atlanabilir. Yetki tek yerde, veritabanında dursun.
 // Kime erişim verileceği: kurum_erisim tablosu (Supabase paneli).
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import {
   KANAL, FONKSIYON, ELEKTRIFIKASYON,
@@ -22,6 +22,10 @@ import {
 import { anlasilirHata } from '../lib/hataMesaji';
 import { adDuzelt } from '../lib/tanistirma';
 import { SITE_EPOSTA } from '../lib/site';
+import { inputCls, labelCls } from '../lib/formStil';
+import { dagilimHesapla } from '../lib/dagilim';
+import { useOturum, oturumuKapat, GirisFormu, OturumSatiri } from './ortak/Giris';
+import { Satir, OzetKart, HataKutusu } from './ortak/Parcalar';
 
 /** kurum_kabul_edenler() satırı: bu kurumun talebini kabul eden aday + yanıtlanmış referansları.
  *  İletişim bilgisi ve özgeçmiş bilinçli olarak yok: onlar Yalçın'ın tanıştırma e-postasıyla gider. */
@@ -31,9 +35,6 @@ export type KabulEden = {
   referanslar: { ad: string; kurum_unvan: string | null; iliski: string; yorum: string; yorum_ts: string | null }[];
 };
 const gunFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long' });
-
-const inputCls = 'w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none';
-const labelCls = 'block text-sm font-medium text-ink mb-1.5';
 
 /** kurum_havuzu() satırı — zaten maskeli gelir, burada ek maskeleme yapılmaz. */
 type Aday = {
@@ -64,48 +65,9 @@ function Etiket({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Satir({ etiket, deger }: { etiket: string; deger?: string | null }) {
-  if (!deger) return null;
-  return (
-    <div className="grid grid-cols-3 gap-4 py-2 border-b border-warm-border/60">
-      <dt className="text-sm text-warm-500">{etiket}</dt>
-      <dd className="col-span-2 text-ink text-sm">{deger}</dd>
-    </div>
-  );
-}
-
-function OzetKart({ baslik, veri }: { baslik: string; veri: [string, number][] }) {
-  if (veri.length === 0) return null;
-  return (
-    <div className="rounded-lg border border-warm-border p-4">
-      <p className="text-sm font-medium text-ink mb-2">{baslik}</p>
-      <ul className="space-y-1">
-        {veri.map(([etiket, sayi]) => (
-          <li key={etiket} className="flex justify-between gap-3 text-sm text-warm-600">
-            <span>{etiket}</span>
-            <span className="text-warm-400 tabular-nums">{sayi}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function dagilimHesapla(degerler: (string | null | undefined)[], etiketFn?: (v: string) => string): [string, number][] {
-  const sayac = new Map<string, number>();
-  for (const d of degerler) {
-    if (!d) continue;
-    const etiket = etiketFn ? etiketFn(d) : d;
-    sayac.set(etiket, (sayac.get(etiket) ?? 0) + 1);
-  }
-  return [...sayac.entries()].sort((a, b) => b[1] - a[1]);
-}
-
 export default function KurumDemo() {
-  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'gonderildi' | 'yetkisiz' | 'liste'>('yukleniyor');
-  const [eposta, setEposta] = useState('');
+  const [durum, setDurum] = useState<'yukleniyor' | 'eposta' | 'yetkisiz' | 'liste'>('yukleniyor');
   const [hata, setHata] = useState('');
-  const [gonderiliyor, setGonderiliyor] = useState(false);
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
   const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [acikId, setAcikId] = useState<string | null>(null);
@@ -113,7 +75,9 @@ export default function KurumDemo() {
   const [abone, setAbone] = useState(false);
   const [talepGonderiliyor, setTalepGonderiliyor] = useState<string | null>(null);
   const [talepBasarili, setTalepBasarili] = useState<string[]>([]);
-  const [talepHata, setTalepHata] = useState('');
+  // Aday kimliğine göre: hata, düğmesine basılan kartın içinde görünsün (canlı test, 18 Eki:
+  // listenin en altında çıkıyordu, 58 kartın altında kimse görmüyordu).
+  const [talepHata, setTalepHata] = useState<Record<string, string>>({});
   const [kabulEdenler, setKabulEdenler] = useState<KabulEden[]>([]);
 
   const [fKanal, setFKanal] = useState('');
@@ -121,16 +85,7 @@ export default function KurumDemo() {
   const [fBolge, setFBolge] = useState('');
   const [fElektrifikasyon, setFElektrifikasyon] = useState('');
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) oturumHazir(data.session.user.email ?? '');
-      else setDurum('eposta');
-    });
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      if (session) oturumHazir(session.user.email ?? '');
-    });
-    return () => sub.subscription.unsubscribe();
-  }, []);
+  useOturum((oturum) => oturumHazir(oturum.user.email ?? ''), () => setDurum('eposta'));
 
   async function oturumHazir(girenEposta: string) {
     // Hangi hesapla girildiği ekranda yazsın: yetki reddi geldiğinde en sık
@@ -157,49 +112,32 @@ export default function KurumDemo() {
 
   /** Abone kurum → gerçek temas talebi (sunucuda abone doğrulaması var). */
   async function temasGonder(adayId: string) {
-    setTalepHata(''); setTalepGonderiliyor(adayId);
+    setTalepHata((h) => ({ ...h, [adayId]: '' })); setTalepGonderiliyor(adayId);
     const { error } = await supabase.rpc('temas_talebi_gonder', { p_aday_id: adayId });
     setTalepGonderiliyor(null);
-    if (error) { setTalepHata(anlasilirHata(error)); return; }
+    if (error) { setTalepHata((h) => ({ ...h, [adayId]: anlasilirHata(error) })); return; }
     setTalepBasarili((s) => [...s, adayId]);
   }
 
-  /** Açık oturumu kapatıp e-posta formuna döner. */
+  /** Açık oturumu kapatıp e-posta formuna döner. Önceki hesabın ekranda kalan
+   *  izleri de silinir: aynı pencerede başka bir kurum hesabıyla girilebiliyor. */
   async function cikisYap() {
-    await supabase.auth.signOut();
-    setOturumEpostasi(''); setAdaylar([]); setHata(''); setEposta('');
+    await oturumuKapat();
+    setOturumEpostasi(''); setAdaylar([]); setHata('');
+    setAbone(false); setKabulEdenler([]); setAcikId(null); setTalepId(null);
+    setTalepBasarili([]); setTalepHata({});
     setDurum('eposta');
   }
 
-  async function magicLinkGonder(e: React.FormEvent) {
-    e.preventDefault();
-    setHata(''); setGonderiliyor(true);
-
-    // Önce listede mi diye sor. Amaç: tanımlı olmayan adrese hiç e-posta
-    // çıkmasın, Supabase'de boşuna hesap açılmasın. Güvenlik bu adıma
-    // dayanmıyor — biri bunu atlayıp kendine link yollatsa bile girişte
-    // kurum_havuzu() 403 döner. Bkz. supabase/kurum-erisim.sql.
-    const { data: izinli, error: kontrolHatasi } =
-      await supabase.rpc('kurum_erisimi_var', { p_eposta: eposta });
-
-    if (kontrolHatasi) {
-      setGonderiliyor(false);
-      setHata(anlasilirHata(kontrolHatasi));
-      return;
-    }
-    if (!izinli) {
-      setGonderiliyor(false);
-      setHata(`Bu e-posta için kurum görünümü erişimi tanımlı değil. Erişim talebiniz için ${SITE_EPOSTA} adresine yazabilirsiniz.`);
-      return;
-    }
-
-    const { error } = await supabase.auth.signInWithOtp({
-      email: eposta,
-      options: { emailRedirectTo: window.location.href },
-    });
-    setGonderiliyor(false);
-    if (error) setHata(anlasilirHata(error, 'giris'));
-    else setDurum('gonderildi');
+  /** Giriş bağlantısından önce adres davetli mi diye sorar. Amaç: tanımlı olmayan
+   *  adrese hiç e-posta çıkmasın, Supabase'de boşuna hesap açılmasın. Güvenlik bu
+   *  adıma dayanmıyor — biri bunu atlayıp kendine link yollatsa bile girişte
+   *  kurum_havuzu() 403 döner. Bkz. supabase/kurum-erisim.sql. */
+  async function erisimKontrol(eposta: string): Promise<string | null> {
+    const { data: izinli, error } = await supabase.rpc('kurum_erisimi_var', { p_eposta: eposta });
+    if (error) return anlasilirHata(error);
+    if (!izinli) return `Bu e-posta için kurum görünümü erişimi tanımlı değil. Erişim talebiniz için ${SITE_EPOSTA} adresine yazabilirsiniz.`;
+    return null;
   }
 
   // Lokasyon filtresi BÖLGE bazında. Daha önce şehirdi; dışarıya açılan
@@ -248,32 +186,13 @@ export default function KurumDemo() {
       </div>
     );
 
-  if (durum === 'eposta' || durum === 'gonderildi')
+  if (durum === 'eposta')
     return (
-      <div className="max-w-md">
-        <p className="text-warm-600 mb-6">
-          Kurum görünümü davetlidir. Size erişim tanımlandıysa e-posta adresinizi girin;
-          giriş bağlantısını göndereceğiz.
-        </p>
-        {durum === 'gonderildi' ? (
-          <div className="rounded-md border border-accent/40 bg-sand p-4 text-ink">
-            <strong>{eposta}</strong> adresine bir giriş bağlantısı gönderdik. Gelen kutunuzu kontrol edin.
-          </div>
-        ) : (
-          <form onSubmit={magicLinkGonder} className="space-y-4">
-            <div>
-              <label className={labelCls}>E-posta *</label>
-              <input type="email" required value={eposta} onChange={(e) => setEposta(e.target.value)}
-                className={inputCls} placeholder="ornek@eposta.com" />
-            </div>
-            {hata && <p className="text-sm text-accent">{hata}</p>}
-            <button type="submit" disabled={gonderiliyor}
-              className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
-              {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
-            </button>
-          </form>
-        )}
-      </div>
+      <GirisFormu
+        aciklama="Kurum görünümü davetlidir. Size erişim tanımlandıysa e-posta adresinizi girin; giriş bağlantısını göndereceğiz."
+        gonderildiNotu="Gelen kutunuzu kontrol edin."
+        onKontrol={erisimKontrol}
+      />
     );
 
   const kidemDagilim = dagilimHesapla(suzulmus.map((a) => a.kidem), kidemEtiket);
@@ -283,6 +202,7 @@ export default function KurumDemo() {
 
   return (
     <div>
+      <OturumSatiri eposta={oturumEpostasi} onCikis={cikisYap} className="mb-4" />
       <div className="rounded-lg border border-accent/30 bg-sand p-4 mb-8">
         {abone ? (
           <p className="text-sm text-ink leading-relaxed">
@@ -418,14 +338,17 @@ export default function KurumDemo() {
                         ve özgeçmişini seninle paylaşırız.
                       </div>
                     ) : (
-                      <button
-                        type="button"
-                        disabled={talepGonderiliyor === aday.id}
-                        onClick={() => temasGonder(aday.id)}
-                        className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium disabled:opacity-60"
-                      >
-                        {talepGonderiliyor === aday.id ? 'Gönderiliyor…' : 'Temas talebi gönder'}
-                      </button>
+                      <>
+                        <button
+                          type="button"
+                          disabled={talepGonderiliyor === aday.id}
+                          onClick={() => temasGonder(aday.id)}
+                          className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium disabled:opacity-60"
+                        >
+                          {talepGonderiliyor === aday.id ? 'Gönderiliyor…' : 'Temas talebi gönder'}
+                        </button>
+                        {talepHata[aday.id] && <HataKutusu className="mt-3">{talepHata[aday.id]}</HataKutusu>}
+                      </>
                     )
                   ) : talepId === aday.id ? (
                     <div className="mt-4 rounded-md border border-accent/40 bg-sand p-3 text-sm text-ink">
@@ -447,8 +370,6 @@ export default function KurumDemo() {
           );
         })}
       </div>
-      {talepHata && <p className="mt-4 text-sm text-accent">{talepHata}</p>}
-      {hata && <p className="mt-4 text-sm text-accent">{hata}</p>}
     </div>
   );
 }
