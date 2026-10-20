@@ -59,6 +59,9 @@ Amaç: proje büyüdükçe "biz buna neden böyle karar vermiştik?" sorusuna ge
 
 ## 3. Karar Günlüğü
 
+**2026-10-20 — Kayıt formu marka listesi büyütüldü (39 → 50)**
+Bir aday Tesla'nın listede olmadığını bildirdi. Liste 23 Temmuz'da yazım tutarlılığı için hızlıca kurulmuştu, hangi markanın neden girdiğine dair bir ölçüt yazılmamıştı. Tesla'ya ek olarak adayların "Diğer" alanına elle yazdığı otomotiv markaları listeye alındı: BMC, Chevrolet, Jaecoo, Karsan, Lexus, Maxus, Mazda, Omoda, SsangYong, Subaru, Temsa. Artık üretilmeyen markalar (Rover, Saab, Daewoo), motosiklet ve dorse markaları bilerek "Diğer"de bırakıldı. Ölçüt: liste, "Diğer"e elle yazılanlara bakılarak büyütülür; eski kayıtlar düzenleme açılınca kendiliğinden listeyle eşleşir, veritabanında değişiklik gerekmez.
+
 **2026-10-20 — Otomotiv İnsanı: ortak giriş parçası ve görünür hata yazıları**
 Giriş akışı (oturum kontrolü, giriş bağlantısı formu, çıkış) altı bileşende ayrı ayrı yazılıydı; `src/components/ortak/Giris.tsx`'e taşındı (`useOturum`, `GirisFormu`, `OturumSatiri`, `YoneticiYetkisiz`). Form stilleri `src/lib/formStil.ts`, dağılım hesapları `src/lib/dagilim.ts`, bilgi satırı/özet kartı/hata kutusu `src/components/ortak/Parcalar.tsx`'te. Giriş gerektiren her ekranın başında "Şu hesapla girildi: … · Çıkış yap" satırı var; canlı testte yönetici ve test kurum pencereleri karışmıştı. Kayıt formu tarayıcının kendi doğrulamasını kapatıp (`noValidate`) boş zorunlu alanların hepsini "Eksik: …" kutusunda sayar, ilk eksik alana kaydırır ve eksik alanları kırmızı çerçeveler. Kurum ekranında temas talebi hatası, yönetici ekranlarında "CV açılamadı" ve talep durumu hatası listenin altında değil, ilgili kartın içinde çıkar. "Zaten kayıtlıysan" notu yalnız kayıt sayfasının e-posta ekranında. Temas e-postası adayın adını referans e-postasındaki gibi düzeltir (`adDuzelt`). Kaynak: sistem denetimi 18 Eki, bulgu 8 ve 10.
 

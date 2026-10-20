@@ -21,11 +21,16 @@ export const CALISMA = [['ofis', 'Ofis'], ['hibrit', 'Hibrit'], ['uzaktan', 'Uza
 export const ACIKLIK = [['aktif_ariyorum', 'Aktif arıyorum'], ['acigim', 'Açığım'], ['sadece_ozel_firsat', 'Sadece özel fırsat']];
 // Serbest metin yerine seçilebilir liste — yazım farklarının ("izmir" / "İzmir")
 // aynı değeri farklı kayıtlara bölmesini önlemek için. Listede olmayanlar "Diğer" alanına yazılır.
+// Liste, adayların "Diğer"e elle yazdıklarına bakılarak büyütülür (20 Eki: Tesla, aday geri
+// bildirimi; BMC, Chevrolet, Jaecoo, Karsan, Lexus, Maxus, Mazda, Omoda, SsangYong, Subaru, Temsa).
+// Yeni eklenen marka, onu elle yazmış adayın formunda düzenlerken kendiliğinden seçili gelir.
 export const MARKALAR = [
-  'Alfa Romeo', 'Audi', 'BMW', 'BYD', 'Chery', 'Citroën', 'Cupra', 'Dacia', 'DS', 'Fiat',
-  'Ford', 'Honda', 'Hyundai', 'Isuzu', 'Iveco', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'MAN',
-  'Mercedes-Benz', 'MG', 'MINI', 'Mitsubishi', 'Nissan', 'Opel', 'Peugeot', 'Porsche', 'Renault',
-  'Scania', 'SEAT', 'Škoda', 'Suzuki', 'Tofaş', 'TOGG', 'Toyota', 'Volkswagen', 'Volvo',
+  'Alfa Romeo', 'Audi', 'BMC', 'BMW', 'BYD', 'Chery', 'Chevrolet', 'Citroën', 'Cupra', 'Dacia',
+  'DS', 'Fiat', 'Ford', 'Honda', 'Hyundai', 'Isuzu', 'Iveco', 'Jaecoo', 'Jaguar', 'Jeep', 'Karsan',
+  'Kia', 'Land Rover', 'Lexus', 'MAN', 'Maxus', 'Mazda', 'Mercedes-Benz', 'MG', 'MINI',
+  'Mitsubishi', 'Nissan', 'Omoda', 'Opel', 'Peugeot', 'Porsche', 'Renault', 'Scania', 'SEAT',
+  'Škoda', 'SsangYong', 'Subaru', 'Suzuki', 'Temsa', 'Tesla', 'Tofaş', 'TOGG', 'Toyota',
+  'Volkswagen', 'Volvo',
 ];
 
 export const SEHIRLER = [
