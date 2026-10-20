@@ -9,7 +9,7 @@ import { ADMIN_EPOSTA } from '../lib/site';
 import { inputCls } from '../lib/formStil';
 import { dagilimHesapla, sayimDagilimi } from '../lib/dagilim';
 import { useOturum, oturumuKapat, YoneticiGirisFormu, OturumSatiri, YoneticiYetkisiz } from './ortak/Giris';
-import { Satir, OzetKart } from './ortak/Parcalar';
+import { Satir, OzetKart, HataKutusu } from './ortak/Parcalar';
 
 type AdminReferans = {
   aday_id: string; ad: string; eposta: string; telefon: string | null; kurum_unvan: string | null; iliski: string;
@@ -62,6 +62,8 @@ export default function AdaylarListesi() {
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
   const [acikId, setAcikId] = useState<string | null>(null);
   const [cvYukleniyor, setCvYukleniyor] = useState<string | null>(null);
+  // Aday kimliğine göre: "CV açılamadı" yazısı o adayın kartında görünsün, listenin altında değil.
+  const [cvHata, setCvHata] = useState<Record<string, string>>({});
   const [mercekKurum, setMercekKurum] = useState('');
   const [mercek, setMercek] = useState<Mercek | null>(null);
   const [mercekYukleniyor, setMercekYukleniyor] = useState(false);
@@ -122,10 +124,10 @@ export default function AdaylarListesi() {
 
   async function cvAc(aday: Aday) {
     if (!aday.cv_path) return;
-    setCvYukleniyor(aday.id);
+    setCvHata((h) => ({ ...h, [aday.id]: '' })); setCvYukleniyor(aday.id);
     const { data, error } = await supabase.storage.from('cv').createSignedUrl(aday.cv_path, 120);
     setCvYukleniyor(null);
-    if (error || !data) { setHata('CV açılamadı: ' + (error?.message ?? 'bilinmeyen hata')); return; }
+    if (error || !data) { setCvHata((h) => ({ ...h, [aday.id]: 'CV açılamadı: ' + (error?.message ?? 'bilinmeyen hata') })); return; }
     window.open(data.signedUrl, '_blank', 'noopener');
   }
 
@@ -305,13 +307,13 @@ export default function AdaylarListesi() {
                       {cvYukleniyor === aday.id ? 'Açılıyor…' : 'CV’yi görüntüle →'}
                     </button>
                   )}
+                  {cvHata[aday.id] && <HataKutusu className="mt-3">{cvHata[aday.id]}</HataKutusu>}
                 </div>
               )}
             </div>
           );
         })}
       </div>
-      {hata && <p className="mt-4 text-sm text-accent">{hata}</p>}
     </div>
   );
 }

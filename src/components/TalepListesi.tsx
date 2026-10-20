@@ -5,7 +5,7 @@ import { anlasilirHata } from '../lib/hataMesaji';
 import { ADMIN_EPOSTA } from '../lib/site';
 import { tanistirmaMailto } from '../lib/tanistirma';
 import { useOturum, oturumuKapat, YoneticiGirisFormu, OturumSatiri, YoneticiYetkisiz } from './ortak/Giris';
-import { Satir } from './ortak/Parcalar';
+import { Satir, HataKutusu } from './ortak/Parcalar';
 
 const DURUMLAR: [string, string][] = [
   ['yeni', 'Yeni'], ['iletildi', 'İletildi'], ['kabul', 'Kabul'], ['ret', 'Ret'],
@@ -56,6 +56,8 @@ export default function TalepListesi() {
   const [hata, setHata] = useState('');
   const [talepler, setTalepler] = useState<Talep[]>([]);
   const [guncelleniyor, setGuncelleniyor] = useState<string | null>(null);
+  // Talep kimliğine göre: durum değiştirilemezse yazı o talebin kartında görünsün, listenin altında değil.
+  const [durumHata, setDurumHata] = useState<Record<string, string>>({});
 
   useOturum((oturum) => oturumHazir(oturum.user.email ?? ''), () => setDurum('eposta'));
 
@@ -79,10 +81,10 @@ export default function TalepListesi() {
   }
 
   async function durumDegistir(id: string, yeniDurum: string) {
-    setHata(''); setGuncelleniyor(id);
+    setDurumHata((h) => ({ ...h, [id]: '' })); setGuncelleniyor(id);
     const { error } = await supabase.rpc('admin_talep_durum', { p_id: id, p_durum: yeniDurum });
     setGuncelleniyor(null);
-    if (error) { setHata(anlasilirHata(error)); return; }
+    if (error) { setDurumHata((h) => ({ ...h, [id]: anlasilirHata(error) })); return; }
     setTalepler((ts) => ts.map((t) => (t.id === id ? { ...t, durum: yeniDurum } : t)));
   }
 
@@ -158,6 +160,7 @@ export default function TalepListesi() {
                   </button>
                 ))}
               </div>
+              {durumHata[t.id] && <HataKutusu className="mt-3">{durumHata[t.id]}</HataKutusu>}
 
               {(t.durum === 'yeni' || t.durum === 'iletildi') && <OnayLinki token={t.yanit_token} />}
 
@@ -178,7 +181,6 @@ export default function TalepListesi() {
           );
         })}
       </div>
-      {hata && <p className="mt-4 text-sm text-accent">{hata}</p>}
     </div>
   );
 }
