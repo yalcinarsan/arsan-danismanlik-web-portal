@@ -33,6 +33,10 @@ export type Panel = {
     talep: number; aday: number; kurum: number; kabul: number;
     fonksiyon: Dagilim; kanal: Dagilim; kidem: Dagilim; bolge: Dagilim; elektrifikasyon: Dagilim;
   };
+  referanslar?: {
+    aday: number; toplam: number; talep: number; gorus: number;
+    son: { aday_id: string; aday_ad: string | null; ad: string; durum: 'eklendi' | 'talep' | 'gorus'; ts: string }[];
+  };
 };
 
 const dtFmt = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
@@ -97,6 +101,21 @@ const DURUM_ROZET: Record<string, { metin: string; cls: string }> = {
   ret: { metin: 'ret', cls: 'bg-warm-border/50 text-warm-500' },
 };
 function durumRozet(d: string) { return DURUM_ROZET[d] ?? { metin: d, cls: 'bg-warm-border/50 text-warm-600' }; }
+
+const REFERANS_ROZET: Record<string, { metin: string; cls: string }> = {
+  eklendi: { metin: 'eklendi', cls: 'bg-warm-border/50 text-warm-600' },
+  talep: { metin: 'talep gitti', cls: 'bg-accent/10 text-accent' },
+  gorus: { metin: 'görüş yazdı', cls: 'bg-ink/10 text-ink' },
+};
+
+function KucukSayi({ sayi, etiket }: { sayi: number; etiket: string }) {
+  return (
+    <div className="rounded-lg border border-warm-border p-3">
+      <p className="text-2xl font-semibold tabular-nums text-ink">{sayi}</p>
+      <p className="text-xs text-warm-600 mt-0.5 leading-tight">{etiket}</p>
+    </div>
+  );
+}
 
 function KurumSatir({ x }: { x: Kurum }) {
   const bakti = !!x.son_erisim;
@@ -178,6 +197,7 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
 }) {
   const { ozet } = panel;
   const tp = panel.talep_profilleri;
+  const rf = panel.referanslar;
   const dis = panel.kurumlar.filter((x) => x.tur === 'demo' || x.tur === 'ucretli');
   const ic = panel.kurumlar.filter((x) => x.tur === 'test' || x.tur === 'yonetici');
 
@@ -297,6 +317,44 @@ export function PanelGovde({ panel, oturumEpostasi, onYenile, onCikis, yenileniy
                 </>
           } />
       </div>
+
+      {/* Referanslar (25 Eki) — kaç aday ekledi, talep ve görüş durumu; satır adayın kartını açar. */}
+      {rf && (
+        <Modul baslik="Referanslar" not={`${rf.aday} aday · havuzun %${ozet.aday_toplam ? Math.round((rf.aday / ozet.aday_toplam) * 100) : 0}'i`}
+          aksiyon={{ metin: 'Adaylar', href: '/kariyer/adaylar' }}
+          cocuk={
+            <div className="grid gap-5 lg:grid-cols-2">
+              <div className="grid grid-cols-2 gap-3 content-start">
+                <KucukSayi sayi={rf.aday} etiket="Referans ekleyen aday" />
+                <KucukSayi sayi={rf.toplam} etiket="Eklenen referans" />
+                <KucukSayi sayi={rf.talep} etiket="Talep gönderilen" />
+                <KucukSayi sayi={rf.gorus} etiket="Görüş yazılan" />
+              </div>
+              {rf.son.length === 0
+                ? <p className="text-sm text-warm-500">Henüz referans eklenmedi.</p>
+                : <ul className="divide-y divide-warm-border/70 max-h-72 overflow-y-auto overscroll-contain -mx-2 px-2">
+                    {rf.son.map((r, i) => {
+                      const rozet = REFERANS_ROZET[r.durum];
+                      return (
+                        <li key={`${r.aday_id}-${i}`}>
+                          <a href={`/kariyer/adaylar?aday=${r.aday_id}`} target="_blank" rel="noopener"
+                            className="flex items-center justify-between gap-3 py-2.5 -mx-2 px-2 rounded hover:bg-sand/60 focus-visible:bg-sand/60 transition-colors">
+                            <div className="min-w-0">
+                              <p className="text-sm text-ink truncate font-medium">{r.aday_ad || '(isimsiz)'}</p>
+                              <p className="text-xs text-warm-400 truncate">Referans: {r.ad}</p>
+                            </div>
+                            <div className="shrink-0 text-right">
+                              <span className={`text-xs rounded px-1.5 py-0.5 ${rozet.cls}`}>{rozet.metin}</span>
+                              <p className="text-xs text-warm-400 mt-0.5">{gun(r.ts)}</p>
+                            </div>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>}
+            </div>
+          } />
+      )}
 
       {/* Havuz dağılımı — tam genişlik */}
       <Modul baslik="Havuz dağılımı" not={`${panel.havuz.toplam} aday`}

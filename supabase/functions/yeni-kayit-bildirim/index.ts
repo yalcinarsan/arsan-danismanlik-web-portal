@@ -5,14 +5,20 @@
 //  - referanslar      → aday "Referans talebi gönder"e basınca REFERANSA kişiye özel link
 //                       (payload: { type: 'REFERANS_TALEBI', record: {ad, eposta, token}, aday_ad })
 //
+//  - kurum_bildirimi  → abone kurumlara "havuza yeni profil katıldı" (anlık, adaylar INSERT'te)
+//                       ve haftalık özet (pg_cron, pazartesi 09:00). Alıcıları ve maskeli özeti
+//                       veritabanı seçer (public.kurum_yeni_kayit_bildir / kurum_haftalik_ozet_gonder):
+//                       her kurum yalnızca kendi ekranında görebileceği adayı alır (işveren koruması).
+//
 // Payload: { type, table, record, aday_eposta?, aday_ad? }
 // aday_eposta / aday_ad yalnızca temas_talepleri trigger'ında doldurulur
 // (temas_talebi_bildirim_webhook, adaylar'dan join ederek ekler).
+import { esc, haftalikOzetEpostasi, yeniKatilimEpostasi, type AdayOzeti, type KurumAlici } from '../_shared/kurumBildirimi.ts';
 
 const SITE = 'https://arsandanismanlik.com.tr';
 
-const esc = (s: unknown) =>
-  String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+// Resend saniyede 2 isteğe izin veriyor; birden çok kuruma arka arkaya gönderirken bekle.
+const bekle = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 async function resendGonder(from: string, to: string, subject: string, html: string): Promise<boolean> {
   const res = await fetch('https://api.resend.com/emails', {
@@ -64,6 +70,35 @@ Deno.serve(async (req) => {
       `<p>Yalçın Arsan<br>Otomotiv İnsanı · Arsan Danışmanlık</p>`,
     ].join('\n'));
     return new Response('ok', { status: 200 });
+  }
+
+  if (table === 'kurum_bildirimi') {
+    if (payload.type === 'KURUM_YENI_KAYIT') {
+      const aday = payload.aday as AdayOzeti;
+      const alicilar = (payload.alicilar ?? []) as KurumAlici[];
+      if (!aday?.id || !alicilar.length) return new Response('eksik alan', { status: 400 });
+      let gonderilen = 0;
+      for (const [i, k] of alicilar.entries()) {
+        if (i) await bekle(600);
+        const { konu, html } = yeniKatilimEpostasi(SITE, k, aday);
+        if (await resendGonder(YALCIN, k.eposta, konu, html)) gonderilen++;
+      }
+      return new Response(`ok ${gonderilen}/${alicilar.length}`, { status: 200 });
+    }
+    if (payload.type === 'KURUM_HAFTALIK_OZET') {
+      // Tüm kurumların özeti tek istekte gelir; Resend sınırına takılmamak için sırayla gönder.
+      const ozetler = (payload.ozetler ?? []) as { alici: KurumAlici; adaylar: AdayOzeti[] }[];
+      if (!ozetler.length) return new Response('eksik alan', { status: 400 });
+      let gonderilen = 0;
+      for (const [i, { alici, adaylar }] of ozetler.entries()) {
+        if (!alici?.eposta || !adaylar?.length) continue;
+        if (i) await bekle(600);
+        const { konu, html } = haftalikOzetEpostasi(SITE, alici, adaylar);
+        if (await resendGonder(YALCIN, alici.eposta, konu, html)) gonderilen++;
+      }
+      return new Response(`ok ${gonderilen}/${ozetler.length}`, { status: 200 });
+    }
+    return new Response('bilinmeyen tür', { status: 400 });
   }
 
   if (table === 'temas_talepleri') {

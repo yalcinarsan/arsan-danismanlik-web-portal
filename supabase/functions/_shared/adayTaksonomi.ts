@@ -1,0 +1,96 @@
+// TEK KAYNAK: hem site (src/lib/adayTaksonomi.ts buradan yeniden dışa aktarır) hem e-posta
+// fonksiyonu (supabase/functions/yeni-kayit-bildirim) bu dosyayı kullanır. Deno da okuduğu için
+// buraya import EKLEME; etiketler değişince kurumlara giden e-postalar da kendiliğinden güncellenir.
+// Aday taksonomisi: veritabanı enum değeri -> Türkçe etiket eşlemesi.
+// KayitFormu.tsx ve ProfilimGorunumu.tsx bu listeleri paylaşır.
+
+export const DENEYIM = [['0-3', '0-3 yıl'], ['4-7', '4-7 yıl'], ['8-15', '8-15 yıl'], ['15+', '15+ yıl']];
+export const KANAL = [['oem', 'OEM / Ana marka'], ['distributor', 'Distribütör'], ['bayi', 'Bayi'], ['yan_sanayi', 'Yan sanayi'], ['medya', 'Medya / İçerik üreticisi'], ['diger', 'Diğer']];
+export const FONKSIYON = [
+  ['satis', 'Satış'], ['satis_sonrasi', 'Satış sonrası'], ['pazarlama_iletisim', 'Pazarlama & iletişim'],
+  ['urun_planlama', 'Ürün & planlama'],
+  ['muhendislik_arge', 'Mühendislik & Ar-Ge'], ['uretim_operasyon', 'Üretim & operasyon'],
+  ['kalite', 'Kalite'], ['satinalma_tedarik', 'Satınalma & tedarik zinciri'],
+  ['finans', 'Finans'], ['ik', 'İK'],
+  ['dijital_yazilim', 'Dijital & yazılım'], ['genel_yonetim', 'Genel yönetim'],
+];
+export const KIDEM = [['uzman', 'Uzman'], ['orta_kademe', 'Orta kademe'], ['ust_duzey', 'Üst düzey'], ['direktor_plus', 'Direktör ve üzeri']];
+export const ELEKTRIFIKASYON = [
+  ['ev_deneyimim_var', 'Elektrifikasyon deneyimim var'],
+  ['gecmek_istiyorum', 'Bu alana geçmek istiyorum'],
+  ['degerlendiriyorum', 'Değerlendiriyorum'],
+];
+export const CALISMA = [['ofis', 'Ofis'], ['hibrit', 'Hibrit'], ['uzaktan', 'Uzaktan'], ['farketmez', 'Farketmez']];
+export const ACIKLIK = [['aktif_ariyorum', 'Aktif arıyorum'], ['acigim', 'Açığım'], ['sadece_ozel_firsat', 'Sadece özel fırsat']];
+// Serbest metin yerine seçilebilir liste — yazım farklarının ("izmir" / "İzmir")
+// aynı değeri farklı kayıtlara bölmesini önlemek için. Listede olmayanlar "Diğer" alanına yazılır.
+// Liste, adayların "Diğer"e elle yazdıklarına bakılarak büyütülür (20 Eki: Tesla, aday geri
+// bildirimi; BMC, Chevrolet, Jaecoo, Karsan, Lexus, Maxus, Mazda, Omoda, SsangYong, Subaru, Temsa;
+// iki teker, tarım ve dorse: Agrolia, Honda Motosiklet, Tırsan, Vespa / Aprilia / Piaggio, Volta).
+// Holding/şirket adları (ör. Musoshi, HBS) listeye girmez, "Diğer"de kalır.
+// Yeni eklenen marka, onu elle yazmış adayın formunda düzenlerken kendiliğinden seçili gelir.
+export const MARKALAR = [
+  'Agrolia', 'Alfa Romeo', 'Audi', 'BMC', 'BMW', 'BYD', 'Chery', 'Chevrolet', 'Citroën', 'Cupra',
+  'Dacia', 'DS', 'Fiat', 'Ford', 'Honda', 'Honda Motosiklet', 'Hyundai', 'Isuzu', 'Iveco', 'Jaecoo',
+  'Jaguar', 'Jeep', 'Karsan', 'Kia', 'Land Rover', 'Lexus', 'MAN', 'Maxus', 'Mazda',
+  'Mercedes-Benz', 'MG', 'MINI', 'Mitsubishi', 'Nissan', 'Omoda', 'Opel', 'Peugeot', 'Porsche',
+  'Renault', 'Scania', 'SEAT', 'Škoda', 'SsangYong', 'Subaru', 'Suzuki', 'Temsa', 'Tesla', 'Tırsan',
+  'Tofaş', 'TOGG', 'Toyota', 'Vespa / Aprilia / Piaggio', 'Volkswagen', 'Volta', 'Volvo',
+];
+
+export const SEHIRLER = [
+  'Adana', 'Adıyaman', 'Afyonkarahisar', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
+  'Aydın', 'Balıkesir', 'Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale',
+  'Çankırı', 'Çorum', 'Denizli', 'Diyarbakır', 'Edirne', 'Elazığ', 'Erzincan', 'Erzurum',
+  'Eskişehir', 'Gaziantep', 'Giresun', 'Gümüşhane', 'Hakkari', 'Hatay', 'Isparta', 'Mersin',
+  'İstanbul', 'İzmir', 'Kars', 'Kastamonu', 'Kayseri', 'Kırklareli', 'Kırşehir', 'Kocaeli',
+  'Konya', 'Kütahya', 'Malatya', 'Manisa', 'Kahramanmaraş', 'Mardin', 'Muğla', 'Muş',
+  'Nevşehir', 'Niğde', 'Ordu', 'Rize', 'Sakarya', 'Samsun', 'Siirt', 'Sinop', 'Sivas',
+  'Tekirdağ', 'Tokat', 'Trabzon', 'Tunceli', 'Şanlıurfa', 'Uşak', 'Van', 'Yozgat', 'Zonguldak',
+  'Aksaray', 'Bayburt', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak', 'Bartın', 'Ardahan',
+  'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce',
+].sort((a, b) => a.localeCompare(b, 'tr'));
+SEHIRLER.push('Yurt dışı');
+
+// Not: Veritabanında `cift_kor` enum değeri hâlâ mevcut (Postgres'te enum değeri
+// silmek riskli). Arayüzde artık sunulmuyor; eski kayıtlar `gorunurlukEtiket` ile
+// yine okunabilsin diye eşleme aşağıda korunuyor.
+export const GORUNURLUK: [string, string, string][] = [
+  ['acik', 'Açık', 'Adın, son kurumun ve pozisyonun işverene görünür; iletişim bilgin ve özgeçmişin ise yalnızca sen bir görüşme talebini onaylayınca paylaşılır.'],
+  ['tek_kor', 'Kapalı', 'Kimliğin gizli; işveren seni yetkinliklerinle görür, sana ulaşmak istediğinde talebi biz iletiriz.'],
+];
+
+// Referansın adayla ilişkisi (referanslar.iliski — veritabanındaki kontrol listesiyle aynı).
+// ILISKI: üçüncü kişi gözüyle (kurum, yönetici, profil görünümü); ILISKI_FORM: adayın formunda.
+export const ILISKI: [string, string][] = [
+  ['yonetici', 'Yöneticisi'],
+  ['calisma_arkadasi', 'Çalışma arkadaşı'],
+  ['ekibinden', 'Ekibinden'],
+  ['musteri_is_ortagi', 'Müşterisi ya da iş ortağı'],
+  ['diger', 'Diğer'],
+];
+export const ILISKI_FORM: [string, string][] = [
+  ['yonetici', 'Yöneticim'],
+  ['calisma_arkadasi', 'Çalışma arkadaşım'],
+  ['ekibinden', 'Ekibimdendi'],
+  ['musteri_is_ortagi', 'Müşterim ya da iş ortağım'],
+  ['diger', 'Diğer'],
+];
+
+function etiketle(liste: (readonly string[])[], deger: string | null | undefined): string {
+  return liste.find(([v]) => v === deger)?.[1] ?? deger ?? '—';
+}
+
+export function deneyimEtiket(v?: string | null) { return etiketle(DENEYIM, v); }
+export function kanalEtiket(v?: string | null) { return etiketle(KANAL, v); }
+export function fonksiyonEtiket(v?: string | null) { return etiketle(FONKSIYON, v); }
+export function kidemEtiket(v?: string | null) { return etiketle(KIDEM, v); }
+export function elektrifikasyonEtiket(v?: string | null) { return etiketle(ELEKTRIFIKASYON, v); }
+export function calismaEtiket(v?: string | null) { return etiketle(CALISMA, v); }
+export function aciklikEtiket(v?: string | null) { return etiketle(ACIKLIK, v); }
+export function gorunurlukEtiket(v?: string | null) {
+  // Artık sunulmayan eski `cift_kor` değeri de "Kapalı" olarak okunur.
+  if (v === 'cift_kor') return 'Kapalı';
+  return GORUNURLUK.find(([val]) => val === v)?.[1] ?? v ?? '—';
+}
+export function iliskiEtiket(v?: string | null) { return etiketle(ILISKI, v); }

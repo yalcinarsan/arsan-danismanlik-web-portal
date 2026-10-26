@@ -12,7 +12,7 @@
 // Buraya sabit e-posta kontrolü GERİ EKLEME: tarayıcıdaki karşılaştırma
 // güvenlik sınırı değil, atlanabilir. Yetki tek yerde, veritabanında dursun.
 // Kime erişim verileceği: kurum_erisim tablosu (Supabase paneli).
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import {
   KANAL, FONKSIYON, ELEKTRIFIKASYON,
@@ -71,6 +71,7 @@ export default function KurumDemo() {
   const [adaylar, setAdaylar] = useState<Aday[]>([]);
   const [oturumEpostasi, setOturumEpostasi] = useState('');
   const [acikId, setAcikId] = useState<string | null>(null);
+  const [hedefId, setHedefId] = useState<string | null>(null);
   const [talepId, setTalepId] = useState<string | null>(null);
   const [abone, setAbone] = useState(false);
   const [talepGonderiliyor, setTalepGonderiliyor] = useState<string | null>(null);
@@ -87,6 +88,11 @@ export default function KurumDemo() {
 
   useOturum((oturum) => oturumHazir(oturum.user.email ?? ''), () => setDurum('eposta'));
 
+  useEffect(() => {
+    if (durum !== 'liste' || !hedefId) return;
+    document.getElementById(`aday-${hedefId}`)?.scrollIntoView({ block: 'start' });
+  }, [durum, hedefId]);
+
   async function oturumHazir(girenEposta: string) {
     // Hangi hesapla girildiği ekranda yazsın: yetki reddi geldiğinde en sık
     // sebep "beklenenden başka bir oturum açık olması" ve bu görünmezse
@@ -102,6 +108,12 @@ export default function KurumDemo() {
     if (havuz.error) { setHata(anlasilirHata(havuz.error, 'okuma')); setDurum('yetkisiz'); return; }
     setAbone(kademe.data === 'abone');
     setAdaylar((havuz.data ?? []) as Aday[]);
+    // Kurumlara giden "yeni profil" e-postası /kariyer/kurum-demo?aday=<id> ile gelir:
+    // o profilin kartı açık ve görünür olsun.
+    const istenen = new URLSearchParams(window.location.search).get('aday');
+    if (istenen && ((havuz.data ?? []) as Aday[]).some((x) => x.id === istenen)) {
+      setAcikId(istenen); setHedefId(istenen);
+    }
     // Örnek (abone olmayan) görünümde isim gösterilmiyor; bölüm yalnız abonelere.
     if (kademe.data === 'abone') {
       const { data: kabul } = await supabase.rpc('kurum_kabul_edenler');
@@ -124,7 +136,7 @@ export default function KurumDemo() {
   async function cikisYap() {
     await oturumuKapat();
     setOturumEpostasi(''); setAdaylar([]); setHata('');
-    setAbone(false); setKabulEdenler([]); setAcikId(null); setTalepId(null);
+    setAbone(false); setKabulEdenler([]); setAcikId(null); setHedefId(null); setTalepId(null);
     setTalepBasarili([]); setTalepHata({});
     setDurum('eposta');
   }
@@ -275,7 +287,8 @@ export default function KurumDemo() {
             .filter(Boolean).join(' · ');
           const isimGoster = abone && aday.gorunurluk === 'acik' && !!aday.ad;
           return (
-            <div key={aday.id} className="rounded-lg border border-warm-border overflow-hidden">
+            <div key={aday.id} id={`aday-${aday.id}`}
+              className={`rounded-lg border overflow-hidden scroll-mt-24 ${hedefId === aday.id ? 'border-accent ring-1 ring-accent/30' : 'border-warm-border'}`}>
               <button
                 type="button"
                 onClick={() => setAcikId(acik ? null : aday.id)}
