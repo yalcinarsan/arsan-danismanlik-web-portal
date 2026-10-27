@@ -1,14 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Giriş doğrulanıyor" description="Giriş bağlantın doğrulanıyor.">
+<BaseLayout title="Girişi tamamla" description="Giriş bağlantın hazır.">
   <meta name="robots" content="noindex" slot="head" />
   <section class="mx-auto max-w-md px-4 py-24 text-center">
-    <p id="durum" class="text-warm-600">Giriş bağlantın doğrulanıyor…</p>
+    <p id="durum" class="text-warm-600 mb-6">Giriş bağlantın hazır. Devam etmek için aşağıdaki düğmeye bas.</p>
+    <button id="tamamla" type="button" hidden
+      class="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
+      Girişi tamamla
+    </button>
   </section>
 </BaseLayout>
 
 <script>
+  // Bağlantıdaki tek kullanımlık kod, sayfa açılınca DEĞİL düğmeye basılınca kullanılır.
+  // Neden (27 Eki 2026, Doğuş Oto): kurumsal e-posta güvenlik taramaları (Microsoft Safe
+  // Links vb.) bağlantıyı kişiden önce açıp sayfadaki JavaScript'i çalıştırıyor; kod
+  // otomatik kullanılınca tarama onu harcıyor, kişi tıkladığında "süresi dolmuş" görüyordu.
+  // Kayıtlarda: istekten 20 sn sonra Microsoft adresinden başarılı doğrulama, ardından
+  // kişinin kendi denemelerinde otp_expired. Taramalar düğmeye basmaz.
   import { supabase } from '../../lib/supabase';
 
   const params = new URLSearchParams(window.location.search);
@@ -16,12 +26,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   const type = params.get('type');
   const redirectTo = params.get('redirect_to') || '/kariyer/profilim';
   const durum = document.getElementById('durum');
+  const dugme = document.getElementById('tamamla') as HTMLButtonElement | null;
 
   if (!tokenHash || !type) {
     if (durum) durum.textContent = 'Bağlantı eksik veya geçersiz. Lütfen tekrar giriş bağlantısı iste.';
-  } else {
-    supabase.auth.verifyOtp({ token_hash: tokenHash, type }).then(({ error }) => {
+  } else if (dugme) {
+    dugme.hidden = false;
+    dugme.addEventListener('click', async () => {
+      dugme.disabled = true;
+      dugme.textContent = 'Doğrulanıyor…';
+      const { error } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type: type as 'email' });
       if (error) {
+        dugme.hidden = true;
         if (durum) durum.textContent = 'Bağlantının süresi dolmuş olabilir. Lütfen tekrar giriş bağlantısı iste.';
       } else {
         window.location.href = redirectTo;
