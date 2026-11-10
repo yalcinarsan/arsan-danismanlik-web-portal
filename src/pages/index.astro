@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OtomotivSistemiKarti from '../components/OtomotivSistemiKarti.astro';
+import OtomotivInsaniKarti from '../components/OtomotivInsaniKarti.astro';
 
 const kimizNeYapariz = [
   {
@@ -50,8 +51,10 @@ const pillars = [
     ))}
   </section>
 
-  <section class="mx-auto max-w-4xl px-4 pb-16">
-    <OtomotivSistemiKarti etiket="Yeni ürün" />
+  {/* İki yeni ürün yan yana; mobilde alt alta (Otomotiv İnsanı önce). */}
+  <section class="mx-auto max-w-4xl px-4 pb-16 grid gap-6 sm:grid-cols-2">
+    <OtomotivInsaniKarti />
+    <OtomotivSistemiKarti etiket="Yeni ürün" yerlesim="dikey" />
   </section>
 
   <div class="bg-sand">

@@ -1,0 +1,36 @@
+---
+// Ana sayfada OSA kartının solunda duran "Yeni ürün" kartı (Yalçın, 9 Kas 2026:
+// "yeni ürün OSA kutusunun soluna ayrı bir yeni ürün kutusu içinde otomotiv insanı
+// projemizi de koyalım. yan yana dursunlar").
+//
+// Metin src/icerik/oi-cagri.md'den gelir (makale sonlarındaki çağrıyla aynı kaynak),
+// burada yalnızca sunum var. Kartın yapısı OtomotivSistemiKarti'nin dikey hâliyle aynı;
+// fotoğraf yerine Otomotiv İnsanı sayfasının koyu kahve zemini ve serif başlığı
+// kullanılıyor, iki kart yan yana eşit ağırlıkta dursun diye.
+import { frontmatter as t } from '../icerik/oi-cagri.md';
+
+interface Props {
+  etiket?: string;
+}
+
+const { etiket = 'Yeni ürün' } = Astro.props;
+---
+
+<a
+  href={t.link_hedef}
+  class="group flex flex-col overflow-hidden rounded-xl border border-warm-border bg-paper transition-colors hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+>
+  <div class="flex aspect-[16/9] flex-col justify-end bg-[#453629] px-6 py-6 sm:px-7">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-accent">Otomotiv İnsanı</p>
+    <p class="mt-2 font-serif text-2xl leading-snug text-paper transition-transform duration-300 group-hover:translate-x-0.5">
+      {t.baslik}
+    </p>
+  </div>
+  <div class="flex flex-1 flex-col p-6">
+    <p class="text-xs font-semibold uppercase tracking-[0.13em] text-accent">{etiket}</p>
+    {/* Yalçın (9 Kas): "OI başlığı: Otomotive özgü İnsan Kaynağı Portalı olsun." */}
+    <h2 class="mt-2 text-xl font-semibold text-ink">Otomotive özgü İnsan Kaynağı Portalı</h2>
+    <p class="mt-3 text-sm leading-relaxed text-warm-600">{t.metin}</p>
+    <p class="mt-auto pt-4 text-sm font-medium text-accent">{t.link_metin} →</p>
+  </div>
+</a>

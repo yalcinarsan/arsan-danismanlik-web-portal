@@ -1,6 +1,8 @@
 ---
-# Makale sonlarında ve EA Verileri sayfasında görünen Otomotiv İnsanı çağrısı.
-# Tek yerden düzenlenir; bileşen: src/components/OtomotivInsaniCagri.astro
+# Makale sonlarında ve EA Verileri sayfasında görünen Otomotiv İnsanı çağrısı;
+# aynı metin ana sayfadaki "Yeni ürün" kartında da kullanılır.
+# Tek yerden düzenlenir; bileşenler: src/components/OtomotivInsaniCagri.astro,
+# src/components/OtomotivInsaniKarti.astro
 #
 # Hedef bilinçli olarak manifesto sayfası (/kariyer/otomotiv-insani), doğrudan
 # kayıt formu değil: makaleden ya da veri sayfasından gelen okuyucu projeyi

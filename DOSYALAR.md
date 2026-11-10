@@ -60,7 +60,8 @@ kod işaretlerine (`<p class="...">` gibi) dokunmamak gerekir — emin değilsen
 | [src/pages/hizmetlerimiz.astro](src/pages/hizmetlerimiz.astro) | Hizmetlerimiz ana sayfası |
 | [src/pages/hizmetlerimiz/](src/pages/hizmetlerimiz/) | Danışmanlık ve çalıştay alt sayfaları |
 | [src/pages/otomotiv-satis-dagitim-sistemi.astro](src/pages/otomotiv-satis-dagitim-sistemi.astro) | Otomotiv Satış ve Dağıtım Sistemi ürün sayfası |
-| [src/components/OtomotivSistemiKarti.astro](src/components/OtomotivSistemiKarti.astro) | Ana sayfa ve Hizmetlerimiz’deki kısa ürün kartı |
+| [src/components/OtomotivSistemiKarti.astro](src/components/OtomotivSistemiKarti.astro) | Ana sayfa ve Hizmetlerimiz’deki kısa OSA ürün kartı |
+| [src/components/OtomotivInsaniKarti.astro](src/components/OtomotivInsaniKarti.astro) | Ana sayfada OSA'nın solundaki Otomotiv İnsanı kartı (metni `src/icerik/oi-cagri.md`'den) |
 | [src/pages/kariyer/index.astro](src/pages/kariyer/index.astro) | Kariyer — "çok yakında" tanıtım sayfası |
 | [src/pages/kariyer/kayit.astro](src/pages/kariyer/kayit.astro) | Kayıt sayfasının başlık ve açıklaması |
 | [src/pages/referanslar.astro](src/pages/referanslar.astro) | Referanslar |
