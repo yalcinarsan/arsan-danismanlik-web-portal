@@ -182,6 +182,12 @@ const articleLd = {
     }
   </style>
   <style is:global>
+    /* Mavi = veri ve kaynak: dipnotlar ve "Kaynaklar ve Referanslar" bölümü. */
+    .prose a[data-footnote-ref], .prose section[data-footnotes] a { color: #88afdd; }
+    .prose h2[id^="kaynaklar"], .prose h2[id^="kaynaklar"] ~ * strong, .prose h2[id^="kaynaklar"] ~ * a { color: #88afdd; }
+    .prose h2[id^="kaynaklar"] ~ ul > li::marker { color: #88afdd; }
+    /* Saydam zeminli grafik görselleri koyu kahvede okunmaz; krem zemin verilir. */
+    .prose img { background-color: #faf7f2; }
     .prose a[data-footnote-ref] {
       font-weight: 700;
       text-decoration: none;
@@ -227,6 +233,12 @@ const articleLd = {
   </script>
 
   <style is:global>
+    /* Mavi = veri ve kaynak: dipnotlar ve "Kaynaklar ve Referanslar" bölümü. */
+    .prose a[data-footnote-ref], .prose section[data-footnotes] a { color: #88afdd; }
+    .prose h2[id^="kaynaklar"], .prose h2[id^="kaynaklar"] ~ * strong, .prose h2[id^="kaynaklar"] ~ * a { color: #88afdd; }
+    .prose h2[id^="kaynaklar"] ~ ul > li::marker { color: #88afdd; }
+    /* Saydam zeminli grafik görselleri koyu kahvede okunmaz; krem zemin verilir. */
+    .prose img { background-color: #faf7f2; }
     .xref-popover {
       position: fixed;
       z-index: 60;

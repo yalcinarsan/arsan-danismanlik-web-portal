@@ -49,8 +49,8 @@ export interface ChartConfig {
   series: SeriesDef[];
 }
 
-const INK = '#4a4238';
-const GRID = '#e7ddcf';
+const INK = '#ddd0ba';
+const GRID = '#5c4a39';
 
 /** Sums `value` across the requested modes for each year within one category. */
 function sumByYear(rows: EvRow[], s: SeriesDef, category: string): Map<number, number> {

@@ -1,13 +1,13 @@
 import type { ChartConfig } from './evDataTransforms';
 
-// Warm palette, aligned with the "Sıcak kağıt" theme.
-const CLAY = '#b5623c';
-const SLATE = '#4a6670';
-const OLIVE = '#7a8b5a';
-const INK = '#2c2620';
-const STONE = '#857a69';
+// Koyu kahve zemin için açık tonlar. SLATE = logodaki mavinin açık hâli (mavi = veri).
+const CLAY = '#e8a07a';
+const SLATE = '#88afdd';
+const OLIVE = '#b4c48c';
+const INK = '#faf7f2';
+const STONE = '#b5a994';
 // Otomotiv İnsanı manifesto sayfasının arka planıyla aynı koyu kahve (bkz. kariyer/otomotiv-insani.astro).
-const KOYU_KAHVE = '#453629';
+const KOYU_KAHVE = '#ddd0ba';
 
 const LIGHT_DUTY = ['Cars', 'Vans'];
 
