@@ -168,7 +168,7 @@ const faqSchema = {
   </section>
 
   <section class="mx-auto max-w-5xl px-4 py-10 sm:py-14">
-    <figure class="overflow-hidden rounded-2xl border border-warm-border bg-white shadow-sm">
+    <figure class="overflow-hidden rounded-2xl border border-warm-border bg-kart shadow-sm">
       <div class="relative aspect-[2/3] overflow-hidden bg-[#f5eedf] sm:aspect-[1672/1180]">
         <iframe
           src={`${akisDemoAdresi}?embed=hero`}
@@ -227,7 +227,7 @@ const faqSchema = {
       </div>
       <ul class="grid gap-3 sm:grid-cols-2" aria-label="Kurulum sırasında cevaplanan temel sorular">
         {sorular.map((soru, i) => (
-          <li class:list={['rounded-xl border border-warm-border bg-white p-5 text-sm leading-relaxed text-warm-700', i === sorular.length - 1 && 'sm:col-span-2']}>
+          <li class:list={['rounded-xl border border-warm-border bg-kart p-5 text-sm leading-relaxed text-warm-700', i === sorular.length - 1 && 'sm:col-span-2']}>
             <span class="mb-3 block text-xs font-semibold text-accent">0{i + 1}</span>
             {soru}
           </li>
@@ -285,11 +285,11 @@ const faqSchema = {
       </p>
     </div>
     <div class="mt-9 overflow-hidden rounded-xl border border-warm-border">
-      <div class="hidden grid-cols-2 bg-ink text-sm font-semibold text-paper sm:grid">
+      <div class="hidden grid-cols-2 bg-sand text-sm font-semibold text-ink sm:grid">
         <div class="p-4">Sabit ürün çekirdeği</div>
         <div class="border-l border-white/15 p-4">Üreticiyle yapılandırılan alanlar</div>
       </div>
-      <div class="divide-y divide-warm-border bg-white">
+      <div class="divide-y divide-warm-border bg-kart">
         {sabitVeYapilandirilan.map((satir) => (
           <div class="grid sm:grid-cols-2">
             <div class="p-4 text-sm leading-relaxed text-warm-700">
@@ -313,7 +313,7 @@ const faqSchema = {
     </aside>
   </section>
 
-  <section class="border-y border-warm-border bg-white">
+  <section class="border-y border-warm-border bg-kart">
     <div class="mx-auto grid max-w-5xl gap-10 px-4 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16">
       <div>
         <h2 class="text-3xl font-semibold text-ink">OSA tek bir kanal modeli dayatmaz</h2>
@@ -351,7 +351,7 @@ const faqSchema = {
     </div>
     <ol class="mt-9 grid gap-5 sm:grid-cols-2">
       {kurulumAdimlari.map((adim, i) => (
-        <li class="rounded-xl border border-warm-border bg-white p-6">
+        <li class="rounded-xl border border-warm-border bg-kart p-6">
           <div class="flex items-start gap-4">
             <span class="text-2xl font-semibold text-accent">0{i + 1}</span>
             <div>
@@ -369,11 +369,11 @@ const faqSchema = {
     </p>
   </section>
 
-  <section class="bg-ink text-paper">
+  <section class="bg-sand text-ink">
     <div class="mx-auto grid max-w-5xl gap-10 px-4 py-14 sm:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
       <div>
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#dc9a78]">Çalışan referans uygulama</p>
-        <h2 class="text-3xl font-semibold text-paper">Çekirdek yapı çalışır ve test edilir</h2>
+        <h2 class="text-3xl font-semibold text-ink">Çekirdek yapı çalışır ve test edilir</h2>
         <p class="mt-5 text-lg leading-relaxed text-[#ddd5ca]">
           Üretici ve Bayi, aynı kalıcı veri üzerinde ayrı kullanıcı hesapları ve farklı yetkilerle çalışır.
         </p>
@@ -398,7 +398,7 @@ const faqSchema = {
         <h2 class="text-3xl font-semibold text-ink">Bu ürün kimler için?</h2>
         <ul class="mt-7 grid gap-3">
           {hedefKurumlar.map((kurum) => (
-            <li class="flex gap-3 rounded-lg border border-warm-border bg-white p-4 text-sm leading-relaxed text-warm-700">
+            <li class="flex gap-3 rounded-lg border border-warm-border bg-kart p-4 text-sm leading-relaxed text-warm-700">
               <span class="text-accent" aria-hidden="true">→</span>
               <span>{kurum}</span>
             </li>

@@ -63,7 +63,7 @@ function Gosterge({ sayi, etiket, alt, href, vurgu }: {
       {alt && <p className="text-xs text-warm-400 mt-0.5">{alt}</p>}
     </>
   );
-  const cls = `rounded-xl border p-4 ${vurgu ? 'border-accent/40 bg-accent/5' : 'border-warm-border bg-white'}`;
+  const cls = `rounded-xl border p-4 ${vurgu ? 'border-accent/40 bg-accent/5' : 'border-warm-border bg-kart'}`;
   return href
     ? <a href={href} className={`${cls} block transition-colors hover:border-accent/60`}>{govde}</a>
     : <div className={cls}>{govde}</div>;
@@ -74,7 +74,7 @@ function Modul({ baslik, aksiyon, not, cocuk, className = '' }: {
   cocuk: React.ReactNode; className?: string;
 }) {
   return (
-    <section className={`rounded-xl border border-warm-border bg-white p-5 ${className}`}>
+    <section className={`rounded-xl border border-warm-border bg-kart p-5 ${className}`}>
       <div className="flex items-baseline justify-between gap-3 mb-4">
         <div className="flex items-baseline gap-2.5">
           <h2 className="text-base font-semibold text-ink">{baslik}</h2>
@@ -88,7 +88,7 @@ function Modul({ baslik, aksiyon, not, cocuk, className = '' }: {
 }
 
 const TUR_ROZET: Record<Kurum['tur'], { metin: string; cls: string }> = {
-  ucretli: { metin: 'ücretli', cls: 'bg-accent text-white' },
+  ucretli: { metin: 'ücretli', cls: 'bg-accent text-paper' },
   demo: { metin: 'pilot', cls: 'bg-accent/10 text-accent' },
   test: { metin: 'test', cls: 'bg-warm-border/50 text-warm-600' },
   yonetici: { metin: 'yönetici', cls: 'bg-warm-border/50 text-warm-600' },

@@ -188,7 +188,7 @@ export default function KurumDemo() {
           <button
             type="button"
             onClick={cikisYap}
-            className="rounded-md bg-accent px-5 py-2 text-sm text-white font-medium"
+            className="rounded-md bg-accent px-5 py-2 text-sm text-paper font-medium"
           >
             Çıkış yap ve başka e-posta ile gir
           </button>
@@ -356,7 +356,7 @@ export default function KurumDemo() {
                           type="button"
                           disabled={talepGonderiliyor === aday.id}
                           onClick={() => temasGonder(aday.id)}
-                          className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium disabled:opacity-60"
+                          className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-paper font-medium disabled:opacity-60"
                         >
                           {talepGonderiliyor === aday.id ? 'Gönderiliyor…' : 'Temas talebi gönder'}
                         </button>
@@ -372,7 +372,7 @@ export default function KurumDemo() {
                     <button
                       type="button"
                       onClick={() => setTalepId(aday.id)}
-                      className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium"
+                      className="mt-4 rounded-md bg-accent px-5 py-2 text-sm text-paper font-medium"
                     >
                       Temas talebi gönder
                     </button>
@@ -401,7 +401,7 @@ export function KabulEdenlerBolumu({ kabulEdenler }: { kabulEdenler: KabulEden[]
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         {kabulEdenler.map((k, i) => (
-          <article key={i} className="rounded-lg border border-warm-border bg-white p-5">
+          <article key={i} className="rounded-lg border border-warm-border bg-kart p-5">
             <p className="font-medium text-ink">{k.ad ? adDuzelt(k.ad) : 'Aday'}</p>
             <p className="text-sm text-warm-500 mt-0.5">
               {[k.son_pozisyon, kidemEtiket(k.kidem)].filter(Boolean).join(' · ')}

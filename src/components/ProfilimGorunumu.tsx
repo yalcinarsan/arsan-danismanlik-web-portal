@@ -169,7 +169,7 @@ export default function ProfilimGorunumu() {
         <div className="rounded-lg border border-warm-border bg-sand p-8">
           <h2 className="text-xl font-semibold text-ink mb-2">Henüz bir kaydın yok.</h2>
           <p className="text-warm-600 mb-4">Bu e-posta ile daha önce havuza katılmamışsın.</p>
-          <a href="/kariyer/kayit" className="inline-block rounded-md bg-accent px-5 py-2.5 text-white font-medium hover:opacity-90">
+          <a href="/kariyer/kayit" className="inline-block rounded-md bg-accent px-5 py-2.5 text-paper font-medium hover:opacity-90">
             Havuza katıl
           </a>
         </div>
@@ -312,7 +312,7 @@ export function ProfilReferanslari({ referanslar, refIslem, refMesaj, onGonder }
                     </span>
                     {r.talep_sayisi < 3 && !bekliyor && (
                       <button type="button" onClick={() => onGonder(r.id)} disabled={refIslem === r.id}
-                        className="rounded-md bg-accent px-4 py-1.5 text-sm text-white font-medium disabled:opacity-60">
+                        className="rounded-md bg-accent px-4 py-1.5 text-sm text-paper font-medium disabled:opacity-60">
                         {refIslem === r.id ? 'Gönderiliyor…' : r.talep_ts ? 'Yeniden gönder' : 'Referans talebi gönder'}
                       </button>
                     )}

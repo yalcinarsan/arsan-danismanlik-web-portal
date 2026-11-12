@@ -379,7 +379,7 @@ export default function KayitFormu() {
         <div className="flex flex-wrap gap-2">
           {KANAL.map(([v, l]) => (
             <button type="button" key={v} onClick={() => coklu('kanal', v)}
-              className={`rounded-full border px-3 py-1.5 text-sm ${f.kanal.includes(v) ? 'border-accent bg-accent text-white' : 'border-warm-border text-warm-600'}`}>
+              className={`rounded-full border px-3 py-1.5 text-sm ${f.kanal.includes(v) ? 'border-accent bg-accent text-paper' : 'border-warm-border text-warm-600'}`}>
               {l}
             </button>
           ))}
@@ -391,7 +391,7 @@ export default function KayitFormu() {
         <div className="flex flex-wrap gap-2">
           {FONKSIYON.map(([v, l]) => (
             <button type="button" key={v} onClick={() => coklu('fonksiyon', v)}
-              className={`rounded-full border px-3 py-1.5 text-sm ${f.fonksiyon.includes(v) ? 'border-accent bg-accent text-white' : 'border-warm-border text-warm-600'}`}>
+              className={`rounded-full border px-3 py-1.5 text-sm ${f.fonksiyon.includes(v) ? 'border-accent bg-accent text-paper' : 'border-warm-border text-warm-600'}`}>
               {l}
             </button>
           ))}
@@ -416,7 +416,7 @@ export default function KayitFormu() {
         <div className="flex flex-wrap gap-2">
           {MARKALAR.map((m) => (
             <button type="button" key={m} onClick={() => coklu('markalar', m)}
-              className={`rounded-full border px-3 py-1.5 text-sm ${f.markalar.includes(m) ? 'border-accent bg-accent text-white' : 'border-warm-border text-warm-600'}`}>
+              className={`rounded-full border px-3 py-1.5 text-sm ${f.markalar.includes(m) ? 'border-accent bg-accent text-paper' : 'border-warm-border text-warm-600'}`}>
               {m}
             </button>
           ))}
@@ -535,7 +535,7 @@ export default function KayitFormu() {
       {hata && <HataKutusu>{hata}</HataKutusu>}
 
       <button type="submit" disabled={gonderiliyor}
-        className="rounded-md bg-accent px-8 py-3 text-white font-medium disabled:opacity-60">
+        className="rounded-md bg-accent px-8 py-3 text-paper font-medium disabled:opacity-60">
         {gonderiliyor ? 'Kaydediliyor…' : mevcutKayit ? 'Profilimi güncelle' : 'Havuza katıl'}
       </button>
     </form>

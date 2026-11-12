@@ -87,7 +87,7 @@ export function GirisFormu({ aciklama, gonderildiNotu, onKontrol }: {
           </div>
           {hata && <p className="text-sm text-accent">{hata}</p>}
           <button type="submit" disabled={gonderiliyor}
-            className="rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-60">
+            className="rounded-md bg-accent px-6 py-2.5 text-paper font-medium disabled:opacity-60">
             {gonderiliyor ? 'Gönderiliyor…' : 'Giriş bağlantısı gönder'}
           </button>
         </form>
@@ -140,7 +140,7 @@ export function YoneticiYetkisiz({ hata, oturumEpostasi, onCikis }: {
         </p>
       )}
       <button type="button" onClick={onCikis}
-        className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-white font-medium">
+        className="mt-5 rounded-md bg-accent px-5 py-2 text-sm text-paper font-medium">
         Çıkış yap ve yönetici hesabıyla gir
       </button>
     </div>

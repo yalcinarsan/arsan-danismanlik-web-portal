@@ -43,7 +43,7 @@ export function OzetKart({ baslik, veri, cubuk = false }: { baslik: string; veri
 /** Göze çarpan hata kutusu. Düz renkli bir satır gözden kaçıyordu (canlı test, 18 Eki). */
 export function HataKutusu({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <div role="alert" className={`rounded-md border-2 border-red-600 bg-red-50 px-4 py-3 text-sm text-red-800 ${className}`}>
+    <div role="alert" className={`rounded-md border-2 border-red-400 bg-red-950/40 px-4 py-3 text-sm text-red-100 ${className}`}>
       {children}
     </div>
   );

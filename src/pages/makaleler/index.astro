@@ -92,7 +92,7 @@ const sonYayinlananlar = [...all]
     <div class="mt-10 lg:grid lg:grid-cols-4 lg:gap-12">
       <div class="lg:col-span-3 space-y-8">
       {seriler.map((s) => (
-        <article class="overflow-hidden rounded-2xl border border-warm-border bg-white">
+        <article class="overflow-hidden rounded-2xl border border-warm-border bg-kart">
           {s.kapak && (
             <img src={s.kapak} alt="" loading="lazy" class="h-44 w-full border-b border-warm-border object-cover" />
           )}
@@ -172,12 +172,12 @@ const sonYayinlananlar = [...all]
   .chip-wrap { position: relative; display: inline-flex; }
   .chip {
     width: 32px; height: 32px; border-radius: 8px;
-    border: 1px solid #e7ddcf; background: #f1e9dd; color: #2c2620;
+    border: 1px solid #6a5540; background: #3c2f24; color: #ddd0ba;
     font-size: 13.5px; font-weight: 500;
     display: inline-flex; align-items: center; justify-content: center;
     text-decoration: none; transition: border-color .12s, color .12s;
   }
-  .chip:hover { border-color: #b5623c; color: #b5623c; }
+  .chip:hover { border-color: #e8a07a; color: #e8a07a; }
 
   .pop {
     position: absolute; bottom: calc(100% + 12px); left: 0;
@@ -200,9 +200,9 @@ const sonYayinlananlar = [...all]
   .pop-desc { display: block; font-size: 12.5px; color: #857a69; line-height: 1.5; }
 
   /* Sidebar: seri filtresi */
-  .f-pill { border: 1px solid #e7ddcf; background: transparent; color: #857a69; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; cursor: pointer; line-height: 1.4; transition: color .12s, background-color .12s, border-color .12s; }
-  .f-pill:hover { border-color: #b5623c; color: #2c2620; }
-  .f-pill.f-active { background: #2c2620; border-color: #2c2620; color: #faf7f2; }
+  .f-pill { border: 1px solid #6a5540; background: transparent; color: #b5a994; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; cursor: pointer; line-height: 1.4; transition: color .12s, background-color .12s, border-color .12s; }
+  .f-pill:hover { border-color: #e8a07a; color: #faf7f2; }
+  .f-pill.f-active { background: #faf7f2; border-color: #faf7f2; color: #453629; }
 
   /* Sidebar: hover preview (sağa açılır; sidebar sağ kenarda olduğu için sola doğru) */
   .son-item { position: relative; }

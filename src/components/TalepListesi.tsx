@@ -152,7 +152,7 @@ export default function TalepListesi() {
                     onClick={() => durumDegistir(t.id, v)}
                     className={`rounded-full border px-3 py-1 text-sm transition-colors disabled:opacity-50 ${
                       t.durum === v
-                        ? 'border-accent bg-accent text-white'
+                        ? 'border-accent bg-accent text-paper'
                         : 'border-warm-border text-warm-600 hover:bg-sand'
                     }`}
                   >
@@ -168,7 +168,7 @@ export default function TalepListesi() {
                 <div className="mt-4 border-t border-warm-border/60 pt-4">
                   <a
                     href={tanistirmaMailto(t)}
-                    className="inline-block rounded-md bg-accent px-5 py-2 text-sm text-white font-medium"
+                    className="inline-block rounded-md bg-accent px-5 py-2 text-sm text-paper font-medium"
                   >
                     Tanıştırma e-postası hazırla
                   </a>

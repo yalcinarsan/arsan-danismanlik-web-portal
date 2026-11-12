@@ -164,7 +164,7 @@ export default function AdaylarListesi() {
           <input value={mercekKurum} onChange={(e) => setMercekKurum(e.target.value)}
             className={inputCls + ' max-w-xs'} placeholder="Kurum adı (ör. Doğuş Otomotiv)" />
           <button type="submit" disabled={mercekYukleniyor}
-            className="rounded-md bg-accent px-5 py-2 text-sm text-white font-medium disabled:opacity-60">
+            className="rounded-md bg-accent px-5 py-2 text-sm text-paper font-medium disabled:opacity-60">
             {mercekYukleniyor ? 'Aranıyor…' : 'Ara'}
           </button>
         </div>

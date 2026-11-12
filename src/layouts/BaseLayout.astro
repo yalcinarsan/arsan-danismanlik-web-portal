@@ -135,6 +135,9 @@ const orgGraph = {
     <style is:global>
       html { scrollbar-gutter: stable; }
       h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.01em; }
+      /* Koyu tema: tarayıcının kendi form parçaları (açılır liste, tarih seçici, kaydırma çubuğu) da koyu çizilsin. */
+      input, select, textarea { color-scheme: dark; }
+      select option { background-color: #3c2f24; color: #faf7f2; }
     </style>
     <script type="application/ld+json" set:html={JSON.stringify(orgGraph)} />
     <slot name="head" />

@@ -9,18 +9,20 @@ export default {
       // Adlar eski açık temadan kaldı: ink = ana yazı rengi, paper = sayfa zemini.
       colors: {
         // Üst şerit (logo + menü) açık kalır; logo beyaz zemin için çizildi.
-        serit: { zemin: '#faf7f2', cizgi: '#e7ddcf', metin: '#5f5648', vurgu: '#b5623c' },
+        serit: { zemin: '#faf7f2', cizgi: '#e7ddcf', metin: '#5f5648', vurgu: '#a5532f' },
         ink: '#faf7f2',
         accent: '#e8a07a',
         // Mavi = veri ve kaynak. Logodaki mavinin açık tonu.
         veri: '#88afdd',
         paper: '#453629',
         sand: '#3c2f24',
+        // Kartlar ve kutular (eski bg-white): zeminden bir ton açık.
+        kart: '#4f3e30',
         'warm-border': '#6a5540',
         'warm-700': '#ddd0ba',
         'warm-600': '#cdbfa7',
-        'warm-500': '#b5a994',
-        'warm-400': '#9a8c76',
+        'warm-500': '#c0b49f',
+        'warm-400': '#b0a38c',
       },
       typography: () => {
         const koyu = {

@@ -27,7 +27,7 @@ function dagilim(harita: readonly (readonly string[])[], veri: Record<string, nu
 function Dagilim({ baslik, satirlar }: { baslik: string; satirlar: { label: string; n: number }[] }) {
   const max = Math.max(...satirlar.map((x) => x.n), 1);
   return (
-    <div className="rounded-lg border border-warm-border bg-white p-5">
+    <div className="rounded-lg border border-warm-border bg-kart p-5">
       <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-4">{baslik}</h3>
       <div className="space-y-3">
         {satirlar.map((s) => (
@@ -87,7 +87,7 @@ export default function HavuzVitrin() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         {vurgular.map((v) => (
-          <div key={v.etiket} className="rounded-lg border border-warm-border bg-white p-5 text-center">
+          <div key={v.etiket} className="rounded-lg border border-warm-border bg-kart p-5 text-center">
             <div className="font-serif text-4xl text-accent tabular-nums">{v.deger}</div>
             <div className="mt-1.5 text-sm text-warm-600 leading-snug">{v.etiket}</div>
           </div>

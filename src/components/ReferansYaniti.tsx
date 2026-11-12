@@ -90,7 +90,7 @@ export default function ReferansYaniti() {
 
       <label htmlFor="yorum" className="block text-sm font-medium text-ink mt-6 mb-1.5">Görüşünüz</label>
       <textarea id="yorum" rows={10} maxLength={COK} value={yorum} onChange={(e) => setYorum(e.target.value)}
-        className="w-full rounded-md border border-warm-border bg-white px-3 py-2 text-ink focus:border-accent focus:outline-none" />
+        className="w-full rounded-md border border-warm-border bg-sand px-3 py-2 text-ink focus:border-accent focus:outline-none" />
       <p className="mt-1 text-xs text-warm-400 text-right">{yorum.length} / {COK}</p>
 
       <p className="mt-4 text-xs text-warm-500 leading-relaxed">{referansKvkk(adayAd)}</p>
@@ -103,7 +103,7 @@ export default function ReferansYaniti() {
       {hata && <p className="mt-4 text-sm text-accent">{hata}</p>}
 
       <button type="submit" disabled={gonderiliyor || !riza}
-        className="mt-6 rounded-md bg-accent px-6 py-2.5 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed">
+        className="mt-6 rounded-md bg-accent px-6 py-2.5 text-paper font-medium disabled:opacity-50 disabled:cursor-not-allowed">
         {gonderiliyor ? 'Gönderiliyor…' : 'Görüşümü gönder'}
       </button>
       {demo && <p className="mt-6 text-xs text-warm-400">Örnek görünüm — gerçek bir aday ya da talep içermez, hiçbir şey kaydedilmez.</p>}
