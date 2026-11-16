@@ -312,8 +312,8 @@ Pazarın en hızlı büyüyen grubu **mild hibrit**: bu yıl +%32 ile pazarın d
 
 1. Elektrifikasyon otomotivle sınırlı değil ama tartışma otomobil üzerinden yürüyor.
 2. Elektrik motoru verimli ve basit; asıl sorun **enerjinin depolanması.**
-3. Fikir 190 yıllık; değişen şey bataryanın ağırlığı ve maliyeti.
-4. **Tam elektrikli müşteri artıyor**, üstelik pazar daralırken — ve Audi tarafında pazar ortalamasının üzerinde.
+3. **EA fikri en az 100 yıllık;** değişen şey bataryanın ağırlığı ve maliyeti.
+4. **Tam elektrikli müşteri artıyor**, üstelik pazar daralırken; üst segmentte elektrikli oranı pazar ortalamasının çok üzerinde.
 5. **"Hibrit" tek bir şey değil.** Mild hibrit fişe takılmaz, en hızlı büyüyen grup o; çağrıda ilk netleştirilecek şey bu.
 
 ---
