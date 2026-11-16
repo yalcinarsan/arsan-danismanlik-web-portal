@@ -246,7 +246,7 @@ Hikâyenin tamamı bu makasın kapanması.
 - **2013:** Batarya maliyetleri dört yılda yarı yarıya düşüyor
 - **2017–2020:** Yıllık satış önce 1, sonra 2 milyon adedi geçiyor
 
-Yaklaşık 190 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağırlığı ve maliyeti.
+En az 100 yıllık bir fikir. Değişen şey fikir değil, bataryanın ağırlığı ve maliyeti.
 
 ---
 
