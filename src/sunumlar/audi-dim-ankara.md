@@ -293,8 +293,6 @@ Pazarın en hızlı büyüyen grubu **mild hibrit**: bu yıl +%32 ile pazarın d
 | "Şarjlı hibrit", "plug-in" | PHEV                | Evet                   |
 | "Elektrikli"               | BEV                 | Evet, tek enerji kaynağı |
 
-Beklenecek çağrı: mild hibrit sahibi "şarj kablosu çıkmamış" ya da "şarj edemiyorum" diyor. İlk iş, aracın hangi grupta olduğunu netleştirmek — müşteriyi düzeltmeye kalkmadan.
-
 ---
 
 ## Hangi gruptan ne tür soru gelir?
@@ -302,11 +300,11 @@ Beklenecek çağrı: mild hibrit sahibi "şarj kablosu çıkmamış" ya da "şar
 | Grup | Yönü | Tipik çağrı |
 | --- | --- | --- |
 | **Tam elektrikli (BEV)** | artıyor | Kaç saatte dolar, kaç km gider, eve cihaz kurulur mu, istasyon arızalı |
-| **Mild hibrit (mHEV)** | hızla artıyor | "Şarj edemiyorum" — fişe takılmadığının bilinmemesi |
-| **Şarjlı hibrit (PHEV)** | yeni satış durdu, yoldaki araçlar duruyor | Elektrik menzili bitince ne oluyor, evde şarj şart mı |
+| **Mild hibrit (mHEV)** | hızla artıyor | Şarjla ilgisi yok; "hibrit" diyen müşteride hangi tip olduğunu netleştirin |
+| **Şarjlı hibrit (PHEV)** | yeni satış sert yavaşladı | Elektrik menzili bitince ne oluyor, evde şarj şart mı |
 | **Benzinli / dizel** | azalıyor ama hâlâ yarıya yakın | "Elektrikliye geçsem mi" — bilgi sorusu |
 
-Şarjlı hibritte yeni satış neredeyse durdu; ama geçmiş yılların araçları yolda, o müşteri aramaya devam edecek.
+Şarjlı hibritte yeni satış bu yıl sert yavaşladı (37.306'dan 3.791'e) ama devam ediyor; üstelik geçmiş yılların araçları yolda. O müşteri aramaya devam edecek.
 
 ---
 
