@@ -325,7 +325,7 @@ Beklenecek çağrı: mild hibrit sahibi "şarj kablosu çıkmamış" ya da "şar
 
 ---
 
-# Temel terminoloji
+# Temel terminoloji — araç tipleri
 
 | Kısaltma    | Açılımı                         | Anlamı                                                                                       |
 | ----------- | ------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -336,6 +336,13 @@ Beklenecek çağrı: mild hibrit sahibi "şarj kablosu çıkmamış" ya da "şar
 | **mHEV**    | Mild Hybrid                     | Hafif hibrit: elektrik bataryası şarj edilemeyen hibrit                                      |
 | **PHEV**    | Plug-in Hybrid Electric Vehicle | Elektrik bataryası prizden şarj edilebilen hibrit                                            |
 | **FCEV**    | Fuel Cell Electric Vehicle      | Hidrojen yakıt hücresiyle araç içinde elektrik üretip aracı çalıştıran otomobil              |
+
+---
+
+# Temel terminoloji — elektrik birimleri
+
+| Kısaltma | Açılımı       | Anlamı                                                                                    |
+| -------- | ------------- | ----------------------------------------------------------------------------------------- |
 | **V**       | Voltaj                          | Elektrik potansiyeli, gerilim                                                                |
 | **A**       | Amper                           | Elektrik devresinde akımın miktarı                                                           |
 | **kW**      | Kilowatt                        | Güç ve şarj hızı birimi. Şarjda (V × A) — örn. 220V × 10A = 2,2 kW                           |

@@ -35,6 +35,11 @@ const BASAMAK = 4;      // ızgara aralığı
 
 // ————— Ölçü ve renkler: diğer deck grafikleriyle aynı dil —————
 const W = 1000, H = 560;
+// Çizim 1000x560 koordinatında; dosyaya daha büyük bir doğal boyut yazıyoruz.
+// Bir <img> doğal boyutundan büyümez: 1000px'lik SVG, projeksiyonda geniş
+// slaytın içinde bile 1000px kalıyor ve yazıları okunmuyordu. viewBox aynı
+// kaldığı için çizim kodu değişmiyor, yalnızca ölçek büyüyor.
+const SUNUM = 1.7;
 const SOL = 88, SAG = 922, UST = 74, ALT = 448;
 const PAPER = '#faf7f2', INK = '#2c2620', METIN = '#4a4238', GRID = '#e7ddcf', SOLUK = '#857a69';
 const RENK = '#b5623c', RENK_KISMI = '#d8a88f';
@@ -45,10 +50,10 @@ const yuzde = (v) => '%' + v.toLocaleString('tr-TR', { minimumFractionDigits: 1 
 const y = (v) => ALT - (v / TAVAN) * (ALT - UST);
 
 const p = [];
-p.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Türkiye'de elektrikli otomobilin pazar payı, 2020-2026">`);
+p.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W*SUNUM}" height="${H*SUNUM}" role="img" aria-label="Türkiye'de elektrikli otomobilin pazar payı, 2020-2026">`);
 p.push(`<rect width="${W}" height="${H}" fill="${PAPER}"/>`);
 p.push(`<text x="${SOL}" y="30" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="600" fill="${INK}">Türkiye'de elektrikli otomobilin pazar payı</text>`);
-p.push(`<text x="${SOL}" y="50" font-family="Inter, sans-serif" font-size="12.5" fill="${SOLUK}">Yeni otomobil satışları içindeki pay · yalnızca tam elektrikli, şarjlı hibrit hariç · 2026 yılın ilk on ayı</text>`);
+p.push(`<text x="${SOL}" y="50" font-family="Inter, sans-serif" font-size="12.5" fill="${METIN}">Yeni otomobil satışları içindeki pay · yalnızca tam elektrikli, şarjlı hibrit hariç · 2026 yılın ilk on ayı</text>`);
 
 for (let v = 0; v <= TAVAN; v += BASAMAK) {
   const yy = y(v).toFixed(1);
@@ -67,11 +72,11 @@ VERI.forEach((d, i) => {
   // Kısmi dönemde adedi "10 ay" diye işaretliyoruz: on aylık bir sayı, tam yıl
   // sayılarının yanında etiketsiz durursa düşüş gibi okunuyor.
   const adetEtiket = d.kismi ? `${say(d.adet)} (10 ay)` : say(d.adet);
-  p.push(`<text x="${orta.toFixed(1)}" y="493" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="${SOLUK}">${esc(adetEtiket)}</text>`);
+  p.push(`<text x="${orta.toFixed(1)}" y="493" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="${METIN}">${esc(adetEtiket)}</text>`);
 });
 
 p.push(`<line x1="${SOL}" y1="${ALT}" x2="${SAG}" y2="${ALT}" stroke="${SOLUK}" stroke-width="1"/>`);
-p.push(`<text x="${SOL}" y="524" font-family="Inter, sans-serif" font-size="11.5" fill="${SOLUK}">Çubukların altındaki sayılar o dönemde satılan elektrikli otomobil adedi. * 2026: Ocak-Ekim</text>`);
+p.push(`<text x="${SOL}" y="524" font-family="Inter, sans-serif" font-size="11.5" fill="${METIN}">Çubukların altındaki sayılar o dönemde satılan elektrikli otomobil adedi. * 2026: Ocak-Ekim</text>`);
 p.push(`<text x="${SAG}" y="524" text-anchor="end" font-family="Inter, sans-serif" font-size="10.5" fill="${SOLUK}">${esc(KAYNAK)}</text>`);
 p.push('</svg>');
 

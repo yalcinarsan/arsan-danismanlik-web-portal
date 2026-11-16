@@ -46,6 +46,12 @@ export interface ChartConfig {
   yAxisTitle: string;
   y2AxisTitle?: string;
   percent?: boolean;
+  /**
+   * Grafiğin içindeki yazı boyutu (eksen etiketleri, gösterge). Web sayfasında
+   * 12 doğru ölçü; sunum deck'lerinde projeksiyondan okunmuyor, deck sayfaları
+   * daha büyük bir değer geçiyor.
+   */
+  fontSize?: number;
   series: SeriesDef[];
 }
 
@@ -75,7 +81,7 @@ function baseLayout(config: ChartConfig): any {
   return {
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
-    font: { family: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', size: 12, color: INK },
+    font: { family: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', size: config.fontSize ?? 12, color: INK },
     separators: ',.',
     hovermode: 'x unified',
     legend: { orientation: 'h', y: -0.2, x: 0 },

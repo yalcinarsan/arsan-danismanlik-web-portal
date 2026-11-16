@@ -38,6 +38,11 @@ const BASAMAK = 80_000;     // ızgara aralığı
 
 // ————— Ölçü ve renkler: grafik-onizleme'dekilerle aynı dil —————
 const W = 1000, H = 560;
+// Çizim 1000x560 koordinatında; dosyaya daha büyük bir doğal boyut yazıyoruz.
+// Bir <img> doğal boyutundan büyümez: 1000px'lik SVG, projeksiyonda geniş
+// slaytın içinde bile 1000px kalıyor ve yazıları okunmuyordu. viewBox aynı
+// kaldığı için çizim kodu değişmiyor, yalnızca ölçek büyüyor.
+const SUNUM = 1.7;
 const SOL = 88, SAG = 922, UST = 66, ALT = 462;
 const PAPER = '#faf7f2', INK = '#2c2620', METIN = '#4a4238', GRID = '#e7ddcf', SOLUK = '#857a69';
 const ONCEKI_RENK = '#d8cbb8', SIMDI_RENK = '#b5623c';
@@ -48,10 +53,10 @@ const yuzde = (d) => `${d > 0 ? '+' : '−'}%${Math.abs(d).toLocaleString('tr-TR
 const y = (v) => ALT - (v / TAVAN) * (ALT - UST);
 
 const p = [];
-p.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Türkiye otomobil pazarı, motor tipine göre: ${DONEM_ONCEKI} ve ${DONEM} karşılaştırması">`);
+p.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W*SUNUM}" height="${H*SUNUM}" role="img" aria-label="Türkiye otomobil pazarı, motor tipine göre: ${DONEM_ONCEKI} ve ${DONEM} karşılaştırması">`);
 p.push(`<rect width="${W}" height="${H}" fill="${PAPER}"/>`);
 p.push(`<text x="${SOL}" y="28" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="600" fill="${INK}">Türkiye otomobil pazarı, motor tipine göre</text>`);
-p.push(`<text x="${SOL}" y="48" font-family="Inter, sans-serif" font-size="12.5" fill="${SOLUK}">${esc(DONEM_ONCEKI)} · ${esc(DONEM)} · toplam pazar ${say(TOPLAM_ONCEKI)} → ${say(TOPLAM)} adet (${yuzde(TOPLAM_DEGISIM)})</text>`);
+p.push(`<text x="${SOL}" y="48" font-family="Inter, sans-serif" font-size="12.5" fill="${METIN}">${esc(DONEM_ONCEKI)} · ${esc(DONEM)} · toplam pazar ${say(TOPLAM_ONCEKI)} → ${say(TOPLAM)} adet (${yuzde(TOPLAM_DEGISIM)})</text>`);
 
 // ızgara
 for (let v = 0; v <= TAVAN; v += BASAMAK) {
@@ -74,7 +79,7 @@ VERI.forEach((d, i) => {
   }
 
   p.push(`<text x="${orta.toFixed(1)}" y="486" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" font-weight="500" fill="${INK}">${esc(d.ad)}</text>`);
-  p.push(`<text x="${orta.toFixed(1)}" y="505" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="${SOLUK}">${yuzde(d.degisim)}</text>`);
+  p.push(`<text x="${orta.toFixed(1)}" y="505" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="${METIN}">${yuzde(d.degisim)}</text>`);
 });
 
 p.push(`<line x1="${SOL}" y1="${ALT}" x2="${SAG}" y2="${ALT}" stroke="${SOLUK}" stroke-width="1"/>`);

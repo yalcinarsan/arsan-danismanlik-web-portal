@@ -18,11 +18,16 @@ const raw = ham.replace(/\]\((?:\.\.\/)*public\//g, '](/');
 
 // Markdown içinde [[CANLI-GRAFIK:anahtar]] işaretiyle statik görsel yerine
 // ev-verileri sayfamızdaki canlı (Plotly) grafiği gömüyoruz.
+// Plotly'nin kendi yazı boyutu kutu genişlediğinde büyümüyor (SVG ama ölçüler
+// piksel sabiti). Web sayfasında 12 doğru ölçü, projeksiyonda okunmuyor.
+const DECK_YAZI = 18;
+const deckIcin = (c: typeof worldTotalMarketConfig) => ({ ...c, fontSize: DECK_YAZI });
+
 const CANLI_GRAFIKLER: Record<string, typeof worldTotalMarketConfig> = {
-  'dunya-toplam-pazar': worldTotalMarketConfig,
-  'dunya-guc-unitesi': worldPowertrainConfig,
-  'pazar-payi': regionShareConfig,
-  'turkiye-satis': turkiyeSatisConfig,
+  'dunya-toplam-pazar': deckIcin(worldTotalMarketConfig),
+  'dunya-guc-unitesi': deckIcin(worldPowertrainConfig),
+  'pazar-payi': deckIcin(regionShareConfig),
+  'turkiye-satis': deckIcin(turkiyeSatisConfig),
 };
 
 // Markdown'ı slaytlara böler.
@@ -77,9 +82,11 @@ const slaytlar = slaytlaraBol(raw).map((chunk) => {
   const t = chunk.trim();
   const eslesme = t.match(CANLI_DESENI) ?? t.match(CANLI_GORSEL_DESENI);
   if (eslesme && CANLI_GRAFIKLER[eslesme[1]]) {
-    return { tip: 'canli' as const, anahtar: eslesme[1] };
+    return { tip: 'canli' as const, anahtar: eslesme[1], genis: true };
   }
-  return { tip: 'html' as const, html: marked.parse(chunk) as string };
+  // Yalnızca görsel(ler)den oluşan slayt da metin kolonuna sıkışmasın.
+  const sadeceGorsel = /^(!\[[^\]]*\]\([^)]*\)\s*)+$/.test(t);
+  return { tip: 'html' as const, html: marked.parse(chunk) as string, genis: sadeceGorsel };
 });
 const toplam = slaytlar.length;
 
@@ -133,7 +140,10 @@ const sunumTarihi = '17 Kasım 2026';
       .slide-inner > h1:first-child::after, .slide-inner > h2:first-child::after {
         content:''; display:block; width:100%; height:3px; margin-top:16px;
         background:var(--accent); border-radius:2px; }
-      .slide p, .slide li { font-size:clamp(15px,1.7vw,21px); line-height:1.55; color:#4a4238; }
+      /* Punto tavanları projeksiyon için yükseltildi: 1920'lik bir perdede
+         21px gövde yazısı arka sıradan okunmuyordu. Renk de tam mürekkebe
+         çekildi — #4a4238 ekranda yeterliyken projektörde soluk kalıyor. */
+      .slide p, .slide li { font-size:clamp(17px,1.7vw,28px); line-height:1.5; color:var(--ink); }
       /* Tailwind Preflight global olarak list-style:none uyguluyor; deck'te geri açıyoruz. */
       .slide ul { list-style: disc; margin:.3em 0; padding-left:1.3em; }
       .slide ol { list-style: decimal; margin:.3em 0; padding-left:1.5em; }
@@ -149,17 +159,28 @@ const sunumTarihi = '17 Kasım 2026';
       /* Aynı slaytta birden fazla görsel varsa (örn. iki motor karşılaştırması)
          her biri 64vh isteyip slaytı kaydırılır hale getiriyordu; payı bölüyoruz. */
       .slide p img:not(:only-of-type) { max-height:34vh; margin:.5em auto; }
+      /* Yanında metin de olan slaytlarda görsele daha az pay: punto büyüdükten
+         sonra 64vh görsel + maddeler ekrana sığmıyordu (tarihçe slaytları). */
+      .slide:not(.genis) img { max-height:52vh; }
       .slide code { background:var(--sand); padding:.1em .35em; border-radius:4px; font-size:.9em; }
       .slide hr { display:none; }
-      .slide table { border-collapse:collapse; margin:1em auto; font-size:clamp(13px,1.5vw,18px); }
-      .slide th, .slide td { border:1px solid var(--border); padding:.4em .7em; text-align:left; }
+      .slide table { border-collapse:collapse; margin:1em auto; font-size:clamp(14px,1.5vw,23px); }
+      .slide th, .slide td { border:1px solid var(--border); padding:.45em .8em; text-align:left;
+        color:var(--ink); }
       .slide th { background:var(--sand); }
 
       /* Canlı (Plotly) grafik kartı — statik görsel slaytlarıyla aynı görsel ağırlık. */
       .canli-grafik-kart { background:#fff; border-radius:8px; padding:1.5em 1.5em 0.5em;
         box-shadow:0 4px 24px rgba(0,0,0,.12); }
-      .canli-grafik-baslik { font-family:'Fraunces',serif; font-weight:500; font-size:15px;
-        color:var(--muted); margin:0 0 .5em; }
+      .canli-grafik-baslik { font-family:'Fraunces',serif; font-weight:500;
+        font-size:clamp(15px,1.3vw,22px); color:var(--ink); margin:0 0 .5em; }
+
+      /* GRAFİK VE GÖRSEL SLAYTLARI: metin kolonuyla aynı genişlikte kalmasınlar.
+         1000px'lik kolon 1920'lik perdede ekranın yarısı kadar yer kaplıyor,
+         iki yanda 460'ar piksel boşluk kalıyor ve grafik yazıları okunmuyordu.
+         Metin slaytları 1000px'te kalıyor; uzun satır okumayı zorlaştırır. */
+      .slide.genis .slide-inner { max-width:1680px; }
+      .slide.genis img { max-height:78vh; }
 
       /* kapak slaytı biraz daha havalı dursun */
       .slide:first-child h1 { font-size:clamp(32px,6vw,72px); }
@@ -185,7 +206,7 @@ const sunumTarihi = '17 Kasım 2026';
   <body>
     <div class="deck" id="deck">
       {slaytlar.map((slayt, i) => (
-        <section class={`slide${i === 0 ? ' active' : ''}`} data-i={i}>
+        <section class={`slide${i === 0 ? ' active' : ''}${slayt.genis ? ' genis' : ''}`} data-i={i}>
           {slayt.tip === 'canli' ? (
             <div class="slide-inner">
               <div class="canli-grafik-kart">
