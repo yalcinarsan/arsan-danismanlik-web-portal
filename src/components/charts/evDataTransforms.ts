@@ -52,6 +52,21 @@ export interface ChartConfig {
    * daha büyük bir değer geçiyor.
    */
   fontSize?: number;
+  /**
+   * Yazı ve ızgara renkleri. Varsayılanlar site genelindeki KOYU zemine göre
+   * (açık yazı, koyu ızgara). Sunum deck'lerinin zemini krem ve grafik kartı
+   * beyaz; oraya koyu yazı / açık ızgara geçiliyor, yoksa grafik okunmuyor.
+   */
+  fontColor?: string;
+  gridColor?: string;
+  /**
+   * Eksen BAŞLIKLARININ puntosu. Plotly tek bir font.size'ı hem etiketlere hem
+   * başlıklara uyguluyor; deck'te etiketleri okunur yapmak için büyütünce
+   * başlıklar kabalaşıyordu. Ayrı veriliyor.
+   */
+  axisTitleFontSize?: number;
+  /** X ekseni başlığı. Boş string geçilirse hiç basılmaz (deck'te "Yıl" gereksiz). */
+  xAxisTitle?: string;
   series: SeriesDef[];
 }
 
@@ -81,7 +96,7 @@ function baseLayout(config: ChartConfig): any {
   return {
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
-    font: { family: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', size: config.fontSize ?? 12, color: INK },
+    font: { family: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', size: config.fontSize ?? 12, color: config.fontColor ?? INK },
     separators: ',.',
     hovermode: 'x unified',
     legend: { orientation: 'h', y: -0.2, x: 0 },
@@ -90,15 +105,15 @@ function baseLayout(config: ChartConfig): any {
     margin: { t: 12, r: 68, l: 68, b: 60 },
     autosize: true,
     xaxis: {
-      title: { text: 'Yıl' },
-      gridcolor: GRID,
+      title: { text: config.xAxisTitle ?? 'Yıl', font: { size: config.axisTitleFontSize } },
+      gridcolor: config.gridColor ?? GRID,
       zeroline: false,
       type: 'category',
       categoryorder: 'category ascending',
     },
     yaxis: {
-      title: { text: config.yAxisTitle },
-      gridcolor: GRID,
+      title: { text: config.yAxisTitle, font: { size: config.axisTitleFontSize } },
+      gridcolor: config.gridColor ?? GRID,
       zeroline: false,
       rangemode: 'tozero',
       ticksuffix: config.percent ? '%' : '',
@@ -224,8 +239,8 @@ function buildTurkiyeDetail(rows: EvRow[], config: ChartConfig) {
   const layout: any = {
     ...baseLayout(config),
     yaxis: {
-      title: { text: config.yAxisTitle },
-      gridcolor: GRID,
+      title: { text: config.yAxisTitle, font: { size: config.axisTitleFontSize } },
+      gridcolor: config.gridColor ?? GRID,
       zeroline: false,
       rangemode: 'tozero',
     },
@@ -233,7 +248,7 @@ function buildTurkiyeDetail(rows: EvRow[], config: ChartConfig) {
   };
   if (hasRightAxis) {
     layout.yaxis2 = {
-      title: { text: config.y2AxisTitle ?? '' },
+      title: { text: config.y2AxisTitle ?? '', font: { size: config.axisTitleFontSize } },
       overlaying: 'y',
       side: 'right',
       rangemode: 'tozero',
@@ -329,9 +344,9 @@ function buildWorldTotalMarket(rows: EvRow[], config: ChartConfig): any {
 
   const layout: any = {
     ...baseLayout(config),
-    yaxis: { title: { text: config.yAxisTitle }, gridcolor: GRID, zeroline: false, rangemode: 'tozero' },
+    yaxis: { title: { text: config.yAxisTitle, font: { size: config.axisTitleFontSize } }, gridcolor: config.gridColor ?? GRID, zeroline: false, rangemode: 'tozero' },
     yaxis2: {
-      title: { text: config.y2AxisTitle ?? '' },
+      title: { text: config.y2AxisTitle ?? '', font: { size: config.axisTitleFontSize } },
       overlaying: 'y',
       side: 'right',
       rangemode: 'tozero',

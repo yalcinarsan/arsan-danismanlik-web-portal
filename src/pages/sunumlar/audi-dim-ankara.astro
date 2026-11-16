@@ -18,10 +18,36 @@ const raw = ham.replace(/\]\((?:\.\.\/)*public\//g, '](/');
 
 // Markdown içinde [[CANLI-GRAFIK:anahtar]] işaretiyle statik görsel yerine
 // ev-verileri sayfamızdaki canlı (Plotly) grafiği gömüyoruz.
-// Plotly'nin kendi yazı boyutu kutu genişlediğinde büyümüyor (SVG ama ölçüler
-// piksel sabiti). Web sayfasında 12 doğru ölçü, projeksiyonda okunmuyor.
-const DECK_YAZI = 18;
-const deckIcin = (c: typeof worldTotalMarketConfig) => ({ ...c, fontSize: DECK_YAZI });
+// Grafikleri deck'e uyarlıyoruz. İki ayrı sorun var:
+//
+// 1) Plotly'nin yazı boyutu kutu genişlediğinde büyümüyor (SVG ama ölçüler
+//    piksel sabiti). Web sayfasında 12 doğru ölçü, projeksiyonda okunmuyor.
+// 2) Site koyu temaya geçerken grafik paleti açık tonlara çevrildi — koyu
+//    kahve zeminde doğru. Deck'in zemini krem ve grafik kartı beyaz; orada
+//    açık palet kayboluyor (ör. "Dünya" serisi #faf7f2, beyaz üstüne beyaz).
+//    Deck için paleti koyu zemin öncesindeki hâline geri çeviriyoruz.
+// 18 denendi: etiketler okunuyordu ama eksen başlıkları kabalaşıyordu. Etiket
+// 16, başlıklar 13; x ekseninin "Yıl" başlığı deck'te gereksiz, kaldırıldı.
+const DECK_YAZI = 16;
+
+const KOYU_PALET: Record<string, string> = {
+  '#e8a07a': '#b5623c', // CLAY — kil
+  '#88afdd': '#4a6670', // SLATE — arduvaz
+  '#b4c48c': '#7a8b5a', // OLIVE — zeytin
+  '#faf7f2': '#2c2620', // INK — mürekkep
+  '#b5a994': '#857a69', // STONE — taş
+  '#ddd0ba': '#857a69', // bar rengi (manifesto kahvesi) — taşa çekiliyor
+};
+
+const deckIcin = (c: typeof worldTotalMarketConfig) => ({
+  ...c,
+  fontSize: DECK_YAZI,
+  axisTitleFontSize: 13,
+  xAxisTitle: '',
+  fontColor: '#4a4238',
+  gridColor: '#e7ddcf',
+  series: c.series.map((s) => ({ ...s, color: KOYU_PALET[s.color.toLowerCase()] ?? s.color })),
+});
 
 const CANLI_GRAFIKLER: Record<string, typeof worldTotalMarketConfig> = {
   'dunya-toplam-pazar': deckIcin(worldTotalMarketConfig),
@@ -211,7 +237,7 @@ const sunumTarihi = '17 Kasım 2026';
             <div class="slide-inner">
               <div class="canli-grafik-kart">
                 <p class="canli-grafik-baslik">{CANLI_GRAFIKLER[slayt.anahtar].title}</p>
-                <EvChart client:only="react" config={CANLI_GRAFIKLER[slayt.anahtar]} />
+                <EvChart client:only="react" config={CANLI_GRAFIKLER[slayt.anahtar]} height="56vh" />
               </div>
             </div>
           ) : (
@@ -243,7 +269,10 @@ const sunumTarihi = '17 Kasım 2026';
         if (aktif) aktif.scrollTop = 0;
         // Gizliyken (display:none) mount olan Plotly grafikleri genişliği 0 ölçüyor;
         // slayt görünür olunca "resize" sinyaliyle doğru genişliği yeniden hesaplatıyoruz.
+        // Tek sinyal yetmiyor: rAF'ta yerleşim daima tamamlanmış olmuyor ve grafik
+        // 700px'lik varsayılanında kalıyordu. Yerleşim oturduktan sonra tekrarlıyoruz.
         requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+        setTimeout(() => window.dispatchEvent(new Event('resize')), 200);
       }
       function sonraki() { goster(i + 1); }
       function onceki() { goster(i - 1); }
