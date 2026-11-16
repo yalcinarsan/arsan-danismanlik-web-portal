@@ -300,7 +300,7 @@ Pazarın en hızlı büyüyen grubu **mild hibrit**: bu yıl +%32 ile pazarın d
 | Grup | Yönü | Tipik çağrı |
 | --- | --- | --- |
 | **Tam elektrikli (BEV)** | artıyor | Kaç saatte dolar, kaç km gider, eve cihaz kurulur mu, istasyon arızalı |
-| **Mild hibrit (mHEV)** | hızla artıyor | Şarjla ilgisi yok; "hibrit" diyen müşteride hangi tip olduğunu netleştirin |
+| **Mild hibrit (mHEV)** | hızla artıyor | Elektrifikasyona özgü bir çağrı yok — kullanıcı açısından benzinliden farksız |
 | **Şarjlı hibrit (PHEV)** | yeni satış sert yavaşladı | Elektrik menzili bitince ne oluyor, evde şarj şart mı |
 | **Benzinli / dizel** | azalıyor ama hâlâ yarıya yakın | "Elektrikliye geçsem mi" — bilgi sorusu |
 
