@@ -9,6 +9,25 @@ const STONE = '#b5a994';
 // Otomotiv İnsanı manifesto sayfasının arka planıyla aynı koyu kahve (bkz. kariyer/otomotiv-insani.astro).
 const KOYU_KAHVE = '#ddd0ba';
 
+/**
+ * Koyu tema öncesindeki "sıcak kağıt" paleti — açık zemin için çözülmüş hâli.
+ * Site koyu zemine geçti ama sunum deck'lerinin zemini hâlâ krem ve grafik
+ * kartı beyaz; orada yukarıdaki açık tonlar kayboluyor (ör. INK #faf7f2,
+ * beyaz üstüne beyaz). Deck sayfaları bu eşlemeyle eski renklere dönüyor.
+ * Yeni bir renk eklenirse açık zemin karşılığı da buraya yazılmalı.
+ */
+export const ACIK_ZEMIN_PALETI: Record<string, string> = {
+  [CLAY]: '#b5623c',
+  [SLATE]: '#4a6670',
+  [OLIVE]: '#7a8b5a',
+  [INK]: '#2c2620',
+  [STONE]: '#857a69',
+  [KOYU_KAHVE]: '#453629',
+};
+/** Açık zeminde eksen yazısı ve ızgara (evDataTransforms'un koyu tema öncesi değerleri). */
+export const ACIK_ZEMIN_YAZI = '#4a4238';
+export const ACIK_ZEMIN_IZGARA = '#e7ddcf';
+
 const LIGHT_DUTY = ['Cars', 'Vans'];
 
 /** 1 — Dünya, güç ünitesine göre satış. Otomobil + hafif ticari toplamı. */

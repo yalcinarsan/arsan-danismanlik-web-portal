@@ -7,6 +7,9 @@ import {
   worldPowertrainConfig,
   regionShareConfig,
   turkiyeSatisConfig,
+  ACIK_ZEMIN_PALETI,
+  ACIK_ZEMIN_YAZI,
+  ACIK_ZEMIN_IZGARA,
 } from '../../components/charts/chartConfigs';
 
 // Görsel yolları md dosyasında DOSYA SİSTEMİNE göre yazılıyor
@@ -30,23 +33,14 @@ const raw = ham.replace(/\]\((?:\.\.\/)*public\//g, '](/');
 // 16, başlıklar 13; x ekseninin "Yıl" başlığı deck'te gereksiz, kaldırıldı.
 const DECK_YAZI = 16;
 
-const KOYU_PALET: Record<string, string> = {
-  '#e8a07a': '#b5623c', // CLAY — kil
-  '#88afdd': '#4a6670', // SLATE — arduvaz
-  '#b4c48c': '#7a8b5a', // OLIVE — zeytin
-  '#faf7f2': '#2c2620', // INK — mürekkep
-  '#b5a994': '#857a69', // STONE — taş
-  '#ddd0ba': '#857a69', // bar rengi (manifesto kahvesi) — taşa çekiliyor
-};
-
 const deckIcin = (c: typeof worldTotalMarketConfig) => ({
   ...c,
   fontSize: DECK_YAZI,
   axisTitleFontSize: 13,
   xAxisTitle: '',
-  fontColor: '#4a4238',
-  gridColor: '#e7ddcf',
-  series: c.series.map((s) => ({ ...s, color: KOYU_PALET[s.color.toLowerCase()] ?? s.color })),
+  fontColor: ACIK_ZEMIN_YAZI,
+  gridColor: ACIK_ZEMIN_IZGARA,
+  series: c.series.map((s) => ({ ...s, color: ACIK_ZEMIN_PALETI[s.color] ?? s.color })),
 });
 
 const CANLI_GRAFIKLER: Record<string, typeof worldTotalMarketConfig> = {
