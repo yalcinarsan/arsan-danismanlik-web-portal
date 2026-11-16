@@ -387,7 +387,7 @@ Müşteri "evime 22 kW'lık cihaz taktırdım ama araç 11 kW çekiyor" dediğin
 
 > kWh cinsinden batarya kapasitesi ÷ kW cinsinden şarj gücü = saat
 
-Gerisi, hangi gücün geçerli olduğunu bulmak.
+Bölme işlemi kolay kısmı. Asıl iş, paydaya hangi kW'ı yazacağımızı bulmak: ortada aynı anda üç ayrı güç var — şebekenin verdiği, şarj cihazının verebildiği, aracın kabul ettiği.
 
 ---
 
