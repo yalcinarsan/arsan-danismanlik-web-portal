@@ -1,19 +1,40 @@
 /**
- * /sunumlar/* altındaki her şeyi ortak bir şifreyle korur (HTTP Basic Auth).
- * Deck sayfaları ve onların görselleri aynı yol önekinde olduğu için ikisi de
- * kapsanıyor.
+ * Sunumlara şifreli erişim (HTTP Basic Auth) — HER SUNUM AYRI.
  *
- * KURULUM — şifre repoda durmuyor, Cloudflare'da tanımlanıyor:
- *   Cloudflare Pages → proje → Settings → Variables and Secrets →
- *   Production'a SUNUM_SIFRE adıyla bir değer ekle, sonra yeniden deploy et.
- *   Kullanıcı adı önemsiz, boş bırakılabilir; yalnızca şifre doğrulanıyor.
+ * Koruma sunum bazında açılıp kapanıyor: hangi sunumu koruyacaksan Cloudflare'da
+ * ona ait değişkeni tanımlıyorsun. Değişken yoksa o sunum açık kalır; diğerleri
+ * etkilenmez.
  *
- * DEĞİŞKEN TANIMLI DEĞİLSE KORUMA ÇALIŞMAZ (fail-open). Bilinçli bir tercih:
- * aksi hâlde değişken eklenmeden yapılan ilk deploy sunumları tamamen
- * erişilemez hâle getirirdi. Bunun bedeli şu: değişken silinirse koruma
- * sessizce kalkar. Koruma açık mı diye bakmanın yolu, gizli sekmede sunum
- * adresini açmak — şifre sorulmuyorsa değişken yok demektir.
+ * Değişken adı, adresteki sunum adından türüyor: tireler alt çizgi olur, harfler
+ * büyür, başına SIFRE_ gelir.
+ *
+ *   /sunumlar/audi-dim-ankara/                 -> SIFRE_AUDI_DIM_ANKARA
+ *   /sunumlar/audi-dim-egitimi/                -> SIFRE_AUDI_DIM_EGITIMI
+ *   /sunumlar/audi-turkiye-elektrifikasyona-giris/
+ *                                              -> SIFRE_AUDI_TURKIYE_ELEKTRIFIKASYONA_GIRIS
+ *   /sunumlar/ford-otosan-mdd/                 -> SIFRE_FORD_OTOSAN_MDD
+ *
+ * KURULUM:
+ *   Cloudflare Pages → proje → Settings → Variables and Secrets → Production'a
+ *   yukarıdaki adlardan birini Secret olarak ekle, değerine şifreyi yaz, sonra
+ *   Deployments'tan yeniden dağıt. Kaldırmak için değişkeni sil ve yeniden dağıt.
+ *
+ * Sunumun görselleri de aynı adres önekinde olduğu için aynı şifreyle korunur.
+ *
+ * DEĞİŞKEN TANIMLI DEĞİLSE O SUNUM AÇIKTIR (fail-open). Bilinçli tercih: aksi
+ * hâlde değişken eklenmeden yapılan ilk dağıtım bütün sunumları erişilemez
+ * hâle getirirdi. Bedeli, değişken silinince korumanın sessizce kalkması.
+ * Kontrol etmenin yolu: gizli sekmede sunumu aç, şifre sorulmuyorsa koruma yok.
  */
+
+/** Adresteki sunum adını ortam değişkeni adına çevirir. */
+export function degiskenAdi(pathname) {
+  const parcalar = pathname.split('/').filter(Boolean); // ['sunumlar', '<sunum>', ...]
+  const sunum = parcalar[1];
+  if (!sunum) return null;
+  // Slug'lar ASCII küçük harf + tire; toUpperCase burada yerelden etkilenmiyor.
+  return 'SIFRE_' + sunum.replace(/-/g, '_').toUpperCase();
+}
 
 /** Şifreleri uzunluk ve içerik sızdırmayacak şekilde karşılaştırır. */
 function esitMi(a, b) {
@@ -23,22 +44,24 @@ function esitMi(a, b) {
   return fark === 0;
 }
 
-const ISTE = () =>
-  new Response('Bu sayfa şifre ile korunuyor.', {
+const ISTE = (sunum) =>
+  new Response('Bu sunum şifre ile korunuyor.', {
     status: 401,
     headers: {
-      'WWW-Authenticate': 'Basic realm="Arsan Danismanlik sunumlari", charset="UTF-8"',
+      'WWW-Authenticate': `Basic realm="${sunum}", charset="UTF-8"`,
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'no-store',
     },
   });
 
 export const onRequest = async ({ request, env, next }) => {
-  const sifre = env.SUNUM_SIFRE;
-  if (!sifre) return next(); // yukarıdaki nota bakın
+  const yol = new URL(request.url).pathname;
+  const anahtar = degiskenAdi(yol);
+  const sifre = anahtar ? env[anahtar] : null;
+  if (!sifre) return next(); // bu sunum için koruma tanımlanmamış
 
   const baslik = request.headers.get('Authorization') || '';
-  if (!baslik.startsWith('Basic ')) return ISTE();
+  if (!baslik.startsWith('Basic ')) return ISTE(anahtar);
 
   let cozulmus;
   try {
@@ -47,12 +70,12 @@ export const onRequest = async ({ request, env, next }) => {
     const ikili = atob(baslik.slice(6));
     cozulmus = new TextDecoder().decode(Uint8Array.from(ikili, (k) => k.charCodeAt(0)));
   } catch {
-    return ISTE();
+    return ISTE(anahtar);
   }
 
   // Şifrenin kendisi ":" içerebilir; yalnızca ilk ikinokta ayraç sayılıyor.
   const girilen = cozulmus.slice(cozulmus.indexOf(':') + 1);
-  if (!esitMi(girilen, sifre)) return ISTE();
+  if (!esitMi(girilen, sifre)) return ISTE(anahtar);
 
   const yanit = await next();
   // Korumalı içerik ara sunucularda önbelleğe alınmasın.
